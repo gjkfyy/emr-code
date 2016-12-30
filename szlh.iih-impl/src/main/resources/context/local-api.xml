@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:ctx="http://www.springframework.org/schema/context"
+	xmlns:xap="http://xap.org/xap" xmlns:sca="http://www.springframework.org/schema/sca"
+	xsi:schemaLocation="
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		   http://xap.org/xap http://xap.org/xap-0.1.xsd
+		   http://www.springframework.org/schema/sca   http://www.osoa.org/xmlns/sca/1.0/spring-sca.xsd">	
+	 <!--
+	<bean id="encounterService" class="szlh.iih.en.EncounterServiceImpl" />
+	<sca:service name="encounterService" target="encounterService" />
+	
+	
+	<bean id="treatmentGroupService" class="szlh.iih.en.TreatmentGroupServiceImpl" />
+	<sca:service name="treatmentGroupService" target="treatmentGroupService" />
+	-->
+	<bean id="cisLoginVerifyService" class="fi.clinical.server.cis.service.CisLoginVerifyServiceImpl" />
+	<sca:service name="cisLoginVerifyService" target="cisLoginVerifyService" /> 
+	
+	
+	<bean id="patientService" class="szlh.iih.en.PatientServiceImpl" />
+	<sca:service name="patientService" target="patientService" /> 
+	
+	
+	<bean id="labReportItemService" class="szlh.iih.lab.LabReportItemServiceImpl" />
+	<sca:service name="labReportItemService" target="labReportItemService" />
+	
+	<bean id="labReportService" class="szlh.iih.lab.LabReportServiceImpl" />
+	<sca:service name="labReportService" target="labReportService" />
+	
+
+	
+	<bean id="observationReportService" class="szlh.iih.ob.ObsServiceImpl" />
+	<sca:service name="observationReportService" target="observationReportService" />
+	
+
+	
+	<bean id="TaskJobMrAmrService" class="szlh.iih.sync.TaskJobMrAmrServiceImpl" />
+	<sca:service name="TaskJobMrAmrService" target="TaskJobMrAmrService" />
+	
+	<bean id="TaskJobOrgSerive" class="szlh.iih.sync.TaskJobOrgSeriveImpl" />
+	<sca:service name="TaskJobOrgSerive" target="TaskJobOrgSerive" />
+	
+	<bean id="TaskJobXapuserService" class="szlh.iih.sync.TaskJobXapuserServiceImpl" />
+	<sca:service name="TaskJobXapuserService" target="TaskJobXapuserService" />
+   
+    <bean id="TaskJobMdDiService" class="szlh.iih.sync.TaskJobMdDiServiceImpl" />
+	<sca:service name="TaskJobMdDiService" target="TaskJobMdDiService" />
+   
+    <bean id="taskJobOrgEmpDeptService" class="szlh.iih.sync.TaskJobOrgEmpDeptServiceImpl" />
+	<sca:service name="taskJobOrgEmpDeptService" target="taskJobOrgEmpDeptService" />
+	
+	<bean id="taskJobOrgEmpService" class="szlh.iih.sync.TaskJobOrgEmpServiceImpl" />
+	<sca:service name="taskJobOrgEmpService" target="taskJobOrgEmpService" />
+	
+	<bean id="taskJobWardDeptService" class="szlh.iih.sync.TaskJobWardDeptServiceImpl" />
+	<sca:service name="taskJobWardDeptService" target="taskJobWardDeptService" />
+	
+ 	<bean id="cisCredentialMatcher" class="szlh.iih.shiro.authc.credential.CisCredentialMatcher" />
+	<sca:service name="cisCredentialMatcher" target="cisCredentialMatcher" />
+	
+
+	<bean id="autoQaTaskService" class="szlh.iih.qa.AutoQaTaskServiceImpl" /> 
+	<sca:service name="autoQaTaskService" target="autoQaTaskService" />
+	
+	<bean id="qaAutoEventService" class="szlh.iih.qa.QaAutoEventServiceImpl" /> 
+	<sca:service name="qaAutoEventService" target="qaAutoEventService" />
+	
+ <!--   <bean id="JobOrgEmpService" class="szlh.iih.sync.TaskJobOrgEmpServiceImpl" />
+	<sca:service name="JobOrgEmpService" target="JobOrgEmpService" /> -->
+   
+		   
+</beans>

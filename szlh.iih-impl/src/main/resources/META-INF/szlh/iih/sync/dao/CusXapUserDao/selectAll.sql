@@ -1,0 +1,20 @@
+select top 2000 XAP_USER_ID,
+  XAP_USER_PK xapUserPk,
+  USER_ID userId,
+  EMP_ID empId,
+  USER_STA_CD userStaCd,
+  SIGN_PIC signPic,
+  PWD pwd,
+  NM nm,
+  NM_SPELL nmSpell,
+  SEX_CD sexCd,
+  EMAIL email,
+  JOB_TITLE_CD jobTitleCd,
+  MOBILE_NO mobileNo,
+  TEL_NO telNo,
+  ORG_CD orgCd,
+  LOGIN_NM loginNm,
+  DEL_F delF,
+  Flag  flag
+from  iemr_xap_user
+   order by SORT_DATE

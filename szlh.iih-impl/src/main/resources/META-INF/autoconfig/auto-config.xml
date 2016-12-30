@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+	<group>
+		<property name="sqlserver.ip" description="sqlserver数据库IP地址" />
+		<property name="sqlserver.port" description="sqlserver数据库端口号" />
+		<property name="sqlserver.databaseName" description="sqlserver数据库名称" />
+		<property name="sqlserver.username" description="sqlserver数据库用户名" />
+		<property name="sqlserver.password" description="sqlserver数据库密码" />
+	</group>
+	<script>
+		<generate template="sqlserver.properties" destfile="/sqlserver.properties"/>
+	</script>
+</config>
