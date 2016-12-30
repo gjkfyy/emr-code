@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:ctx="http://www.springframework.org/schema/context"
+	xmlns:xap="http://xap.org/xap" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+           	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		   	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+			http://www.springframework.org/schema/jdbc 
+			http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+			http://www.springframework.org/schema/tx 
+			http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+			http://www.springframework.org/schema/aop  
+	        http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+		   	http://xap.org/xap http://xap.org/xap-0.1.xsd">
+ 
+<!--   <context:annotation-config />  -->
+  
+    <bean id="executor"
+		class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+		 <!-- 线程池的基本大小 -->
+		<property name="corePoolSize" value="10" />
+		<!-- 线程池中允许的最大线程数 -->
+		<property name="maxPoolSize" value="200" />
+		<!-- 线程池中允许的最大线程数 -->
+		<property name="queueCapacity" value="600" />
+	</bean>
+	<!-- 同步就诊 -->
+    <bean name="mrAmrServiceImpl" class="szlh.iih.sync.TaskJobMrAmrServiceImpl" />
+    <!-- 同步科室-->
+    <bean name="orgSeriveImpl" class="szlh.iih.sync.TaskJobOrgSeriveImpl" />
+    <!-- 同步用户 -->
+    <bean name="xapuserServiceImpl" class="szlh.iih.sync.TaskJobXapuserServiceImpl" />
+     <!-- 员工 -->
+    <bean name="orgEmpServiceImpl" class="szlh.iih.sync.TaskJobOrgEmpServiceImpl" />
+   <!-- 小科室 -->
+    <bean name="wardDeptServiceImpl" class="szlh.iih.sync.TaskJobWardDeptServiceImpl" />
+   <!-- 出诊科室-->
+    <bean name="orgEmpDeptServiceImpl" class="szlh.iih.sync.TaskJobOrgEmpDeptServiceImpl" />
+   <!-- 诊断-->
+    <bean name="mdDiServiceImpl" class="szlh.iih.sync.TaskJobMdDiServiceImpl" />
+   
+   <!-- 同步自动质控 -->
+    <bean name="autoQaTaskServiceImpl" class="szlh.iih.qa.AutoQaTaskServiceImpl" />
+    
+     <!-- 调度业务 -->
+    <bean id="methodInvokingTaskJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+       <property name="targetObject">
+           <ref bean="autoQaTaskServiceImpl" />
+       </property>
+       <property name="targetMethod">
+           <value>searchTask</value>
+       </property>
+    </bean>
+    
+    <!-- 调度触发器 -->
+    <bean id="taskCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+       <property name="jobDetail">
+           <ref bean="methodInvokingTaskJobDetail" />
+       </property>
+       <!-- 15分钟执行一次 -->
+       <property name="cronExpression">
+           <value>0 0/3 * * * ?</value>
+       </property>
+    </bean>
+     
+     <!-- 测试 -->
+    <!--  <bean name="taskJob" class="szlh.iih.sync.TaskJob" />-->
+    <!-- 配置任务 -->
+    <!--  <bean id="taskJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+       <property name="targetObject">
+           <ref bean="taskJob" />
+       </property>
+       <property name="targetMethod">
+           <value>SyncTask</value>
+       </property>
+    </bean>
+    -->
+    <!-- 配置任务 -->
+    <bean id="methodInvokingJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+       <property name="targetObject">
+           <ref bean="mrAmrServiceImpl" />
+       </property>
+       <property name="targetMethod">
+           <value>search</value>
+       </property>
+    </bean>
+    
+     <bean id="orgJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+       <property name="targetObject">
+           <ref bean="orgSeriveImpl" />
+       </property>
+       <property name="targetMethod">
+           <value>search</value>
+       </property>
+    </bean>
+    
+    <bean id="xapUserJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+       <property name="targetObject">
+           <ref bean="xapuserServiceImpl" />
+       </property>
+       <property name="targetMethod">
+           <value>search</value>
+       </property>
+    </bean>
+    
+    <bean id="orgEmpJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+       <property name="targetObject">
+           <ref bean="orgEmpServiceImpl" />
+       </property>
+       <property name="targetMethod">
+           <value>search</value>
+       </property>
+    </bean>
+    
+     <bean id="wardDeptJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+       <property name="targetObject">
+           <ref bean="wardDeptServiceImpl" />
+       </property>
+       <property name="targetMethod">
+           <value>search</value>
+       </property>
+    </bean>
+    
+     <bean id="orgEmpDeptJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+       <property name="targetObject">
+           <ref bean="orgEmpDeptServiceImpl" />
+       </property>
+       <property name="targetMethod">
+           <value>search</value>
+       </property>
+    </bean>
+    
+       <bean id="mdDiJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+       <property name="targetObject">
+           <ref bean="mdDiServiceImpl" />
+       </property>
+       <property name="targetMethod">
+           <value>search</value>
+       </property>
+    </bean>
+    <!-- 配置触发器 -->
+    <!--   <bean id="taskJobTest" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean"> 
+       <property name="jobDetail">
+           <ref bean="taskJobDetail" />
+       </property>       
+       <property name="cronExpression">
+           <value>0/50 * * * * ?</value>
+       </property>
+    </bean>
+     -->
+    
+    <bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <!-- 这里不可以直接在属性jobDetail中引用taskJob，因为他要求的是一个jobDetail类型的对象，所以我们得通过MethodInvokingJobDetailFactoryBean来转一下 -->
+       <property name="jobDetail">
+           <ref bean="methodInvokingJobDetail" />
+       </property>
+       <!-- 15分钟执行一次 -->
+       <property name="cronExpression">
+           <value>0 0/15 * * * ?</value>
+       </property>
+    </bean>
+    
+     <bean id="OrgcronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <!-- 这里不可以直接在属性jobDetail中引用taskJob，因为他要求的是一个jobDetail类型的对象，所以我们得通过MethodInvokingJobDetailFactoryBean来转一下 -->
+       <property name="jobDetail">
+           <ref bean="orgJobDetail" />
+       </property>
+       <!-- 15分钟执行一次 -->
+       <property name="cronExpression">
+           <value>0 0/15 * * * ?</value>
+       </property>
+    </bean>
+    
+    <bean id="xapUsergcronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <!-- 这里不可以直接在属性jobDetail中引用taskJob，因为他要求的是一个jobDetail类型的对象，所以我们得通过MethodInvokingJobDetailFactoryBean来转一下 -->
+       <property name="jobDetail">
+           <ref bean="xapUserJobDetail" />
+       </property>
+       <!-- 15分钟执行一次 -->
+       <property name="cronExpression">
+           <value>0 0/15 * * * ?</value>
+       </property>
+    </bean>
+    
+     <bean id="orgEmpTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <!-- 这里不可以直接在属性jobDetail中引用taskJob，因为他要求的是一个jobDetail类型的对象，所以我们得通过MethodInvokingJobDetailFactoryBean来转一下 -->
+       <property name="jobDetail">
+           <ref bean="orgEmpJobDetail" />
+       </property>
+       <!-- 15分钟执行一次 -->
+       <property name="cronExpression">
+           <value>0 0/15 * * * ?</value>
+       </property>
+    </bean>
+   
+   
+    <bean id="wardDeptTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <!-- 这里不可以直接在属性jobDetail中引用taskJob，因为他要求的是一个jobDetail类型的对象，所以我们得通过MethodInvokingJobDetailFactoryBean来转一下 -->
+       <property name="jobDetail">
+           <ref bean="wardDeptJobDetail" />
+       </property>
+       <!-- 15分钟执行一次 -->
+       <property name="cronExpression">
+           <value>0 0/15 * * * ?</value>
+       </property>
+    </bean>
+    
+    
+     <bean id="orgEmpDeptTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <!-- 这里不可以直接在属性jobDetail中引用taskJob，因为他要求的是一个jobDetail类型的对象，所以我们得通过MethodInvokingJobDetailFactoryBean来转一下 -->
+       <property name="jobDetail">
+           <ref bean="orgEmpDeptJobDetail" />
+       </property>
+       <!-- 15分钟执行一次 -->
+       <property name="cronExpression">
+           <value>0 0/15 * * * ?</value>
+       </property>
+    </bean>
+    
+     <bean id="mdDiTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <!-- 这里不可以直接在属性jobDetail中引用taskJob，因为他要求的是一个jobDetail类型的对象，所以我们得通过MethodInvokingJobDetailFactoryBean来转一下 -->
+       <property name="jobDetail">
+           <ref bean="mdDiJobDetail" />
+       </property>
+       <!-- 15分钟执行一次 -->
+       <property name="cronExpression">
+           <value>0 0/15 * * * ?</value>
+       </property>
+    </bean>
+     <!-- 添加触发器 -->
+  <!--   <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+       添加触发器
+       <property name="triggers">
+           <list>
+           
+               <ref bean="taskJobTest"/>
+              <ref bean="cronTrigger" />
+              <ref bean="taskCronTrigger" />
+              <ref bean="OrgcronTrigger"/>
+              <ref bean="xapUsergcronTrigger"/>
+              <ref bean ="orgEmpTrigger"/>
+              <ref bean ="wardDeptTrigger"/>
+              <ref bean ="orgEmpDeptTrigger"/>
+              <ref bean  ="mdDiTrigger"/>
+           </list>
+       </property>
+       <property name ="startupDelay" value = "180"/>
+       <property name="taskExecutor" ref="executor" />
+    </bean> -->
+</beans>
