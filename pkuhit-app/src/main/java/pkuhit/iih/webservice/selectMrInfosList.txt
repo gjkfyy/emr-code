@@ -1,0 +1,41 @@
+865994
+1
+1
+94155B69EF6343B7929B67F69092D39B
+
+ 	
+<?xml version="1.0" encoding="UTF-8"?>
+<mrList>
+<enc_id>865994</enc_id>
+<templateId>94155B69EF6343B7929B67F69092D39B</templateId>
+  <mr>
+    <mrStatusCode>MRM04.02</mrStatusCode>
+    <mrPk>CE36039215FB46378F4F26E70B42431C</mrPk>
+    <mrName>入院病人护理评估单（沈阳7院）</mrName>
+    <mrPdfContent />
+    <mrOdtContent />
+    <creatorName>李2*蓉</creatorName>
+    <createDateTime>2016-08-16 15:13:47</createDateTime>
+    <lastModifyDateTime>2016-08-16 15:13:47</lastModifyDateTime>
+    <signPaperDatetime>2016-08-16 15:13:47</signPaperDatetime>
+    <createDisplayDateTime>2016-08-16 15:13:47</createDisplayDateTime>
+    <fileFlag>1</fileFlag>
+    <nRate>0</nRate>
+  </mr>
+  <mr>
+    <mrStatusCode>MRM04.01</mrStatusCode>
+    <mrPk>4887E1CE2E7C4AF1845DDE6DC33A6632</mrPk>
+    <mrName>入院病人护理评估单（沈阳7院）</mrName>
+    <mrPdfContent />
+    <mrOdtContent />
+    <creatorName>李2*蓉</creatorName>
+    <createDateTime>2016-08-15 14:44:58</createDateTime>
+    <lastModifyDateTime>2016-08-15 14:45:13</lastModifyDateTime>
+    <signPaperDatetime>2016-08-15 14:45:01</signPaperDatetime>
+    <createDisplayDateTime>2016-08-15 14:44:58</createDisplayDateTime>
+    <fileFlag>1</fileFlag>
+    <nRate>0</nRate>
+  </mr>
+</mrList>
+
+

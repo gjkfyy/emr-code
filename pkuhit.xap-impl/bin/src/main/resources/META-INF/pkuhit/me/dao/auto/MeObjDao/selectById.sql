@@ -1,0 +1,36 @@
+select
+  OBJ_CD,
+  PAR_OBJ_CD,
+  DO_CD,
+  RT_OBJ_CD,
+  VER_NO,
+  OBJ_TP_CD,
+  NM,
+  DES,
+  SHT_NM_EN,
+  NM_EN,
+  TAB_NM,
+  COM_MD_F,
+  TAB_F,
+  CACHE_F,
+  CONSTANT_F,
+  PACKAGE_PATH,
+  BASE_CLASS,
+  MR_USE_F,
+  MEMO,
+  SORT_NO,
+  SPELL_NO,
+  WUBI_NO,
+  UPD_CNT,
+  CRT_TIME,
+  CRT_USER_ID,
+  CRT_DEPT_CD,
+  LAST_UPD_DEPT_CD,
+  LAST_UPD_TIME,
+  LAST_UPD_USER_ID,
+  DEL_F
+from
+  ME_OBJ
+where
+  OBJ_CD = /* objCd */'a'
+and del_f = 0

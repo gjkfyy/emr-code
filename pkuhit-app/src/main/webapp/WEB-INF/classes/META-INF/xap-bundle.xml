@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="" name="app" namespace="pkuhit">
+	<import bundle="pkuhit.iih.mr" />
+	<import bundle="pkuhit.iih.iemr" />
+	<import bundle="pkuhit.iih.intf" />
+	<import bundle="pkuhit.xap" />
+	<import bundle="pkuhit.iih.di" />
+	<import bundle="pkuhit.iih.kr" />
+	<import bundle="pkuhit.iih.ei" />
+	<import bundle="pkuhit.iih.dr" />
+
+</xap>

@@ -1,0 +1,151 @@
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:ctx="http://www.springframework.org/schema/context"
+	xmlns:sca="http://www.springframework.org/schema/sca" xmlns:xap="http://xap.org/xap"
+	xmlns:pkuhit-xap="http://pkuhit.org/xap"
+	xsi:schemaLocation="
+           http://www.springframework.org/schema/beans   http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+           http://www.springframework.org/schema/sca     http://www.osoa.org/xmlns/sca/1.0/spring-sca.xsd
+           http://xap.org/xap                            http://xap.org/xap-0.1.xsd
+           http://pkuhit.org/xap                         http://pkuhit.org/pkuhit-xap-0.1.xsd">
+	<!-- realm -->
+	<!-- -->
+	<xap:session-manager id="sessionManager">
+		<xap:stores>
+<!-- 			<xap:redis-store host="172.18.73.124" /> -->
+			<xap:ehcache-store config="shiro-ehcache.xml" />
+		</xap:stores>
+	</xap:session-manager> 
+	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
+	
+	<!-- realm -->
+	<bean id="jdbcMd5Realm" class="org.apache.shiro.realm.jdbc.JdbcRealm">
+		<property name="dataSource" ref="dataSource" />
+		<property name="authenticationQuery" value="select pwd from xap_user where login_nm = ? and user_sta_cd = 'XAPM01.01' and del_f = 0" />
+		<property name="userRolesQuery"
+			value="select role_cd from sy_user_role where user_id = ?" />
+		<property name="permissionsLookupEnabled" value="true" />
+		<property name="credentialsMatcher">
+			<bean class="xap.sv.shiro.credential.CredentialMatcherProxy">
+<!-- 				<property name="hashAlgorithmName" value="MD5" /> -->
+<!-- 				<property name="storedCredentialsHexEncoded" value="false" /> -->
+			</bean>
+		</property>
+	</bean>
+	<bean id="jdbcCommonRealm" class="org.apache.shiro.realm.jdbc.JdbcRealm">
+		<property name="dataSource" ref="dataSource" />
+		<property name="authenticationQuery" value="select pwd from xap_user where login_nm = ? and user_sta_cd = 'XAPM01.01' and del_f = 0" />
+		<property name="userRolesQuery"
+			value="select role_cd from sy_user_role where user_id = ?" />
+		<property name="permissionsLookupEnabled" value="true" />
+		<property name="credentialsMatcher">
+			<bean class="org.apache.shiro.authc.credential.SimpleCredentialsMatcher">
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="backDoorJdbcRealm" class="org.apache.shiro.realm.jdbc.JdbcRealm">
+		<property name="dataSource" ref="dataSource" />
+		<property name="authenticationQuery" value="select iemr_pwd from xap_user where login_nm = ? and user_sta_cd = 'XAPM01.01' and del_f = 0" />
+		<property name="userRolesQuery"
+			value="select role_cd from sy_user_role where user_id = ?" />
+		<property name="permissionsLookupEnabled" value="true" />
+		<property name="credentialsMatcher">
+			<bean class="org.apache.shiro.authc.credential.SimpleCredentialsMatcher">
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="shiroFilter" class="xap.sv.shiro.DefaultShiroFilter">
+		<property name="securityManager" ref="securityManager" />
+		<property name="loginUrl" value="/login" />
+		<property name="unauthorizedUrl" value="/login_unauthorized"/>  
+		<!-- <property name="successUrl" value="/index" /> -->
+		<property name="filters">
+			<map>
+				<entry key="xap-authc" value-ref="xap-authc" />
+				<entry key="xap-logout">
+					<bean class="xap.sv.shiro.filter.LogoutFilter" />
+				</entry>
+				<entry key="xap-unauthorized">
+					<bean class="xap.sv.shiro.filter.LogoutFilter" />
+				</entry>
+			</map>
+		</property>
+		<property name="filterChainDefinitions">
+			<value>
+			     /index.html=anon
+			     /dictionary/update/* =anon
+			     /index.jsp=anon
+				/druid/**=anon
+				/ws/**=anon
+				/UpdateInfo.xml=anon
+				/login_info=anon
+				/message/**=anon
+				/login_unauthorized=xap-unauthorized
+				/logout=xap-logout
+				/webservice/**=anon
+				/ca/**=anon
+				/**=xap-authc
+			</value>
+		</property>
+	</bean>
+	
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<property name="authenticator" ref="authenticator" />
+		<property name="realms">
+			<list>
+				<ref bean="jdbcCommonRealm" />
+				<ref bean="jdbcMd5Realm" />
+				<ref bean="backDoorJdbcRealm" />
+			</list>
+		</property>
+
+		<property name="sessionManager" ref="sessionManager" />
+		<!-- <property name="cacheManager" ref="shiroCacheManager" /> -->
+	</bean>
+	
+	<bean id="authenticator" class="szlh.iih.shiro.authc.pam.ModularRealmAuthenticator">  
+	    <property name="authenticationStrategy">  
+	        <bean class="org.apache.shiro.authc.pam.FirstSuccessfulStrategy" />  
+	    </property>  
+	</bean>
+	
+<!-- 
+	<bean id="sessionManager" class="xap.sv.session.DefaultWebSessionManager" >
+		<property name="globalSessionTimeout" value="3600000"/>
+		<property name="deleteInvalidSessions" value="true"/>  
+		<property name="sessionDAO" ref="sessionDAO"/>
+	</bean>
+
+	<bean id="sessionDAO" class="org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO" >
+		<property name="cacheManager" ref="shiroCacheManager"/>
+	</bean>
+	<bean id="shiroCacheManager" class="xap.sv.shiro.cache.eh.EhCacheManager" >
+		<property name="cacheManager" ref="cacheManager"/>
+	</bean>
+	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager" >
+		<property name="cacheManager" ref="springEhCacheManagerFactoryBean"/>
+	</bean>
+	
+	<bean id="springEhCacheManagerFactoryBean" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean" >
+		<property name="configLocation" value="classpath:shiro-ehcache.xml"/>
+	</bean> -->
+	<!-- 数据访问层定义
+	
+	<bean id="daoConfigService" class="xap.sv.dao.config.DefaultDaoConfigService" />
+	<sca:service name="daoConfigService" target="daoConfigService" /> -->
+	<bean id="oracle" class="xap.sv.dao.config.DaoConfigDataSourceProxy">
+<!-- 		<property name="daoConfigName" value="mainConfig"></property> -->
+	</bean>
+
+
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
+		<constructor-arg ref="oracle" />
+	</bean>
+
+	<import resource="context/local-api.xml" />
+	<import resource="context/remote-api.xml" />
+	<import resource="context/web-service.xml" />
+</beans>

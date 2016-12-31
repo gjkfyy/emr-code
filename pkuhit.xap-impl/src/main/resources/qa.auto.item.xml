@@ -1,0 +1,694 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<items>
+	<item code="QAM16.24">
+		<memo></memo>
+		<!-- QAM18.03为预生成缺陷，不用判断有无文书，直接先根据质控项目，生成缺陷项记录，再根据定时任务轮询，将已成事实的缺陷，标记出来。  QAM18.01为实际的缺陷质控，即根据文书和质控项进行判断 -->
+		<event code="QAM18.01">
+			<dataSearchers>
+				<dataSearcher>pkuhit.iih.qa.qaauto.dataSearcher.EnMrListDataSearcher</dataSearcher>
+				<dataSearcher> pkuhit.iih.qa.qaauto.dataSearcher.QaAutoEmrEventDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator> pkuhit.iih.qa.qaauto.validator.TimeBoundValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+		<event code="QAM18.02">
+			<dataSearchers>
+				<dataSearcher>pkuhit.xap.task.dataSearcher.SimpleDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator>pkuhit.xap.task.ruleHandler.TimeBoundValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+		<event code="QAM18.03">
+			<dataSearchers>
+				<dataSearcher>pkuhit.xap.task.dataSearcher.SimpleDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator> pkuhit.xap.task.ruleHandler.TimeBoundValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+	</item>
+	<item code="QAM16.51">
+		<memo></memo>
+		<event code="QAM18.01">
+			<dataSearchers>
+				<dataSearcher>pkuhit.iih.qa.qaauto.dataSearcher.EnMrListDataSearcher</dataSearcher>
+				<dataSearcher> pkuhit.iih.qa.qaauto.dataSearcher.QaAutoEmrEventDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator> pkuhit.iih.qa.qaauto.validator.TimeBoundValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+		<event code="QAM18.02">
+			<dataSearchers>
+				<dataSearcher>pkuhit.xap.task.dataSearcher.SimpleDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator>pkuhit.xap.task.ruleHandler.TimeBoundValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+		<event code="QAM18.03">
+			<dataSearchers>
+				<dataSearcher>pkuhit.xap.task.dataSearcher.SimpleDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator>pkuhit.xap.task.ruleHandler.TimeBoundValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+	</item>
+	<item code="QAM16.77">
+		<memo></memo>
+		<event code="QAM18.01">
+			<dataSearchers>
+				<dataSearcher>pkuhit.iih.qa.qaauto.dataSearcher.EnMrListDataSearcher</dataSearcher>
+				<dataSearcher>pkuhit.iih.qa.qaauto.dataSearcher.QaAutoEmrEventDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator> pkuhit.iih.qa.qaauto.validator.TimeBoundValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+		<event code="QAM18.02">
+			<dataSearchers>
+				<dataSearcher>pkuhit.xap.task.dataSearcher.SimpleDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator>pkuhit.xap.task.ruleHandler.TimeBoundValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+		<event code="QAM18.03">
+			<dataSearchers>
+				<dataSearcher>pkuhit.xap.task.dataSearcher.SimpleDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator>pkuhit.xap.task.ruleHandler.TimeBoundValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+	</item>
+	<item code="QAM16.89">
+		<memo></memo>
+		<event code="QAM18.01">
+			<dataSearchers>
+				<dataSearcher>pkuhit.iih.qa.qaauto.dataSearcher.EnMrListDataSearcher</dataSearcher>
+				 <dataSearcher>pkuhit.iih.qa.qaauto.dataSearcher.QaAutoEmrEventDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator> pkuhit.iih.qa.qaauto.validator.TimeBoundValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+		<event code="QAM18.02">
+			<dataSearchers>
+				<dataSearcher>pkuhit.xap.task.dataSearcher.SimpleDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator>pkuhit.xap.task.ruleHandler.TimeBoundValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+		<event code="QAM18.03">
+			<dataSearchers>
+				<dataSearcher>pkuhit.xap.task.dataSearcher.SimpleDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator>pkuhit.xap.task.ruleHandler.TimeBoundValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+	</item>
+	<item code="QAM16.115">
+		<memo></memo>
+		<event code="QAM18.01">
+			<dataSearchers>
+				<dataSearcher>pkuhit.iih.qa.qaauto.dataSearcher.EnMrListDataSearcher</dataSearcher>
+				<dataSearcher>pkuhit.iih.qa.qaauto.dataSearcher.QaAutoEmrEventDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator> pkuhit.iih.qa.qaauto.validator.TimeBoundValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+		<event code="QAM18.02">
+			<dataSearchers>
+				<dataSearcher>pkuhit.xap.task.dataSearcher.SimpleDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator>pkuhit.xap.task.ruleHandler.TimeBoundValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+		<event code="QAM18.03">
+			<dataSearchers>
+				<dataSearcher>pkuhit.xap.task.dataSearcher.SimpleDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator>pkuhit.xap.task.ruleHandler.TimeBoundValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+	</item>
+	<item code="QAM16.120">
+		<memo></memo>
+		<event code="QAM18.01">
+			<dataSearchers>
+				<dataSearcher>pkuhit.iih.qa.qaauto.dataSearcher.EnMrListDataSearcher</dataSearcher>
+				<dataSearcher>pkuhit.iih.qa.qaauto.dataSearcher.QaAutoEmrEventDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator> pkuhit.iih.qa.qaauto.validator.TimeBoundValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+		<event code="QAM18.02">
+			<dataSearchers>
+				<dataSearcher>pkuhit.xap.task.dataSearcher.SimpleDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator>pkuhit.xap.task.ruleHandler.TimeBoundValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+		<event code="QAM18.03">
+			<dataSearchers>
+				<dataSearcher>pkuhit.xap.task.dataSearcher.SimpleDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator>pkuhit.xap.task.ruleHandler.TimeBoundValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+	</item>
+	<item code="QAM16.125">
+		<memo></memo>
+		<event code="QAM18.01">
+			<dataSearchers>
+				<dataSearcher>pkuhit.iih.qa.qaauto.dataSearcher.EnMrListDataSearcher</dataSearcher>
+				<dataSearcher>pkuhit.iih.qa.qaauto.dataSearcher.QaAutoEmrEventDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator> pkuhit.iih.qa.qaauto.validator.TimeBoundValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+		<event code="QAM18.03">
+			<dataSearchers>
+				<dataSearcher>pkuhit.xap.task.dataSearcher.SimpleDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator> pkuhit.iih.qa.qaauto.validator.TimeBoundValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+	</item>
+	
+	
+	<item code="QAM16.1250">
+		<memo></memo>
+		<event code="QAM18.02">
+			<dataSearchers>
+				<dataSearcher>pkuhit.xap.task.dataSearcher.SimpleDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator>pkuhit.xap.task.ruleHandler.TimeBoundValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+	</item>
+	<item code="QAM16.1251">
+		<memo></memo>
+		<event code="QAM18.02">
+			<dataSearchers>
+				<dataSearcher>pkuhit.xap.task.dataSearcher.SimpleDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator>pkuhit.xap.task.ruleHandler.TimeBoundValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+	</item>
+	
+	<item code="QAM16.79">
+		<memo></memo>
+		<event code="QAM18.01">
+			<dataSearchers>
+				<dataSearcher>pkuhit.iih.qa.qaauto.dataSearcher.EnMrListDataSearcher</dataSearcher>
+				<dataSearcher>pkuhit.iih.qa.qaauto.dataSearcher.QaAutoEmrEventDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator> pkuhit.iih.qa.qaauto.validator.TimeBoundValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+		<event code="QAM18.02">
+			<dataSearchers>
+				<dataSearcher>pkuhit.xap.task.dataSearcher.SimpleDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator>pkuhit.xap.task.ruleHandler.TimeBoundValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+		<event code="QAM18.03">
+			<dataSearchers>
+				<dataSearcher>pkuhit.xap.task.dataSearcher.SimpleDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator>pkuhit.xap.task.ruleHandler.TimeBoundValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+	</item>
+	<item code="QAM16.101">
+		<memo></memo>
+		<event code="QAM18.01">
+			<dataSearchers>
+				<dataSearcher>pkuhit.iih.qa.qaauto.dataSearcher.EnMrListDataSearcher</dataSearcher>
+				<dataSearcher>pkuhit.iih.qa.qaauto.dataSearcher.QaAutoEmrEventDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator> pkuhit.iih.qa.qaauto.validator.TimeBoundValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+		<event code="QAM18.02">
+			<dataSearchers>
+				<dataSearcher>pkuhit.xap.task.dataSearcher.SimpleDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator>pkuhit.xap.task.ruleHandler.TimeBoundValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+		<event code="QAM18.03">
+			<dataSearchers>
+				<dataSearcher>pkuhit.xap.task.dataSearcher.SimpleDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator>pkuhit.xap.task.ruleHandler.TimeBoundValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+	</item>
+	<item code="QAM16.23">
+		<memo></memo>
+		<event code="QAM18.01">
+			<dataSearchers>
+				<dataSearcher>pkuhit.iih.qa.qaauto.dataSearcher.EnMrListDataSearcher</dataSearcher>
+				<dataSearcher>pkuhit.iih.qa.qaauto.dataSearcher.QaAutoEmrEventDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator> pkuhit.iih.qa.qaauto.validator.TimeBoundValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+		<event code="QAM18.03">
+			<dataSearchers>
+				<dataSearcher>pkuhit.xap.task.dataSearcher.SimpleDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator> pkuhit.xap.task.ruleHandler.TimeBoundValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+	</item>
+<item code="QAM16.65">
+		<memo></memo>
+		<event code="QAM18.01">
+			<dataSearchers>
+				<dataSearcher>pkuhit.iih.qa.qaauto.dataSearcher.EnMrListDataSearcher</dataSearcher>
+				<dataSearcher>pkuhit.iih.qa.qaauto.dataSearcher.QaAutoEmrEventDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator> pkuhit.iih.qa.qaauto.validator.FrequencyValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+		<event code="QAM18.03">
+			<dataSearchers>
+				<dataSearcher>pkuhit.xap.task.dataSearcher.SimpleDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator> pkuhit.iih.qa.qaauto.validator.FrequencyValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+	</item>
+	<item code="QAM16.58">
+		<memo></memo>
+		<event code="QAM18.01">
+			<dataSearchers>
+				<dataSearcher>pkuhit.iih.qa.qaauto.dataSearcher.EnMrListDataSearcher</dataSearcher>
+				<dataSearcher>pkuhit.iih.qa.qaauto.dataSearcher.QaAutoEmrEventDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator> pkuhit.iih.qa.qaauto.validator.FrequencyValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+		<event code="QAM18.03">
+			<dataSearchers>
+				<dataSearcher>pkuhit.xap.task.dataSearcher.SimpleDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator> pkuhit.iih.qa.qaauto.validator.FrequencyValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+	</item>
+	<item code="QAM16.95">
+		<memo></memo>
+		<event code="QAM18.01">
+			<dataSearchers>
+				<dataSearcher>pkuhit.iih.qa.qaauto.dataSearcher.EnMrListDataSearcher</dataSearcher>
+				<dataSearcher>pkuhit.iih.qa.qaauto.dataSearcher.QaAutoEmrEventDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator> pkuhit.iih.qa.qaauto.validator.IntegrityValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+		<event code="QAM18.02">
+			<dataSearchers>
+				<dataSearcher>pkuhit.xap.task.dataSearcher.SimpleDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator>pkuhit.xap.task.ruleHandler.IntegrityValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+		<event code="QAM18.03">
+			<dataSearchers>
+				<dataSearcher>pkuhit.xap.task.dataSearcher.SimpleDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator>pkuhit.xap.task.ruleHandler.IntegrityValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+	</item>
+	<item code="QAM16.103">
+		<memo></memo>
+		<event code="QAM18.01">
+			<dataSearchers>
+				<dataSearcher>pkuhit.iih.qa.qaauto.dataSearcher.EnMrListDataSearcher</dataSearcher>
+				<dataSearcher>pkuhit.iih.qa.qaauto.dataSearcher.QaAutoEmrEventDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator> pkuhit.iih.qa.qaauto.validator.IntegrityValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+		<event code="QAM18.02">
+			<dataSearchers>
+				<dataSearcher>pkuhit.xap.task.dataSearcher.SimpleDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator>pkuhit.xap.task.ruleHandler.IntegrityValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+		<event code="QAM18.03">
+			<dataSearchers>
+				<dataSearcher>pkuhit.xap.task.dataSearcher.SimpleDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator>pkuhit.xap.task.ruleHandler.IntegrityValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+	</item>
+	<item code="QAM16.107">
+		<memo></memo>
+		<event code="QAM18.01">
+			<dataSearchers>
+				<dataSearcher>pkuhit.iih.qa.qaauto.dataSearcher.EnMrListDataSearcher</dataSearcher>
+				<dataSearcher>pkuhit.iih.qa.qaauto.dataSearcher.QaAutoEmrEventDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator> pkuhit.iih.qa.qaauto.validator.IntegrityValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+		<event code="QAM18.02">
+			<dataSearchers>
+				<dataSearcher>pkuhit.xap.task.dataSearcher.SimpleDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator>pkuhit.xap.task.ruleHandler.IntegrityValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+		<event code="QAM18.03">
+			<dataSearchers>
+				<dataSearcher>pkuhit.xap.task.dataSearcher.SimpleDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator>pkuhit.xap.task.ruleHandler.IntegrityValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+	</item>
+	<item code="QAM16.119">
+		<memo></memo>
+		<event code="QAM18.01">
+			<dataSearchers>
+				<dataSearcher>pkuhit.iih.qa.qaauto.dataSearcher.EnMrListDataSearcher</dataSearcher>
+				<dataSearcher>pkuhit.iih.qa.qaauto.dataSearcher.QaAutoEmrEventDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator> pkuhit.iih.qa.qaauto.validator.IntegrityValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+		<event code="QAM18.02">
+			<dataSearchers>
+				<dataSearcher>pkuhit.xap.task.dataSearcher.SimpleDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator>pkuhit.xap.task.ruleHandler.IntegrityValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+		<event code="QAM18.03">
+			<dataSearchers>
+				<dataSearcher>pkuhit.xap.task.dataSearcher.SimpleDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator>pkuhit.xap.task.ruleHandler.IntegrityValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+	</item>
+	<item code="QAM16.102">
+		<memo></memo>
+		<event code="QAM18.01">
+			<dataSearchers>
+				<dataSearcher>pkuhit.iih.qa.qaauto.dataSearcher.EnMrListDataSearcher</dataSearcher>
+				<dataSearcher>pkuhit.iih.qa.qaauto.dataSearcher.QaAutoEmrEventDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator> pkuhit.iih.qa.qaauto.validator.IntegrityValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+		<event code="QAM18.02">
+			<dataSearchers>
+				<dataSearcher>pkuhit.xap.task.dataSearcher.SimpleDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator>pkuhit.xap.task.ruleHandler.IntegrityValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+		<event code="QAM18.03">
+			<dataSearchers>
+				<dataSearcher>pkuhit.xap.task.dataSearcher.SimpleDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator>pkuhit.xap.task.ruleHandler.IntegrityValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+	</item>
+	<item code="QAM16.109">
+		<memo></memo>
+		<event code="QAM18.01">
+			<dataSearchers>
+				<dataSearcher>pkuhit.iih.qa.qaauto.dataSearcher.EnMrListDataSearcher</dataSearcher>
+				<dataSearcher>pkuhit.iih.qa.qaauto.dataSearcher.QaAutoEmrEventDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator> pkuhit.iih.qa.qaauto.validator.IntegrityValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+		<event code="QAM18.02">
+			<dataSearchers>
+				<dataSearcher>pkuhit.xap.task.dataSearcher.SimpleDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator>pkuhit.xap.task.ruleHandler.IntegrityValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+		<event code="QAM18.03">
+			<dataSearchers>
+				<dataSearcher>pkuhit.xap.task.dataSearcher.SimpleDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator>pkuhit.xap.task.ruleHandler.IntegrityValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+	</item>
+	<item code="QAM16.87">
+		<memo></memo>
+		<event code="QAM18.01">
+			<dataSearchers>
+				<dataSearcher>pkuhit.iih.qa.qaauto.dataSearcher.EnMrListDataSearcher</dataSearcher>
+				<dataSearcher>pkuhit.iih.qa.qaauto.dataSearcher.QaAutoEmrEventDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator> pkuhit.iih.qa.qaauto.validator.IntegrityValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+		<event code="QAM18.02">
+			<dataSearchers>
+				<dataSearcher>pkuhit.xap.task.dataSearcher.SimpleDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator>pkuhit.xap.task.ruleHandler.IntegrityValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+		<event code="QAM18.03">
+			<dataSearchers>
+				<dataSearcher>pkuhit.xap.task.dataSearcher.SimpleDataSearcher</dataSearcher>
+			</dataSearchers>
+			<validators>
+				<validator>pkuhit.xap.task.ruleHandler.IntegrityValidator</validator>
+			</validators>
+			<resultHandler>
+				 pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler
+			</resultHandler>
+		</event>
+	</item>
+</items>

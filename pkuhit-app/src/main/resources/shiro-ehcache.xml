@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="ehcache.xsd" updateCheck="false"
+	monitoring="autodetect" dynamicConfig="true" name="shiroEhCache">
+	<cache
+		name="shiro-activeSessionCache"
+		maxElementsInMemory="50000" eternal="true" overflowToDisk="false"
+		memoryStoreEvictionPolicy="LFU" />
+</ehcache>

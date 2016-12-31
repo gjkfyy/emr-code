@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>pkuhit.iih</groupId>
+		<artifactId>iih.all</artifactId>
+		<version>2.1.10</version>
+	</parent>
+	
+	<artifactId>pkuhit.xap-api</artifactId>
+	
+	<name>PKUHIT XAP API Project</name>
+	<url>http://maven.apache.org</url>
+
+	<dependencies>
+		<dependency>
+			<groupId>xap</groupId>
+			<artifactId>xap.sv</artifactId>
+			<version>${xap.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>pkuhit.xap</groupId>
+			<artifactId>xap-sdk</artifactId>
+			<version>0.1.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>pkuhit.iih</groupId>
+			<artifactId>pkuhit.iih-model</artifactId>
+			<version>2.1.10</version>
+		</dependency>
+		
+		
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.apache.shiro</groupId> -->
+<!-- 			<artifactId>shiro-quartz</artifactId> -->
+<!-- 			<version>1.2.3</version> -->
+<!-- 		</dependency> -->
+	</dependencies>
+</project>

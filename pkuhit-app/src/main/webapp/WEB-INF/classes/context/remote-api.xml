@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:ctx="http://www.springframework.org/schema/context"
+	xmlns:xap="http://xap.org/xap" xmlns:sca="http://www.springframework.org/schema/sca"
+	xsi:schemaLocation="
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		   http://xap.org/xap http://xap.org/xap-0.1.xsd
+		   http://www.springframework.org/schema/sca   http://www.osoa.org/xmlns/sca/1.0/spring-sca.xsd">
+
+	<xap:reference name="orgEmpService" type="pkuhit.org.OrgEmpService" />
+	<xap:reference name="DictionaryService" type="pkuhit.md.DictionaryService" />
+
+	<xap:reference name="authenticationSupport" type="xap.sv.shiro.AuthenticationSupport" />
+
+	<xap:reference name="scopeManager" type="xap.sv.scope.ScopeManager" />
+	<xap:reference name="clientUpdateService" type="pkuhit.xap.up.ClientUpdateService" />
+	<xap:reference name="iEMRWebService" type="pkuhit.iih.mr.wr.IEMRWebService" />
+</beans>

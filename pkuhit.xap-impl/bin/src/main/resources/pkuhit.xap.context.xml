@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:ctx="http://www.springframework.org/schema/context"
+	xmlns:xap="http://xap.org/xap" xmlns:pkuhit-xap="http://pkuhit.org/xap" xmlns:sca="http://www.springframework.org/schema/sca"
+	xsi:schemaLocation="
+           http://www.springframework.org/schema/beans   http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+           http://pkuhit.org/xap                         http://pkuhit.org/pkuhit-xap-0.1.xsd
+           http://www.springframework.org/schema/sca     http://www.osoa.org/xmlns/sca/1.0/spring-sca.xsd
+           http://xap.org/xap                            http://xap.org/xap-0.1.xsd">
+
+	<xap:std-bundle />
+	<pkuhit-xap:std-bundle datasource-ref="dataSource" />
+	<!--  -->
+	<xap:session-manager id="sessionManager">
+		<xap:stores>
+			<xap:ehcache-store config="ehcache.xml" />
+<!-- 		<xap:redis-store host="172.18.73.124" /> -->
+		</xap:stores>
+	</xap:session-manager> 
+	
+	<!-- 
+	<bean id="shiroCacheManager" class="xap.sv.shiro.cache.eh.EhCacheManager" >
+		<property name="cacheManager" ref="cacheManager"/>
+	</bean>
+	<xap:component name="shiroCacheManager" target="shiroCacheManager" />
+	
+	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager" >
+		<property name="cacheManager" ref="springEhCacheManagerFactoryBean"/>
+	</bean>
+	<xap:component name="cacheManager" target="cacheManager" />
+	
+	<bean id="springEhCacheManagerFactoryBean" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean" >
+		<property name="configLocation" value="classpath:ehcache.xml"/>
+	</bean>
+	<xap:component name="springEhCacheManagerFactoryBean" target="springEhCacheManagerFactoryBean" /> -->
+	
+	<bean id="fileService" class="pkuhit.xap.file.FileServiceImpl" />
+	<xap:component name="fileService" target="fileService" />
+
+	<bean id="fileServiceAdapter" class="pkuhit.xap.file.adapter.FileServiceAdapter" />
+	<xap:component name="fileServiceAdapter" target="fileServiceAdapter" />
+
+	<bean id="databaseServiceMetadataRepository" class="pkuhit.me.DatabaseServiceMetadataRepository" />
+	<xap:component name="databaseServiceMetadataRepository"
+		target="databaseServiceMetadataRepository" />
+
+	<bean id="daoConfigService" class="xap.sv.dao.config.DefaultDaoConfigService" />
+	<sca:service name="daoConfigService" target="daoConfigService" />
+	
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<constructor-arg ref="oracle" />
+	</bean>
+	<xap:component name="transactionManager" target="transactionManager" />
+
+	<bean id="dialect" class="org.seasar.doma.jdbc.dialect.OracleDialect"></bean>
+
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
+		<constructor-arg ref="oracle" />
+	</bean>
+	
+	
+	<!--  -->
+	<bean id="mainConfig" class="pkuhit.xap.dao.config.DomaConfig">
+		<property name="dataSource" ref="dataSource" />
+		<property name="dialect" ref="dialect" />
+	</bean>
+	<!-- 
+	<bean class="xap.sv.dao.config.DaoConfigProxy">
+		<constructor-arg value="mainConfig" />
+	</bean>	 -->
+	
+	
+	<bean id="orgEmpService" class="pkuhit.org.OrgEmpServiceImpl"></bean>
+	<xap:component name="orgEmpService" target="orgEmpService" />
+	
+	<bean id="userService" class="pkuhit.xap.ac.UserServiceImpl"></bean>
+	<xap:component name="userService" target="userService" />
+	<bean id="pwdUpdateService" class="pkuhit.xap.ac.PwdUpdateServiceImpl"></bean>
+	<xap:component name="pwdUpdateService" target="pwdUpdateService" />
+	<bean id="roleService" class="pkuhit.xap.ac.RoleServiceImpl"></bean>
+	<xap:component name="roleService" target="roleService" />
+	<bean id="userRoleService" class="pkuhit.xap.ac.UserRoleServiceImpl"></bean>
+	<xap:component name="userRoleService" target="userRoleService" />
+	<bean id="rolePortalService" class="pkuhit.xap.ac.RolePortalServiceImpl"></bean>
+	<xap:component name="rolePortalService" target="rolePortalService" />
+	<bean id="roleFunctionService" class="pkuhit.xap.ac.RoleFunctionServiceImpl"></bean>
+	<xap:component name="roleFunctionService" target="roleFunctionService" />
+	<bean id="roleActionService" class="pkuhit.xap.ac.RoleActionServiceImpl"></bean>
+	<xap:component name="roleActionService" target="roleActionService" />
+
+	<bean id="taskActionService" class="pkuhit.xap.task.TaskActionServiceImpl"></bean>
+	<xap:component name="taskActionService" target="taskActionService" />
+
+	<bean id="sysConfigService" class="pkuhit.xap.sy.SysConfigServiceImpl"></bean>
+	<xap:component name="sysConfigService" target="sysConfigService" />
+
+	<bean id="configItemService" class="pkuhit.xap.cfg.ConfigItemServiceImpl"></bean>
+	<xap:component name="configItemService" target="configItemService" />
+
+	<bean id="configItemDataService" class="pkuhit.xap.cfg.ConfigItemDataServiceImpl"></bean>
+	<xap:component name="configItemDataService" target="configItemDataService" />
+
+	<bean id="configItemOptionService" class="pkuhit.xap.cfg.ConfigItemOptionServiceImpl"></bean>
+	<xap:component name="configItemOptionService" target="configItemOptionService" />
+
+	<bean id="paramsSetService" class="pkuhit.xap.pm.ParamsSetServiceImpl"></bean>
+	<xap:component name="paramsSetService" target="paramsSetService" />
+	<bean id="userMenuService" class="pkuhit.xap.ac.UserMenuServiceImpl"></bean>
+	<xap:component name="userMenuService" target="userMenuService" />
+	<bean id="userPortalService" class="pkuhit.xap.ac.UserPortalServiceImpl"></bean>
+	<xap:component name="userPortalService" target="userPortalService" />
+	<bean id="organizationService" class="pkuhit.org.OrganizationServiceImpl"></bean>
+	<xap:component name="organizationService" target="organizationService" />
+
+	<bean id="workGroupEmpService" class="pkuhit.org.WorkGroupEmpServiceImpl"></bean>
+	<xap:component name="workGroupEmpService" target="workGroupEmpService" />
+
+	<bean id="meCdRuService" class="pkuhit.xap.me.MeCdRuServiceImpl"></bean>
+	<xap:component name="meCdRuService" target="meCdRuService" />
+
+	<bean id="accessLogService" class="pkuhit.xap.log.AccessLogServiceImpl"></bean>
+	<xap:component name="accessLogService" target="accessLogService" />
+	<bean id="errorLogService" class="pkuhit.xap.log.ErrorLogServiceImpl"></bean>
+	<xap:component name="errorLogService" target="errorLogService" />
+	<bean id="performanceLogService" class="pkuhit.xap.log.PerformanceLogServiceImpl"></bean>
+	<xap:component name="performanceLogService" target="performanceLogService" />
+	<bean id="statusLogService" class="pkuhit.xap.log.StatusLogServiceImpl"></bean>
+	<xap:component name="statusLogService" target="statusLogService" />
+
+	<bean id="complexDictionaryQueryService" class="pkuhit.md.ComplexDictionaryQueryService"></bean>
+	<xap:component name="complexDictionaryQueryService"
+		target="complexDictionaryQueryService" />
+
+	<bean id="mrElementService" class="pkuhit.me.MrElementServiceImpl"></bean>
+	<xap:component name="mrElementService" target="mrElementService" />
+	
+	<bean id="chineseEncodingCodesService" class="pkuhit.xap.encoding.ChineseEncodingCodesServiceImpl"></bean>
+	<xap:component name="chineseEncodingCodesService" target="chineseEncodingCodesService" />
+	<bean id="chineseEncodingCodesDao" class="pkuhit.xap.encoding.CacheableChineseEncodingCodes"></bean>
+	<xap:component name="chineseEncodingCodesDao" target="chineseEncodingCodesDao" />
+	<bean id="chineseEncoding" class="pkuhit.xap.encoding.PinyinChineseEncodingImpl"></bean>
+	<xap:component name="chineseEncoding" target="chineseEncoding" />
+	<bean id="simpleChineseEncodingService" class="pkuhit.xap.encoding.SimpleChineseEncodingServiceImpl"></bean>
+	<xap:component name="simpleChineseEncodingService" target="simpleChineseEncodingService" />
+	<bean id="clientUpdateService" class="pkuhit.xap.up.ClientUpdateServiceImpl"></bean>
+	<xap:component name="clientUpdateService" target="clientUpdateService" />
+	<bean id="dictionaryUpdateService" class="pkuhit.md.DictionaryUpdateServiceImpl"></bean>
+	<xap:component name="dictionaryUpdateService" target="dictionaryUpdateService" />
+	<bean id="messageService" class="pkuhit.xap.mes.MessageServiceImpl"></bean>
+	<xap:component name="messageService" target="messageService" />
+	<bean id="taskService" class="pkuhit.xap.task.TaskServiceImpl"></bean>
+	<xap:component name="taskService" target="taskService" />
+	
+	<bean id="ruleEngin" class="xap.ru.engin.SimpleRuleEnginImpl"></bean>
+	<xap:component name="ruleEngin" target="ruleEngin" />
+	<bean id="defaultEnginContextFactory" class="xap.ru.engin.context.DefaultEnginContextFactory"></bean>
+	<xap:component name="defaultEnginContextFactory" target="defaultEnginContextFactory" />
+	<bean id="defaultDataLoader" class="xap.ru.engin.data.DefaultDataLoader"></bean>
+	<xap:component name="defaultDataLoader" target="defaultDataLoader" />
+	<bean id="defaultValidatorManagerImpl" class="xap.ru.engin.validate.DefaultValidatorManagerImpl"></bean>
+	<xap:component name="defaultValidatorManagerImpl" target="defaultValidatorManagerImpl" />
+	<bean id="ruleEnginServiceImpl" class="pkuhit.xap.ru.RuleEnginServiceImpl"></bean>
+	<xap:component name="ruleEnginServiceImpl" target="ruleEnginServiceImpl" />
+	<bean id="ruleItemBuilder" class="xap.ru.engin.item.build.xml.RuleItemXmlParser"></bean>
+	<xap:component name="ruleItemBuilder" target="ruleItemBuilder" />
+	
+	<bean id="eventEnginImpl" class="pkuhit.xap.sy.EventEnginImpl"></bean>
+	<xap:component name="eventEnginImpl" target="eventEnginImpl" />
+	<bean id="eventConfigServiceImpl" class="pkuhit.xap.sy.EventConfigServiceImpl"></bean>
+	<xap:component name="eventConfigServiceImpl" target="eventConfigServiceImpl" />
+	<bean id="eventSourceBuilder" class="xap.sv.event.build.xml.EventListenerXmlParser"></bean>
+	<xap:component name="eventSourceBuilder" target="eventSourceBuilder" />
+	
+	<bean id="mrTaskService" class="pkuhit.xap.task.MrTaskServiceImpl"></bean>
+	<xap:component name="mrTaskService" target="mrTaskService" />
+	
+	<bean id="mrTaskHandleService" class="pkuhit.xap.task.MrTaskHandleServiceImpl"></bean>
+	<xap:component name="mrTaskHandleService" target="mrTaskHandleService" />
+	
+	<bean id="noticeTaskServiceImpl" class="pkuhit.xap.task.NoticeTaskServiceImpl"></bean>
+	<xap:component name="noticeTaskServiceImpl" target="noticeTaskServiceImpl" />
+	
+	<bean id="noticeTaskHandleServiceImpl" class="pkuhit.xap.task.NoticeTaskHandleServiceImpl"></bean>
+	<xap:component name="noticeTaskHandleServiceImpl" target="noticeTaskHandleServiceImpl" />
+	
+
+	<bean id="integrityValidator" class="pkuhit.xap.task.ruleHandler.IntegrityValidator"></bean>
+	<xap:component name="integrityValidator" target="integrityValidator" />
+	
+	<bean id="timeBoundValidator" class="pkuhit.xap.task.ruleHandler.TimeBoundValidator"></bean>
+	<xap:component name="timeBoundValidator" target="timeBoundValidator" />
+	
+	<bean id="simpleDataSearcher" class="pkuhit.xap.task.dataSearcher.SimpleDataSearcher"></bean>
+	<xap:component name="simpleDataSearcher" target="simpleDataSearcher" />
+	
+	<bean id="reportRoleService" class="pkuhit.xap.ac.ReportRoleServiceImpl"></bean>
+	<xap:component name="reportRoleService" target="reportRoleService" />
+	
+	<bean id="paramsService" class="pkuhit.xap.pm.ParamsServiceImpl"></bean>
+	<xap:component name="paramsService" target="paramsService" />
+	
+	<bean id="externalInterfService" class="pkuhit.xap.ei.ExternalInterfServiceImpl"></bean>
+	<xap:component name="externalInterfService" target="externalInterfService" />
+	
+	<bean id="externalInterfSetService" class="pkuhit.xap.ei.ExternalInterfSetServiceImpl"></bean>
+	<xap:component name="externalInterfSetService" target="externalInterfSetService" />
+	
+	<bean id="nisWardConfigService" class="pkuhit.org.NisWardConfigServiceImpl"></bean>
+	<xap:component name="nisWardConfigService" target="nisWardConfigService" />
+	
+	<bean id="orgEmpDeptService" class="pkuhit.org.OrgEmpDeptServiceImpl"></bean>
+	<xap:component name="orgEmpDeptService" target="orgEmpDeptService" />
+	
+	<ctx:component-scan base-package="pkuhit.xap.dao" />
+	<ctx:component-scan base-package="pkuhit.org.dao" />
+
+	<ctx:component-scan base-package="pkuhit.me.dao" />
+	<ctx:component-scan base-package="pkuhit.md.dao" />
+	
+	<import resource="context/pkuhit.database.context.xml"/>
+	
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"> 
+           <property name="dataSource"   ref="dataSource"/>
+           <property name="queryTimeout"   value="300"/> 
+    </bean>
+</beans>

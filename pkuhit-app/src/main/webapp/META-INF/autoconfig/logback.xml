@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Logback Configuration. -->
+<configuration debug="false">
+	<substitutionProperty name="xap.logs" value="${D}{catalina.base}/logs/iemr" />  
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<target>System.out</target>
+		<encoding>utf-8</encoding>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<pattern><![CDATA[
+%n%-4r [%d{yyyy-MM-dd HH:mm:ss}]%n  %-5level %logger{35} - %m%n
+            ]]></pattern>
+		</layout>
+	</appender>
+
+	<appender name="PERFORMANCE_ROLLING"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${D}{xap.logs}/performance/performance.log</file>
+		<encoding>utf-8</encoding>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>
+				${D}{xap.logs}/performance/performance.%d{yyyy-MM-dd}.%i.log
+			</fileNamePattern>
+			<maxHistory>30</maxHistory>
+			<timeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>25MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<pattern><![CDATA[
+%n%-4r [%d{yyyy-MM-dd HH:mm:ss}]%n  %-5level %logger{35} - %m%n
+            ]]></pattern>
+		</layout>
+	</appender>
+
+	<appender name="ROLLING"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${D}{xap.logs}/main.log</file>
+		<encoding>utf-8</encoding>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>
+				${D}{xap.logs}/main.%d{yyyy-MM-dd}.%i.log
+			</fileNamePattern>
+
+			<maxHistory>30</maxHistory>
+			<timeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>100MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<pattern><![CDATA[
+%n%-4r [%d{yyyy-MM-dd HH:mm:ss}]%n  %-5level %logger{35} - %m%n
+            ]]></pattern>
+		</layout>
+	</appender>
+
+	<appender name="SQL_ROLLING"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${D}{xap.logs}/sql/sql.log</file>
+		<encoding>utf-8</encoding>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>
+				${D}{xap.logs}/sql/sql.%d{yyyy-MM-dd}.%i.log
+			</fileNamePattern>
+			<maxHistory>30</maxHistory>
+			<timeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>200MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<pattern><![CDATA[
+%n%-4r [%d{yyyy-MM-dd HH:mm:ss}]%n  %-5level %logger{35} - %m%n
+            ]]></pattern>
+		</layout>
+	</appender>
+
+	<logger name="org.apache">
+		<level value="INFO" />
+		<appender-ref ref="ROLLING" />
+	</logger>
+
+	<logger name="org.springframework">
+		<level value="INFO" />
+		<appender-ref ref="ROLLING" />
+	</logger>
+
+	<logger name="xap.sv.log.performance">
+		<level value="INFO" />
+		<appender-ref ref="PERFORMANCE_ROLLING" />
+	</logger>
+
+	<logger name="xap.sv">
+		<level value="DEBUG" />
+		<appender-ref ref="ROLLING" />
+	</logger>
+
+	<logger name="pkuhit">
+		<level value="INFO" />
+		<appender-ref ref="ROLLING" />
+	</logger>
+
+	<logger name="org.seasar" additivity="false">
+		<level value="DEBUG" />
+		<appender-ref ref="SQL_ROLLING" />
+	</logger>
+
+	<root>
+<!-- 		<level value="DEBUG" /> -->
+		<level value="INFO" />
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="ROLLING" />
+	</root>
+</configuration>

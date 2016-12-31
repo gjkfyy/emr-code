@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+	<group>
+		<property name="oracle.url" description="oracle数据库连接地址" />
+		<property name="oracle.username" description="oracle数据库用户名" />
+		<property name="oracle.password" description="oracle数据库密码" />
+	</group>
+	<script>
+		<generate template="datasource.xml" destfile="/context/pkuhit.database.context.xml"/>
+	</script>
+</config>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+	<group>
+		<property name="iemr.address" description="IEMR访问地址" />
+		<property name="iemr.update.address" description="自动更新地址" />
+	</group>
+	<script>
+		<generate template="/WEB-INF/classes/settings.properties"/>
+		<generate template="/UpdateInfo.xml"/>
+		<generate template="logback.xml" destfile="/WEB-INF/logback.xml"/>
+	</script>
+</config>

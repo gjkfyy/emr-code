@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<updateinfo AppName="IEMR">
+	<ftp username="iemr_download" password="iemr" port="21">${iemr.update.address}</ftp>
+	<xmlfile path="latest_version/patch.xml">patch.xml</xmlfile>
+	<zipfile path="latest_version/patch.zip">patch.zip</zipfile>
+	<app action="close" description="方正编辑器">soffice.bin</app>
+	<app action="close" description="方正编辑器">soffice.exe</app>
+	<app action="close" description="浏览器">iexplore.exe</app>
+	<app action="close" description="webkit">nw.exe</app>
+</updateinfo>
+
+<!--          更新信息xml文件格式说明          -->
+<!-- 该文件是程序更新的信息文件，记录FTP基本信 -->
+<!-- 息、文件列表文件以及Patch包的下载路径信息 -->
+<!--   FTP登录名、密码、端口为空则为匿名访问   -->
+<!--        本文件内容可根据业务需求扩充       -->
+<!--                                           -->
+<!--  节点名称    节点属性         属性值      -->
+<!-- updateinfo   AppName       应用程序名称   -->
+<!--    ftp       username      FTP登陆用户名  -->
+<!--    ftp       password       FTP登陆密码   -->
+<!--    ftp         port         FTP访问端口   -->
+<!--  xmlfile       path        文件下载路径   -->
+<!--    app     action="ask"  询问用户强制关闭 -->
+<!--    app    action="close"  强制关闭不询问  -->
+<!--    app      description      进程名称     -->

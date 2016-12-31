@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+  <name>pkuhit-app</name>
+  <comment>NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
+  <projects>
+    <project>pkuhit.xap-api</project>
+    <project>pkuhit.iih-model</project>
+    <project>pkuhit.xap-impl</project>
+    <project>pkuhit.iih.iemr-impl</project>
+    <project>pkuhit.iih.mr-intf</project>
+    <project>ei.iih-impl</project>
+    <project>pkuhit.iih.x-intf</project>
+    <project>pkuhit.iih.mr-impl</project>
+    <project>pkuhit.iih.di</project>
+    <project>his.iih-impl</project>
+    <project>pkuhit.iih.dr</project>
+    <project>pkuhit.iih.kr</project>
+  </projects>
+  <buildSpec>
+    <buildCommand>
+      <name>org.eclipse.jdt.core.javabuilder</name>
+    </buildCommand>
+  </buildSpec>
+  <natures>
+    <nature>org.eclipse.jdt.core.javanature</nature>
+  </natures>
+</projectDescription>
