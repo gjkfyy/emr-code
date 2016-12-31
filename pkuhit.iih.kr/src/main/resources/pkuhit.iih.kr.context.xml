@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:ctx="http://www.springframework.org/schema/context"
+	xmlns:sca="http://www.springframework.org/schema/sca" xmlns:xap="http://xap.org/xap"
+	xmlns:pkuhit-xap="http://pkuhit.org/xap"
+	xsi:schemaLocation="
+           http://www.springframework.org/schema/beans   http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+           http://www.springframework.org/schema/sca     http://www.osoa.org/xmlns/sca/1.0/spring-sca.xsd
+           http://xap.org/xap                            http://xap.org/xap-0.1.xsd
+           http://pkuhit.org/xap                         http://pkuhit.org/pkuhit-xap-0.1.xsd">
+
+	<!-- 配置数据库 -->
+	<bean class="xap.sv.dao.config.DaoConfigProxy">
+		<constructor-arg value="mainConfig" />
+	</bean>	
+	<!-- 自动扫描，注入dao等 -->
+	<ctx:component-scan base-package="iih.kr.db" />
+
+	<!-- <bean id="beforeAdvice" class="iih.kr.cfg.advisor.HISBeforAdvice" /> -->
+
+	<!-- <aop:config proxy-target-class="true"> -->
+	<!-- <aop:pointcut id="serviceOperation" -->
+	<!-- expression="execution(* *..his.service.impl..*(..))" /> -->
+	<!-- <aop:advisor order="0" pointcut-ref="serviceOperation" advice-ref="beforeAdvice" 
+		/> -->
+	<!-- </aop:config> -->
+
+
+	<!-- <bean id="testService" class="iih.kr.service.impl.TestServiceImpl" 
+		/> -->
+	<!-- <bean id="test2Service" class="iih.kr.service.impl.Test2ServiceImpl" 
+		/> -->
+	<!-- <bean id="hisService" class="iih.kr.his.service.impl.HisServiceImpl" 
+		/> -->
+	<bean id="krService" name="krService" class="iih.kr.service.impl.KrServiceImpl" />
+	<sca:service name="krService" target="krService" />
+	
+	<xap:reference name="organizationService" type="pkuhit.org.OrganizationService" />
+	<xap:reference name="userRoleService" type="pkuhit.xap.ac.UserRoleService" />
+	<xap:reference name="dictionaryService" type="pkuhit.md.DictionaryService" />
+	<xap:reference name="dataObjectService" type="pkuhit.me.DataObjectService" />
+	
+</beans>
