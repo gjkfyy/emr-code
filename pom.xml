@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>pkuhit.iih</groupId>
+	<version>2.1.10</version>
+	<artifactId>iih.all</artifactId>
+	<packaging>pom</packaging>
+	<name>IIH All Project</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<jetty-version>8.1.13.v20130916</jetty-version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<springframework.version>4.0.7.RELEASE</springframework.version>
+		<xap.version>0.1.2-SNAPSHOT</xap.version>
+		<doma.version>1.35.0</doma.version>
+		<maven.build.timestamp.format>yyyyMMddHHmmssSSS</maven.build.timestamp.format>
+		<buildTime>${maven.build.timestamp}</buildTime>
+	</properties>
+
+	<dependencies>		
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.10</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- xap -->		
+		<dependency>
+			<groupId>xap</groupId>
+			<artifactId>xap.sv</artifactId>
+			<version>${xap.version}</version>
+		</dependency>
+		
+		<!-- doma -->
+		<dependency>
+			<groupId>org.seasar.doma</groupId>
+			<artifactId>doma</artifactId>
+			<version>${doma.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.9</version>
+				<configuration>
+					<downloadSources>true</downloadSources>
+				</configuration>
+			</plugin>
+			
+			<plugin>
+				<inherited>true</inherited>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+					<optimise>true</optimise>
+					<debug>true</debug>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+	<modules>
+		<module>pkuhit.iih.di</module>
+		<module>pkuhit.iih.kr</module>
+		<module>pkuhit.iih.dr</module>
+		<module>pkuhit.iih.mr-intf</module>
+		<module>pkuhit.iih.iemr-impl</module>
+		<module>pkuhit.iih.mr-impl</module>
+		<module>pkuhit.iih.x-intf</module>
+		<module>pkuhit.xap-api</module>
+		<module>pkuhit.xap-impl</module>
+		<module>his.iih-impl</module>
+		<module>ei.iih-impl</module>
+		<module>pkuhit.iih-model</module>
+		<module>pkuhit-app</module>
+	</modules>
+	
+	<distributionManagement>
+		<repository>
+			<id>nexus-releases</id>
+			<name>Nexus Releases Repository</name>
+			<url>${nexus.url}/content/repositories/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>nexus-snapshots</id>
+			<name>Nexus Snapshots Repository</name>
+			<url>${nexus.url}/content/repositories/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+</project>
