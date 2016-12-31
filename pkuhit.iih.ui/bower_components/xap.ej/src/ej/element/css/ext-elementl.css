@@ -1,0 +1,16 @@
+
+ /** 
+ * 带查询图标的单文本编辑框样式
+ * @author：yaolijie
+ */
+.x-text-trigger{background:url(images/search-trigger-rtl.gif);width:18px;border-width:0 0 1px;border-color:#b5b8c8;border-style:solid}
+.x-text-trigger{height:22px}
+
+
+
+/** 
+ * 超链接去掉下划线
+ * @author：yaolijie
+ */
+ .link{TEXT-DECORATION:none;}
+ 

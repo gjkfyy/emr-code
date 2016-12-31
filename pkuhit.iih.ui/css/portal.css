@@ -1,0 +1,475 @@
+﻿/*portlet样式*/
+.x-panel-ghost {
+    z-index: 1;
+}
+.x-border-layout-ct {
+    background: #FFF;
+}
+.x-portal-body {
+    padding: 0 0 0 8px;
+}
+.x-portal .x-portal-column {
+    padding: 8px 8px 0 0;
+}
+.x-portal .x-portal-column .x-portlet {
+    margin-left: auto;
+    margin-right: auto;
+}
+.x-portal .x-panel-dd-spacer {
+    border: 2px dashed #99bbe8;
+    background: #f6f6f6;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.x-portlet {
+    margin-bottom:10px;
+    padding: 1px;
+}
+
+.x-portlet .x-panel-body {
+    background: #fff;
+}
+
+.portlet-content {
+    padding: 5px;
+    font-size: 12px;
+}
+
+.menu_button_over{background:red;}
+.menu_button{background:#FFFFFF;font-size:18px;font-weight:800;font-family:黑体;}
+
+.menu_button:hover{background:#dfe8f6;}
+.menu_button_active{background:#a3bae9;}
+.menu_button_focus{background:red;}
+
+.IIH_MRB_WK{
+	width: 130px;
+	height: 130px;
+	background: url( ./images/portal/IIH_MRB_WK.png) no-repeat;
+}
+
+.MRB { 
+background-image: url(images/icons/MRB.png) !important; 
+background-size:100% 100%; 
+}
+
+.MRBU { 
+background-image: url(images/icons/MRBU.png) !important; 
+background-size:100% 100%; 
+}
+
+
+
+.IIH_MD{
+	width: 130px;
+	height: 130px;
+	background: url( ./images/portal/IIH_MD.png) no-repeat;	
+}
+
+.MD { 
+background-image: url(images/icons/MD.png) !important; 
+background-size:100% 100%; 
+}
+
+.MD_DEM { 
+background-image: url(images/icons/MD_DEM.png) !important; 
+background-size:100% 100%; 
+}
+
+.IIH_VIEW_WK{
+	width: 130px;
+	height: 130px;
+	background: url( ./images/portal/mr_view.png ) no-repeat;
+}
+
+.IIH_DR_WK{
+	width: 130px;
+	height: 130px;
+	background: url( ./images/portal/mr_search.png ) no-repeat;
+}
+
+.IIH_INP_WK{
+	width: 130px;
+	height: 130px;
+	background: url( ./images/portal/patient_button.png ) no-repeat;
+}
+
+.IIH_INP_FU_WK{
+	width: 130px;
+	height: 130px;
+	background: url( ./images/portal/function_button.png ) no-repeat;
+}
+
+.portal-button02{
+	width: 50px;
+	height: 50px;
+	background: url( ./images/portal/portal.png ) no-repeat -749px -514px;
+}
+
+.IIH_MR_TPL{
+	width: 130px;
+	height: 130px;
+	background: url( ./images/portal/template_button.png ) no-repeat;
+}
+
+.IIH_QA_WK{
+	width: 130px;
+	height: 130px;
+	background: url( ./images/portal/qa_button.png ) no-repeat;
+}
+
+.IIH_QUER_WK{
+	width: 130px;
+	height: 130px;
+	background: url( ./images/portal/mr_search.png ) no-repeat;
+}
+
+.IIH_SY_WK{
+	width: 130px;
+	height: 130px;
+	background: url( ./images/portal/system_button.png) no-repeat;
+}
+
+.IIH_OUTP_WK{
+	width: 130px;
+	height: 130px;
+	background: url( ./images/portal/outp_button.png) no-repeat;
+}
+
+.IIH_NURSE_WK{
+	width: 130px;
+	height: 130px;
+	background: url( ./images/portal/nurse_button.png) no-repeat;
+}
+
+.IIH_NU_WK{
+	width: 130px;
+	height: 130px;
+	background: url( ./images/portal/IIH_NU_WK.png) no-repeat;
+}
+
+.IIH_NURSE_WK_MS{
+	width: 130px;
+	height: 130px;
+	background: url( ./images/portal/IIH_NURSE_WK_MS.png) no-repeat;
+}
+
+.IIH_MRM_WK_MS{
+	width: 130px;
+	height: 130px;
+	background: url( ./images/portal/IIH_MRM_WK_MS.png) no-repeat;
+}
+
+.BACK_LOGIN{
+	width: 100px;
+	height: 100px;
+	background: url( ./images/portal/back.png ) no-repeat;
+}
+
+.button_edit {
+	overflow-x: visible;
+	vertical-align: baseline;
+	height: 24px;
+	line-height: 24px;
+	width: 64px;
+	background: url( ./images/login/login-button.png ) no-repeat -34px -197px;
+}
+
+.button_top {
+	font-size:12px;
+	overflow-x: visible;
+	vertical-align: top;
+	line-height: 16px;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+}
+
+.MR { 
+background-image: url(images/icons/MR.png) !important; 
+background-size:100% 100%; 
+}
+
+.WR { 
+background-image: url(images/icons/WR.png) !important; 
+background-size:100% 100%; 
+}
+
+.DiagnosisManagement { 
+background-image: url(images/icons/DiagnosisManagement.png) !important; 
+background-size:100% 100%; 
+}
+
+.PastMR { 
+background-image: url(images/icons/PastMR.png) !important; 
+background-size:100% 100%; 
+}
+
+.OrderList { 
+background-image: url(images/icons/OrderList.png) !important; 
+background-size:100% 100%; 
+}
+
+.ObservationInformation { 
+background-image: url(images/icons/ObservationInformation.png) !important; 
+background-size:100% 100%; 
+}
+
+.LabInformation { 
+background-image: url(images/icons/LabInformation.png) !important; 
+background-size:100% 100%; 
+}
+
+.VitalSigns { 
+background-image: url(images/icons/VitalSigns.png) !important; 
+background-size:100% 100%; 
+}
+
+.PersonalKnowledge { 
+background-image: url(images/icons/PersonalKnowledge.png) !important; 
+background-size:100% 100%; 
+}
+
+.QCAssessment { 
+background-image: url(images/icons/QCAssessment.png) !important; 
+background-size:100% 100%; 
+}
+
+.QCItemSet { 
+background-image: url(images/icons/QCItemSet.png) !important; 
+background-size:100% 100%; 
+}
+
+.ToDoTask { 
+background-image: url(images/icons/ToDoTask.png) !important; 
+background-size:100% 100%; 
+}
+
+.LinkQCRectificationNotice { 
+background-image: url(images/icons/LinkQCRectificationNotice.png) !important; 
+background-size:100% 100%; 
+}
+
+.MrSignList { 
+background-image: url(images/icons/MrSignList.png) !important; 
+background-size:100% 100%; 
+}
+
+.BaseTemplateManage { 
+background-image: url(images/icons/BaseTemplateManage.png) !important; 
+background-size:100% 100%; 
+}
+
+.GroupElementManage { 
+background-image: url(images/icons/GroupElementManage.png) !important; 
+background-size:100% 100%; 
+}
+
+.GroupElementTemplateSearch { 
+background-image: url(images/icons/GroupElementTemplateSearch.png) !important; 
+background-size:100% 100%; 
+}
+
+.GroupElementTemplateSearchCheck { 
+background-image: url(images/icons/GroupElementTemplateSearchCheck.png) !important; 
+background-size:100% 100%; 
+}
+
+.MRTemplateManage { 
+background-image: url(images/icons/MRTemplateManage.png) !important; 
+background-size:100% 100%; 
+}
+
+.MRTemplateSearch { 
+background-image: url(images/icons/MRTemplateSearch.png) !important; 
+background-size:100% 100%; 
+}
+
+.MRTemplateCheck { 
+background-image: url(images/icons/MRTemplateCheck.png) !important; 
+background-size:100% 100%; 
+}
+
+.LinkQC { 
+background-image: url(images/icons/LinkQC.png) !important; 
+background-size:100% 100%; 
+}
+
+.LinkQCTask { 
+background-image: url(images/icons/LinkQCTask.png) !important; 
+background-size:100% 100%; 
+}
+
+.LinkQCTrack { 
+background-image: url(images/icons/LinkQCTrack.png) !important; 
+background-size:100% 100%; 
+}
+
+.TerminalQC { 
+background-image: url(images/icons/TerminalQC.png) !important; 
+background-size:100% 100%; 
+}
+
+.TerminalQCTask { 
+background-image: url(images/icons/TerminalQCTask.png) !important; 
+background-size:100% 100%; 
+}
+
+.TerminalQCTrack { 
+background-image: url(images/icons/TerminalQCTrack.png) !important; 
+background-size:100% 100%; 
+}
+
+.TerminalQCScore { 
+background-image: url(images/icons/TerminalQCScore.png) !important; 
+background-size:100% 100%; 
+}
+
+.DepartmentManager { 
+background-image: url(images/icons/DepartmentManager.png) !important; 
+background-size:100% 100%; 
+}
+
+.ClinicGroupSet { 
+background-image: url(images/icons/ClinicGroupSet.png) !important; 
+background-size:100% 100%; 
+}
+
+.AccessControl { 
+background-image: url(images/icons/AccessControl.png) !important; 
+background-size:100% 100%; 
+}
+
+.UserRoleManage { 
+background-image: url(images/icons/UserRoleManage.png) !important; 
+background-size:100% 100%; 
+}
+
+.RolePurview { 
+background-image: url(images/icons/RolePurview.png) !important; 
+background-size:100% 100%; 
+}
+
+.TerminalQCRectificationNotice { 
+background-image: url(images/icons/TerminalQCRectificationNotice.png) !important; 
+background-size:100% 100%; 
+}
+
+.DepartmentQCRectificationNotice { 
+background-image: url(images/icons/DepartmentQCRectificationNotice.png) !important; 
+background-size:100% 100%; 
+}
+
+.DepartmentQC { 
+background-image: url(images/icons/DepartmentQC.png) !important; 
+background-size:100% 100%; 
+}
+
+.DepartmentQCTask { 
+background-image: url(images/icons/DepartmentQCTask.png) !important; 
+background-size:100% 100%; 
+}
+
+.DepartmentQCTrack { 
+background-image: url(images/icons/DepartmentQCTrack.png) !important; 
+background-size:100% 100%; 
+}
+
+.DepartmentQCScore { 
+background-image: url(images/icons/DepartmentQCScore.png) !important; 
+background-size:100% 100%; 
+}
+
+.TemplateManage { 
+background-image: url(images/icons/TemplateManage.png) !important; 
+background-size:100% 100%; 
+}
+
+.SyncData { 
+background-image: url(images/icons/SyncData.png) !important; 
+background-size:100% 100%; 
+}
+
+.LinkQCQuery { 
+background-image: url(images/icons/LinkQCQuery.png) !important; 
+background-size:100% 100%; 
+}
+
+.AmrLevelRateStatView { 
+background-image: url(images/icons/AmrLevelRateStatView.png) !important; 
+background-size:100% 100%; 
+}
+
+.ParamterSettings { 
+background-image: url(images/icons/ParamterSettings.png) !important; 
+background-size:100% 100%; 
+}
+
+.MrTypeCcatManage { 
+background-image: url(images/icons/MrTypeCcatManage.png) !important; 
+background-size:100% 100%; 
+}
+
+.MrTypeManage { 
+background-image: url(images/icons/MrTypeManage.png) !important; 
+background-size:100% 100%; 
+}
+
+.MrShareElementManage { 
+background-image: url(images/icons/MrShareElementManage.png) !important; 
+background-size:100% 100%; 
+}
+
+.WNR { 
+background-image: url(images/icons/WNR.png) !important; 
+background-size:100% 100%; 
+}
+
+.OutPatientTemplateManage { 
+background-image: url(images/icons/OutPatientTemplateManage.png) !important; 
+background-size:100% 100%; 
+}
+
+.WQR { 
+background-image: url(images/icons/WQR.png) !important; 
+background-size:100% 100%; 
+}
+
+.TEETH { 
+background-image: url(images/icons/TEETH.png) !important; 
+background-size:100% 100%; 
+}
+
+.AutoLinkQC { 
+background-image: url(images/icons/AutoLinkQC.png) !important; 
+background-size:100% 100%; 
+}
+
+.ReportRoleManage { 
+background-image: url(images/icons/ReportRoleManage.png) !important; 
+background-size:100% 100%; 
+}
+
+.CSMKR { 
+background-image: url(images/icons/CSMKR.png) !important; 
+background-size:100% 100%; 
+}
+
+.CSMCategory { 
+background-image: url(images/icons/CSMCategory.png) !important; 
+background-size:100% 100%; 
+}
+
+.x-text-trigger {
+background:url(images/search-trigger-rtl.gif);
+width:18px;
+height:22px;
+border-width:0 0 1px;
+border-color:#b5b8c8;
+border-style:solid
+}
+ 
+.login-input-label{margin:0 0 0 570px;height:20px;text-align:right;border:0;}
+

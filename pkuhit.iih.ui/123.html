@@ -1,0 +1,17 @@
+</OBJECT><OBJECT id="CisLocalX Control"
+classid="clsid:C20D9C74-702C-461F-BAA2-E817EB3BFA6B"
+codebase="ocx/cis_local.ocx#version=1,0,0,0" width=0 height=0
+align=center hspace=0 vspace=0>
+<param name="Visible" value="0">
+</OBJECT>
+<script language="javascript">
+function readIcCard(){
+var cis_ocx = document.getElementById('CisLocalX Control');
+cis_ocx.initIcCard('C:\\CIS\\');
+var ret= cis_ocx.readIcCard();
+cis_ocx.freeIcCard();
+return ret;
+}
+readIcCard();
+</script>
+</br></br>

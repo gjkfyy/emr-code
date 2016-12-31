@@ -1,0 +1,711 @@
+/*基础tool图标*/
+.fui-panel .x-tool img {
+	background-image: url("./images/icons/tools_15.png");
+}
+
+.fui-panel .button-placeholder {
+	background-color: transparent;
+	background-image: none;
+}
+
+.fui-panel .x-tool-close {
+	background-position: 0 0;
+}
+
+.fui-panel .x-tool-minimize {
+	background-position: 0 -15px;
+}
+
+.fui-panel .x-tool-maximize {
+	background-position: 0 -30px;
+}
+
+.fui-panel .x-tool-restore {
+	background-position: 0 -45px;
+}
+
+.fui-panel .x-tool-up {
+	background-position: 0 -60px;
+}
+
+.fui-panel .x-tool-down {
+	background-position: 0 -75px;
+}
+
+.fui-panel .x-tool-gear {
+	background-position: 0 -90px;
+}
+
+.fui-panel .x-tool-left {
+	background-position: 0 -105px;
+}
+
+.fui-panel .x-tool-right {
+	background-position: 0 -120px;
+}
+
+.fui-panel .x-tool-pin {
+	background-position: 0 -135px;
+}
+
+.fui-panel .x-tool-unpin {
+	background-position: 0 -150px;
+}
+
+.fui-panel .x-tool-next {
+	background-position: 0 -165px;
+}
+
+.fui-panel .x-tool-prev {
+	background-position: 0 -180px;
+}
+
+.fui-panel .x-tool-children {
+	background-position: 0 -195px;
+}
+
+.fui-panel .x-tool-ancestor {
+	background-position: 0 -210px;
+}
+
+.fui-panel .x-tool-refresh {
+	background-position: 0 -225px;
+}
+
+.fui-panel .x-tool-plus {
+	background-position: 0 -240px;
+}
+
+.fui-panel .x-tool-minus {
+	background-position: 0 -255px;
+}
+
+.fui-panel .x-tool-save {
+	background-position: 0 -270px;
+}
+
+.fui-panel .x-tool-search {
+	background-position: 0 -285px;
+}
+
+.fui-panel .x-tool-help {
+	background-position: 0 -300px;
+}
+
+.fui-panel .x-tool-print {
+	background-position: 0 -315px;
+}
+
+.fui-panel .x-tool-expand {
+	background-position: 0 -330px;
+}
+
+.fui-panel .x-tool-collapse {
+	background-position: 0 -345px;
+}
+
+.fui-panel .x-tool-tree {
+    background-position: 0 -360px;
+}
+
+.fui-panel .x-tool-submit {
+	background-position: 0 -375px;
+}
+
+.fui-panel .x-tool-list {
+    background-position: 0 -390px;
+}
+
+.fui-panel .x-tool-clear {
+    background-position: 0 -405px;
+}
+
+.fui-panel .x-tool-add {
+    background-position: 0 -420px;
+}
+
+.fui-panel .x-tool-delete {
+    background-position: 0 -435px;
+}
+
+.fui-panel .x-tool-update {
+    background-position: 0 -450px;
+}
+
+.fui-panel .x-tool-start {
+    background-position: 0 -465px;
+}
+
+.fui-panel .x-tool-stop {
+    background-position: 0 -480px;
+}
+
+.fui-panel .x-tool-over .x-tool-close {
+	background-position: -15px 0;
+}
+
+.fui-panel .x-tool-over .x-tool-minimize {
+	background-position: -15px -15px;
+}
+
+.fui-panel .x-tool-over .x-tool-maximize {
+	background-position: -15px -30px;
+}
+
+.fui-panel .x-tool-over .x-tool-restore {
+	background-position: -15px -45px;
+}
+
+.fui-panel .x-tool-over .x-tool-up {
+	background-position: -15px -60px;
+}
+
+.fui-panel .x-tool-over .x-tool-down {
+	background-position: -15px -75px;
+}
+
+.fui-panel .x-tool-over .x-tool-gear {
+	background-position: -15px -90px;
+}
+
+.fui-panel .x-tool-over .x-tool-left {
+	background-position: -15px -105px;
+}
+
+.fui-panel .x-tool-over .x-tool-right {
+	background-position: -15px -120px;
+}
+
+.fui-panel .x-tool-over .x-tool-pin {
+	background-position: -15px -135px;
+}
+
+.fui-panel .x-tool-over .x-tool-unpin {
+	background-position: -15px -150px;
+}
+
+.fui-panel .x-tool-over .x-tool-next {
+	background-position: -15px -165px;
+}
+
+.fui-panel .x-tool-over .x-tool-prev {
+	background-position: -15px -180px;
+}
+
+.fui-panel .x-tool-over .x-tool-children {
+	background-position: -15px -195px;
+}
+
+.fui-panel .x-tool-over .x-tool-ancestor {
+	background-position: -15px -210px;
+}
+
+.fui-panel .x-tool-over .x-tool-refresh {
+	background-position: -15px -225px;
+}
+
+.fui-panel .x-tool-over .x-tool-plus {
+	background-position: -15px -240px;
+}
+
+.fui-panel .x-tool-over .x-tool-minus {
+	background-position: -15px -255px;
+}
+
+.fui-panel .x-tool-over .x-tool-save {
+	background-position: -15px -270px;
+}
+
+.fui-panel .x-tool-over .x-tool-search {
+	background-position: -15px -285px;
+}
+
+.fui-panel .x-tool-over .x-tool-help {
+	background-position: -15px -300px;
+}
+
+.fui-panel .x-tool-over .x-tool-print {
+	background-position: -15px -315px;
+}
+
+.fui-panel .x-tool-over .x-tool-expand {
+	background-position: -15px -330px;
+}
+
+.fui-panel .x-tool-over .x-tool-collapse {
+	background-position: -15px -345px;
+}
+
+.fui-panel .x-tool-over .x-tool-tree {
+    background-position: -15px -360px;
+}
+
+.fui-panel .x-tool-over .x-tool-submit {
+	background-position: -15px -375px;
+}
+
+.fui-panel .x-tool-over .x-tool-list {
+    background-position: -15px -390px;
+}
+
+.fui-panel .x-tool-over .x-tool-clear {
+    background-position: -15px -405px;
+}
+
+.fui-panel .x-tool-over .x-tool-add {
+    background-position: -15px -420px;
+}
+
+.fui-panel .x-tool-over .x-tool-delete {
+    background-position: -15px -435px;
+}
+
+.fui-panel .x-tool-over .x-tool-update {
+    background-position: -15px -450px;
+}
+
+.fui-panel .x-tool-over .x-tool-start {
+    background-position: -15px -465px;
+}
+
+.fui-panel .x-tool-over .x-tool-stop {
+    background-position: -15px -480px;
+}
+
+/*患者导航样式*/
+.patientnavigationview-search {
+	background-image: url("./images/icons/tools_15.png");
+	background-position: -15px -285px;
+}
+
+.patientnavigationview-sort {
+	background-image: url("./images/icons/tools_15.png");
+	background-position: -15px -210px;
+}
+
+.patientnavigationview-view {
+	border-bottom: 1px solid #DDDDDD;
+}
+
+.patientnavigationview-list {
+    background: white;
+}
+
+.patientnavigationview-list .thumb {
+    padding: 4px 0 0 0;
+    font: 13px '宋体', Arial, Helvetica, sans-serif;
+}
+
+.patientnavigationview-list .patientview {
+    margin: 2px;
+    border: 1px solid #DDDDDD;
+}
+
+.patientnavigationview-list .patientview td { 
+    text-align: left;
+}
+
+.patientnavigationview-list .patientview .patientNm {
+	width: 70px;
+}
+
+.patientnavigationview-list .patientview .sexCd {
+    width: 5px;
+}
+
+.patientnavigationview-list .patientview .patientAge {
+    width: 45px;
+    text-align: right;
+}
+
+.patientnavigationview-list .x-item-over {
+    border: 1px solid #99bce8;
+    background: #efefef url(./images/icons/over.gif) repeat-x left top;
+    cursor: pointer;
+}
+
+.patientnavigationview-list .x-item-selected {
+    background: #eff5fb url(./images/icons/selected.gif) no-repeat right bottom;
+    border: 1px solid #99bbe8;
+}
+
+.patientnavigationview-list .x-item-selected .thumb {
+    background: transparent;
+}
+
+.patientnavigationview-list .loading-indicator {
+    font-size: 11px;
+    background-image: url('/extjs/resources/themes/images/default/grid/loading.gif');
+    background-repeat: no-repeat;
+    background-position: left;
+    padding-left: 20px;
+    margin: 10px;
+}
+
+.x-view-selector {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    border: 1px dotted;
+    opacity: .5;
+    -moz-opacity: .5;
+    filter: alpha(opacity=50);
+    zoom: 1;
+    background-color: #c3daf9;
+    border-color: #3399bb;
+}
+
+.ext-strict .ext-ie .x-tree .x-panel-bwrap{
+    position: relative;
+    overflow: hidden;
+}
+
+/*功能导航样式*/
+.placeholder-view a {
+	display: none;
+}
+
+.function-tree .x-grid-body {
+	margin: 1px 0 0 0;
+	border-width: 0 1px;
+}
+
+.function-placeholder-selected {
+	background-color: gray;
+}
+
+.tool-active img {
+	filter: alpha(opacity=50);
+	opacity: 0.5;
+}
+
+.function-list {
+	overflow: scroll;
+}
+
+.function-list-item {
+    padding: 0 0 4px 16px;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+#functionnavigationview .x-tree-node-text {
+	font-size: 12px;
+}
+
+.function-list-item img {
+	display: inline-block;
+    vertical-align: top;
+	padding: 0 16px 0 0;
+	height: 16px;
+	margin: 3px 3px 0 0;
+}
+
+.function-list .x-item-selected {
+    font-weight: bold; 
+    color: #15428B;
+    background-color: #99BCE8;
+    border: 1px dotted #A3BAE9;
+}
+
+.function-list .list-item-hover {
+    background-color: #eee;
+}
+
+.function-list-index {
+	background: url(./images/icons/functionNavigation.png) no-repeat 1px 0;
+}
+
+.x-grid-tree-node-expanded .function-list-summary, .function-list-summary {
+	background: url(./images/icons/functionNavigation.png) no-repeat 1px -16px;
+}
+
+.function-list-basement {
+	background: url(./images/icons/functionNavigation.png) no-repeat 1px -32px;
+}
+
+.function-list-diagnosis {
+	background: url(./images/icons/functionNavigation.png) no-repeat 1px -48px;
+}
+
+.function-list-record {
+	background: url(./images/icons/functionNavigation.png) no-repeat 1px -64px;
+}
+
+.function-list-hospital {
+	background: url(./images/icons/functionNavigation.png) no-repeat 1px -80px;
+}
+
+.function-list-order {
+	background: url(./images/icons/functionNavigation.png) no-repeat 1px -96px;
+}
+
+.function-list-check {
+	background: url(./images/icons/functionNavigation.png) no-repeat 1px -112px;
+}
+
+.function-list-test {
+	background: url(./images/icons/functionNavigation.png) no-repeat 1px -128px;
+}
+
+.function-list-pathology {
+	background: url(./images/icons/functionNavigation.png) no-repeat 1px -144px;
+}
+
+.function-list-surgery {
+	background: url(./images/icons/functionNavigation.png) no-repeat 1px -160px;
+}
+
+.x-grid-tree-node-expanded .function-list-progress, .function-list-progress {
+	background: url(./images/icons/functionNavigation.png) no-repeat 1px -176px;
+}
+
+.function-list-first {
+	background: url(./images/icons/functionNavigation.png) no-repeat 1px -192px;
+}
+
+.function-list-consultation {
+	background: url(./images/icons/functionNavigation.png) no-repeat 1px -208px;
+}
+
+.function-list-total {
+	background: url(./images/icons/functionNavigation.png) no-repeat 1px -224px;
+}
+
+.function-list-other {
+	background: url(./images/icons/functionNavigation.png) no-repeat 1px -240px;
+}
+
+.function-list-allergy {
+	background: url(./images/icons/functionNavigation.png) no-repeat 1px -256px;
+}
+
+.function-list-immunity {
+	background: url(./images/icons/functionNavigation.png) no-repeat 1px -272px;
+}
+
+.function-list-life {
+	background: url(./images/icons/functionNavigation.png) no-repeat 1px -288px;
+}
+
+.function-list-problem {
+	background: url(./images/icons/functionNavigation.png) no-repeat 1px -304px;
+}
+
+.x-tool-over .function-list-index {
+	background: url(./images/icons/functionNavigation.png) no-repeat -15px 0;
+}
+
+.x-tool-over .function-list-basement {
+	background: url(./images/icons/functionNavigation.png) no-repeat -15px -32px;
+}
+
+.x-tool-over .function-list-diagnosis {
+	background: url(./images/icons/functionNavigation.png) no-repeat -15px -48px;
+}
+
+.x-tool-over .function-list-record {
+	background: url(./images/icons/functionNavigation.png) no-repeat -15px -64px;
+}
+
+.x-tool-over .function-list-hospital {
+	background: url(./images/icons/functionNavigation.png) no-repeat -15px -80px;
+}
+
+.x-tool-over .function-list-order {
+	background: url(./images/icons/functionNavigation.png) no-repeat -15px -96px;
+}
+
+.x-tool-over .function-list-check {
+	background: url(./images/icons/functionNavigation.png) no-repeat -15px -112px;
+}
+
+.x-tool-over .function-list-test {
+	background: url(./images/icons/functionNavigation.png) no-repeat -15px -128px;
+}
+
+.x-tool-over .function-list-pathology {
+	background: url(./images/icons/functionNavigation.png) no-repeat -15px -144px;
+}
+
+.x-tool-over .function-list-surgery {
+	background: url(./images/icons/functionNavigation.png) no-repeat -15px -160px;
+}
+
+.x-tool-over .function-list-first {
+	background: url(./images/icons/functionNavigation.png) no-repeat -15px -192px;
+}
+
+.x-tool-over .function-list-consultation {
+	background: url(./images/icons/functionNavigation.png) no-repeat -15px -208px;
+}
+
+.x-tool-over .function-list-total {
+	background: url(./images/icons/functionNavigation.png) no-repeat -15px -224px;
+}
+
+.x-tool-over .function-list-other {
+	background: url(./images/icons/functionNavigation.png) no-repeat -15px -240px;
+}
+
+.x-tool-over .function-list-allergy {
+	background: url(./images/icons/functionNavigation.png) no-repeat -15px -256px;
+}
+
+.x-tool-over .function-list-immunity {
+	background: url(./images/icons/functionNavigation.png) no-repeat -15px -272px;
+}
+
+.x-tool-over .function-list-life {
+	background: url(./images/icons/functionNavigation.png) no-repeat -15px -288px;
+}
+
+.x-tool-over .function-list-problem {
+	background: url(./images/icons/functionNavigation.png) no-repeat -15px -304px;
+}
+
+/*遮罩*/
+.x-mask-msg div {
+	background-image: none;
+	padding: 5px 10px 5px 10px;
+}
+
+.x-mask-msg table {
+	font: 12px '宋体', Arial, Helvetica, sans-serif;
+}
+
+.fui-headbutton .x-panel-header-default-horizontal-noborder,
+.fui-headbutton .x-panel-header-default-horizontal {
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+
+/*修改extjs原生字体*/
+.x-body .x-panel-header-text-container-default-framed,
+.x-body .x-tab-default .x-tab-inner,
+.x-body .x-panel-header-text-container-default,
+.x-body .x-tree-node-text,
+.x-body .x-grid-cell,
+.x-body .x-column-header,
+.x-body .x-btn-default-small .x-btn-inner,
+.x-body .x-menu-item-text,
+.x-body .x-toolbar-text {
+	font-size: 12px;
+}
+
+/*弹出窗口样式*/
+.messagebox-detail {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+	overflow: auto;
+	border: 1px solid #99bce8;
+	padding: 5px;
+}
+
+.messagebox-detail-button {
+	position: absolute;
+	top: 4px;
+	right: 5px;
+	text-decoration: underline;
+	cursor: pointer;
+	color: #15428B;
+}
+
+.x-btn-default-toolbar-small .x-btn-inner {
+	font-size:12px;
+}
+
+ .bottom-dotted-border input{
+  border-bottom: 1px dotted #b5b8c8;
+  background-image: none;
+}
+
+ .top-dotted-border input{
+  border-top: 1px dotted #b5b8c8;
+  background-image: none;
+}
+
+ .left-dotted-border input{
+  border-left: 1px dotted #b5b8c8;
+  background-image: none;
+}
+
+ .right-dotted-border input{
+  border-right: 1px dotted #b5b8c8;
+  background-image: none;
+}
+
+ .top-right-dotted-border input{
+  border-top: 1px dotted #b5b8c8;
+  border-right: 1px dotted #b5b8c8;
+  background-image: none;
+}
+
+ .top-left-dotted-border input{
+  border-top: 1px dotted #b5b8c8;
+  border-left: 1px dotted #b5b8c8;
+  background-image: none;
+}
+
+ .bottom-right-dotted-border input{
+  border-bottom: 1px dotted #b5b8c8;
+  border-right: 1px dotted #b5b8c8;
+  background-image: none;
+}
+
+ .bottom-left-dotted-border input{
+  border-bottom: 1px dotted #b5b8c8;
+  border-left: 1px dotted #b5b8c8;
+  background-image: none;
+}
+
+.bottom-left-right-dotted-border input{
+  border-bottom: 1px dotted #b5b8c8;
+  border-left: 1px dotted #b5b8c8;
+  border-right: 1px dotted #b5b8c8;
+  background-image: none;
+}
+
+ .top-right-dotted-border input{
+  border-top: 1px dotted #b5b8c8;
+  border-right: 1px dotted #b5b8c8;
+  background-image: none;
+}
+
+ .top-left-dotted-border input{
+  border-top: 1px dotted #b5b8c8;
+  border-left: 1px dotted #b5b8c8;
+  background-image: none;
+}
+
+.top-left-right-dotted-border input{
+  border-top: 1px dotted #b5b8c8;
+  border-left: 1px dotted #b5b8c8;
+  border-right: 1px dotted #b5b8c8;
+  background-image: none;
+}
+
+ .bottom-no-border input{
+  border-bottom: 0px solid;
+  background-image: none;
+}
+
+.top-no-border input{
+  border-top: 0px solid;
+  background-image: none;
+}
+
+.top-right-no-border input{
+  border-top: 0px solid;
+  border-right: 0px solid;
+  background-image: none;
+}
+
+.top-left-no-border input{
+  border-top: 0px solid;
+  border-left: 0px solid;
+  background-image: none;
+}

@@ -1,0 +1,26 @@
+{
+  "name": "lib.extjs",
+  "version": "0.0.1",
+  "authors": [
+    "founder"
+  ],
+  "description": "ExtJS Library",
+  "private": false,
+  "ignore": [
+    ".idea",
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "0.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.1",
+    "commit": "270a464bc5687f2e918942a2b6d80408d60b9769"
+  },
+  "_source": "http://172.18.65.157:9004/git/bower_pkgs/lib.extjs.git",
+  "_target": "0.0.1",
+  "_originalSource": "lib.extjs"
+}

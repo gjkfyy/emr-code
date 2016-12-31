@@ -1,0 +1,31 @@
+{
+  "name": "xap.ej",
+  "description": "Xap ExtJs",
+  "moduleType": [
+    "amd"
+  ],
+  "authors": [
+    "founder"
+  ],
+  "private": false,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "lib.extjs": "0.0.1"
+  },
+  "_release": "cf88af9a2a",
+  "_resolution": {
+    "type": "branch",
+    "branch": "develop",
+    "commit": "cf88af9a2ab77c7f0d62757bbb8d5e3b80b4a00b"
+  },
+  "_source": "http://172.18.65.157:9004/git/bower_pkgs/xap.ej.git",
+  "_target": "develop",
+  "_originalSource": "xap.ej",
+  "_direct": true
+}

@@ -1,0 +1,21 @@
+Ext.define("iih.mr.model.DefectNotice",{
+	extend: 'Ext.data.Model',
+	fields:[
+		{name:"defectNoticeCd",type:"string"},
+		{name:"defectSignCd",type:"string"},
+		{name:"receiveDept",type:"string"},
+		{name:"recipient",type:"string"},
+		{name:"defectPoints",type:"string"},
+		{name:"defectDeadLine",type:"string"},
+		{name:"defectTimes",type:"date"},
+		{name:"totalPoints",type:"string"},
+		{name:"defectSender",type:"string"},
+		{name:"defectSendTime",type:"date"},
+		{name:"defectRecipient",type:"string"},
+		{name:"defectReceiptTime",type:"date"},
+		'defects'
+	]
+	/*,
+	belongsTo:"Defect"
+	*/
+});

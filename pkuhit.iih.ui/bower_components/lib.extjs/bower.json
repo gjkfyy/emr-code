@@ -1,0 +1,17 @@
+{
+  "name": "lib.extjs",
+  "version": "0.0.1",
+  "authors": [
+    "founder"
+  ],
+  "description": "ExtJS Library",
+  "private": false,
+  "ignore": [
+    ".idea",
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

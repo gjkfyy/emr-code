@@ -1,0 +1,22 @@
+{
+  "name": "xap.ej",
+  "version": "0.0.1-SNAPSHOT",
+  "description": "Xap ExtJs",
+  "moduleType": [
+    "amd"
+  ],
+  "authors": [
+    "founder"
+  ],
+  "private": false,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "lib.extjs": "0.0.1"
+  }
+}
