@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Logback Configuration. -->
 <configuration debug="false">
+	<logger name="org.quartz" level="ERROR"/>
+	
 	<substitutionProperty name="xap.logs" value="${catalina.base}/logs/iemr" />  
 	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
 		<target>System.out</target>
