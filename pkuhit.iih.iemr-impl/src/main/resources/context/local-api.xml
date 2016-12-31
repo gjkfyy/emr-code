@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:ctx="http://www.springframework.org/schema/context"
+	xmlns:xap="http://xap.org/xap" xmlns:sca="http://www.springframework.org/schema/sca"
+	xsi:schemaLocation="
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		   http://xap.org/xap http://xap.org/xap-0.1.xsd
+		   http://www.springframework.org/schema/sca   http://www.osoa.org/xmlns/sca/1.0/spring-sca.xsd">
+	
+	<bean id="waitSignMrListService" class="pkuhit.iih.iemr.mr.WaitSignMrListServiceImpl" />
+	<sca:service name="waitSignMrListService" target="waitSignMrListService" />
+	
+	<bean id="signedMrListService" class="pkuhit.iih.iemr.mr.SignedMrListServiceImpl" />
+	<sca:service name="signedMrListService" target="signedMrListService" />
+	
+	<bean id="faultService" class="pkuhit.iih.iemr.qa.FaultServiceImpl" />
+	<sca:service name="faultService" target="faultService" />
+	
+	<bean id="qaService" class="pkuhit.iih.iemr.qa.QaServiceImpl" />
+	<sca:service name="qaService" target="qaService" />
+	
+	<bean id="iEMRFileService" class="pkuhit.iih.iemr.mr.IEMRFileServiceImpl" />
+	<sca:service name="iEMRFileService" target="iEMRFileService" />
+	
+	<bean id="localQaSystemItemService" class="pkuhit.iih.iemr.qa.QaSystemItemServiceImpl" />
+	<sca:service name="localQaSystemItemService" target="localQaSystemItemService" />
+	
+	<bean id="mrTempService" class="pkuhit.iih.iemr.mr.IEMRTempServiceImpl" />
+	<sca:service name="mrTempService" target="mrTempService" />
+
+	<bean id="demoService" class="pkuhit.iih.iemr.demo.DemoServiceImpl" />
+	<sca:service name="demoService" target="demoService" />
+
+	<bean id="userRoleAppService" class="pkuhit.iih.iemr.sys.UserRoleAppServiceImpl" />
+	<sca:service name="userRoleAppService" target="userRoleAppService" />
+	
+	<bean id="groupElementService" class="pkuhit.iih.iemr.mr.GroupElementServiceImpl" />
+	<sca:service name="groupElementService" target="groupElementService" />
+	
+	<bean id="iemrQaScoreCaculateService" class="pkuhit.iih.iemr.qa.IemrQaScoreCaculateServiceImpl" />
+	<sca:service name="iemrQaScoreCaculateService" target="iemrQaScoreCaculateService" />
+	
+	<bean id="macroElementService" class="pkuhit.iih.iemr.mr.MacroElementServiceImpl" />
+	<sca:service name="macroElementService" target="macroElementService" />
+	
+</beans>

@@ -1,0 +1,4 @@
+拆分pkuhit.iih.iemr.context.xml
+增加context/remote-api.xml，context/local-api.xml
+remote-api.xml：其他war包服务的声明
+local-api.xml：本地对外提供rest服务的接口

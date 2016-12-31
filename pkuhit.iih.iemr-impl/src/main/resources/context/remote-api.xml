@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:ctx="http://www.springframework.org/schema/context"
+	xmlns:xap="http://xap.org/xap" xmlns:sca="http://www.springframework.org/schema/sca"
+	xsi:schemaLocation="
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		   http://xap.org/xap http://xap.org/xap-0.1.xsd
+		   http://www.springframework.org/schema/sca   http://www.osoa.org/xmlns/sca/1.0/spring-sca.xsd">
+	<xap:reference name="mrTemplateService" type="pkuhit.iih.mr.tpl.MrTemplateService">
+	</xap:reference>
+
+	<xap:reference name="mrTypeCustomCategoryItemService"
+		type="pkuhit.iih.mr.md.MrTypeCustomCategoryItemService">
+	</xap:reference>
+
+	<xap:reference name="fileService" type="pkuhit.xap.file.FileService">
+	</xap:reference>
+
+	<xap:reference name="userPortalService" type="pkuhit.xap.ac.UserPortalService">
+	</xap:reference>
+
+	<xap:reference name="userMenuService" type="pkuhit.xap.ac.UserMenuService">
+	</xap:reference>
+
+	<xap:reference name="userRoleService" type="pkuhit.xap.ac.UserRoleService">
+	</xap:reference>
+
+	<xap:reference name="organizationService" type="pkuhit.org.OrganizationService">
+	</xap:reference>
+
+	<xap:reference name="dictionaryService" type="pkuhit.md.DictionaryService">
+	</xap:reference>
+
+
+	<xap:reference name="amrService" type="pkuhit.iih.mr.wr.AmrService">
+	</xap:reference>
+
+	<xap:reference name="nursingRecordService" type="pkuhit.iih.mr.wr.NursingRecordService">
+	</xap:reference>
+
+	<xap:reference name="medicalRecordService"
+		type="pkuhit.iih.mr.wr.MedicalRecordService">
+	</xap:reference>
+		<xap:reference name="outMedicalRecordService"
+		type="pkuhit.iih.mr.wr.OutMedicalRecordService">
+	</xap:reference>
+
+	<xap:reference name="faultRecordService" type="pkuhit.iih.qa.FaultRecordService">
+	</xap:reference>
+
+	<xap:reference name="qaRecordService" type="pkuhit.iih.qa.QaRecordService">
+	</xap:reference>
+
+	<xap:reference name="qaAmrService" type="pkuhit.iih.mr.wr.QaAmrService">
+	</xap:reference>
+
+	<xap:reference name="sysConfigService" type="pkuhit.xap.sy.SysConfigService">
+	</xap:reference>
+
+<!-- 	<xap:reference name="encounterService" type="pkuhit.iih.en.EncounterService"> -->
+<!-- 	</xap:reference> -->
+
+	<xap:reference name="TaskActionService" type="pkuhit.xap.task.TaskActionService">
+	</xap:reference>
+
+<!-- 	<xap:reference name="treatmentGroupService" type="pkuhit.iih.en.TreatmentGroupService"> -->
+<!-- 	</xap:reference> -->
+
+	<xap:reference name="qaSystemItemService"
+		type="pkuhit.iih.mr.qasys.QaSystemItemService">
+	</xap:reference>
+
+	<xap:reference name="userService" type="pkuhit.xap.ac.UserService">
+	</xap:reference>
+
+	<xap:reference name="configItemDataService"
+		type="pkuhit.xap.cfg.ConfigItemDataService">
+	</xap:reference>
+
+	<xap:reference name="mrGroupElementService"
+		type="pkuhit.iih.mr.tpl.MrGroupElementService">
+	</xap:reference>
+
+	<xap:reference name="workGroupEmpService" type="pkuhit.org.WorkGroupEmpService">
+	</xap:reference>
+
+	<xap:reference name="serviceMetadataStore"
+		type="xap.sv.service.meta.ServiceMetadataStore">
+	</xap:reference>
+
+	<xap:reference name="workGroupEmpService" type="pkuhit.org.WorkGroupEmpService">
+	</xap:reference>
+
+	<!--wangyanli注掉 该类已删除 20150522xap:reference name="mrQaScoreCaculateService"
+		type="pkuhit.iih.qa.MrQaScoreCaculateService">
+	</xap:reference-->
+
+	<xap:reference name="dataObjectService" type="pkuhit.me.DataObjectService">
+	</xap:reference>
+	
+	<xap:reference name="patientService"
+		type="pkuhit.iih.en.PatientService">
+	</xap:reference>
+	
+	<xap:reference name="orderService"
+		type="pkuhit.iih.ass.or.AssOrderService">
+	</xap:reference>
+	
+	<xap:reference name="vitalsignService"
+		type="pkuhit.iih.ass.nu.AssVitalsignService">
+	</xap:reference>
+	
+	<xap:reference name="notificationManager"
+		type="xap.sv.notification.NotificationManager" />
+	<xap:reference name="paramsService" type="pkuhit.xap.pm.ParamsService" />
+	<xap:reference name="paramsSetService" type="pkuhit.xap.pm.ParamsSetService" />
+	<xap:reference name="mrFrTplService" type="pkuhit.iih.mr.tpl.MrFrTplService" />
+	<xap:reference name="diagnosisService" type="pkuhit.iih.ass.di.AssDiagnosisService" />
+	<xap:reference name="cisMzClinicRoomConfigService" type="ei.cis.service.CisMzClinicRoomConfigService" />
+	<xap:reference name="nisWardConfigService" type="pkuhit.org.NisWardConfigService" />
+	<xap:reference name="cisService" type="ei.cis.service.CisService" />
+</beans>
