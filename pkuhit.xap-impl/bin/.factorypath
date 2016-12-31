@@ -1,5 +1,0 @@
-<factorypath>
-    <factorypathentry kind="EXTJAR" id="D:\lizheng\iemr\lib\doma-1.35.0.jar" enabled="false" runInBatchMode="false"/>
-    <factorypathentry kind="PLUGIN" id="org.eclipse.jst.ws.annotations.core" enabled="false" runInBatchMode="false"/>
-    <factorypathentry kind="EXTJAR" id="E:\ex-work\gjkfyy\emr\emr-code\lib\doma-1.35.0.jar" enabled="true" runInBatchMode="false"/>
-</factorypath>
