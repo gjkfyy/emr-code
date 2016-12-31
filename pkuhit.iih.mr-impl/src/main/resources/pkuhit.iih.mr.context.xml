@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:ctx="http://www.springframework.org/schema/context"
+	xmlns:xap="http://xap.org/xap" xmlns:sca="http://www.springframework.org/schema/sca"
+	xmlns:pkuhit-xap="http://pkuhit.org/xap"
+	xsi:schemaLocation="
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		   http://xap.org/xap http://xap.org/xap-0.1.xsd
+		   http://www.springframework.org/schema/sca   http://www.osoa.org/xmlns/sca/1.0/spring-sca.xsd
+		   http://pkuhit.org/xap                         http://pkuhit.org/pkuhit-xap-0.1.xsd">
+	
+	<bean id="daoExposer" class="xap.sv.dao.SpringContextDaoExposer"></bean>
+	<sca:service name="daoExposer" target="daoExposer" />
+	
+	<!--开始 数据库相关配置 -->
+	<bean class="xap.sv.dao.config.DaoConfigProxy">
+		<constructor-arg value="mainConfig" />
+	</bean>
+
+	<bean id="transactionManager"
+		class="xap.sv.service.proxy.TransactionManagerProxy">
+	</bean>
+<!-- 	<bean id="dialect" class="org.seasar.doma.jdbc.dialect.OracleDialect"></bean> -->
+<!-- 	<bean id="dataSourceProxy" -->
+<!-- 		class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy"> -->
+<!-- 		<constructor-arg ref="oracle" /> -->
+<!-- 	</bean> -->
+<!-- 	<bean id="mainConfig" class="pkuhit.iih.pub.MyDomaConfig"> -->
+<!-- 		<property name="dataSource" ref="dataSourceProxy" /> -->
+<!-- 		<property name="dialect" ref="dialect" /> -->
+<!-- 	</bean> -->
+
+	<ctx:component-scan base-package="pkuhit.iih.pub" />
+	<!-- 自动扫描，注入dao等 -->
+	<ctx:component-scan base-package="pkuhit.iih.mr.dao" />
+	<ctx:component-scan base-package="pkuhit.iih.qa.dao" />
+	<ctx:component-scan base-package="pkuhit.iih.qa.dao.qacustom" />
+	<ctx:component-scan base-package="pkuhit.iih.mr.tpl.dao" />
+	<ctx:component-scan base-package="pkuhit.iih.mr.dao.auto" />
+	<ctx:component-scan base-package="pkuhit.iih.mr.md.dao.custom" />
+	<ctx:component-scan base-package="pkuhit.iih.mr.tth.dao.custom" />
+	<ctx:component-scan base-package="pkuhit.iih.mr.tth.dao.auto" />
+	<ctx:component-scan base-package="pkuhit.iih.di.dao" /> 
+
+	<ctx:component-scan base-package="pkuhit.iih.mr.md.dao.auto" />
+	<ctx:component-scan base-package="pkuhit.iih.mr.wr.dao" />
+<!-- 	<ctx:component-scan base-package="pkuhit.xap.dao.auto" /> -->
+	<!-- <ctx:component-scan base-package="pkuhit.iih.mr.qasys" /> -->
+	<!-- 结束 数据库配置 -->
+
+	<import resource="context/remote-api.xml" />
+	<import resource="context/local-api.xml" />
+	<!-- 互联互通XML转换任务  -->
+	<!-- <import resource="context/spring.context.xml"/> -->
+</beans>

@@ -1,0 +1,31 @@
+select
+  APPLY_CD,
+  EN_PK,
+  MR_TP_CD,
+  QA_ITM_CD,
+  QA_AUTO_FLT_PK,
+  APPLY_TIME,
+  APPLY_DCT_CD,
+  APPLY_STATUS,
+  APPLY_DESC,
+  DEPT_CD,
+  APPROVAL_TIME,
+  APPROVAL_DCT_CD,
+  MEMO,
+  SORT_NO,
+  SPELL_NO,
+  WUBI_NO,
+  UPD_CNT,
+  CRT_TIME,
+  CRT_USER_ID,
+  CRT_DEPT_CD,
+  LAST_UPD_TIME,
+  LAST_UPD_DEPT_CD,
+  LAST_UPD_USER_ID,
+  DEL_F,
+  APPLY_TYPE_CD
+from
+  MR_APPLY
+where
+  APPLY_CD = /* applyCd */'a'
+and del_f = 0

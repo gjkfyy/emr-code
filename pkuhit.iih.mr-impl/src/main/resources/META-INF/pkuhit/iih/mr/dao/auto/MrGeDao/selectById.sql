@@ -1,0 +1,33 @@
+select
+  MR_GE_CD,
+  ORG_CD,
+  FILE_PK,
+  MR_GE_CCAT_CD,
+  RT_MR_EG_CD,
+  VER_NO,
+  MR_GE_TP_CD,
+  MR_GE_STA_CD,
+  NM,
+  DES,
+  OWN_TP_CD,
+  OWN_CD,
+  MEMO,
+  SORT_NO,
+  SPELL_NO,
+  WUBI_NO,
+  UPD_CNT,
+  CRT_TIME,
+  CRT_USER_ID,
+  CRT_DEPT_CD,
+  LAST_UPD_TIME,
+  LAST_UPD_DEPT_CD,
+  LAST_UPD_USER_ID,
+  DEL_F,
+  RLS_TIME,
+  RLS_USER_ID,
+  RLS_DEPT_CD
+from
+  MR_GE
+where
+  MR_GE_CD = /* mrGeCd */'a'
+and del_f = 0

@@ -1,0 +1,27 @@
+select
+  EN_ADT_CD,
+  EN_PK,
+  PATIENT_ID,
+  EN_CNT,
+  LEDGER_SN,
+  TRANS_TIMES,
+  ADMISS_DATE,
+  DIS_DATE,
+  TRANS_REG_DATE,
+  TRANS_DATE,
+  TRANS_TYPE,
+  ORIG_DEPT,
+  ORIG_WARD,
+  ORIG_ROOM,
+  ORIG_BED,
+  ORIG_OPERA,
+  CURR_DEPT,
+  CURR_WARD,
+  CURR_ROOM,
+  CURR_BED,
+  CURR_OPERA,
+  MARK
+from
+  EN_ADT
+where
+  EN_ADT_CD = /* enAdtCd */'a'

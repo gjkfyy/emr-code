@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:ctx="http://www.springframework.org/schema/context"
+	xmlns:xap="http://xap.org/xap" xmlns:sca="http://www.springframework.org/schema/sca"
+	xsi:schemaLocation="
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		   http://xap.org/xap http://xap.org/xap-0.1.xsd
+		   http://www.springframework.org/schema/sca   http://www.osoa.org/xmlns/sca/1.0/spring-sca.xsd">
+	<xap:reference name="configItemDataService" type="pkuhit.xap.cfg.ConfigItemDataService" />
+	<xap:reference name="fileService" type="pkuhit.xap.file.FileService" />
+	<xap:reference name="dataObjectService" type="pkuhit.me.DataObjectService" />
+	<xap:reference name="DictionaryService" type="pkuhit.md.DictionaryService" />
+	<xap:reference name="meCdRuService" type="pkuhit.xap.me.MeCdRuService" />
+	<xap:reference name="workGroupEmpService" type="pkuhit.org.WorkGroupEmpService" />
+	<xap:reference name="serviceMetadataStore" type="xap.sv.service.meta.ServiceMetadataStore" />
+	<xap:reference name="userService" type="pkuhit.xap.ac.UserService" />
+	<xap:reference name="qaNotificationService" type="pkuhit.iih.qa.qacustom.QaNotificationService" />
+	<xap:reference name="qaFaultService" type="pkuhit.iih.qa.qacustom.QaFaultService" />
+	<xap:reference name="baseTemplateService" type="pkuhit.iih.mr.tpl.BaseTemplateService" />
+	<xap:reference name="userRoleService" type="pkuhit.xap.ac.UserRoleService" />
+	<xap:reference name="organizationService" type="pkuhit.org.OrganizationService" />
+	<xap:reference name="sysConfigService" type="pkuhit.xap.sy.SysConfigService" />
+	<xap:reference name="ruleEngin" type="xap.ru.engin.RuleEngin" />
+	<xap:reference name="ruleEnginService" type="pkuhit.xap.ru.RuleEnginService" />
+	<xap:reference name="mrApplyService" type="pkuhit.iih.qa.apply.MrApplyService" />
+	
+	<xap:reference name="oracleDiService" type="iih.di.service.intf.DiService" />
+	
+	<xap:reference name="qaAutoEventService" type="pkuhit.iih.qa.QaAutoEventService" />
+	
+	<xap:reference name="messageService" type="pkuhit.xap.mes.MessageService" />
+	<xap:reference name="eventEngin" type="xap.sv.event.engin.EventEngin" />
+	<xap:reference name="paramsService" type="pkuhit.xap.pm.ParamsService" />
+	<xap:reference name="paramsSetService" type="pkuhit.xap.pm.ParamsSetService" />
+	<xap:reference name="mzEiEncounterService" type="ei.en.mz.service.MzEiEncounterService"/>
+	<xap:reference name="zyEiEncounterService" type="ei.en.zy.service.ZyEiEncounterService"/>
+	<xap:reference name="cisService" type="ei.cis.service.CisService"/>
+	<xap:reference name="labReportService" type="ei.lis.service.LabReportService"/>
+	<xap:reference name="labReportItemService" type="ei.lis.service.LabReportItemService"/>
+	<xap:reference name="risObReportService" type="ei.ris.service.RisObReportService"/>
+	
+	<!-- wangyanli add IE impl -->
+	<xap:reference name="labReportFromIEService" type="ei.lis.service.LabReportFromIEService"/>
+	<xap:reference name="labReportItemFromIEService" type="ei.lis.service.LabReportItemFromIEService"/>
+	<xap:reference name="risObReportFromIEService" type="ei.ris.service.RisObReportFromIEService"/>
+
+	<!-- guozhongbao 助手区 -->
+	<xap:reference name="mzDirectDiagnosisService" type="ei.ass.di.mz.service.MzDirectDiagnosisService" />	
+	<xap:reference name="mzSplitDiagnosisService" type="ei.ass.di.mz.service.MzSplitDiagnosisService" />	
+	<xap:reference name="mzDirectVitalsignService" type="ei.ass.nu.mz.service.MzDirectVitalsignService" />	
+	<xap:reference name="mzSplitVitalsignService" type="ei.ass.nu.mz.service.MzSplitVitalsignService" />	
+	<xap:reference name="mzDirectOrderService" type="ei.ass.or.mz.service.MzDirectOrderService" />	
+	<xap:reference name="mzSplitOrderService" type="ei.ass.or.mz.service.MzSplitOrderService" />	
+	<xap:reference name="zyDirectDiagnosisService" type="ei.ass.di.zy.service.ZyDirectDiagnosisService" />	
+	<xap:reference name="zySplitDiagnosisService" type="ei.ass.di.zy.service.ZySplitDiagnosisService" />	
+	<xap:reference name="zyDirectVitalsignService" type="ei.ass.nu.zy.service.ZyDirectVitalsignService" />	
+	<xap:reference name="zySplitVitalsignService" type="ei.ass.nu.zy.service.ZySplitVitalsignService" />	
+	<xap:reference name="zyDirectOrderService" type="ei.ass.or.zy.service.ZyDirectOrderService" />	
+	<xap:reference name="zySplitOrderService" type="ei.ass.or.zy.service.ZySplitOrderService" />
+	<xap:reference name="patientInfoForXMLService" type="ei.pa.service.PatientInfoForXMLService"/>
+	<!-- 会诊管理和跨科就诊，远程api -->
+	<xap:reference name="cisStepDeptMrAmrService" type="ei.cis.service.CisStepDeptMrAmrService" />
+	<xap:reference name="cisConsMrAmrService" type="ei.cis.service.CisConsMrAmrService"/>
+	<xap:reference name="cisStepDeptMrAmrService" type="ei.his.service.HisStepDeptMrAmrService" />
+	<xap:reference name="cisConsMrAmrService" type="ei.his.service.HisConsMrAmrService"/>
+	
+	<xap:reference name="hisMrAmrOutService" type="ei.his.service.HisMrAmrOutService"/>
+	
+	<xap:reference name="mrToCisService" type="pkuhit.iih.mr.MrToCisService"/>
+	<xap:reference name="userRoleService" type="pkuhit.xap.ac.UserRoleService"/>
+	<!--mengxinhua add 图片签名读取cis视图  -->
+	<xap:reference name="cisSignPicService" type="ei.cis.service.CisSignPicService"/>
+	<!--wangyanli add 住院患者读取cis视图  -->
+	<xap:reference name="cisEnViewService" type="ei.cis.service.CisEnViewService"/>
+</beans>

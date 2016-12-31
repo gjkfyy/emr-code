@@ -1,0 +1,47 @@
+select m.mr_pk,
+       m.en_pk,
+       m.mr_tpl_cd,
+       m.file_pk,
+       m.nm,
+       m.mr_tp_cd,
+       m.encounter_sn,
+       m.mr_sta_cd,
+       m.mr_qa_sta_cd,
+       m.completed_f,
+       m.sign_lvl_cd,
+       m.biz_time,
+       m.sup_dct_id,
+       m.submit_cd,
+       m.submit_date,
+       m.dept_cd,
+       m.treat_doctor_cd,
+       m.mast_doctor_cd,
+       m.mast_doctor_date,
+       m.dir_doctor_cd,
+       m.dir_doctor_date,
+       m.memo,
+       m.sort_no,
+       m.spell_no,
+       m.wubi_no,
+       m.upd_cnt,
+       m.crt_time,
+       m.crt_user_id,
+       m.crt_dept_cd,
+       m.last_upd_time,
+       m.last_upd_dept_cd,
+       m.last_upd_user_id,
+       m.del_f
+  from mr m
+ where m.del_f = '0'
+   and m.en_pk = /*enPk*/'702541'
+   and m.mr_tp_cd in (select mmtc.mr_tp_cd
+                        from md_mr_tp_ccat_itm mmtc
+                      where mmtc.mr_tp_ccat_cd = /*mrTypeCustomCode*/'MRM14.03')
+   and m.biz_time <= (select max(b.biz_time) 
+   							from mr b 
+   							where b.en_pk=/*enPk*/'702541' 
+   							/*%if deptCd != "" && deptCd != null && deptCd != "null"*/
+   							and b.dept_cd=/*deptCd*/'4308'
+   							/*%end */
+   							)
+   order by m.biz_time

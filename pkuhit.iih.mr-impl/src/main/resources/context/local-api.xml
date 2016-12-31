@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:ctx="http://www.springframework.org/schema/context"
+	xmlns:xap="http://xap.org/xap" xmlns:sca="http://www.springframework.org/schema/sca"
+	xsi:schemaLocation="
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		   http://xap.org/xap http://xap.org/xap-0.1.xsd
+		   http://www.springframework.org/schema/sca   http://www.osoa.org/xmlns/sca/1.0/spring-sca.xsd">
+	<!-- 本地和本地引用的服务(java依赖) -->
+	 <bean id="testService" class="pkuhit.iih.demo.TestServiceImpl"></bean>
+	<sca:service name="testService" target="testService" /> 
+	
+	<bean id="baseTemplateService" class="pkuhit.iih.mr.tpl.BaseTemplateServiceImpl" />
+	<sca:service name="baseTemplateService" target="baseTemplateService" />
+	
+	<bean id="mrFrTplService" class="pkuhit.iih.mr.tpl.MrFrTplServiceImpl" />
+	<sca:service name="mrFrTplService" target="mrFrTplService" />
+
+	<bean id="mrGroupElementService" class="pkuhit.iih.mr.tpl.MrGroupElementServiceImpl" />
+	<sca:service name="mrGroupElementService" target="mrGroupElementService" />
+
+	<bean id="mrTemplateService" class="pkuhit.iih.mr.tpl.MrTemplateServiceImpl" />
+	<sca:service name="mrTemplateService" target="mrTemplateService" />
+
+	<bean id="amrService" class="pkuhit.iih.mr.wr.AmrServiceImpl" />
+	<sca:service name="amrService" target="amrService" />
+	
+	<bean id="mrTypeCustomCategoryItemService" class="pkuhit.iih.mr.md.service.MrTypeCustomCategoryItemServiceImpl" />
+	<sca:service name="mrTypeCustomCategoryItemService" target="mrTypeCustomCategoryItemService" />
+	
+	<bean id="mrTypeCustomCategoryService" class="pkuhit.iih.mr.md.service.MrTypeCustomCategoryServiceImpl" />
+	<sca:service name="mrTypeCustomCategoryService" target="mrTypeCustomCategoryService" />
+	
+	<bean id="mrTypeService" class="pkuhit.iih.mr.md.service.MrTypeServiceImpl" />
+	<sca:service name="mrTypeService" target="mrTypeService" />  
+	
+	<bean id="medicalRecordService" class="pkuhit.iih.mr.wr.MedicalRecordServiceImpl" />
+	<sca:service name="medicalRecordService" target="medicalRecordService" />
+	
+	<bean id="omedicalRecordService" class="pkuhit.iih.mr.wr.OutMedicalRecordServiceImpl" />
+	<sca:service name="omedicalRecordService" target="omedicalRecordService" />
+	
+	<bean id="nursingRecordService" class="pkuhit.iih.mr.wr.NursingRecordServiceImpl" />
+	<sca:service name="nursingRecordService" target="nursingRecordService" />
+	
+	<bean id="personKnowledgeService" class="pkuhit.iih.mr.wr.PersonKnowledgeServiceImpl" />
+	<sca:service name="personKnowledgeService" target="personKnowledgeService" />
+
+	<bean id="qaSysItmService" class="pkuhit.iih.mr.qasys.QaSystemItemServiceImpl" />
+	<sca:service name="qaSysItmService" target="qaSysItmService" />
+	
+	<bean id="qaItmService" class="pkuhit.iih.mr.qasys.QaItemServiceImpl" />
+	<sca:service name="qaItmService" target="qaItmService" />
+	
+	<bean id="faultRecordService" class="pkuhit.iih.qa.FaultRecordServiceImpl" />
+	<sca:service name="faultRecordService" target="faultRecordService" />
+	
+	<bean id="qaRecordService" class="pkuhit.iih.qa.QaRecordServiceImpl" />
+	<sca:service name="qaRecordService" target="qaRecordService" />
+	
+	<bean id="qaAmrService" class="pkuhit.iih.mr.wr.QaAmrServiceImpl" />
+	<sca:service name="qaAmrService" target="qaAmrService" />
+	
+	<bean id="archiveService" class="pkuhit.iih.mr.wr.ArchiveServiceImpl" />
+	<sca:service name="archiveService" target="archiveService" />
+	<!-- 查询诊断 -->
+	<bean id="diInService" class="pkuhit.iih.di.DiInServiceImpl" />
+	<sca:service name="diInService" target="diInService" />
+	
+	<!--wangyanli 注释 20150522 该源代码已经删除bean id="faultService" class="pkuhit.iih.qa.FaultServiceImpl" />
+	<sca:service name="faultService" target="faultService" />
+	
+	<bean id="mrQaScoreCaculateService" class="pkuhit.iih.qa.MrQaScoreCaculateServiceImpl" />
+	<sca:service name="mrQaScoreCaculateService" target="mrQaScoreCaculateService" /-->
+
+	<bean id="signUserService" class="pkuhit.iih.mr.wr.SignUserServiceImpl" />
+	<sca:service name="signUserService" target="signUserService" />
+	
+	<!-- 查询质控项目列表 -->
+	<bean id="qaItemService" class="pkuhit.iih.qa.qacustom.QaItemServiceImpl" />
+	<sca:service name="qaItemService" target="qaItemService" />
+	
+	<!-- 查询质控项目 -->
+	<bean id="amrQAItmService" class="pkuhit.iih.qa.qacustom.AmrQAItmServiceImpl" />
+	<sca:service name="amrQAItmService" target="amrQAItmService" />
+	
+	<!-- 查询患者列表 -->
+	<bean id="patientEncounterService" class="pkuhit.iih.qa.qacustom.PatientEncounterServiceImpl" />
+	<sca:service name="patientEncounterService" target="patientEncounterService" />
+	
+	<bean id="qaMrAmrService" class="pkuhit.iih.qa.qacustom.QaMrAmrServiceImpl" />
+	<sca:service name="qaMrAmrService" target="qaMrAmrService" />
+	
+	<bean id="qaNotificationService" class="pkuhit.iih.qa.qacustom.QaNotificationServiceImpl" />
+	<sca:service name="qaNotificationService" target="qaNotificationService" />
+	
+	<bean id="qaFaultService" class="pkuhit.iih.qa.qacustom.QaFaultServiceImpl" />
+	<sca:service name="qaFaultService" target="qaFaultService" />
+	
+	<!-- 质控评分 -->
+	<bean id="qaScoreService" class=" pkuhit.iih.qa.qacustom.QaScoreServiceImpl" />
+	<sca:service name="qaScoreService" target="qaScoreService" />
+	<!-- 质控报表 -->
+	<bean id="qaStatisticsService" class="pkuhit.iih.qa.qacustom.stat.QaStatisticsServiceImpl" />
+	<sca:service name="qaStatisticsService" target="qaStatisticsService" />
+	
+	<bean id="mdMrShareElementService" class=" pkuhit.iih.mr.md.service.MdMrShareElementServiceImpl" />
+	<sca:service name="mdMrShareElementService" target="mdMrShareElementService" />
+	
+	<!-- 自动质控 
+	<bean id="qaAutoService" class=" pkuhit.iih.qa.qacustom.QaAutoServiceImpl" />
+	<sca:service name="qaAutoService" target="qaAutoService" />-->
+	
+	<!-- 自动质控-数据处理服务 -->
+	<bean id="qaAutoDataProcessService" class=" pkuhit.iih.qa.qaauto.QaAutoDataProcessServiceImpl" />
+	<sca:service name="qaAutoDataProcessService" target="qaAutoDataProcessService" />
+	
+	<bean id="qaReportService" class="pkuhit.iih.qa.QaReportServiceImpl" />
+	<sca:service name="qaReportService" target="qaReportService" />
+	
+	<!--wangyanli 注掉
+	<bean id="qaFaultService" class="pkuhit.iih.qa.QaFaultServiceImpl" />
+	<sca:service name="qaFaultService" target="qaFaultService" />-->
+	
+	<!--wangyanli   modify 20150512-->
+	<bean id="qaAutoItemService" class="pkuhit.iih.qa.qaauto.QaItemServiceImpl" />
+	<sca:service name="qaAutoItemService" target="qaAutoItemService" />
+	
+	<bean id="enMrListDataSearcher" class="pkuhit.iih.qa.qaauto.dataSearcher.EnMrListDataSearcher" />
+	<sca:service name="enMrListDataSearcher" target="enMrListDataSearcher" />
+	
+	<bean id="amrDataSearcher" class="pkuhit.iih.qa.qaauto.dataSearcher.AmrDataSearcher" />
+	<sca:service name="amrDataSearcher" target="amrDataSearcher" />
+	
+	<bean id="qaAutoEmrEventDataSearcher" class="pkuhit.iih.qa.qaauto.dataSearcher.QaAutoEmrEventDataSearcher" />
+	<sca:service name="qaAutoEmrEventDataSearcher" target="qaAutoEmrEventDataSearcher" />
+	
+	<bean id="qaItemResultHandler" class="pkuhit.iih.qa.qaauto.resultHandler.QaItemResultHandler" />
+	<sca:service name="qaItemResultHandler" target="qaItemResultHandler" />
+	
+	
+	<bean id="inRecordTimeBoundValidator" class="pkuhit.iih.qa.qaauto.validator.InRecordTimeBoundValidator" />
+	<sca:service name="inRecordTimeBoundValidator" target="inRecordTimeBoundValidator" />
+	
+	<bean id="firstDiseaseRecordTBValidator" class="pkuhit.iih.qa.qaauto.validator.FirstDiseaseRecordTBValidator" />
+	<sca:service name="firstDiseaseRecordTBValidator" target="firstDiseaseRecordTBValidator" />
+	
+	<bean id="timeBoundValidator" class="pkuhit.iih.qa.qaauto.validator.TimeBoundValidator" />
+	<sca:service name="timeBoundValidator" target="timeBoundValidator" />
+
+	<bean id="frequencyValidator" class="pkuhit.iih.qa.qaauto.validator.FrequencyValidator" />
+	<sca:service name="frequencyValidator" target="frequencyValidator" />
+	
+	<!--yaolijie   完整性  20150703-->
+	<bean id="integrityValidator" class="pkuhit.iih.qa.qaauto.validator.IntegrityValidator" />
+	<sca:service name="integrityValidator" target="integrityValidator" />
+	
+	<!--环节质控需缓存数据Service -->
+	<bean id="qaAutoDataLoadService" class="pkuhit.iih.qa.cache.biz.QaAutoDataLoadServiceImpl" />
+	<sca:service name="qaAutoDataLoadService" target="qaAutoDataLoadService" />
+	
+	<bean id="qaAutoCacheService" class="pkuhit.iih.qa.cache.biz.QaAutoCacheServiceImpl" />
+	<sca:service name="qaAutoCacheService" target="qaAutoCacheService" />
+	
+	<bean id="obsService" class="pkuhit.iih.ass.ob.ObsServiceImpl" />
+	<sca:service name="obsService" target="obsService" />
+	
+	<bean id="labRepService" class="pkuhit.iih.ass.lab.LabRepServiceImpl" />
+	<sca:service name="labRepService" target="labRepService" />
+	
+	<bean id="labRepItemService" class="pkuhit.iih.ass.lab.LabReportItemServiceImpl" />
+	<sca:service name="labRepItemService" target="labRepItemService" />
+	
+	<bean id="assDiagnosisService" class="pkuhit.iih.ass.di.AssDiagnosisServiceImpl" />
+	<sca:service name="assDiagnosisService" target="assDiagnosisService" />
+	
+	<bean id="assVitalsignService" class="pkuhit.iih.ass.nu.AssVitalsignServiceImpl" />
+	<sca:service name="assVitalsignService" target="assVitalsignService" />
+	
+	<bean id="assOrderService" class="pkuhit.iih.ass.or.AssOrderServiceImpl" />
+	<sca:service name="assOrderService" target="assOrderService" />
+	
+	<!-- 转科记录，本地查询接口  -->
+	<bean id="enAdtFromIemrService" class="pkuhit.iih.mr.wr.EnAdtFromIemrServiceImpl" />
+	<sca:service name="enAdtFromIemrService" target="enAdtFromIemrService" />
+
+	<bean id="teethExamService" class="pkuhit.iih.mr.tth.TeethExamServiceImpl" />
+	<sca:service name="teethExamService" target="teethExamService" />
+
+	<bean id="mrXMLService" class="pkuhit.iih.mr.wr.MrXMLServiceImpl"></bean>
+	<sca:service name="mrXMLService" target="mrXMLService" />
+	
+	<bean id="iEMRWebService" class="pkuhit.iih.mr.wr.IEMRWebServiceImpl"></bean>
+	<sca:service name="iEMRWebService" target="iEMRWebService" />
+	
+	<bean id="nsvMedocalRecordService" class="pkuhit.iih.mr.wr.NsvMedocalRecordServiceImpl"></bean>
+	<sca:service name="nsvMedocalRecordService" target="nsvMedocalRecordService" />
+	
+	<bean id="mrApplyService" class="pkuhit.iih.qa.apply.MrApplyServiceImpl"></bean>
+	<sca:service name="mrApplyService" target="mrApplyService" /> 
+	
+	<bean id="qaAutoService" class="pkuhit.iih.qa.qaauto.QaAutoServiceImpl"></bean>
+	<sca:service name="qaAutoService" target="qaAutoService" />
+	
+	<bean id="qaAutoGenerateFaultService" class="pkuhit.iih.qa.qaauto.QaAutoGenerateFaultServiceImpl"></bean>
+	<sca:service name="qaAutoGenerateFaultService" target="qaAutoGenerateFaultService" />
+	
+	<bean id="qaMrTypeService" class="pkuhit.iih.qa.qamrwrite.QaMrTypeServiceImpl"></bean>
+	<sca:service name="qaMrTypeService" target="qaMrTypeService" />
+	
+	<bean id="dataElememtDimenService" class="pkuhit.iih.mr.md.service.DataElememtDimenServiceImpl"></bean>
+	<sca:service name="dataElememtDimenService" target="dataElememtDimenService" />
+	
+	<bean id="platformMessageService" class="pkuhit.iih.mr.wr.PlatformMessageServiceImpl" />
+	<sca:service name="platformMessageService"
+		target="platformMessageService" />
+</beans>

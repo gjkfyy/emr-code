@@ -1,0 +1,29 @@
+select
+  QA_DIVIDE_CD,
+  QA_ITM_PK,
+  QA_TY_CD,
+  SBMT_TIME,
+  SBMT_USER_ID,
+  SBMT_DEPT_CD,
+  RFM_REQ,
+  DRP_DES,
+  EN_PK,
+  DEDUCT_SCR_TIMES,
+  QA_SCR,
+  MEMO,
+  SORT_NO,
+  SPELL_NO,
+  WUBI_NO,
+  UPD_CNT,
+  CRT_TIME,
+  CRT_USER_ID,
+  CRT_DEPT_CD,
+  LAST_UPD_TIME,
+  LAST_UPD_DEPT_CD,
+  LAST_UPD_USER_ID,
+  DEL_F
+from
+  QA_DIVIDE
+where
+  QA_DIVIDE_CD = /* qaDivideCd */'a'
+and del_f = 0
