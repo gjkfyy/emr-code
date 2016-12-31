@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:ctx="http://www.springframework.org/schema/context"
+	xmlns:xap="http://xap.org/xap" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+           	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		   	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+			http://www.springframework.org/schema/jdbc 
+			http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+			http://www.springframework.org/schema/tx 
+			http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+			http://www.springframework.org/schema/aop  
+	        http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+		   	http://xap.org/xap http://xap.org/xap-0.1.xsd">
+
+	 <context:annotation-config />
+	<!-- 将多个配置文件读取到容器中，交给Spring管理 -->
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:cfg.properties</value>
+				<!-- <value>classpath:qa.cfg.properties</value> -->
+			</list>
+		</property>
+	</bean>
+
+	<bean id="dataSourceCIS"
+		class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
+		<constructor-arg index="0">
+			<ref bean="basicDataSourceCIS" />
+		</constructor-arg>
+	</bean>
+	 <bean id="dataSourceHIS"
+		class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
+		<constructor-arg index="0">
+			<ref bean="basicDataSourceHIS" />
+		</constructor-arg>
+	</bean> 
+	<bean id="dataSourceRIS"
+		class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
+		<constructor-arg index="0">
+			<ref bean="basicDataSourceRIS" />
+		</constructor-arg>
+	</bean>
+
+	<bean id="dataSourceLIS"
+		class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
+		<constructor-arg index="0">
+			<ref bean="basicDataSourceLIS" />
+		</constructor-arg>
+	</bean>
+	
+	<bean id="dataSourceAssDiMz"
+		class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
+		<constructor-arg index="0">
+			<ref bean="basicDataSourceAssDiMz" />
+		</constructor-arg>
+	</bean>
+
+	<bean id="dataSourceAssDiZy"
+		class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
+		<constructor-arg index="0">
+			<ref bean="basicDataSourceAssDiZy" />
+		</constructor-arg>
+	</bean>
+
+	<bean id="dataSourceAssNuMz"
+		class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
+		<constructor-arg index="0">
+			<ref bean="basicDataSourceAssNuMz" />
+		</constructor-arg>
+	</bean>
+
+	<bean id="dataSourceAssNuZy"
+		class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
+		<constructor-arg index="0">
+			<ref bean="basicDataSourceAssNuZy" />
+		</constructor-arg>
+	</bean>
+
+	<bean id="dataSourceAssOrMz"
+		class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
+		<constructor-arg index="0">
+			<ref bean="basicDataSourceAssOrMz" />
+		</constructor-arg>
+	</bean>
+
+	<bean id="dataSourceAssOrZy"
+		class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
+		<constructor-arg index="0">
+			<ref bean="basicDataSourceAssOrZy" />
+		</constructor-arg>
+	</bean>
+	
+	<bean id="dataSourceXMLPaZy"
+		class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
+		<constructor-arg index="0">
+			<ref bean="basicDataSourceXMLPaZy" />
+		</constructor-arg>
+	</bean>
+
+    <bean id="oracle" class="xap.sv.dao.config.DaoConfigDataSourceProxy"> 
+                </bean> 
+
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"> 
+           <property name="dataSource"   ref="oracle"/>
+           <property name="queryTimeout"   value="300"/> 
+   </bean>
+    
+	<!-- cis datasource -->
+	<bean id="basicDataSourceCIS" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${cis.db.driverclassname}" />
+		<property name="url" value="${cis.db.url}"></property>
+		<property name="username" value="${cis.db.username}"></property>
+		<property name="password" value="${cis.db.password}"></property>
+	</bean>
+	<!-- iemr datasource -->
+	<!-- <bean id="basicDataSourceIEMR" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${iemr.db.driverclassname}" />
+		<property name="url" value="${iemr.db.url}"></property>
+		<property name="username" value="${iemr.db.username}"></property>
+		<property name="password" value="${iemr.db.password}"></property>
+	</bean> -->
+	<!-- his datasource -->
+	<bean id="basicDataSourceHIS" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${his.db.driverclassname}" />
+		<property name="url" value="${his.db.url}"></property>
+		<property name="username" value="${his.db.username}"></property>
+		<property name="password" value="${his.db.password}"></property>
+	</bean> 
+	<!-- ris datasource -->
+	<bean id="basicDataSourceRIS" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${ris.db.driverclassname}" />
+		<property name="url" value="${ris.db.url}"></property>
+		<property name="username" value="${ris.db.username}"></property>
+		<property name="password" value="${ris.db.password}"></property>
+	</bean>
+	<!-- lis datasource -->
+	<bean id="basicDataSourceLIS" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${lis.db.driverclassname}" />
+		<property name="url" value="${lis.db.url}"></property>
+		<property name="username" value="${lis.db.username}"></property>
+		<property name="password" value="${lis.db.password}"></property>
+	</bean>
+	
+		<bean id="basicDataSourceAssDiMz" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${ass.di.mz.db.driverclassname}" />
+		<property name="url" value="${ass.di.mz.db.url}"></property>
+		<property name="username" value="${ass.di.mz.db.username}"></property>
+		<property name="password" value="${ass.di.mz.db.password}"></property>
+	</bean>
+
+	<bean id="basicDataSourceAssDiZy" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${ass.di.zy.db.driverclassname}" />
+		<property name="url" value="${ass.di.zy.db.url}"></property>
+		<property name="username" value="${ass.di.zy.db.username}"></property>
+		<property name="password" value="${ass.di.zy.db.password}"></property>
+	</bean>
+
+	<bean id="basicDataSourceAssOrMz" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${ass.or.mz.db.driverclassname}" />
+		<property name="url" value="${ass.or.mz.db.url}"></property>
+		<property name="username" value="${ass.or.mz.db.username}"></property>
+		<property name="password" value="${ass.or.mz.db.password}"></property>
+	</bean>
+
+	<bean id="basicDataSourceAssOrZy" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${ass.or.zy.db.driverclassname}" />
+		<property name="url" value="${ass.or.zy.db.url}"></property>
+		<property name="username" value="${ass.or.zy.db.username}"></property>
+		<property name="password" value="${ass.or.zy.db.password}"></property>
+	</bean>
+
+	<bean id="basicDataSourceAssNuMz" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${ass.nu.mz.db.driverclassname}" />
+		<property name="url" value="${ass.nu.mz.db.url}"></property>
+		<property name="username" value="${ass.nu.mz.db.username}"></property>
+		<property name="password" value="${ass.nu.mz.db.password}"></property>
+	</bean>
+
+	<bean id="basicDataSourceAssNuZy" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${ass.nu.zy.db.driverclassname}" />
+		<property name="url" value="${ass.nu.zy.db.url}"></property>
+		<property name="username" value="${ass.nu.zy.db.username}"></property>
+		<property name="password" value="${ass.nu.zy.db.password}"></property>
+	</bean>
+
+	<!--pa info for xml datasource-->
+	<bean id="basicDataSourceXMLPaZy" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${xml.pa.zy.db.driverclassname}" />
+		<property name="url" value="${xml.pa.zy.db.url}"></property>
+		<property name="username" value="${xml.pa.zy.db.username}"></property>
+		<property name="password" value="${xml.pa.zy.db.password}"></property>
+	</bean>
+	
+	<bean id="dynamicDataSource" class="ei.iih.db.cfg.DynamicDataSource">
+		<property name="targetDataSources">
+			<map key-type="java.lang.String">
+				<entry key="cis" value-ref="dataSourceCIS" />
+				<entry key="his" value-ref="dataSourceHIS" /> 
+				<entry key="ris" value-ref="dataSourceRIS" />
+				<entry key="lis" value-ref="dataSourceLIS" />
+				<entry key="ass.or.mz" value-ref="dataSourceAssOrMz" />
+				<entry key="ass.or.zy" value-ref="dataSourceAssOrZy" />
+				<entry key="ass.nu.mz" value-ref="dataSourceAssNuMz" />
+				<entry key="ass.nu.zy" value-ref="dataSourceAssNuZy" />
+				<entry key="ass.di.mz" value-ref="dataSourceAssDiMz" />
+				<entry key="ass.di.zy" value-ref="dataSourceAssDiZy" />
+				<entry key="xml.pa.zy" value-ref="dataSourceXMLPaZy" />
+			</map>
+		</property>
+		<property name="defaultTargetDataSource" ref="dataSourceHIS" />
+	</bean>
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
+		<constructor-arg index="0">
+			<ref bean="dynamicDataSource" />
+		</constructor-arg>
+	</bean>
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource">
+		</property>
+	</bean>
+	<tx:annotation-driven transaction-manager="transactionManager"
+		proxy-target-class="true" order="10" />
+
+	<bean id="domaConfig" class="ei.iih.db.cfg.DomaConfig">
+		<property name="dataSource" ref="dataSource" />
+		<property name="dialectMap">
+			<map key-type="java.lang.String">
+			    <!-- 配置默认数据库的产品，启动时生成bean时用，如sqlserver,oracle,Db2,h2,hsqldb,mssql2008,mysql,postgres,sqlite等 -->
+			    <entry key="default" value="${default.dialectname}" />
+			    <!-- 配置每个数据库的产品，如sqlserver,oracle,Db2,h2,hsqldb,mssql2008,mysql,postgres,sqlite等 -->
+				<entry key="cis" value="${cis.db.dialectname}" />
+				<entry key="his" value="${his.db.dialectname}" />
+				<entry key="ris" value="${ris.db.dialectname}" />
+				<entry key="lis" value="${lis.db.dialectname}" />
+				<entry key="ass.or.mz" value="${ass.or.mz.db.dialectname}" />
+				<entry key="ass.or.zy" value="${ass.or.zy.db.dialectname}" />
+				<entry key="ass.nu.mz" value="${ass.nu.mz.db.dialectname}" />
+				<entry key="ass.nu.zy" value="${ass.nu.zy.db.dialectname}" />
+				<entry key="ass.di.mz" value="${ass.di.mz.db.dialectname}" />
+				<entry key="ass.di.zy" value="${ass.di.zy.db.dialectname}" />
+				<entry key="xml.pa.zy" value="${xml.pa.zy.db.dialectname}" />
+				
+			</map>
+		</property>	
+	</bean>
+
+	<!-- 线程执行器配置，用于任务注册 -->
+	<!-- <bean id="executor"
+		class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+		<property name="corePoolSize" value="${qatask.schedule.corePoolSize}" />
+		<property name="maxPoolSize" value="${qatask.schedule.maxPoolSize}" />
+		<property name="queueCapacity" value="${qatask.schedule.queueCapacity}" />
+	</bean> -->
+<!-- 业务对象(任务) -->
+	<!-- <bean id="qaTask" class="ei.his.service.impl.HisMdDiServiceImpl" />
+    <bean id="testIemr" class="ei.iih.service.impl.TestTransService" />
+	<bean id="testRis" class="ei.ris.service.impl.RisObReportServiceImpl" /> -->
+
+	<!-- 调度业务-->
+	<!-- <bean id="jobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="qaTask" />
+		<property name="targetMethod" value="selectHisDiags" />
+	</bean> -->
+	<!-- <bean id="cronTrigger"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="jobDetail" />
+		// 1分钟执行一次
+       <property name="cronExpression">
+           <value>0 0/1 * * * ?</value>
+       </property>
+	</bean> -->
+	
+	<!-- <bean id="jobDetailIemr"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="testIemr" />
+		<property name="targetMethod" value="test" />
+	</bean>
+	<bean id="cronTriggerIemr"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="jobDetailIemr" />
+		// 1分钟执行一次
+       <property name="cronExpression">
+           <value>0/30 * * * * ?</value>
+       </property>
+	</bean> -->
+	
+	<!-- <bean id="jobDetailRis"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="testRis" />
+		<property name="targetMethod" value="selectRisVw" />
+	</bean>
+	<bean id="cronTriggerRis"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="jobDetailRis" />
+		// 1分钟执行一次
+       <property name="cronExpression">
+           <value>0/40 * * * * ?</value>
+       </property>
+	</bean> -->
+ 	<!-- 设置调度，注释后不会触发自动质控定时任务-->
+	<!-- <bean id="schedulerFactoryBean4Qa"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="cronTrigger" />
+				<ref bean="cronTriggerIemr" />
+				<ref bean="cronTriggerRis" />
+			</list>
+		</property>
+		<property name="taskExecutor" ref="executor" />
+	</bean>  -->
+	
+	
+	<bean id="hisBeforeAdvice" class="ei.iih.db.cfg.HISBeforAdvice" />	
+	<aop:config proxy-target-class="true">
+		<aop:pointcut id="hisServiceOperation"
+			expression="execution(* *..his.db.dao..*Impl.*(..)) " />
+		<aop:advisor order="0" pointcut-ref="hisServiceOperation"  advice-ref="hisBeforeAdvice" />
+	</aop:config> 
+
+	<bean id="cisBeforeAdvice" class="ei.iih.db.cfg.CISBeforAdvice" />
+	<aop:config proxy-target-class="true">
+		<aop:pointcut id="cisServiceOperation" expression="execution(* *..cis.db.dao..*Impl.*(..))" />
+		<aop:advisor order="1" pointcut-ref="cisServiceOperation" advice-ref="cisBeforeAdvice" />
+	</aop:config>
+	
+	<bean id="risBeforeAdvice" class="ei.iih.db.cfg.RISBeforAdvice" />
+	<aop:config proxy-target-class="true">
+		<aop:pointcut id="risServiceOperation" expression="execution(* *..ris.db.dao..*Impl.*(..))" />
+		<aop:advisor order="2" pointcut-ref="risServiceOperation" advice-ref="risBeforeAdvice" />
+	</aop:config>
+	
+	<bean id="lisBeforeAdvice" class="ei.iih.db.cfg.LISBeforAdvice" />
+	<aop:config proxy-target-class="true">
+		<aop:pointcut id="lisServiceOperation" expression="execution(* *..lis.db.dao..*Impl.*(..))" />
+		<aop:advisor order="4" pointcut-ref="lisServiceOperation" advice-ref="lisBeforeAdvice" />
+	</aop:config>
+
+	<bean id="assDiMzBeforeAdvice" class="ei.iih.db.cfg.AssDiMzBeforAdvice" />
+	<aop:config proxy-target-class="true">
+		<aop:pointcut id="assDiMzServiceOperation" expression="execution(* *..ass.di.mz.dao..*Impl.*(..))" />
+		<aop:advisor order="5" pointcut-ref="assDiMzServiceOperation" advice-ref="assDiMzBeforeAdvice" />
+	</aop:config>
+
+	<bean id="assDiZyBeforeAdvice" class="ei.iih.db.cfg.AssDiZyBeforAdvice" />
+	<aop:config proxy-target-class="true">
+		<aop:pointcut id="assDiZyServiceOperation" expression="execution(* *..ass.di.zy.dao..*Impl.*(..))" />
+		<aop:advisor order="6" pointcut-ref="assDiZyServiceOperation" advice-ref="assDiZyBeforeAdvice" />
+	</aop:config>
+
+	<bean id="assOrMzBeforeAdvice" class="ei.iih.db.cfg.AssOrMzBeforAdvice" />
+	<aop:config proxy-target-class="true">
+		<aop:pointcut id="assOrMzServiceOperation" expression="execution(* *..ass.or.mz.dao..*Impl.*(..)) || execution(* *..en.mz.db.dao..*Impl.*(..))" />
+		<aop:advisor order="7" pointcut-ref="assOrMzServiceOperation" advice-ref="assOrMzBeforeAdvice" />
+	</aop:config>
+
+	<bean id="assOrZyBeforeAdvice" class="ei.iih.db.cfg.AssOrZyBeforAdvice" />
+	<aop:config proxy-target-class="true">
+		<aop:pointcut id="assOrZyServiceOperation" expression="execution(* *..ass.or.zy.dao..*Impl.*(..)) || execution(* *..en.zy.db.dao..*Impl.*(..))" />
+		<aop:advisor order="8" pointcut-ref="assOrZyServiceOperation" advice-ref="assOrZyBeforeAdvice" />
+	</aop:config>
+
+	<bean id="assNuMzBeforeAdvice" class="ei.iih.db.cfg.AssNuMzBeforAdvice" />
+	<aop:config proxy-target-class="true">
+		<aop:pointcut id="assNuMzServiceOperation" expression="execution(* *..ass.nu.mz.dao..*Impl.*(..))" />
+		<aop:advisor order="9" pointcut-ref="assNuMzServiceOperation" advice-ref="assNuMzBeforeAdvice" />
+	</aop:config>
+
+	<bean id="assNuZyBeforeAdvice" class="ei.iih.db.cfg.AssNuZyBeforAdvice" />
+	<aop:config proxy-target-class="true">
+		<aop:pointcut id="assNuZyServiceOperation" expression="execution(* *..ass.nu.zy.dao..*Impl.*(..))" />
+		<aop:advisor order="10" pointcut-ref="assNuZyServiceOperation" advice-ref="assNuZyBeforeAdvice" />
+	</aop:config>
+
+	<bean id="xmlPaZyBeforeAdvice" class="ei.iih.db.cfg.XMLPaZyBeforAdvice" />
+	<aop:config proxy-target-class="true">
+		<aop:pointcut id="xmlPaZyServiceOperation" expression="execution(* *..pa.dao..*Impl.*(..))" />
+		<aop:advisor order="11" pointcut-ref="xmlPaZyServiceOperation" advice-ref="xmlPaZyBeforeAdvice" />
+	</aop:config>
+	
+	<!-- 自动扫描 -->
+	<context:component-scan base-package="ei.cis.service"></context:component-scan>
+	<context:component-scan base-package="ei.cis.db.dao"></context:component-scan>
+	<context:component-scan base-package="ei.his.service"></context:component-scan>
+	<context:component-scan base-package="ei.his.db.dao"></context:component-scan> 
+	<context:component-scan base-package="ei.iih.db.dao"></context:component-scan>
+	<context:component-scan base-package="ei.iih.service"></context:component-scan>
+	<context:component-scan base-package="ei.ris.db.dao"></context:component-scan>
+	<context:component-scan base-package="ei.ris.service"></context:component-scan>
+	<context:component-scan base-package="ei.lis.db.dao"></context:component-scan>
+	<context:component-scan base-package="ei.lis.service"></context:component-scan>
+	
+<!-- 	<context:component-scan base-package="ei.en.db.dao"></context:component-scan>
+	<context:component-scan base-package="ei.en.service"></context:component-scan> -->
+	
+	<context:component-scan base-package="ei.en.mz.db.dao"></context:component-scan>
+	<context:component-scan base-package="ei.en.mz.service"></context:component-scan>
+	<context:component-scan base-package="ei.en.zy.db.dao"></context:component-scan>
+	<context:component-scan base-package="ei.en.zy.service"></context:component-scan>
+	
+	<context:component-scan base-package="ei.ass.di.mz.dao"></context:component-scan>
+	<context:component-scan base-package="ei.ass.di.mz.service"></context:component-scan>
+	<context:component-scan base-package="ei.ass.di.zy.dao"></context:component-scan>
+	<context:component-scan base-package="ei.ass.di.zy.service"></context:component-scan>
+	<context:component-scan base-package="ei.ass.or.mz.dao"></context:component-scan>
+	<context:component-scan base-package="ei.ass.or.mz.service"></context:component-scan>
+	<context:component-scan base-package="ei.ass.or.zy.dao"></context:component-scan>
+	<context:component-scan base-package="ei.ass.or.zy.service"></context:component-scan>
+	<context:component-scan base-package="ei.ass.nu.mz.dao"></context:component-scan>
+	<context:component-scan base-package="ei.ass.nu.mz.service"></context:component-scan>
+	<context:component-scan base-package="ei.ass.nu.zy.dao"></context:component-scan>
+	<context:component-scan base-package="ei.ass.nu.zy.service"></context:component-scan>
+	
+	<context:component-scan base-package="ei.pa.dao"></context:component-scan>
+	<context:component-scan base-package="ei.pa.service"></context:component-scan>
+</beans>

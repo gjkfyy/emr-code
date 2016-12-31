@@ -1,0 +1,74 @@
+default.dialectname = ${default.dialectname}
+
+his.db.url=${his.db.url}
+his.db.username=${his.db.username}
+his.db.password=${his.db.password}
+his.db.driverclassname=${his.db.driverclassname}
+his.db.dialectname =${his.db.dialectname}
+
+cis.db.url=${cis.db.url}
+cis.db.username=${cis.db.username}
+cis.db.password=${cis.db.password}
+cis.db.driverclassname=${cis.db.driverclassname}
+cis.db.dialectname =${cis.db.dialectname}
+
+ris.db.url=${ris.db.url}
+ris.db.username=${ris.db.username}
+ris.db.password=${ris.db.password}
+ris.db.driverclassname=${ris.db.driverclassname}
+ris.db.dialectname =${ris.db.dialectname}
+
+lis.db.url=${lis.db.url}
+lis.db.username=${lis.db.username}
+lis.db.password=${lis.db.password}
+lis.db.driverclassname=${lis.db.driverclassname}
+lis.db.dialectname =${lis.db.dialectname}
+
+ass.di.mz.db.url=${ass.di.mz.db.url}
+ass.di.mz.db.username=${ass.di.mz.db.username}
+ass.di.mz.db.password=${ass.di.mz.db.password}
+ass.di.mz.db.driverclassname=${ass.di.mz.db.driverclassname}
+ass.di.mz.db.dialectname =${ass.di.mz.db.dialectname}
+
+ass.di.zy.db.url=${ass.di.zy.db.url}
+ass.di.zy.db.username=${ass.di.zy.db.username}
+ass.di.zy.db.password=${ass.di.zy.db.password}
+ass.di.zy.db.driverclassname=${ass.di.zy.db.driverclassname}
+ass.di.zy.db.dialectname =${ass.di.zy.db.dialectname}
+
+ass.or.mz.db.url=${ass.or.mz.db.url}
+ass.or.mz.db.username=${ass.or.mz.db.username}
+ass.or.mz.db.password=${ass.or.mz.db.password}
+ass.or.mz.db.driverclassname=${ass.or.mz.db.driverclassname}
+ass.or.mz.db.dialectname =${ass.or.mz.db.dialectname}
+
+ass.or.zy.db.url=${ass.or.zy.db.url}
+ass.or.zy.db.username=${ass.or.zy.db.username}
+ass.or.zy.db.password=${ass.or.zy.db.password}
+ass.or.zy.db.driverclassname=${ass.or.zy.db.driverclassname}
+ass.or.zy.db.dialectname =${ass.or.zy.db.dialectname}
+
+ass.nu.mz.db.url=${ass.nu.mz.db.url}
+ass.nu.mz.db.username=${ass.nu.mz.db.username}
+ass.nu.mz.db.password=${ass.nu.mz.db.password}
+ass.nu.mz.db.driverclassname=${ass.nu.mz.db.driverclassname}
+ass.nu.mz.db.dialectname =${ass.nu.mz.db.dialectname}
+
+ass.nu.zy.db.url=${ass.nu.zy.db.url}
+ass.nu.zy.db.username=${ass.nu.zy.db.username}
+ass.nu.zy.db.password=${ass.nu.zy.db.password}
+ass.nu.zy.db.driverclassname=${ass.nu.zy.db.driverclassname}
+ass.nu.zy.db.dialectname =${ass.nu.zy.db.dialectname}
+
+xml.pa.zy.db.url=${xml.pa.zy.db.url}
+xml.pa.zy.db.username=${xml.pa.zy.db.username}
+xml.pa.zy.db.password=${xml.pa.zy.db.password}
+xml.pa.zy.db.driverclassname=${xml.pa.zy.db.driverclassname}
+xml.pa.zy.db.dialectname =${xml.pa.zy.db.dialectname}
+
+#for qa task scheduler
+qatask.schedule.corePoolSize=10
+qatask.schedule.maxPoolSize=100
+qatask.schedule.queueCapacity=500
+
+cron.expr=0/3 * * * * ?

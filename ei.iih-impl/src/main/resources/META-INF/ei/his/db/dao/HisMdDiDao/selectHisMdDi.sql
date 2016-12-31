@@ -1,0 +1,1 @@
+select t.NM name,t.ICD_CD code from iemr_md_di t  where t.DEL_F='1'

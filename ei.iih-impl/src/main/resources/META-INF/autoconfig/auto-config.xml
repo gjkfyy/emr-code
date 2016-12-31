@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+	<group>
+		<property name="default.dialectname" description="默认数据库方言" />
+		<property name="cis.db.url" description="CIS数据库连接地址" />
+		<property name="cis.db.username" description="CIS数据库用户名" />
+		<property name="cis.db.password" description="CIS数据库密码" />
+		<property name="cis.db.driverclassname" description="CIS数据库驱动" />
+		<property name="cis.db.dialectname" description="CIS数据库方言" />
+		<property name="ris.db.url" description="RIS数据库连接地址" />
+		<property name="ris.db.username" description="RIS数据库用户名" />
+		<property name="ris.db.password" description="RIS数据库密码" />
+		<property name="ris.db.driverclassname" description="RIS数据库驱动" />
+		<property name="ris.db.dialectname" description="RIS数据库方言" />
+		<property name="lis.db.url" description="LIS数据库连接地址" />
+		<property name="lis.db.username" description="LIS数据库用户名" />
+		<property name="lis.db.password" description="LIS数据库密码" />
+		<property name="lis.db.driverclassname" description="LIS数据库驱动" />
+		<property name="lis.db.dialectname" description="LIS数据库方言" />
+		<property name="his.db.url" description="HIS数据库连接地址" />
+		<property name="his.db.username" description="HIS数据库用户名" />
+		<property name="his.db.password" description="HIS数据库密码" />
+		<property name="his.db.driverclassname" description="HIS数据库驱动" />
+		<property name="his.db.dialectname" description="HIS数据库方言" />
+		<property name="ass.di.mz.db.url" description="诊断门诊数据库连接地址" />
+		<property name="ass.di.mz.db.username" description="诊断门诊数据库用户名" />
+		<property name="ass.di.mz.db.password" description="诊断门诊数据库密码" />
+		<property name="ass.di.mz.db.driverclassname" description="诊断门诊数据库驱动" />
+		<property name="ass.di.mz.db.dialectname" description="数据库方言" />
+		<property name="ass.di.zy.db.url" description="诊断住院数据库连接地址" />
+		<property name="ass.di.zy.db.username" description="诊断住院数据库用户名" />
+		<property name="ass.di.zy.db.password" description="诊断住院数据库密码" />
+		<property name="ass.di.zy.db.driverclassname" description="诊断住院数据库驱动" />
+		<property name="ass.di.zy.db.dialectname" description="数据库方言" />
+		<property name="ass.or.mz.db.url" description="医嘱门诊数据库连接地址" />
+		<property name="ass.or.mz.db.username" description="医嘱门诊数据库用户名" />
+		<property name="ass.or.mz.db.password" description="医嘱门诊数据库密码" />
+		<property name="ass.or.mz.db.driverclassname" description="医嘱门诊数据库驱动" />
+		<property name="ass.or.mz.db.dialectname" description="数据库方言" />
+		<property name="ass.or.zy.db.url" description="医嘱住院数据库连接地址" />
+		<property name="ass.or.zy.db.username" description="医嘱住院数据库用户名" />
+		<property name="ass.or.zy.db.password" description="医嘱住院数据库密码" />
+		<property name="ass.or.zy.db.driverclassname" description="医嘱住院数据库驱动" />
+		<property name="ass.or.zy.db.dialectname" description="数据库方言" />
+		<property name="ass.nu.mz.db.url" description="NU门诊数据库连接地址" />
+		<property name="ass.nu.mz.db.username" description="NU门诊数据库用户名" />
+		<property name="ass.nu.mz.db.password" description="NU门诊数据库密码" />
+		<property name="ass.nu.mz.db.driverclassname" description="NU门诊数据库驱动" />
+		<property name="ass.nu.mz.db.dialectname" description="数据库方言" />
+		<property name="ass.nu.zy.db.url" description="NU住院数据库连接地址" />
+		<property name="ass.nu.zy.db.username" description="NU住院数据库用户名" />
+		<property name="ass.nu.zy.db.password" description="NU住院数据库密码" />
+		<property name="ass.nu.zy.db.driverclassname" description="NU住院数据库驱动" />
+		<property name="ass.nu.zy.db.dialectname" description="数据库方言" />		
+		<property name="xml.pa.zy.db.url" description="患者信息数据库连接地址" />
+		<property name="xml.pa.zy.db.username" description="患者信息数据库用户名" />
+		<property name="xml.pa.zy.db.password" description="患者信息据库密码" />
+		<property name="xml.pa.zy.db.driverclassname" description="患者信息数据库驱动" />
+		<property name="xml.pa.zy.db.dialectname" description="数据库方言" />
+	</group>
+	<script>
+		<generate template="datasource.xml" destfile="/cfg.properties"/>
+	</script>
+</config>

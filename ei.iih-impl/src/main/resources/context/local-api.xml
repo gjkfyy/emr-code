@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:ctx="http://www.springframework.org/schema/context"
+	xmlns:xap="http://xap.org/xap" xmlns:sca="http://www.springframework.org/schema/sca"
+	xsi:schemaLocation="
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		   http://xap.org/xap http://xap.org/xap-0.1.xsd
+		   http://www.springframework.org/schema/sca   http://www.osoa.org/xmlns/sca/1.0/spring-sca.xsd">	
+	 <!--
+	<bean id="encounterService" class="szlh.iih.en.EncounterServiceImpl" />
+	<sca:service name="encounterService" target="encounterService" />
+	RisObReportService
+	
+	<bean id="treatmentGroupService" class="szlh.iih.en.TreatmentGroupServiceImpl" />
+	<sca:service name="treatmentGroupService" target="treatmentGroupService" />
+	-->
+ <!--   <bean id="JobOrgEmpService" class="szlh.iih.sync.TaskJobOrgEmpServiceImpl" />
+	<sca:service name="JobOrgEmpService" target="JobOrgEmpService" /> -->
+   <bean id="risObReportService" class="ei.ris.service.impl.RisObReportServiceImpl" />
+	<sca:service name="risObReportService" target="risObReportService" />
+	
+	<bean id="labReportService" class="ei.lis.service.impl.LabReportServiceImpl" />
+	<sca:service name="labReportService" target="labReportService" />
+	
+	<bean id="labReportItemService" class="ei.lis.service.impl.LabReportItemServiceImpl" />
+	<sca:service name="labReportItemService" target="labReportItemService" />
+	
+	<bean id="mzEiEncounterService" class="ei.en.mz.service.impl.MzEiEncounterServiceImpl" />
+	<sca:service name="mzEiEncounterService" target="mzEiEncounterService" />
+	
+	<bean id="zyEiEncounterService" class="ei.en.zy.service.impl.ZyEiEncounterServiceImpl" />
+	<sca:service name="zyEiEncounterService" target="zyEiEncounterService" />
+	
+	<bean id="cisService" class="ei.cis.service.impl.CisServiceImpl" />
+	<sca:service name="cisService" target="cisService" />
+	
+	<bean id="enAdtService" class="ei.iih.service.impl.EnAdtServiceImpl" />
+	<sca:service name="enAdtService" target="enAdtService" />
+	
+	<bean id="hisSyncEnAdtService" class="ei.his.service.impl.HisSyncEnAdtServiceImpl" />
+	<sca:service name="hisSyncEnAdtService" target="hisSyncEnAdtService" />
+	
+	<bean id="hisMrAmrOutService" class="ei.his.service.impl.HisMrAmrOutServiceImpl" />
+	<sca:service name="hisMrAmrOutService" target="hisMrAmrOutService" />
+	
+	<bean id="cisSyncEnAdtService" class="ei.cis.service.impl.CisSyncEnAdtServiceImpl" />
+	<sca:service name="cisSyncEnAdtService" target="cisSyncEnAdtService" />
+	
+	<!-- wangyanli add IE impl -->
+	 <bean id="risObReportFromIEService" class="ei.ris.service.impl.RisObReportFromIEServiceImpl" />
+	<sca:service name="risObReportFromIEService" target="risObReportFromIEService" />
+
+	<bean id="labReportFromIEService" class="ei.lis.service.impl.LabReportFromIEServiceImpl" />
+	<sca:service name="labReportFromIEService" target="labReportFromIEService" />
+	
+	<bean id="labReportItemFromIEService" class="ei.lis.service.impl.LabReportItemFromIEServiceImpl" />
+	<sca:service name="labReportItemFromIEService" target="labReportItemFromIEService" />
+	
+	<!-- guozhongbao 助手区诊断查询 -->
+	<bean id="mzDirectDiagnosisService" class="ei.ass.di.mz.service.impl.MzDirectDiagnosisServiceImpl" />
+	<sca:service name="mzDirectDiagnosisService" target="mzDirectDiagnosisService" />
+	
+	<bean id="mzSplitDiagnosisService" class="ei.ass.di.mz.service.impl.MzSplitDiagnosisServiceImpl" />
+	<sca:service name="mzSplitDiagnosisService" target="mzSplitDiagnosisService" />
+	
+	<bean id="mzDirectVitalsignService" class="ei.ass.nu.mz.service.impl.MzDirectVitalsignServiceImpl" />
+	<sca:service name="mzDirectVitalsignService" target="mzDirectVitalsignService" />
+	
+	<bean id="mzSplitVitalsignService" class="ei.ass.nu.mz.service.impl.MzSplitVitalsignServiceImpl" />
+	<sca:service name="mzSplitVitalsignService" target="mzSplitVitalsignService" />
+	
+	<bean id="mzDirectOrderService" class="ei.ass.or.mz.service.impl.MzDirectOrderServiceImpl" />
+	<sca:service name="mzDirectOrderService" target="mzDirectOrderService" />
+	
+	<bean id="mzSplitOrderService" class="ei.ass.or.mz.service.impl.MzSplitOrderServiceImpl" />
+	<sca:service name="mzSplitOrderService" target="mzSplitOrderService" />
+	
+	<bean id="zyDirectDiagnosisService" class="ei.ass.di.zy.service.impl.ZyDirectDiagnosisServiceImpl" />
+	<sca:service name="zyDirectDiagnosisService" target="zyDirectDiagnosisService" />
+	
+	<bean id="zySplitDiagnosisService" class="ei.ass.di.zy.service.impl.ZySplitDiagnosisServiceImpl" />
+	<sca:service name="zySplitDiagnosisService" target="zySplitDiagnosisService" />
+	
+	<bean id="zyDirectVitalsignService" class="ei.ass.nu.zy.service.impl.ZyDirectVitalsignServiceImpl" />
+	<sca:service name="zyDirectVitalsignService" target="zyDirectVitalsignService" />
+	
+	<bean id="zySplitVitalsignService" class="ei.ass.nu.zy.service.impl.ZySplitVitalsignServiceImpl" />
+	<sca:service name="zySplitVitalsignService" target="zySplitVitalsignService" />
+	
+	<bean id="zyDirectOrderService" class="ei.ass.or.zy.service.impl.ZyDirectOrderServiceImpl" />
+	<sca:service name="zyDirectOrderService" target="zyDirectOrderService" />
+	
+	<bean id="zySplitOrderService" class="ei.ass.or.zy.service.impl.ZySplitOrderServiceImpl" />
+	<sca:service name="zySplitOrderService" target="zySplitOrderService" />
+	
+	<bean id="patientInfoForXMLService" class="ei.pa.service.impl.PatientInfoForXMLServiceImpl" />
+	<sca:service name="patientInfoForXMLService" target="patientInfoForXMLService" />
+	
+	<bean id="cisConsMrAmrService" class="ei.cis.service.impl.CisConsMrAmrServiceImpl" />
+	<sca:service name="cisConsMrAmrService" target="cisConsMrAmrService" />
+	
+	<bean id="cisStepDeptMrAmrService" class="ei.cis.service.impl.CisStepDeptMrAmrServiceImp" />
+	<sca:service name="cisStepDeptMrAmrService" target="cisStepDeptMrAmrService" />
+		
+	<bean id="hisConsMrAmrService" class="ei.his.service.impl.HisConsMrAmrServiceImpl" />
+	<sca:service name="hisConsMrAmrService" target="hisConsMrAmrService" />
+	
+	<bean id="hisStepDeptMrAmrService" class="ei.his.service.impl.HisStepDeptMrAmrServiceImp" />
+	<sca:service name="hisStepDeptMrAmrService" target="hisStepDeptMrAmrService" />
+	
+	<bean id="cisMzClinicRoomConfigService" class="ei.cis.service.impl.CisMzClinicRoomConfigServiceImpl" />
+	<sca:service name="cisMzClinicRoomConfigService" target="cisMzClinicRoomConfigService" />
+
+	<bean id="cisSignPicService" class="ei.cis.service.impl.CisSignPicServiceImpl" />
+	<sca:service name="cisSignPicService" target="cisSignPicService" />
+
+	<bean id="cisEnViewService" class="ei.cis.service.impl.CisEnViewServiceImpl" />
+	<sca:service name="cisEnViewService" target="cisEnViewService" />
+</beans>
