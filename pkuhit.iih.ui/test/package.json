@@ -1,0 +1,1 @@
+{"description":"IIH Node Webkit Client","main":"index.html","maintenance":{"version":"2.2.2.75"},"name":"iih","version":"0.1","webkit":{"java":true,"plugin":true},"window":{"frame":false,"height":2000,"icon":"img/logo.png","position":"center","resizable":false,"toolbar":false,"width":2000}}

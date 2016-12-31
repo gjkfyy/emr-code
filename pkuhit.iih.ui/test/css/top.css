@@ -1,0 +1,313 @@
+﻿.topHeader .top-drag {
+	-webkit-user-select: none;
+	cursor: pointer;
+}
+
+.page-head .x-box-item {
+	border: 0;
+	background: url( ./images/top/topcolor.png );
+	overflow: hidden;
+	position: relative;
+}
+.page-head .x-btn-default-small, .page-head .x-btn-default-large {
+	background-color: transparent;
+	background-image: none;
+}
+
+.page-head .x-btn-default-small .x-btn-inner {
+	color: #ffffff;
+}
+
+.page-head .x-btn-default-large .x-btn-inner {
+	color: #ffffff;
+}
+
+.page-head .x-btn-default-large-over .x-btn-inner {
+	color: #416086;
+}
+
+.page-head .press .x-btn-inner {
+	color: #416086;
+}
+
+.page-head .x-btn-default-large-over {
+	background-color: #677d95;
+	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#677d95),to(#f0f0f0));
+	filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#677d95,endcolorstr=#f0f0f0, gradientType=0 );
+	background: -moz-linear-gradient(top, #677d95, #f0f0f0);
+}
+
+.page-head .press {
+	background-color: #677d95;
+	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#677d95),to(#f0f0f0));
+	filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#677d95,endcolorstr=#f0f0f0, gradientType=0 );
+	background: -moz-linear-gradient(top, #677d95, #f0f0f0);
+}
+
+.page-head label {
+	color: #ffffff;
+}
+
+.page-head .text-over {
+	color: #b6c5d3;
+}
+
+/*Top页面右侧*/
+#topbase-buttons .x-btn-arrow {
+	background-image: url( ./images/top/arrow.png );
+}
+
+.home_16 {
+	background: url( ./images/top/top_16.png ) no-repeat 0 0;
+}
+
+.x-menu-item-active .home_16 {
+	background: url( ./images/top/top_16.png ) no-repeat -16px 0;
+}
+
+.help_16 {
+	background: url( ./images/top/top_16.png ) no-repeat 0 -16px;
+}
+
+.x-menu-item-active .help_16 {
+	background: url( ./images/top/top_16.png ) no-repeat -16px -16px;
+}
+
+.logout_16 {
+	background: url( ./images/top/top_16.png ) no-repeat 0 -32px;
+}
+
+.x-menu-item-active .logout_16 {
+	background: url( ./images/top/top_16.png ) no-repeat -16px -32px;
+}
+
+.config_16 {
+	background: url( ./images/top/top_16.png ) no-repeat 0 -48px;
+}
+
+.x-menu-item-active .config_16 {
+	background: url( ./images/top/top_16.png ) no-repeat -16px -48px;
+}
+
+.x-btn-default-small-icon .skin_16 {
+	width: 28px;
+	height: 19px;
+	background: url( ./images/top/operation_16.png ) no-repeat 0 0;
+}
+
+.x-btn-default-small-over .skin_16 {
+	background: url( ./images/top/operation_16.png ) no-repeat 0 -19px;
+}
+
+.x-btn-default-small-icon .minimize_16 {
+	width: 28px;
+	height: 19px;
+	background: url( ./images/top/operation_16.png ) no-repeat -28px 0;
+}
+
+.x-btn-default-small-over .minimize_16 {
+	background: url( ./images/top/operation_16.png ) no-repeat -28px -19px;
+}
+
+.x-btn-default-small-icon .restore_16 {
+	width: 28px;
+	height: 19px;
+	background: url( ./images/top/operation_16.png ) no-repeat -56px 0;
+}
+
+.x-btn-default-small-over .restore_16 {
+	background: url( ./images/top/operation_16.png ) no-repeat -56px -19px;
+}
+
+.x-btn-default-small-icon .maximize_16 {
+	width: 28px;
+	height: 19px;
+	background: url( ./images/top/operation_16.png ) no-repeat -84px 0;
+}
+
+.x-btn-default-small-over .maximize_16 {
+	background: url( ./images/top/operation_16.png ) no-repeat -84px -19px;
+}
+
+.x-btn-default-small-icon .close_16 {
+	width: 48px;
+	height: 19px;
+	background: url( ./images/top/operation_16.png ) no-repeat -112px 0;
+}
+
+.x-btn-default-small-over .close_16 {
+	background: url( ./images/top/operation_16.png ) no-repeat -112px -19px;
+}
+
+/*系统管理*/
+.x-btn-icon-text-top .domain_32 {
+	background: url( ./images/top/SystemManagementTop/top_64.png ) no-repeat 0 0;
+}
+
+.x-btn-default-large-over .domain_32 {
+	background: url( ./images/top/SystemManagementTop/top_64.png ) no-repeat -64px 0;
+}
+
+.x-btn-icon-text-top .master_32 {
+	background: url( ./images/top/SystemManagementTop/top_64.png ) no-repeat 0 -32px;
+}
+
+.x-btn-default-large-over .master_32 {
+	background: url( ./images/top/SystemManagementTop/top_64.png ) no-repeat -64px -32px;
+}
+
+.x-btn-icon-text-top .portal_32 {
+	background: url( ./images/top/SystemManagementTop/top_64.png ) no-repeat 0 -64px;
+}
+
+.x-btn-default-large-over .portal_32 {
+	background: url( ./images/top/SystemManagementTop/top_64.png ) no-repeat -64px -64px;
+}
+
+.x-btn-icon-text-top .role_32 {
+	background: url( ./images/top/SystemManagementTop/top_64.png ) no-repeat 0 -96px;
+}
+
+.x-btn-default-large-over .role_32 {
+	background: url( ./images/top/SystemManagementTop/top_64.png ) no-repeat -64px -96px;
+}
+
+.x-btn-icon-text-top .audit_32 {
+	background: url( ./images/top/SystemManagementTop/top_64.png ) no-repeat 0 -128px;
+}
+
+.x-btn-default-large-over .audit_32 {
+	background: url( ./images/top/SystemManagementTop/top_64.png ) no-repeat -64px -128px;
+}
+
+.x-btn-icon-text-top .element_32 {
+	background: url( ./images/top/SystemManagementTop/top_64.png ) no-repeat 0 -160px;
+}
+
+.x-btn-default-large-over .element_32 {
+	background: url( ./images/top/SystemManagementTop/top_64.png ) no-repeat -64px -160px;
+}
+
+.x-btn-icon-text-top .message_32 {
+	background: url( ./images/top/SystemManagementTop/top_64.png ) no-repeat 0 -192px;
+}
+
+.x-btn-default-large-over .message_32 {
+	background: url( ./images/top/SystemManagementTop/top_64.png ) no-repeat -64px -192px;
+}
+
+.x-btn-icon-text-top .rule_32 {
+	background: url( ./images/top/SystemManagementTop/top_64.png ) no-repeat 0 -224px;
+}
+
+.x-btn-default-large-over .rule_32 {
+	background: url( ./images/top/SystemManagementTop/top_64.png ) no-repeat -64px -224px;
+}
+
+.x-btn-icon-text-top .config_32 {
+	background: url( ./images/top/SystemManagementTop/top_64.png ) no-repeat 0 -256px;
+}
+
+.x-btn-default-large-over .config_32 {
+	background: url( ./images/top/SystemManagementTop/top_64.png ) no-repeat -64px -256px;
+}
+
+.message_01 {
+	width: 32px;
+	height: 32px;
+	background: url( ./images/message/message_00.png ) no-repeat 0 0;
+}
+
+.message_02 {
+	width: 32px;
+	height: 32px;
+	background: url( ./images/message/message_00.png ) no-repeat -32px 0;
+}
+
+.message_03 {
+	width: 32px;
+	height: 32px;
+	background: url( ./images/message/message_00.png ) no-repeat -64px 0;
+}
+
+.message_04 {
+	width: 32px;
+	height: 32px;
+	background: url( ./images/message/message_00.png ) no-repeat -96px 0;
+}
+
+.message_05 {
+	background-image: url(images/message/message0.png) !important; 
+	background-size:100% 100%;
+}
+
+.message_06 {
+	background-image: url(images/message/message1.png) !important; 
+	background-size:100% 100%;
+}
+
+/*一体化住院医生工作平台*/
+.page-head .inpatienttop-border-div {
+	border-color: #92a8bd;
+	border-style: solid;
+	border-width: 1px;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.page-head .over .inpatienttop-border-div {
+	border-color: #b6c5d3;
+}
+
+.inpatienttop-border-div table {
+	border: 0;
+	margin-left: 10px;
+	background-color: transparent;
+	background-image: none;
+	font: 12px '宋体', Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+}
+
+.inpatienttop-border-div td {
+	vertical-align: top;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+/*一体化门诊医生工作平台*/
+.page-head .outpatienttop-border-div {
+	border-color: #92a8bd;
+	border-style: solid;
+	border-width: 1px;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.page-head .over .outpatienttop-border-div {
+	border-color: #b6c5d3;
+}
+
+.outpatienttop-border-div table {
+	border: 0;
+	margin-left: 10px;
+	background-color: transparent;
+	background-image: none;
+	font: 12px '宋体', Arial, Helvetica, sans-serif;
+	color: #ffffff;
+}
+
+.outpatienttop-border-div td {
+	vertical-align: top;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.message-count {
+	position: absolute;
+  	top: 2px;
+  	right: 11px;
+  	z-index: 1000;
+  	font-weight:800;
+  	font-size:11px;
+  	font-family:"宋体";
+}

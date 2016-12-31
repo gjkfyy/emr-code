@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	    <title id="page-title">方正集成化电子病历系统</title>
+	    <link rel="stylesheet" type="text/css" href="extjs/resources/css/ext-all.css"/>
+		<link rel="stylesheet" type="text/css" href="css/skin-min.css">
+		<script type="text/javascript" src="extjs/ext-all-debug.js"></script>
+		<script type="text/javascript" src="configParam.js"></script>
+		<script type="text/javascript" src="caConstant.js"></script>
+		<script type="text/javascript" src="iih_iemr.js"></script>
+		<script type="text/javascript" src="scripts/main.js"></script>		
+		<script type="text/javascript">
+			(function() {
+				window.IemrUser = {
+					room: {
+						value: ''
+					}
+				};
+				if (!window.maxmized) {
+					window.original = {
+						x: window.screenLeft,
+						y: window.screenTop,
+						width: window.outerWidth,
+						height: window.outerHeight
+					};
+					window.resizeTo(window.screen.availWidth, window.screen.availHeight);
+					window.maxmized = true;
+					window.global.maxmized = true;
+				}
+			})();
+		</script>
+	</head>	
+	<body>
+	</body>
+</html>

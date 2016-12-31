@@ -1,0 +1,52 @@
+.login .x-box-inner {
+	background: rgba(8, 21, 38, 1);
+}
+
+.login-center .x-box-inner {
+	background: rgba(8, 21, 33, 1);
+}
+
+.login-center .x-form-display-field {
+	color: #ffffff;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16pt;
+	font-weight: bold;
+}
+
+.login-center .x-form-item-label {
+	color: #ffffff;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+}
+
+.login-center .x-form-text {
+	border: 1px solid #6fc8bf;
+	width: 136px;
+	height: 20px;
+	vertical-align: middle;
+	font-size: 12px;
+	color: #455657;
+}
+
+.login-button .x-box-inner {
+	font-size: 14pt;
+	font-weight: bold;
+	height: 30px;
+	line-height: 30px;
+	cursor: pointer;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ff081526,
+		endColorstr=#ff081526 );
+	background: rgba(8, 21, 20, 1);
+}
+
+.login-button-over .x-box-inner {
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#7f6fc8bf,
+		endColorstr=#7f6fc8bf );
+	background: rgba(111, 200, 191, 0.5);
+}
+
+.login-center  a:link,
+.login-center  a:visited,
+.login-center  a:hover {
+	color: #ffffff;
+}
