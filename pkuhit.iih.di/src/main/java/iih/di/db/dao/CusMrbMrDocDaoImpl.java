@@ -2,7 +2,7 @@ package iih.di.db.dao;
 
 /** */
 @org.springframework.stereotype.Repository()
-@javax.annotation.Generated(value = { "Doma", "1.35.0" }, date = "2016-12-28T22:23:57.460+0800")
+@javax.annotation.Generated(value = { "Doma", "1.35.0" }, date = "2017-01-01T01:49:37.076+0800")
 public class CusMrbMrDocDaoImpl extends org.seasar.doma.internal.jdbc.dao.AbstractDao implements iih.di.db.dao.CusMrbMrDocDao {
 
     static {

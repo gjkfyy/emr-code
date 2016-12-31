@@ -1,7 +1,7 @@
 package iih.di.db.gen.entity;
 
 /** */
-@javax.annotation.Generated(value = { "Doma", "1.35.0" }, date = "2016-12-28T22:23:57.445+0800")
+@javax.annotation.Generated(value = { "Doma", "1.35.0" }, date = "2017-01-01T01:49:37.059+0800")
 public final class _DiEntity extends org.seasar.doma.jdbc.entity.AbstractEntityType<iih.di.db.gen.entity.DiEntity> {
 
     static {
