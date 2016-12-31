@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:ctx="http://www.springframework.org/schema/context"
+	xmlns:sca="http://www.springframework.org/schema/sca" xmlns:xap="http://xap.org/xap"
+	xmlns:pkuhit-xap="http://pkuhit.org/xap"
+	xsi:schemaLocation="
+           http://www.springframework.org/schema/beans   http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+           http://www.springframework.org/schema/sca     http://www.osoa.org/xmlns/sca/1.0/spring-sca.xsd
+           http://xap.org/xap                            http://xap.org/xap-0.1.xsd
+           http://pkuhit.org/xap                         http://pkuhit.org/pkuhit-xap-0.1.xsd">
+
+	<!-- 配置数据库 -->
+	<bean class="xap.sv.dao.config.DaoConfigProxy">
+		<constructor-arg value="mainConfig" />
+	</bean>	
+	<!-- 自动扫描，注入dao等 -->
+	<ctx:component-scan base-package="iih.di.db" />
+
+	<!-- <bean id="defectService" class="iih.di.service.impl.DefectServiceImpl" 
+		/> -->
+	<!-- <sca:service name="defectService" target="defectService" /> -->
+
+	<bean id="oracleDiService" class="iih.di.service.impl.DiServiceImpl" />
+	<sca:service name="oracleDiService" target="oracleDiService" />
+		
+	<xap:reference name="diagnosisService" type="pkuhit.iih.ass.di.AssDiagnosisService" />
+	<xap:reference name="userService" type="pkuhit.xap.ac.UserService" />
+
+   <xap:reference name="paramsService" type="pkuhit.xap.pm.ParamsService" />
+   	<xap:reference name="paramsSetService" type="pkuhit.xap.pm.ParamsSetService"/>
+   <xap:reference name="amrService" type="pkuhit.iih.mr.wr.AmrService"/>
+</beans>
