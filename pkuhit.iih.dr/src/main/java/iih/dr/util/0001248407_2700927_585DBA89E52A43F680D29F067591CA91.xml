@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data-record xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="IIH_GreenCDA.xsd">
+	<body>
+		<segment type="Table" name="表格1">
+			<element display-value="  " type="FreeText" />
+			<element display-value="姓名：" type="Label" name="姓名：" />
+			<element display-value="谌弟弟" type="Text" name="姓名" />
+			<element display-value="出生地：" type="Label" name="出生地：" />
+			<element display-value="江西省宜春丰城市" type="Text" name="出生地" />
+			<element display-value="  " type="FreeText" />
+			<element display-value="性别：" type="Label" name="性别：" />
+			<element display-value="男" type="Text" name="性别" />
+			<element display-value="出生日期：" type="Label" name="职业：" />
+			<element display-value="2015-03-02" type="DateTime" name="出生日期" />
+			<element display-value="  " type="FreeText" />
+			<element display-value="年龄：" type="Label" name="年龄：" />
+			<element display-value="3月零3天" type="Text" name="年龄" />
+			<element display-value="入院时间：" type="Label" name="入院时间：" />
+			<element display-value="2015-06-05 19:50" type="Text" name="入院日期" />
+			<element display-value="  " type="FreeText" />
+			<element display-value="民族：" type="Label" name="民族：" />
+			<element display-value="汉族" type="Text" name="民族" />
+			<element display-value="记录日期：" type="Label" name="记录日期：" />
+			<element display-value="2015-06-05 21:46" type="DateTime"
+				name="记录日期" />
+			<element display-value="  " type="FreeText" />
+			<element display-value="籍贯：" type="Label" name="婚姻状况：" />
+			<element display-value="福建省" type="Text" name="籍贯" />
+			<element display-value="病史陈述者：" type="Label" name="病史陈述者：" />
+			<element display-value="患者母亲（病史可靠）" type="SingleSelect" name="病史陈述者" />
+			<element display-value="  " type="FreeText" />
+			<element display-value="联系电话及联系人：" type="Label" name="联系电话：" />
+			<element display-value="18181582729 周招娣" type="FreeText" />
+			<element display-value="住址：" type="Label" name="工作单位或住址：" />
+			<element display-value="深圳市龙华新区" type="Text" name="现住址" />
+		</segment>
+		<element display-value="主诉:" type="Label" name="主诉：" />
+		<element display-value="  " type="FreeText" />
+		<element display-value="间断咳嗽1个月，发热2天" type="Text" name="主诉" />
+		<element display-value="现病史:" type="Label" name="现病史：" />
+		<element display-value="  " type="FreeText" />
+		<element
+			display-value="患儿于1月前无明显诱因出现咳嗽，初以单声咳为主，后为阵发性连声咳，有痰不易咳出，无声音嘶哑，曾多次于儿童医院及建安医院就诊，予口服药物（易坦静、酮替芬、小儿化痰止咳颗粒等）及雾化治疗，症状稍缓解。2天前出现发热，热峰38.3℃，热型不规则，无寒战、抽搐，咳嗽较前明显增多，有痰不易咳出，无呼吸困难，无面色苍白，无烦躁不安，再次至儿童医院就诊，于口服（阿奇霉素、小儿伪麻美芬等），无明显改善，今为进一步治疗至我院，经诊治后拟&quot;支气管肺炎&quot;收入院，病后精神食欲欠佳，睡眠一般，大、小便正常。"
+			type="Text" name="现病史" />
+		<element display-value="既往史: " type="Label" name="既往史：" />
+		<element display-value="  既往" type="FreeText" />
+		<element display-value="体健" type="SingleSelect" name="既往体质" />
+		<element display-value="，" type="FreeText" />
+		<segment type="Combine" name="肝炎史">
+			<element display-value="否认" type="LogicalSelect" name="有无肝炎史" />
+		</segment>
+		<element display-value="，" type="FreeText" />
+		<segment type="Combine" name="结核史">
+			<element display-value="否认" type="LogicalSelect" name="有无结核史" />
+		</segment>
+		<element display-value="，" type="FreeText" />
+		<segment type="Combine" name="肝炎史">
+			<element display-value="否认" type="LogicalSelect" name="有无肝炎史" />
+		</segment>
+		<element display-value="，" type="FreeText" />
+		<segment type="Combine" name="手术史">
+			<element display-value="否认" type="LogicalSelect" name="有无手术史" />
+		</segment>
+		<element display-value="，" type="FreeText" />
+		<segment type="Combine" name="外伤史">
+			<element display-value="否认" type="LogicalSelect" name="有无外伤史" />
+		</segment>
+		<element display-value="，" type="FreeText" />
+		<segment type="Combine" name="输血史">
+			<element display-value="否认" type="LogicalSelect" name="有无输血史" />
+			<element display-value="输血史" type="FreeText" />
+			<element display-value="：曾于" type="Label" name="：曾于" />
+			<element display-value="输血时间" type="DateTime" name="输血时间" />
+			<element display-value="因" type="Label" name="因" />
+			<element display-value="输血原因" type="Text" name="输血原因" />
+			<element display-value="输“" type="Label" name="输“" />
+			<element display-value="输血血型" type="SingleSelect" name="输血血型" />
+			<element display-value="”型血，" type="Label" name="”型血，" />
+			<element display-value="输血量" type="Text" name="输血量" />
+			<element display-value="ml" type="Label" name="ml" />
+		</segment>
+		<element display-value="，" type="FreeText" />
+		<segment type="Combine" name="过敏史">
+			<element display-value="否认" type="LogicalSelect" name="有无过敏史" />
+		</segment>
+		<element display-value="。" type="FreeText" />
+		<element display-value="个人史:" type="Label" name="个人史：" />
+		<element display-value="  " type="FreeText" />
+		<element display-value="    出生史:" type="FreeText" />
+		<element
+			display-value="    否认母孕期有特殊病史可询。第4胎第4产 ，孕周40W，产式：足月顺产，出生时否认有窒息、产伤、黄疸史等，Apgar评分具体不详；出生体重3.85kg，身长不详；"
+			type="FreeText" />
+		<element display-value="    喂养史（2岁内需填写）" type="FreeText" />
+		<element display-value="    母乳喂养: 未开始添加辅食，体重增长正常。     " type="FreeText" />
+		<element display-value="    生长发育史：3月会笑，3月开始抬头，-月认人，-月会坐，-月会站，-月会走，-月出牙，-月说话。其他"
+			type="FreeText" />
+		<element display-value="其他" type="Text" name="其他" />
+		<element display-value="。" type="FreeText" />
+		<element display-value="    预防接种: 按期预防接种" type="FreeText" />
+		<element display-value="家族史:" type="Label" name="家族史：" />
+		<element display-value="  双亲体健，非近亲结婚。否认家族中有特殊病史可询。" type="FreeText" />
+		<element display-value="体格检查" type="Label" name="体格检查" />
+		<element display-value="T：" type="FreeText" />
+		<element display-value="39.0" type="Text" name="体温" />
+		<element display-value="℃    P：" type="FreeText" />
+		<element display-value="144" type="Text" name="心率" />
+		<element display-value="次/分    R：" type="FreeText" />
+		<element display-value="36" type="Text" name="呼吸" />
+		<element display-value="次/分    BP：-/-mmHg  " type="FreeText" />
+		<element display-value="体重：" type="FreeText" />
+		<element display-value="7.50" type="Text" name="体重" />
+		<element display-value="kg" type="FreeText" />
+		<element display-value="一般情况：" type="Label" name="一般情况：" />
+		<element display-value="发育" type="FreeText" />
+		<element display-value="正常" type="SingleSelect" name="发育情况" />
+		<element display-value="," type="FreeText" />
+		<element display-value="安静" type="SingleSelect" name="面容" />
+		<element display-value="面容,营养" type="FreeText" />
+		<element display-value="良好" type="SingleSelect" name="营养情况" />
+		<element display-value=",表情" type="FreeText" />
+		<element display-value="安静" type="SingleSelect" name="表情情况" />
+		<element display-value=",神志" type="FreeText" />
+		<element display-value="清楚" type="SingleSelect" name="神志情况" />
+		<element display-value=",精神欠佳。" type="FreeText" />
+		<element display-value="自主体位" type="SingleSelect" name="体位护理代码" />
+		<element display-value=",查体" type="FreeText" />
+		<element display-value="合作" type="SingleSelect" name="查体情况" />
+		<element display-value="。" type="FreeText" />
+		<element display-value="皮肤：" type="Label" name="皮肤：" />
+		<element display-value="全身皮肤无皮疹及出血点," type="FreeText" />
+		<segment type="Combine" name="皮肤粘膜">
+			<element display-value="皮肤粘膜" type="FreeText" />
+			<element display-value="无异常" type="LogicalSelect" name="有无皮肤粘膜情况" />
+		</segment>
+		<element display-value=",皮肤弹性" type="FreeText" />
+		<element display-value="正常" type="SingleSelect" name="皮肤弹性情况" />
+		<element display-value=",皮肤温度" type="FreeText" />
+		<element display-value="升高" type="SingleSelect" name="皮肤温度情况" />
+		<element display-value=",皮肤" type="FreeText" />
+		<element display-value="无干燥" type="SingleSelect" name="皮肤温度情况" />
+		<element display-value="。" type="FreeText" />
+		<element display-value="淋巴结：" type="Label" name="淋巴结：" />
+		<element display-value="全身浅表淋巴结" type="FreeText" />
+		<element display-value="无" type="LogicalSelect" name="全身淋巴结有无触及肿大" />
+		<element display-value="触及肿大。" type="FreeText" />
+		<element display-value="头部：" type="Label" name="头部：" />
+		<segment type="Combine" name="头颅大小形态情况">
+			<element display-value="头颅大小形态" type="FreeText" />
+			<element display-value="无" type="LogicalSelect" name="头颅大小形态有无畸形" />
+		</segment>
+		<element display-value=",前囟" type="FreeText" />
+		<element display-value="未闭" type="SingleSelect" name="前囟" />
+		<element display-value="," type="FreeText" />
+		<segment type="Combine" name="毛发分布情况">
+			<element display-value="毛发分布" type="FreeText" />
+			<element display-value="正常" type="SingleSelect" name="毛发分布情况" />
+			<element display-value="请输入毛发分布情况" type="Text" name="请输入毛发分布情况" />
+		</segment>
+		<element display-value=",五官" type="FreeText" />
+		<element display-value="无" type="LogicalSelect" name="头颅大小形态有无畸形" />
+		<element display-value="畸形。" type="FreeText" />
+		<element display-value="眼部：" type="Label" name="眼部：" />
+		<element display-value="双眼睑" type="FreeText" />
+		<element display-value="无" type="LogicalSelect" name="全身淋巴结有无触及肿大" />
+		<element display-value="浮肿,眼球活动" type="FreeText" />
+		<segment type="Combine" name="眼球组合">
+			<element display-value="正常" type="SingleSelect" name="眼球" />
+		</segment>
+		<element display-value=";结膜" type="FreeText" />
+		<element display-value="无" type="LogicalSelect" name="全身淋巴结有无触及肿大" />
+		<element display-value="充血,球结膜" type="FreeText" />
+		<element display-value="无" type="LogicalSelect" name="全身淋巴结有无触及肿大" />
+		<element display-value="水肿,巩膜" type="FreeText" />
+		<element display-value="无" type="LogicalSelect" name="全身淋巴结有无触及肿大" />
+		<element display-value="黄染,角膜" type="FreeText" />
+		<element display-value="透明" type="SingleSelect" name="角膜条件" />
+		<element display-value="；双曈孔等大等圆,直径" type="FreeText" />
+		<element display-value="3" type="Number" name="直径" />
+		<element display-value="mm,对光反应" type="FreeText" />
+		<element display-value="灵敏" type="SingleSelect" name="反应" />
+		<element display-value="。" type="FreeText" />
+		<element display-value="耳部：" type="Label" name="耳部：" />
+		<element display-value="耳廓" type="FreeText" />
+		<segment type="Combine" name="耳组合">
+			<element display-value="无" type="LogicalSelect" name="耳有无" />
+			<element display-value="畸形" type="Label" name="畸形" />
+		</segment>
+		<element display-value="," type="FreeText" />
+		<element display-value="双耳" type="SingleSelect" name="双" />
+		<element display-value="外耳道" type="FreeText" />
+		<element display-value="无" type="LogicalSelect" name="分泌物" />
+		<element display-value="脓性分泌物,乳突" type="FreeText" />
+		<element display-value="双侧" type="SingleSelect" name="双侧" />
+		<element display-value="无" type="LogicalSelect" name="压痛" />
+		<element display-value="压痛。" type="FreeText" />
+		<element display-value="鼻部：" type="Label" name="鼻部：" />
+		<element display-value="外观正常,鼻翼无扇动,鼻腔未见异常分泌物,鼻中隔未见偏曲。" type="FreeText" />
+		<element display-value="口腔：" type="Label" name="口腔：" />
+		<element display-value="气味正常，无张口呼吸；口唇" type="FreeText" />
+		<element display-value="正常" type="SingleSelect" name="口唇" />
+		<element display-value=",牙齿，共0颗,口腔粘膜光滑,无溃疡,腮腺管开口正常,齿龈" type="FreeText" />
+		<element display-value="正常" type="SingleSelect" name="齿龄" />
+		<element display-value="无红肿,舌发育正常,伸舌居中,发音正常。" type="FreeText" />
+		<element display-value="咽部：" type="Label" name="咽部：" />
+		<element display-value="咽" type="FreeText" />
+		<element display-value="有" type="LogicalSelect" name="全身淋巴结有无触及肿大" />
+		<element display-value="充血,扁桃体" type="FreeText" />
+		<element display-value="无" type="SingleSelect" name="扁桃体" />
+		<element display-value="肿大," type="FreeText" />
+		<element display-value="无" type="LogicalSelect" name="全身淋巴结有无触及肿大" />
+		<element display-value="脓性分泌物。" type="FreeText" />
+		<element display-value="颈部：" type="Label" name="颈部：" />
+		<element display-value="颈部" type="FreeText" />
+		<element display-value="对称" type="SingleSelect" name="颈部对称情况" />
+		<element display-value="柔软" type="SingleSelect" name="颈部强直情况" />
+		<element display-value=",颈静脉" type="FreeText" />
+		<element display-value="无" type="LogicalSelect" name="颈静脉有无怒张" />
+		<element display-value="怒张,颈动脉搏动" type="FreeText" />
+		<element display-value="正常" type="SingleSelect" name="颈动脉搏动情况" />
+		<element display-value=",肝颈静脉回流征阴性，" type="FreeText" />
+		<segment type="Combine" name="颈部血管杂音情况">
+			<element display-value="颈部血管" type="FreeText" />
+			<element display-value="未闻及" type="SingleSelect" name="颈部血管可未闻及杂音情况" />
+			<element display-value="请描述颈部血管杂音情况" type="Text" name="颈部血管杂音情况" />
+		</segment>
+		<element display-value="杂" type="FreeText" />
+		<element display-value=",气管" type="FreeText" />
+		<element display-value="居中" type="SingleSelect" name="气管情况" />
+		<element display-value="," type="FreeText" />
+		<segment type="Combine" name="甲状腺肿大情况">
+			<element display-value="甲状腺" type="FreeText" />
+			<element display-value="无" type="SingleSelect" name="甲状腺肿大情况" />
+		</segment>
+		<element display-value="。" type="FreeText" />
+		<element display-value="胸廓:" type="Label" name="胸廓:" />
+		<element display-value=" 呼吸运动正常，对称无畸形，呼吸三凹征：无。" type="FreeText" />
+		<element display-value="肺部：" type="Label" name="肺部：" />
+		<element display-value="呼吸平稳，语颤无减弱或增强，未扪及胸膜摩擦感；叩诊清音，双肺呼吸音粗，可闻及中量湿性啰音,未闻及胸膜摩擦音。"
+			type="FreeText" />
+		<element display-value="心脏：" type="Label" name="心脏：" />
+		<element display-value="心前区" type="FreeText" />
+		<element display-value="无" type="LogicalSelect" name="心前区" />
+		<element display-value="隆起,心尖搏动，心浊音界无扩大," type="FreeText" />
+		<element display-value="无" type="LogicalSelect" name="心前区" />
+		<element display-value="震颤," type="FreeText" />
+		<element display-value="无" type="LogicalSelect" name="心前区" />
+		<element display-value="心包摩擦感,心率" type="FreeText" />
+		<element display-value="144" type="Text" name="心率" />
+		<element display-value="次/分,节律整齐,心音" type="FreeText" />
+		<element display-value="正常" type="SingleSelect" name="心音" />
+		<element display-value="," type="FreeText" />
+		<element display-value="各瓣膜" type="SingleSelect" name="各瓣膜" />
+		<element display-value="听诊区" type="FreeText" />
+		<element display-value="未闻及" type="LogicalSelect" name="未闻及" />
+		<element display-value="病理性杂音," type="FreeText" />
+		<element display-value="无" type="LogicalSelect" name="心前区" />
+		<element display-value="心包摩擦音。" type="FreeText" />
+		<element display-value="    " type="FreeText" />
+		<element display-value="毛细血管征：" type="Label" name="毛细血管征：" />
+		<element display-value="有毛细血管搏动，无股动脉枪击音。" type="FreeText" />
+		<element display-value="腹部：" type="Label" name="腹部：" />
+		<segment type="Combine" name="腹部情况">
+			<element display-value="腹部" type="FreeText" />
+			<element display-value="平坦" type="SingleSelect" name="腹部情况" />
+			<element display-value="请描述腹部情况" type="Text" name="请描述腹部情况" />
+		</segment>
+		<element display-value="," type="FreeText" />
+		<element display-value="无" type="LogicalSelect" name="有无静脉曲张" />
+		<element display-value="静脉曲张," type="FreeText" />
+		<element display-value="无" type="LogicalSelect" name="有无胃肠蠕动波" />
+		<element display-value="胃肠蠕动波,触之柔软，" type="FreeText" />
+		<element display-value="全腹" type="SingleSelect" name="压痛反跳部位" />
+		<element display-value="无" type="LogicalSelect" name="有无压痛及反跳" />
+		<element display-value="压痛，未触及包块。" type="FreeText" />
+		<segment type="Combine" name="肝脏肋下触及情况">
+			<element display-value="肝脏肋下" type="FreeText" />
+			<element display-value="未触及" type="SingleSelect" name="肝脏肋下是否触及" />
+			<element display-value="，距右锁骨中线肋下缘" type="Label" name="，距右锁骨中线肋下缘" />
+			<element display-value="0.8" type="Number" name="距右锁骨中线肋下缘" />
+			<element display-value="厘米，前正中线剑突至肝下缘" type="Label" name="厘米，前正中线剑突至肝下缘" />
+			<element display-value="0.7" type="Number" name="前正中线剑突至肝下缘距离" />
+			<element display-value="厘米" type="Label" name="厘米" />
+		</segment>
+		<element display-value="。" type="FreeText" />
+		<segment type="Combine" name="脾脏肋下触及情况">
+			<element display-value="脾脏肋下" type="FreeText" />
+			<element display-value="未触及" type="SingleSelect" name="脾脏肋下是否触及" />
+			<element display-value="，甲乙线" type="Label" name="，甲乙线" />
+			<element display-value="0.1" type="Number" name="甲乙线距离" />
+			<element display-value="厘米，甲丙线" type="Label" name="厘米，甲丙线" />
+			<element display-value="0.2" type="Number" name="甲丙线距离" />
+			<element display-value="厘米，丁戊线" type="Label" name="厘米，丁戊线" />
+			<element display-value="0.1" type="Number" name="丁戊线距离" />
+			<element display-value="厘米" type="Label" name="厘米" />
+		</segment>
+		<element display-value="。肝区" type="FreeText" />
+		<element display-value="双侧" type="SingleSelect" name="肾区叩击痛部位" />
+		<element display-value="肾区" type="FreeText" />
+		<element display-value="无" type="LogicalSelect" name="肾区有无叩击痛" />
+		<element display-value="叩击痛,麦氏点" type="FreeText" />
+		<element display-value="无" type="LogicalSelect" name="麦氏点有无压痛" />
+		<element display-value="压痛,移动性浊音" type="FreeText" />
+		<element display-value="阴" type="SingleSelect" name="移动性浊音情况" />
+		<element display-value="性,肠鸣音" type="FreeText" />
+		<element display-value="正常" type="SingleSelect" name="肠鸣音情况" />
+		<element display-value="。" type="FreeText" />
+		<element display-value="肛门及外生殖器:" type="Label" name="肛门及外生殖器:" />
+		<element display-value=" 肛门无闭锁，肛周无红肿，未见脱肛；外生殖器发育正常，外阴部无湿疹及异常分泌物。"
+			type="FreeText" />
+		<element display-value="四肢和脊柱：" type="Label" name="脊柱四肢：" />
+		<element display-value="脊柱" type="FreeText" />
+		<element display-value="无" type="LogicalSelect" name="脊柱有无畸形" />
+		<element display-value="畸形,活动度" type="FreeText" />
+		<element display-value="正常" type="SingleSelect" name="脊柱活动度情况" />
+		<element display-value="," type="FreeText" />
+		<element display-value="无" type="LogicalSelect" name="有无压痛" />
+		<element display-value="压痛," type="FreeText" />
+		<element display-value="无" type="LogicalSelect" name="有无叩痛" />
+		<element display-value="叩击痛," type="FreeText" />
+		<element display-value="双侧" type="SingleSelect" name="巴氏征部位" />
+		<segment type="Combine" name="下肢水肿情况">
+			<element display-value="左侧" type="SingleSelect" name="下肢水肿部位" />
+			<element display-value="下肢" type="FreeText" />
+			<element display-value="无" type="LogicalSelect" name="下肢有无水肿" />
+			<element display-value="凹陷性" type="SingleSelect" name="水肿情况" />
+		</segment>
+		<element display-value="水" type="FreeText" />
+		<element display-value="。" type="FreeText" />
+		<segment type="Combine" name="四肢关节活动情况">
+			<element display-value="四肢关节活动" type="FreeText" />
+			<element display-value="无异常" type="SingleSelect" name="四肢关节活动情况" />
+			<element display-value="请描述四肢关节活动情况" type="Text" name="四肢关节活动情况" />
+		</segment>
+		<element display-value="," type="FreeText" />
+		<element display-value="无" type="LogicalSelect" name="有无杵状指" />
+		<element display-value="杵状指、趾,四肢肌力、肌张力" type="FreeText" />
+		<element display-value="正常" type="SingleSelect" name="肌张力" />
+		<element display-value="。" type="FreeText" />
+		<element display-value="神经系统：" type="Label" name="神经反射：" />
+		<element display-value="生理反射存在，未引出病理征及脑膜刺激征。" type="FreeText" />
+		<element display-value="辅助检查" type="Label" name="辅助检查" />
+		<element display-value=":" type="FreeText" />
+		<element display-value="   " type="FreeText" />
+		<element display-value="（4/6儿童医院） 胸片示：两肺纹理增多，两肺未见明显实变影。" type="Text"
+			name="辅助检查" />
+		<element display-value="   " type="FreeText" />
+		<element display-value="            								  " type="FreeText" />
+		<element display-value="初步诊断：" type="Label" name="入院诊断：" />
+		<element display-value="  " type="FreeText" />
+		<segment type="Table" name="表格2">
+			<element display-value="支气管肺炎" type="Text" name="初步诊断" />
+		</segment>
+		<segment type="Table" name="签名">
+			<element display-value="经治医师签名：" type="FreeText" />
+		</segment>
+	</body>
+</data-record>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:ctx="http://www.springframework.org/schema/context"
+	xmlns:xap="http://xap.org/xap" xmlns:sca="http://www.springframework.org/schema/sca"
+	xsi:schemaLocation="
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		   http://xap.org/xap http://xap.org/xap-0.1.xsd
+		   http://www.springframework.org/schema/sca   http://www.osoa.org/xmlns/sca/1.0/spring-sca.xsd">
+	<!-- 本地和本地引用的服务(java依赖) -->
+	 <bean id="dataRetrievalService" class="iih.dr.service.impl.DataRetrievalServiceImpl"></bean>
+	<sca:service name="dataRetrievalService" target="dataRetrievalService" /> 
+	
+	<bean id="conditionSetService" class="iih.dr.service.impl.ConditionSetServiceImpl"></bean>
+	<sca:service name="conditionSetService" target="conditionSetService" /> 
+	
+	<!-- <bean id="taskDataRetrievalService" class="iih.dr.service.impl.TaskDataRetrievalServiceImpl"></bean>
+	<sca:service name="taskDataRetrievalService" target="taskDataRetrievalService" />  -->
+
+</beans>
