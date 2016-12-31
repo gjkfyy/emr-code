@@ -2,7 +2,7 @@ package ei.ass.di.zy.dao;
 
 /** */
 @org.springframework.stereotype.Repository()
-@javax.annotation.Generated(value = { "Doma", "1.35.0" }, date = "2016-12-28T22:23:15.943+0800")
+@javax.annotation.Generated(value = { "Doma", "1.35.0" }, date = "2017-01-01T01:49:35.807+0800")
 public class ZyDirectDiDaoImpl extends org.seasar.doma.internal.jdbc.dao.AbstractDao implements ei.ass.di.zy.dao.ZyDirectDiDao {
 
     static {

@@ -2,7 +2,7 @@ package ei.iih.db.dao.custom;
 
 /** */
 @org.springframework.stereotype.Repository()
-@javax.annotation.Generated(value = { "Doma", "1.35.0" }, date = "2016-12-28T22:23:15.878+0800")
+@javax.annotation.Generated(value = { "Doma", "1.35.0" }, date = "2017-01-01T01:49:35.740+0800")
 public class VwNisWardConfigDaoImpl extends org.seasar.doma.internal.jdbc.dao.AbstractDao implements ei.iih.db.dao.custom.VwNisWardConfigDao {
 
     static {

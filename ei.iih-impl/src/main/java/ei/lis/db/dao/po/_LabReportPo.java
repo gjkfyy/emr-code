@@ -1,7 +1,7 @@
 package ei.lis.db.dao.po;
 
 /** */
-@javax.annotation.Generated(value = { "Doma", "1.35.0" }, date = "2016-12-28T22:23:15.810+0800")
+@javax.annotation.Generated(value = { "Doma", "1.35.0" }, date = "2017-01-01T01:49:35.690+0800")
 public final class _LabReportPo extends org.seasar.doma.jdbc.entity.AbstractEntityType<ei.lis.db.dao.po.LabReportPo> {
 
     static {

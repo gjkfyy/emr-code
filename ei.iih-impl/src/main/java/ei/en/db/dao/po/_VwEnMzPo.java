@@ -1,7 +1,7 @@
 package ei.en.db.dao.po;
 
 /** */
-@javax.annotation.Generated(value = { "Doma", "1.35.0" }, date = "2016-12-28T22:23:15.815+0800")
+@javax.annotation.Generated(value = { "Doma", "1.35.0" }, date = "2017-01-01T01:49:35.693+0800")
 public final class _VwEnMzPo extends org.seasar.doma.jdbc.entity.AbstractEntityType<ei.en.db.dao.po.VwEnMzPo> {
 
     static {

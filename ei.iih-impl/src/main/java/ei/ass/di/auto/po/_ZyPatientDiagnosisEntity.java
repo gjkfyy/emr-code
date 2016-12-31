@@ -1,7 +1,7 @@
 package ei.ass.di.auto.po;
 
 /** */
-@javax.annotation.Generated(value = { "Doma", "1.35.0" }, date = "2016-12-28T22:23:15.763+0800")
+@javax.annotation.Generated(value = { "Doma", "1.35.0" }, date = "2017-01-01T01:49:35.656+0800")
 public final class _ZyPatientDiagnosisEntity extends org.seasar.doma.jdbc.entity.AbstractEntityType<ei.ass.di.auto.po.ZyPatientDiagnosisEntity> {
 
     static {

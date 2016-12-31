@@ -1,7 +1,7 @@
 package ei.cis.db.dao.auto.entity;
 
 /** */
-@javax.annotation.Generated(value = { "Doma", "1.35.0" }, date = "2016-12-28T22:23:15.781+0800")
+@javax.annotation.Generated(value = { "Doma", "1.35.0" }, date = "2017-01-01T01:49:35.669+0800")
 public final class _IemrEnAdtEntity extends org.seasar.doma.jdbc.entity.AbstractEntityType<ei.cis.db.dao.auto.entity.IemrEnAdtEntity> {
 
     static {

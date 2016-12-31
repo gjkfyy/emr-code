@@ -36,8 +36,8 @@
 	<sca:service name="cisService" target="cisService" />
 	
 	<bean id="enAdtService" class="ei.iih.service.impl.EnAdtServiceImpl" />
-	<sca:service name="enAdtService" target="enAdtService" />
-	
+	<!-- <sca:service name="enAdtService" target="enAdtService" />
+	 -->
 	<bean id="hisSyncEnAdtService" class="ei.his.service.impl.HisSyncEnAdtServiceImpl" />
 	<sca:service name="hisSyncEnAdtService" target="hisSyncEnAdtService" />
 	

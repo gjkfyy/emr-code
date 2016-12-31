@@ -1,7 +1,7 @@
 package ei.pa.po;
 
 /** */
-@javax.annotation.Generated(value = { "Doma", "1.35.0" }, date = "2016-12-28T22:23:15.769+0800")
+@javax.annotation.Generated(value = { "Doma", "1.35.0" }, date = "2017-01-01T01:49:35.661+0800")
 public final class _PatientInfoForXMLPo extends org.seasar.doma.jdbc.entity.AbstractEntityType<ei.pa.po.PatientInfoForXMLPo> {
 
     static {
