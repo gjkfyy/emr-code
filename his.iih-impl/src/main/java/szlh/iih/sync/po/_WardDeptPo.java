@@ -1,7 +1,7 @@
 package szlh.iih.sync.po;
 
 /** */
-@javax.annotation.Generated(value = { "Doma", "1.35.0" }, date = "2016-12-28T22:23:26.266+0800")
+@javax.annotation.Generated(value = { "Doma", "1.35.0" }, date = "2017-01-01T01:49:34.623+0800")
 public final class _WardDeptPo extends org.seasar.doma.jdbc.entity.AbstractEntityType<szlh.iih.sync.po.WardDeptPo> {
 
     static {

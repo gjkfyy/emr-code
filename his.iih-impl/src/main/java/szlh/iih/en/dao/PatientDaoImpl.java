@@ -2,7 +2,7 @@ package szlh.iih.en.dao;
 
 /** */
 @org.springframework.stereotype.Repository()
-@javax.annotation.Generated(value = { "Doma", "1.35.0" }, date = "2016-12-28T22:23:26.307+0800")
+@javax.annotation.Generated(value = { "Doma", "1.35.0" }, date = "2017-01-01T01:49:34.678+0800")
 public class PatientDaoImpl extends org.seasar.doma.internal.jdbc.dao.AbstractDao implements szlh.iih.en.dao.PatientDao {
 
     static {
