@@ -1,7 +1,7 @@
 package iih.kr.db.cs.entity;
 
 /** */
-@javax.annotation.Generated(value = { "Doma", "1.35.0" }, date = "2016-12-28T22:24:18.111+0800")
+@javax.annotation.Generated(value = { "Doma", "1.35.0" }, date = "2017-01-01T01:49:34.100+0800")
 public final class _MdDiSimpleEntity extends org.seasar.doma.jdbc.entity.AbstractEntityType<iih.kr.db.cs.entity.MdDiSimpleEntity> {
 
     static {
