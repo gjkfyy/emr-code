@@ -1,7 +1,7 @@
 package pkuhit.org.dao.auto.entity;
 
 /** */
-@javax.annotation.Generated(value = { "Doma", "1.35.0" }, date = "2016-12-28T22:24:53.208+0800")
+@javax.annotation.Generated(value = { "Doma", "1.35.0" }, date = "2017-01-01T01:49:41.266+0800")
 public final class _OrgWg extends org.seasar.doma.jdbc.entity.AbstractEntityType<pkuhit.org.dao.auto.entity.OrgWg> {
 
     static {

@@ -2,7 +2,7 @@ package pkuhit.org.dao.auto;
 
 /** */
 @org.springframework.stereotype.Repository()
-@javax.annotation.Generated(value = { "Doma", "1.35.0" }, date = "2016-12-28T22:24:53.501+0800")
+@javax.annotation.Generated(value = { "Doma", "1.35.0" }, date = "2017-01-01T01:49:41.584+0800")
 public class OrgWgDaoImpl extends org.seasar.doma.internal.jdbc.dao.AbstractDao implements pkuhit.org.dao.auto.OrgWgDao {
 
     static {

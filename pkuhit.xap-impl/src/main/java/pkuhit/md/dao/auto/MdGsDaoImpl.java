@@ -2,7 +2,7 @@ package pkuhit.md.dao.auto;
 
 /** */
 @org.springframework.stereotype.Repository()
-@javax.annotation.Generated(value = { "Doma", "1.35.0" }, date = "2016-12-28T22:24:53.705+0800")
+@javax.annotation.Generated(value = { "Doma", "1.35.0" }, date = "2017-01-01T01:49:41.749+0800")
 public class MdGsDaoImpl extends org.seasar.doma.internal.jdbc.dao.AbstractDao implements pkuhit.md.dao.auto.MdGsDao {
 
     static {

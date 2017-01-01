@@ -66,7 +66,7 @@ public class DictionaryServiceImpl extends CacheableDictionaryService implements
             InfoLogger.log("start cache metadata.....");
             for (DataObjectMetadata meta : this.dataObjectMetadataRepository.getAllDataObjectMetadatas())
             {
-                if (meta.isCacheable())
+                if (false)
                 {
                     initDataObjectCache(meta, processedIds);
                 }
