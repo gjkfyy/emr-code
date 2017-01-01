@@ -2,16 +2,13 @@ package pkuhit.iih.qa.qaauto.dataSearcher;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import pkuhit.iih.mr.dao.auto.MrAmrDao;
 import pkuhit.iih.mr.dao.auto.entity.MrAmr;
 import pkuhit.iih.mr.wr.Amr;
-import pkuhit.iih.qa.QaAutoModel;
 import pkuhit.iih.qa.QaFault;
-import pkuhit.iih.qa.dao.qacustom.CusQaAutoDao;
 import pkuhit.md.DictionaryService;
 import pkuhit.xap.util.BeanCopyUtil;
 import xap.ru.engin.data.Condition;

@@ -1,22 +1,16 @@
 package pkuhit.iih.qa.qacustom;
 
 import java.math.BigDecimal;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import pkuhit.iih.en.md.EncounterType;
-import pkuhit.iih.mr.md.dao.auto.entity.MdMrTpCcat;
 import pkuhit.iih.qa.QaDivideLevelModel;
 import pkuhit.iih.qa.QaDivideSetModel;
-import pkuhit.iih.qa.QaItem;
 import pkuhit.iih.qa.dao.auto.QaDivideLevelDao;
 import pkuhit.iih.qa.dao.auto.QaItmDao;
 import pkuhit.iih.qa.dao.auto.QaItmFstDao;
@@ -31,7 +25,6 @@ import pkuhit.iih.qa.dao.qacustom.CusQaItemnDao;
 import pkuhit.iih.qa.qacustom.bizmodel.QaItemCreateInit;
 import pkuhit.iih.qa.qacustom.bizmodel.QaItmFstCategory;
 import pkuhit.iih.qa.qacustom.bizmodel.QaItmSndCategory;
-import pkuhit.iih.qa.qasys.QaSystemQaItem;
 import pkuhit.md.DictionaryService;
 import pkuhit.xap.me.MeCdRuService;
 import pkuhit.xap.util.BeanCopyUtil;
@@ -89,7 +82,7 @@ public class AmrQAItmServiceImpl implements AmrQAItmService {
 	}
 	
 	/**
-	 * 评分项目二级分类
+	 * 璇勫垎椤圭洰浜岀骇鍒嗙被
 	 * 
 	 * @param enTypeCd
 	 * @return
@@ -118,7 +111,7 @@ public class AmrQAItmServiceImpl implements AmrQAItmService {
 	}
 	
 	/**
-	 * 评分项目一级分类
+	 * 璇勫垎椤圭洰涓�绾у垎绫�
 	 * 
 	 * @param enTypeCd
 	 * @return
@@ -137,7 +130,7 @@ public class AmrQAItmServiceImpl implements AmrQAItmService {
 	}
 
 	/**
-	 * 病案等级查询
+	 * 鐥呮绛夌骇鏌ヨ
 	 * @param enTypeCd
 	 * @return
 	 */
@@ -288,7 +281,7 @@ public class AmrQAItmServiceImpl implements AmrQAItmService {
 			QaItmSnd qaItmSndNew= qaItmSndDao.selectById(sndCd);
 			qaItmSndNew.setDelF((short)1);
 			qaItmSndDao.markDelete(qaItmSndNew);
-			// 查询质控项目
+			// 鏌ヨ璐ㄦ帶椤圭洰
 			List<QaItm> qaItmList = cusQaItemnDao.searchQaItem(fstCd, sndCd);
 			for (QaItm qaitm : qaItmList) {
 				String qaItmCd = qaitm.getQaItmCd();
@@ -364,11 +357,11 @@ public class AmrQAItmServiceImpl implements AmrQAItmService {
 //	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public SingleResult<Map> qaItmFstTree(Map<String, String> condition) {
-		// 返回结果map
+		// 杩斿洖缁撴灉map
 		Map mapResult = new HashMap();
 		SingleResult<Map> result = new SingleResult<Map>();
 		mapResult.put("text", "root");
-		// 住院
+		// 浣忛櫌
 		String encounterPk = condition.get("encounterPk");
 		String enTpCd = EncounterType.INPATIENT;
 		List<QaItmFst> qaItmFstList = cusQaFltItmDao.selectQaFltItm();
@@ -382,7 +375,7 @@ public class AmrQAItmServiceImpl implements AmrQAItmService {
 			for (int i = 0; i < qaItmFstList.size(); i++) {
 				Map mapChild = new HashMap();
 				mapChild.put("id", qaItmFstList.get(i).getFstCd());
-				mapChild.put("text", qaItmFstList.get(i).getNm()+"("+qaItmFstList.get(i).getScore() + "分)");
+				mapChild.put("text", qaItmFstList.get(i).getNm()+"("+qaItmFstList.get(i).getScore() + "鍒�)");
 				mapChild.put("leaf", true);
 				mapChilds.add(mapChild);
 			}
@@ -502,7 +495,7 @@ public class AmrQAItmServiceImpl implements AmrQAItmService {
 
 	@Override
 	public SingleResult<Map> qaItmTree(@RequestParam Map<String, String> condition) {
-		// 返回结果map
+		// 杩斿洖缁撴灉map
 		Map mapResult = new HashMap();
 		SingleResult<Map> result = new SingleResult<Map>();
 		mapResult.put("text", "root");
@@ -513,21 +506,21 @@ public class AmrQAItmServiceImpl implements AmrQAItmService {
 		List<Map> mapChilds = new ArrayList<Map>();
 		if (null != qaItmFstList && qaItmFstList.size() > 0) {
 			for (int i = 0; i < qaItmFstList.size(); i++) {
-				// 得到分类下的文书列表
+				// 寰楀埌鍒嗙被涓嬬殑鏂囦功鍒楄〃
 				List<QaItmSnd> mrlist = cusQaFltItmDao.selectQaSndItm(qaItmFstList.get(i).getFstCd());
 				
 				Map mapChild = new HashMap();
 				mapChild.put("sndCd", qaItmFstList.get(i).getFstCd());
-				mapChild.put("text", qaItmFstList.get(i).getNm() +"("+qaItmFstList.get(i).getScore() + "分)");
+				mapChild.put("text", qaItmFstList.get(i).getNm() +"("+qaItmFstList.get(i).getScore() + "鍒�)");
 
 				List<Map> mrMaps = new ArrayList<Map>();
 				if (mrlist.size() > 0) {
 					for (int j = 0; j < mrlist.size(); j++) {
-					    //得到文书创建时间，转换格式
+					    //寰楀埌鏂囦功鍒涘缓鏃堕棿锛岃浆鎹㈡牸寮�
 					    //Timestamp crtTime = mrlist.get(j).getSubmitDate();
 						Map mrMap = new HashMap();
 						mrMap.put("sndCd", mrlist.get(j).getSndCd());
-						mrMap.put("text", mrlist.get(j).getNm()+"("+mrlist.get(j).getScore() + "分)");
+						mrMap.put("text", mrlist.get(j).getNm()+"("+mrlist.get(j).getScore() + "鍒�)");
 						mrMap.put("leaf", true);
 						mrMaps.add(mrMap);
 					}
