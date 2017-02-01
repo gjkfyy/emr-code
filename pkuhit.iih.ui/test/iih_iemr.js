@@ -338,8 +338,8 @@ Ext.define('iih.mr.action.editor.EmrEditorOperatorAction', {
     showProgress: function() {
         Ext.MessageBox.show({
             title: '请稍候',
-            msg: '正在加载方正病历编辑器组件...',
-//            progressText: '正在加载方正病历编辑器组件...',
+            msg: '正在加载病历编辑器组件...',
+//            progressText: '正在加载病历编辑器组件...',
             width: 300,
             progress: true,
             closable: false,
@@ -74490,7 +74490,7 @@ Ext.define('iih.po.com.action.TopBaseButtonsAction', {
             break;
         case 'close':
             // TODO 临时方案 
-            XapMessageBox.confirm2('确定退出方正集成化电子病历系统？',function(btn){
+            XapMessageBox.confirm2('确定退出定制病历资料管理系统？',function(btn){
                 if(btn == 'yes') {
                     //window.opener = null;
                     //window.open('', '_self');
@@ -77692,7 +77692,7 @@ Ext.define('IMER_CONSTANT', {
 	BODY_TOP_PADDING: '5 0 0 0',
 	BODY_LEFT_PADDING: '0 5 0 0',
 	
-	SYSTEMNAME: '方正集成化电子病历系统',
+	SYSTEMNAME: '定制病历资料管理系统',
 	VERSION: '(版本2.2.2.28.20151126)',
 	IP: '(Server:172.18.98.71:8086)',
 
