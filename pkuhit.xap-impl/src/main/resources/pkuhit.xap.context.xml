@@ -153,6 +153,8 @@
 	<xap:component name="messageService" target="messageService" />
 	<bean id="taskService" class="pkuhit.xap.task.TaskServiceImpl"></bean>
 	<xap:component name="taskService" target="taskService" />
+	<bean id="patientService" class="pkuhit.xap.ac.PatientServiceImpl"></bean>
+	<xap:component name="patientService" target="patientService" />
 	
 	<bean id="ruleEngin" class="xap.ru.engin.SimpleRuleEnginImpl"></bean>
 	<xap:component name="ruleEngin" target="ruleEngin" />
