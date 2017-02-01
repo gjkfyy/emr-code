@@ -329,6 +329,12 @@ Ext.define('iih.po.com.PortalPlugin', {
                  xclass:'iih.sy.userinfo.view.UserInfoManageView',
                  viewConfig:{}
              },{
+                 cd:'XAPM07.1001',
+                 baseMenu: true,
+                 text:'患者管理',
+                 xclass:'iih.sy.patient.view.PatientManageView',
+                 viewConfig:{}
+             },{
                  cd:'XAPM07.74',
                  baseMenu: true,
                  text:'报表角色管理',

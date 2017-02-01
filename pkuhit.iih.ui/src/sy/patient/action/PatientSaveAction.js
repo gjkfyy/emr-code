@@ -10,6 +10,7 @@ Ext.define('iih.sy.patient.action.PatientSaveAction', {
 		var block = this.getBlock('content');
 		var form= block.getForm();
         var data = form.getValues();
+        data.admissionDate = Ext.getCmp("admissionDate").getValue();
 		var operations = context.operations;
         if(!operations) {
      		return;
@@ -38,7 +39,11 @@ Ext.define('iih.sy.patient.action.PatientSaveAction', {
     	XapMessageBox.info("保存成功");
     	var owner = this.getOwner();
     	var chain = owner.getActionChain('cancel');
-    	chain.execute();
+    		chain.execute();
+    	
+    	var view = this.up('patientleftlistview');
+    	var chain = owner.getActionChain('init');
+        	chain.execute();
     }
 
 });

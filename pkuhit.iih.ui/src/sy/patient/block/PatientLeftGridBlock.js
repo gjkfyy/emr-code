@@ -25,7 +25,7 @@ Ext.define('iih.sy.patient.block.PatientLeftGridBlock', {
 	items : [ {
 		title : '患者列表',
 		xtype : 'xapgrid',
-		name:'userList',
+		name:'patientList',
 		// pageShow : true,
 		rownumShow : false,
 		height : 470,
@@ -40,31 +40,25 @@ Ext.define('iih.sy.patient.block.PatientLeftGridBlock', {
 		checkboxShow : false,
 		CM_JR_Record : [ {
 			header : 'patientId',
-			dataIndex : 'employeeId',
-			field : 'textfield',
-			type : 'string',
-			hidden:true
-		},{
-			header : 'xapUserPk',
-			dataIndex : 'xapUserPk',
+			dataIndex : 'patientId',
 			field : 'textfield',
 			type : 'string',
 			hidden:true
 		},{
 			header : '姓名',
-			dataIndex : 'id',
+			dataIndex : 'patientName',
 			field : 'textfield',
 			type : 'string',
 			flex : 1
 		}, {
 			header : '住院号',
-			dataIndex : 'name',
+			dataIndex : 'inpatientNo',
 			field : 'textfield',
 			type : 'string',
 			flex : 1
 		}, {
 			header : '入院时间',
-			dataIndex : 'statusName',
+			dataIndex : 'admissionDate',
 			field : 'textfield',
 			type : 'string',
 			flex : 1
@@ -78,7 +72,7 @@ Ext.define('iih.sy.patient.block.PatientLeftGridBlock', {
 		} ]
 	} ],
 	setData : function(data) {
-		var grid = this.down('xapgrid[name=userList]');
+		var grid = this.down('xapgrid[name=patientList]');
 		if(data){
 			var dataList=data.dataList;
 	    	if(grid){

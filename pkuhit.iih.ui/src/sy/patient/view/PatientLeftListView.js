@@ -22,7 +22,8 @@ Ext.define('iih.sy.patient.view.PatientLeftListView',{
 				xclass: 'Xap.ej.block.ToolbarBlock',
 				items: [{
 						xtype : 'xaptextfield',
-						name : 'id',
+						id : 'searchCondition',
+						name : 'searchCondition',
 						colspan : 1,
 						labelWidth : 20,
 						width : 230,
@@ -30,7 +31,30 @@ Ext.define('iih.sy.patient.view.PatientLeftListView',{
 						readOnly : false,
 						fieldStyle:'color:#c6c6c6',
 						value : '输入姓名、住院号、入院时间检索',
-						fieldLabel : ''
+						fieldLabel : '',
+						listeners:{
+				        	specialkey : function(field, e) {  
+				                if (e.getKey() == Ext.EventObject.ENTER) { 
+				                	var view = this.up('patientleftlistview');
+				                	var chain = view.getActionChain('init');
+				                	if(chain) {
+				    	        		chain.execute({});
+				    	        	}
+				                }  
+				            },
+				            blur : function() {
+								var value = Ext.getCmp('searchCondition').getValue();
+								if(value==""){
+									Ext.getCmp('searchCondition').setValue('输入姓名、住院号、入院时间检索');
+								}
+							},
+							focus : function(area, The, eOpts) {
+								var value = Ext.getCmp('searchCondition').getValue();
+								if(value=='输入姓名、住院号、入院时间检索'){
+									Ext.getCmp('searchCondition').setValue('');
+								}
+			                }
+				        }
 					},{
 						xtype: 'button',
 						text: '查询',
@@ -45,8 +69,7 @@ Ext.define('iih.sy.patient.view.PatientLeftListView',{
 		actions: {
 			'init': {
 				xclass: 'iih.sy.patient.action.PatientLeftSearchAction',
-				//url: 'http://172.18.100.116:8081/dm-xap/users',
-				url: 'users',
+				url: 'patients',
 				blocks: {
 					condition: 'condition',
 					result: 'result'
@@ -81,6 +104,9 @@ Ext.define('iih.sy.patient.view.PatientLeftListView',{
 				selector : 'xapgrid',
 				event : 'turnpage',
 				chain : 'init'
+			},{
+				event: 'afterrender',
+				chain: 'init'
 			}],
 			'toolbar': [{
 				selector: 'button[action=search]',

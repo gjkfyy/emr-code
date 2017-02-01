@@ -133,7 +133,13 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        fieldLabel:'入院日期',
 		        width:230,
 		        id:'admissionDate',
-		        name:'admissionDate'
+		        name:'admissionDate',
+		        listeners: {
+					change: function( v, newValue, oldValue, eOpts ) {
+						var startDate = this.up('panel').down('xapdatefield[name=admissionDate]');
+						startDate.setMaxValue( this.getValue( ) );
+					}
+				}
 			},{
 				xtype:'xaptextfield',
 				colspan: 2,

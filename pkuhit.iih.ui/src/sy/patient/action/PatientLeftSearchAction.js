@@ -17,13 +17,7 @@ Ext.define('iih.sy.patient.action.PatientLeftSearchAction', {
     
     prepareOperations: function(operations,context) {
         var block = this.getBlock('condition');
-       /* var orgCd = block.down('comboxgrid');
-        if(orgCd.comboRecord){
-        	orgCd = orgCd.comboRecord.value;
-        }else{
-        	orgCd = '';
-        }*/
-        var orgCd = '';
+        var searchCondition = Ext.getCmp('searchCondition').getValue();
         //获取分页数
         var pageNum,pageSize ;
 		if(context.event && context.event.name == "turnpage"){
@@ -42,7 +36,7 @@ Ext.define('iih.sy.patient.action.PatientLeftSearchAction', {
         if(condition) {
             var qs = Ext.Object.toQueryString(condition);
             if(qs) {
-                url += '?' + qs +'&orgCd=' + orgCd;
+                url += '?' + qs +'&condition=' + searchCondition;
             }
             console.log(url);
         }

@@ -120,8 +120,8 @@ Ext.define('iih.mr.action.editor.EmrEditorOperatorAction', {
     showProgress: function() {
         Ext.MessageBox.show({
             title: '请稍候',
-            msg: '正在加载方正病历编辑器组件...',
-//            progressText: '正在加载方正病历编辑器组件...',
+            msg: '正在加载病历编辑器组件...',
+//            progressText: '正在加载病历编辑器组件...',
             width: 300,
             progress: true,
             closable: false,
