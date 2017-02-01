@@ -3,8 +3,8 @@
 	<ftp username="iemr_download" password="iemr" port="21">${iemr.update.address}</ftp>
 	<xmlfile path="latest_version/patch.xml">patch.xml</xmlfile>
 	<zipfile path="latest_version/patch.zip">patch.zip</zipfile>
-	<app action="close" description="方正编辑器">soffice.bin</app>
-	<app action="close" description="方正编辑器">soffice.exe</app>
+	<app action="close" description="编辑器">soffice.bin</app>
+	<app action="close" description="编辑器">soffice.exe</app>
 	<app action="close" description="浏览器">iexplore.exe</app>
 	<app action="close" description="webkit">nw.exe</app>
 </updateinfo>
