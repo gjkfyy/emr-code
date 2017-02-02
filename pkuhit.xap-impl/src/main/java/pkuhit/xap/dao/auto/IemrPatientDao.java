@@ -25,12 +25,11 @@ import xap.sv.dao.annotation.RepositoryConfig;
 public interface IemrPatientDao {
 
     /**
-     * @param id
-     * @return the IemrReport entity
+     * @param patientId
+     * @return the IemrPatient entity
      */
-   /* @Select
-    IemrPatient selectPatientById(String id);*/
-
+    @Select
+    IemrPatient selectIemrPatientById(String patientId);
 
     /**
      * @param entity
