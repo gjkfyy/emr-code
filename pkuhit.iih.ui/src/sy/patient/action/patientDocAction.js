@@ -19,9 +19,6 @@ extend: 'Xap.ej.action.Action',
 	    
 	    var enGrid = topBlock.down('xapgrid');
 	    
-        
-	    
-	    
 	    var tabs = Ext.widget('tabpanel', {
 	        renderTo: 'baseInfo',
 	        resizeTabs: true,

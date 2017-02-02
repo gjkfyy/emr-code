@@ -24,9 +24,9 @@ Ext.define('iih.sy.patient.view.PatientContentView', {
 				},
 
 					actions : {
-						'userRightList': {
+						'patientRightList': {
 							xclass: 'iih.sy.patient.action.PatientRightListAction',
-							url: 'user',
+							url: 'iemrPatient',
 							blocks: {
 								condition: 'left',
 								result: 'right'
@@ -41,16 +41,16 @@ Ext.define('iih.sy.patient.view.PatientContentView', {
 						}
 					},
 					chains : {
-						'userRightList': ['userRightList'],
+						'patientRightList': ['patientRightList'],
 						'toReport' : ['toReport']
 					},
 
 					connections : {
-						'left'	:[{/*
+						'left'	:[{
 							selector: 'xapgrid',
 							event: 'itemclick',
-							chain: 'userRightList'
-						*/},{
+							chain: 'patientRightList'
+						},{
 							selector: 'xapgrid',
 							event: 'itemdblclick',
 							chain: 'toReport'

@@ -69,7 +69,7 @@ Ext.define('iih.sy.patient.view.PatientLeftListView',{
 		actions: {
 			'init': {
 				xclass: 'iih.sy.patient.action.PatientLeftSearchAction',
-				url: 'patients',
+				url: 'iemrPatients',
 				blocks: {
 					condition: 'condition',
 					result: 'result'
