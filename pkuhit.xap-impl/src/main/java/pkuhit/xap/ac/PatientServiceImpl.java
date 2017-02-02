@@ -1,5 +1,6 @@
 package pkuhit.xap.ac;
 
+import java.sql.Clob;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
@@ -11,10 +12,12 @@ import org.springframework.util.StringUtils;
 
 import pkuhit.xap.dao.auto.IemrPatientDao;
 import pkuhit.xap.dao.auto.entity.IemrPatient;
+import pkuhit.xap.dao.auto.entity.XapUser;
 import pkuhit.xap.util.BeanCopyUtil;
 import xap.sv.model.ArrayResult;
 import xap.sv.model.ArrayResultBuilder;
 import xap.sv.model.SingleResult;
+import xap.sv.model.SingleResultBuilder;
 import xap.util.UUIDGenerator;
 public class PatientServiceImpl implements PatientService
 {
@@ -41,9 +44,12 @@ public class PatientServiceImpl implements PatientService
 	}
 
 	@Override
-	public SingleResult<Patient> selectPatientById(String patientId) {
-		// TODO Auto-generated method stub
-		return null;
+	public SingleResult<Patient> selectIemrPatientById(String patientId) {
+        IemrPatient iemrPatient = imerPatientDao.selectIemrPatientById(patientId);
+        Patient patient = this.wrapData(iemrPatient);
+        SingleResultBuilder<Patient> builder = SingleResultBuilder.newSingleResult(Patient.class);
+        builder.withData(patient);
+		return builder.build();
 	}
 
 	@Override
