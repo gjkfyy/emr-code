@@ -52,8 +52,8 @@ public interface PatientService
      * @param patient
      * @return
      */
-    @RequestMapping(value = "/patient/{id}", method = RequestMethod.GET)
-    SingleResult<Patient> selectPatientById(@PathVariable("id") String patientId);
+    @RequestMapping(value = "/iemrPatient/{id}", method = RequestMethod.GET)
+    SingleResult<Patient> selectIemrPatientById(@PathVariable("id") String patientId);
     
     /**
      * map中key值：
@@ -67,7 +67,7 @@ public interface PatientService
      * @param params
      * @return
      */
-    @RequestMapping(value = "/patients", method = RequestMethod.GET)
+    @RequestMapping(value = "/iemrPatients", method = RequestMethod.GET)
     ArrayResult<Patient> search(@RequestParam Map<String, String> params);
    
 }
