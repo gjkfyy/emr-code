@@ -42,18 +42,18 @@
 		<!-- 添加业务组件 <dependency> <groupId>iih</groupId> <artifactId>iih.db</artifactId> 
 			<version>${project.version}</version> </dependency> -->
 
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.seasar.doma</groupId>
 			<artifactId>doma</artifactId>
 			<version>${doma.version}</version>
-		</dependency>
+		</dependency> -->
 
 		<!-- xap -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>xap</groupId>
 			<artifactId>xap.sv</artifactId>
 			<version>${xap.version}</version>
-		</dependency>
+		</dependency> -->
 
 		<!-- spring -->
 		<dependency>
@@ -122,34 +122,34 @@
 			<artifactId>ojdbc6_11.2.0.4</artifactId>
 			<version>1.0</version>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
             <groupId>bjca.org</groupId>
             <artifactId>BJCA_LOG</artifactId>
             <version>1.0</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/lib/BJCA_LOG.jar</systemPath>
-        </dependency>
-        <dependency>
+        </dependency> -->
+        <!-- <dependency>
             <groupId>cn.org</groupId>
             <artifactId>SVSClient</artifactId>
             <version>1.0</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/lib/SVSClient.jar</systemPath>
-        </dependency>
-        <dependency>
+        </dependency> -->
+       <!--  <dependency>
             <groupId>net.netca</groupId>
             <artifactId>NetcaJCrypto</artifactId>
             <version>1.0</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/lib/NetcaJCrypto.jar</systemPath>
-        </dependency>
-        <dependency>
+        </dependency> -->
+  <!--       <dependency>
             <groupId>net.netca</groupId>
             <artifactId>secuInterv4_new</artifactId>
             <version>1.0</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/lib/secuInterv4_new.jar</systemPath>
-        </dependency>
+        </dependency> -->
         <!--<dependency>
             <groupId>org.wltea</groupId>
             <artifactId>IKAnalyzer</artifactId>
