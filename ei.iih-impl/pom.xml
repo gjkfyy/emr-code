@@ -22,7 +22,7 @@
 			<version>1.4</version>
 		</dependency>
 
-		<dependency>
+	<!-- 	<dependency>
 			<groupId>fi.com.microsoft</groupId>
 			<artifactId>sqljdbc4</artifactId>
 			<version>1.0</version>
@@ -31,7 +31,7 @@
 			<groupId>cn.guoyukun.jdbc</groupId>
 			<artifactId>db2jcc</artifactId>
 			<version>1.4.2</version>
-		</dependency>
+		</dependency> -->
 
 
 		<!-- 日志 -->
@@ -59,14 +59,14 @@
 			<version>1.7.5</version>
 		</dependency>
 
-		<dependency>
+	<!-- 	<dependency>
 			<groupId>org.seasar.doma</groupId>
 			<artifactId>doma</artifactId>
 			<version>${doma.version}</version>
-		</dependency>
+		</dependency> -->
 
 		<!-- xap -->
-		<dependency>
+	<!-- 	<dependency>
 			<groupId>xap</groupId>
 			<artifactId>xap.sv</artifactId>
 			<version>${xap.version}</version>
@@ -88,7 +88,7 @@
 			<groupId>pkuhit.iih</groupId>
 			<artifactId>pkuhit.xap-api</artifactId>
 			<version>${project.version}</version>
-		</dependency>
+		</dependency> -->
 
 		<!-- spring -->
 		<dependency>
