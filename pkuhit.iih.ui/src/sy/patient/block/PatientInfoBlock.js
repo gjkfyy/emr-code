@@ -29,7 +29,7 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        labelWidth:70,
 		        fieldLabel:'X片号',
 		        width:495,
-		        id:'xpianNo',
+		        //id:'xpianNo',
 		        name:'xpianNo'
 			},{
 				xtype:'xaptextfield',
@@ -38,7 +38,7 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        labelWidth:50,
 		        fieldLabel:'住院号',
 		        width:495,
-		        id:'inpatientNo',
+		        //id:'inpatientNo',
 		        name:'inpatientNo'
 			},{
 				xtype:'xaptextfield',
@@ -47,11 +47,11 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        labelWidth:70,
 		        fieldLabel:'姓名',
 		        width:150,
-		        id:'patientName',
+		       // id:'parentName',
 		        name:'patientName'
 			},{
 	        	xtype:'xapcombobox',
-	        	id:'sex',
+		       // id:'sex',
 		        name:'sex',
 	            fieldLabel:'性别',
 	            padding:'5 0 0 5',
@@ -75,7 +75,7 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				padding:'5 0 0 5',
 		        labelWidth:40,
 		        width:140,
-		        id:'parentName',
+		        //id:'parentName',
 		        name:'parentName',
 		        fieldLabel:'父母名'
 			},{
@@ -236,8 +236,8 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				padding:'5 20 0 5',
 		        labelWidth:70,
 		        width:1020,
-		        id:'adress',
-		        name:'adress',
+		       /* id:'adress',
+		        name:'adress',*/
 		        fieldLabel:'联系地址'
 			},{
 				xtype:'xaptextfield',
