@@ -24,7 +24,7 @@
 			<artifactId>ei.iih-impl</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-		<dependency>
+	<!-- 	<dependency>
 			<groupId>pkuhit.xap</groupId>
 			<artifactId>xap-sdk</artifactId>
 			<version>${xap.version}</version>
@@ -33,6 +33,6 @@
 			<groupId>xap</groupId>
 			<artifactId>xap.ru</artifactId>
 			<version>${xap.version}</version>
-		</dependency>
+		</dependency> -->
 	</dependencies>
 </project>

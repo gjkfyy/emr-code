@@ -40,14 +40,14 @@
 			<version>1.7.5</version>
 		</dependency>
 
-		<dependency>
+	<!-- 	<dependency>
 			<groupId>org.seasar.doma</groupId>
 			<artifactId>doma</artifactId>
 			<version>${doma.version}</version>
-		</dependency>
+		</dependency> -->
 
 		<!-- xap -->
-		<dependency>
+<!-- 		<dependency>
 			<groupId>xap</groupId>
 			<artifactId>xap.sv</artifactId>
 			<version>${xap.version}</version>
@@ -63,7 +63,7 @@
 			<groupId>xap</groupId>
 			<artifactId>xap.ru</artifactId>
 			<version>${xap.version}</version>
-		</dependency>
+		</dependency> -->
 
 		<dependency>
 			<groupId>pkuhit.iih</groupId>

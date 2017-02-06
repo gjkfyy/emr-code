@@ -42,18 +42,18 @@
 		<!-- 添加业务组件 <dependency> <groupId>iih</groupId> <artifactId>iih.db</artifactId> 
 			<version>${project.version}</version> </dependency> -->
 
-		<dependency>
+<!-- 		<dependency>
 			<groupId>org.seasar.doma</groupId>
 			<artifactId>doma</artifactId>
 			<version>${doma.version}</version>
-		</dependency>
+		</dependency> -->
 
 		<!-- xap -->
-		<dependency>
+	<!-- 	<dependency>
 			<groupId>xap</groupId>
 			<artifactId>xap.sv</artifactId>
 			<version>${xap.version}</version>
-		</dependency>
+		</dependency> -->
 
 		<!-- spring -->
 		<dependency>

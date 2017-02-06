@@ -40,14 +40,14 @@
 			<version>1.7.5</version>
 		</dependency>
 
-		<dependency>
+<!-- 		<dependency>
 			<groupId>org.seasar.doma</groupId>
 			<artifactId>doma</artifactId>
 			<version>${doma.version}</version>
-		</dependency>
+		</dependency> -->
 
 		<!-- xap -->
-		<dependency>
+	<!-- 	<dependency>
 			<groupId>xap</groupId>
 			<artifactId>xap.sv</artifactId>
 			<version>${xap.version}</version>
@@ -56,7 +56,7 @@
 			<groupId>xap</groupId>
 			<artifactId>xap.ws</artifactId>
 			<version>${xap.version}</version>
-		</dependency>
+		</dependency> -->
 
 		<dependency>
 			<groupId>${project.groupId}</groupId>
@@ -158,11 +158,11 @@
 			<version>1.0</version>
 		</dependency>
 
-		<dependency>
+	<!-- 	<dependency>
 			<groupId>pkuhit.xap</groupId>
 			<artifactId>xap-sdk</artifactId>
 			<version>${xap.version}</version>
-		</dependency>
+		</dependency> -->
 
 		<dependency>
 			<groupId>com.alibaba</groupId>
@@ -203,11 +203,11 @@
 			<scope>compile</scope>
 		</dependency>
 		<!-- End of CXF Dependencies -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>SQLBuilder</groupId>
 			<artifactId>SQLBuilder</artifactId>
 			<version>1.0</version>
-		</dependency>
+		</dependency> -->
 	</dependencies>
 	<properties>
 		<cxf.version>2.4.2</cxf.version>
