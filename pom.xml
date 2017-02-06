@@ -27,20 +27,20 @@
 			<scope>test</scope>
 		</dependency>
 		
-		<!-- xap -->		
+		<!-- xap 	
 		<dependency>
 			<groupId>xap</groupId>
 			<artifactId>xap.sv</artifactId>
 			<version>${xap.version}</version>
-		</dependency>
+		</dependency>-->	
 		
-		<!-- doma -->
+		<!-- doma 
 		<dependency>
 			<groupId>org.seasar.doma</groupId>
 			<artifactId>doma</artifactId>
 			<version>${doma.version}</version>
 			<scope>provided</scope>
-		</dependency>
+		</dependency>-->
 		
 		<dependency>
 			<groupId>javax.servlet</groupId>
