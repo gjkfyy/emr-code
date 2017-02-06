@@ -10,9 +10,9 @@
 		"Score": "mr/ui/iih.mr.qa.score",
 		"SystemMgr": "sy/ui",
 		"All": "dist/iih.all",
-		"IIH_IEMR": "pkuhit/pkuhit.iih.iemr-ui"
+		"IIH_IEMR": "pkuhit.iih.ui"
 	},
 	
-	"repo": ".."
+	"repo": ""
 }
 

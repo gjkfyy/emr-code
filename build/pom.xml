@@ -67,22 +67,7 @@
 	</build>
 	
 	<modules>
-		<module>../dist</module>
-		<module>../kr/server</module>
-		<module>../mr/server</module>
-		<module>../po/server</module>
-		<module>../en/server</module>
-		
-		<module>../pkuhit/pkuhit.iih.iemr-app</module>
-		<module>../pkuhit/pkuhit.iih.iemr-ui</module>
-		<module>../pkuhit/pkuhit.iih.mr-api</module>
-		<module>../pkuhit/pkuhit.iih.mr-app</module>
-		<module>../pkuhit/pkuhit.iih.x-api</module>
-		
-		<module>../pkuhit/pkuhit-model</module>
-		
-		<module>../3rdparty/szlh.iih-batch</module>
-		<module>../3rdparty/szlh.iih-app</module>
+		<module>../pkuhit.iih.ui</module>
 	</modules>
 	
 	<distributionManagement>
