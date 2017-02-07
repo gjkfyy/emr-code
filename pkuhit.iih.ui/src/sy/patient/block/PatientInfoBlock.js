@@ -75,7 +75,6 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				padding:'5 0 0 5',
 		        labelWidth:40,
 		        width:140,
-		        //id:'parentName',
 		        name:'parentName',
 		        fieldLabel:'父母名'
 			},{
@@ -93,7 +92,6 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				padding:'5 0 0 5',
 		        labelWidth:30,
 		        width:140,
-		        id:'nation',
 		        name:'nation',
 		        fieldLabel:'民族'
 			},{
@@ -103,7 +101,6 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        labelWidth:30,
 		        fieldLabel:'胎次',
 		        width:140,
-		        id:'parity',
 		        name:'parity'
 			},{
 	        	xtype:'xapcombobox',
@@ -112,7 +109,6 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 	            padding:'5 0 0 5',
 	            colspan: 3,
 	            width:150,
-	            id:'marriage',
 		        name:'marriage',
 	            labelWidth:70,
 	            labelAlign:'right',
@@ -132,7 +128,6 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        labelWidth:60,
 		        fieldLabel:'入院日期',
 		        width:230,
-		        id:'admissionDate',
 		        name:'admissionDate',
 		        listeners: {
 					change: function( v, newValue, oldValue, eOpts ) {
@@ -146,7 +141,6 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				padding:'5 0 0 5',
 		        labelWidth:50,
 		        width:150,
-		        id:'occupation',
 		        name:'occupation',
 		        fieldLabel:'职业'
 			},{
@@ -155,7 +149,6 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				padding:'5 0 0 0',
 		        labelWidth:100,
 		        width:230,
-		        id:'education',
 		        name:'education',
 		        fieldLabel:'文化程度'
 			},{
@@ -165,7 +158,6 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        labelWidth:70,
 		        fieldLabel:'发病年龄',
 		        width:230,
-		        id:'onsetAge',
 		        name:'onsetAge'
 			},{
 				xtype:'xaptextfield',
@@ -174,7 +166,6 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        labelWidth:60,
 		        fieldLabel:'病因',
 		        width:230,
-		        id:'pathogeny',
 		        name:'pathogeny'
 			},{
 				xtype:'xaptextfield',
@@ -183,7 +174,6 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        labelWidth:50,
 		        fieldLabel:'家族史',
 		        width:150,
-		        id:'familyHistory',
 		        name:'familyHistory'
 			},{
 				xtype:'xaptextfield',
@@ -192,7 +182,6 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        labelWidth:100,
 		        fieldLabel:'供史者',
 		        width:230,
-		        id:'provider',
 		        name:'provider'
 			},{
 				xtype:'xaptextfield',
@@ -201,7 +190,6 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        labelWidth:70,
 		        fieldLabel:'病史',
 		        width:495,
-		        id:'medicalHistory',
 		        name:'medicalHistory'
 			},{
 				xtype:'xaptextfield',
@@ -210,7 +198,6 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        labelWidth:50,
 		        fieldLabel:'治疗史',
 		        width:495,
-		        id:'treatmentHistory',
 		        name:'treatmentHistory'
 			},{
 				xtype:'xaptextfield',
@@ -218,7 +205,6 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				padding:'5 20 0 5',
 		        labelWidth:70,
 		        width:1020,
-		        id:'lumbarSurgeryHistory',
 		        name:'lumbarSurgeryHistory',
 		        fieldLabel:'腰部手术史'
 			},{
@@ -227,7 +213,6 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				padding:'5 20 0 5',
 		        labelWidth:70,
 		        width:1020,
-		        id:'orthopedicSurgeryHistory',
 		        name:'orthopedicSurgeryHistory',
 		        fieldLabel:'矫形手术史'
 			},{
@@ -236,8 +221,7 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				padding:'5 20 0 5',
 		        labelWidth:70,
 		        width:1020,
-		       /* id:'adress',
-		        name:'adress',*/
+		        name:'adress',
 		        fieldLabel:'联系地址'
 			},{
 				xtype:'xaptextfield',
@@ -245,7 +229,6 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				padding:'5 20 0 5',
 		        labelWidth:70,
 		        width:495,
-		        id:'tel',
 		        name:'tel',
 		        fieldLabel:'手机号码'
 			},{
@@ -253,7 +236,6 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				colspan: 6,
 				padding:'5 20 0 5',
 				width:495,
-				id:'otherContact',
 		        name:'otherContact',
 		        labelWidth:100,
 		        fieldLabel:'QQ/微信/E-mail'
@@ -264,7 +246,6 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        labelWidth:70,
 		        fieldLabel:'体检',
 		        width:150,
-		        id:'physicalExam',
 		        name:'physicalExam'
 			},{
 				xtype:'xaptextfield',
@@ -273,7 +254,6 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        labelWidth:40,
 		        fieldLabel:'发育',
 		        width:140,
-		        id:'growth',
 		        name:'growth'
 			},{
 				xtype:'xaptextfield',
@@ -282,7 +262,6 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        labelWidth:40,
 		        fieldLabel:'营养',
 		        width:140,
-		        id:'nutrition',
 		        name:'nutrition'
 			},{
 				xtype:'xaptextfield',
@@ -291,7 +270,6 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        labelWidth:50,
 		        fieldLabel:'身高',
 		        width:150,
-		        id:'height',
 		        name:'height'
 			},{
 				xtype: 'xapdisplayfield',
@@ -308,7 +286,6 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        labelWidth:50,
 		        fieldLabel:'体重',
 		        width:140,
-		        id:'weight',
 		        name:'weight'
 			},{
 				xtype: 'xapdisplayfield',
@@ -326,7 +303,6 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        labelWidth:60,
 		        fieldLabel:'专科检查',
 		        width:160,
-		        id:'specialityExam',
 		        name:'specialityExam',
 		        displayField: 'parentName'
 			},{
@@ -337,7 +313,6 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        labelAlign:'right',
 		        fieldLabel:'照相',
 		        width:150,
-		        id:'isPic',
 		        name:'isPic',
 		        displayField: 'parentName'
 			},{
@@ -348,7 +323,6 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        labelAlign:'right',
 		        fieldLabel:'录像',
 		        width:150,
-		        id:'isVideo',
 		        name:'isVideo',
 		        displayField: 'parentName'
 			},{
@@ -363,7 +337,6 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				padding:'5 20 10 5',
 		        labelWidth:70,
 		        width:1020,
-		        id:'otherDiseasesHistory',
 		        name:'otherDiseasesHistory',
 		        fieldLabel:'其它疾病史',
 		        displayField: 'parentName'
