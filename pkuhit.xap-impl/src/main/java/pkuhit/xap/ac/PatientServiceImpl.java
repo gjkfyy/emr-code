@@ -1,6 +1,6 @@
 package pkuhit.xap.ac;
 
-import java.sql.Clob;
+import java.math.BigInteger;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
@@ -12,7 +12,6 @@ import org.springframework.util.StringUtils;
 
 import pkuhit.xap.dao.auto.IemrPatientDao;
 import pkuhit.xap.dao.auto.entity.IemrPatient;
-import pkuhit.xap.dao.auto.entity.XapUser;
 import pkuhit.xap.util.BeanCopyUtil;
 import xap.sv.model.ArrayResult;
 import xap.sv.model.ArrayResultBuilder;
@@ -27,13 +26,14 @@ public class PatientServiceImpl implements PatientService
     //新建患者
 	@Override
 	public Patient create(Patient patient) {
-		patient.setPatientId(UUIDGenerator.getUUID());
-		patient.setDelF((short)0);
-		patient.setCrtTime(new Timestamp(new Date().getTime()));
-		patient.setLastUpdateTime(new Timestamp(new Date().getTime()));
 		IemrPatient iemrPatient = new IemrPatient();
 		BeanCopyUtil.modelToEntity(iemrPatient, patient);
-		imerPatientDao.insert(iemrPatient);
+		iemrPatient.setDelF((short)0);
+		iemrPatient.setPatientId(UUIDGenerator.getUUID());
+		iemrPatient.setCrtTime(new Timestamp(new Date().getTime()));
+		iemrPatient.setLastUpdTime(new Timestamp(new Date().getTime()));
+		iemrPatient.setUpdCnt(BigInteger.valueOf(1));
+		imerPatientDao.insertExludeNull(iemrPatient);
 		return patient;
 	}
 
@@ -47,6 +47,13 @@ public class PatientServiceImpl implements PatientService
 	public SingleResult<Patient> selectIemrPatientById(String patientId) {
         IemrPatient iemrPatient = imerPatientDao.selectIemrPatientById(patientId);
         Patient patient = this.wrapData(iemrPatient);
+        if("0".equalsIgnoreCase(patient.getSex())){
+        	patient.setSexValue("女");
+        }else if("1".equalsIgnoreCase(patient.getSex())){
+        	patient.setSexValue("男");
+        }else if("-1".equalsIgnoreCase(patient.getSex())){
+        	patient.setSexValue("未知的性别");
+        }
         SingleResultBuilder<Patient> builder = SingleResultBuilder.newSingleResult(Patient.class);
         builder.withData(patient);
 		return builder.build();
