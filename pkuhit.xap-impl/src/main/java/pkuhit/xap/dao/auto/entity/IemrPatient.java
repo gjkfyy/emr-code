@@ -18,167 +18,167 @@ public class IemrPatient {
 		//患者ID
 		@Id
 		@Column(name="PATIENT_ID")
-		private String patientId;
+		String patientId;
 		
 		//患者姓名
 		@Column(name="PATIENT_NAME") 
-		private  String patientName;
+		 String patientName;
 		
 		// 住院号
 		@Column(name="INPATIENT_NO") 
-		private  String inpatientNo;
+		 String inpatientNo;
 		
 		// X片号
 		@Column(name="XPIAN_NO") 
-		private  String xpianNo;
+		 String xpianNo;
 		
 		// 患者性别
 		@Column(name="SEX") 
-		private  String sex;
+		 String sex;
 		
 		// 父母名
 		@Column(name="PARENT_NAME") 
-		private  String parentName;
+		 String parentName;
 		
 		// 年龄
 		@Column(name="AGE") 
-		private  String age;
+		 String age;
 		
 		// 民族
 		@Column(name="NATION") 
-		private  String nation;
+		 String nation;
 		
 		// 胎次
 		@Column(name = "PARITY")
-		private  String parity;
+		 String parity;
 		
 		// 婚姻
 		@Column(name = "MARRIAGE")
-		private  String marriage;
+		 String marriage;
 		
 		// 入院日期
 		@Column(name="ADMISSION_DATE") 
-		private Timestamp admissionDate;
+		Timestamp admissionDate;
 		
 		// 职业
 		@Column(name="OCCUPATION") 
-		private  String occupation;
+		 String occupation;
 		
 		// 文化程度
 		@Column(name="EDUCATION") 
-		private  String education;
+		 String education;
 		
 		// 发病年龄
 		@Column(name="ONSET_AGE") 
-		private  String onsetAge;
+		 String onsetAge;
 		
 		// 家族史
 		@Column(name="FAMILY_HISTORY") 
-		private  String familyHistory;
+		 String familyHistory;
 		
 		// 病因
 		@Column(name="PATHOGENY") 
-		private  String pathogeny;
+		 String pathogeny;
 		
 		// 供史者
 		@Column(name="PROVIDER") 
-		private  String provider;
+		 String provider;
 		
 		// 病史
 		@Column(name="MEDICAL_HISTORY") 
-		private  String medicalHistory;
+		 String medicalHistory;
 		
 		// 治疗史
 		@Column(name="TREATMENT_HISTORY") 
-		private  String treatmentHistory;
+		 String treatmentHistory;
 		
 		// 腰部治疗史
 		@Column(name="LUMBAR_SURGERY_HISTORY") 
-		private  String lumbarSurgeryHistory;
+		 String lumbarSurgeryHistory;
 		
 		// 矫形手术史
 		@Column(name="ORTHOPEDIC_SURGERY_HISTORY") 
-		private  String orthopedicSurgeryHistory;
+		 String orthopedicSurgeryHistory;
 		
 		// 地址
 		@Column(name="ADRESS") 
-		private  String adress;
+		 String adress;
 		
 		// 手机号码
 		@Column(name="TEL") 
-		private  String tel;
+		 String tel;
 		
 		// QQ/微信/EMAIL
 		@Column(name="OTHER_CONTACT") 
-		private  String otherContact;
+		 String otherContact;
 		
 		// 体检
 		@Column(name="PHYSICAL_EXAM") 
-		private  String physicalExam;
+		 String physicalExam;
 		
 		// 发育
 		@Column(name="GROWTH") 
-		private  String growth;
+		 String growth;
 		
 		// 营养
 		@Column(name="NUTRITION") 
-		private  String nutrition;
+		 String nutrition;
 		
 		// 身高
 		@Column(name="HEIGHT") 
-		private  String height;
+		 String height;
 		
 		// 体重
 		@Column(name="WEIGHT") 
-		private  String weight;
+		 String weight;
 		
 		// 专科检查
 		@Column(name="SPECIALITY_EXAM") 
-		private  String specialityExam;
+		 String specialityExam;
 		
 		// 照相
 		@Column(name="IS_PIC") 
-		private  String isPic;
+		 String isPic;
 		
 		// 录像
 		@Column(name="IS_VIDEO") 
-		private  String isVideo;
+		 String isVideo;
 		
 		//其它疾病史
 		@Column(name="OTHER_DISEASES_HISTORY") 
-		private  String otherDiseasesHistory;
+		 String otherDiseasesHistory;
 		
 		//修改次数
 	    @Column(name = "UPD_CNT")
-	    private BigInteger updCnt;
+	    BigInteger updCnt;
 
 	    //创建时间
 	    @Column(name = "CRT_TIME")
-	    private Timestamp crtTime;
+	    Timestamp crtTime;
 
 	    //创建人ID
 	    @Column(name = "CRT_USER_ID")
-	    private String crtUserId;
+	    String crtUserId;
 
 	    //创建科室ID
 	    @Column(name = "CRT_DEPT_CD")
-	    private String crtDeptCd;
+	    String crtDeptCd;
 
 	    //最后修改时间
 	    @Column(name = "LAST_UPD_TIME")
-	    private Timestamp lastUpdTime;
+	    Timestamp lastUpdTime;
 
 	    //最后修改科室ID
 	    @Column(name = "LAST_UPD_DEPT_CD")
-	    private String lastUpdDeptCd;
+	    String lastUpdDeptCd;
 
 	    //最后修改人ID
 	    @Column(name = "LAST_UPD_USER_ID")
-	    private String lastUpdUserId;
+	    String lastUpdUserId;
 
 	    //删除标识
 	    @Column(name = "DEL_F")
-	    private Short delF;
+	    Short delF;
 
 		public String getPatientId() {
 			return patientId;
