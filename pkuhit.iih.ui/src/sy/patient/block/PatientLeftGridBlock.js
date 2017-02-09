@@ -65,7 +65,7 @@ Ext.define('iih.sy.patient.block.PatientLeftGridBlock', {
 		}, {
 			header : '来源',
 			//dataIndex : 'serviceDepartName',
-			dataIndex : '住院',
+			value : '住院',
 			field : 'textfield',
 			type : 'string',
 			flex : 1

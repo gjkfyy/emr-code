@@ -5,7 +5,8 @@ Ext.define('iih.sy.patient.view.PatientContentView', {
 					'iih.sy.patient.block.PatientRightBlock',
 					'iih.sy.patient.action.PatientRightDeptDelAction',
 					'iih.sy.patient.action.PatientLeftSearchAction',
-					'iih.sy.patient.action.PatientRightListAction'],
+					'iih.sy.patient.action.PatientRightListAction',
+					'iih.sy.patient.action.PatientCreateAction'],
 
 			xapConfig : {
 				blocks : {
@@ -32,33 +33,37 @@ Ext.define('iih.sy.patient.view.PatientContentView', {
 								result: 'right'
 							}
 						},
-						'toReport': {
-							xclass: 'iih.sy.patient.action.PatientDocAction',
-							blocks: {
-								condition: 'left',
-								result: 'right'
-							}
+						'create': {
+			                xclass: 'iih.sy.patient.action.PatientCreateWinAction',
+			                url:'patient',
+			                blocks:{
+			                    result:'left'
+			                }
+			            },
+						'patientCreate': {
+							xclass: 'iih.sy.patient.action.PatientCreateAction',
+							url:''
 						}
 					},
 					chains : {
 						'patientRightList': ['patientRightList'],
-						'toReport' : ['toReport']
+						'create' : ['create'],
+						'patientCreate' : ['patientCreate']
 					},
 
 					connections : {
 						'left'	:[{
-							selector: 'xapgrid',
-							event: 'itemclick',
-							chain: 'patientRightList'
-						},{
-							selector: 'xapgrid',
-							event: 'itemdblclick',
-							chain: 'toReport'
-						}],
-						'right' : [
-						           {
+									selector: 'xapgrid',
+									event: 'itemclick',
+									chain: 'patientRightList'
+								}],
+						'right' : [{
 									event: 'afterrender',
 									chain: 'init'
+								},{
+									selector: 'button[action=modifyPatient]',
+									event: 'click',
+									chain: 'patientCreate'
 								}]
 					}
 				}

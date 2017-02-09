@@ -10,15 +10,28 @@ Ext.define('iih.sy.patient.action.PatientSaveAction', {
 		var block = this.getBlock('content');
 		var form= block.getForm();
         var data = form.getValues();
-        //data.admissionDate = Ext.getCmp('admissionDate').getValue();
+        var userId = IMER_GLOBAL.user.code;
+        var deptCd = IMER_GLOBAL.department.code
+        data.crtUserId = userId;
+        data.crtDeptCd = deptCd;
+        data.lastUpdUserId = userId;
+        data.lastUpdDeptCd = deptCd;
+        data.admissionDate = data.admissionDate;
 		var operations = context.operations;
         if(!operations) {
      		return;
 	    }
-        this.prepareOperations(operations,data);
+        //判断是新建还是修改患者信息
+       /* if(){
+        	
+        }else{
+        	
+        }*/
+        this.createPatient(operations,data);
     },
     
-    prepareOperations: function(operations,data){
+    //新建患者信息
+    createPatient: function(operations,data){
         var url = this.url; 
         var mclass = null;
         var METHODS = this.getInvocationMethods();
@@ -29,14 +42,14 @@ Ext.define('iih.sy.patient.action.PatientSaveAction', {
             condition: null,	
             data:data,
     		scope: this,
-    		success: this.onSuccess
+    		success: this.createSuccess,
+    		fail: this.createFail
     	};
     	operations.length = 0;
     	operations.push(operation);
     },
-    
-    onSuccess: function(operation) {
-    	XapMessageBox.info("保存成功");
+    createSuccess: function(operation) {
+    	XapMessageBox.info("新建成功!");
     	var owner = this.getOwner();
     	var chain = owner.getActionChain('cancel');
     		chain.execute();
@@ -44,6 +57,40 @@ Ext.define('iih.sy.patient.action.PatientSaveAction', {
     	var view = this.up('patientleftlistview');
     	var chain = owner.getActionChain('init');
         	chain.execute();
-    }
+    },
+    createFail: function(operation) {
+        XapMessageBox.info('新建失败!');
+    },
 
+    //修改患者信息
+    editPatient: function(operations,data) {
+    	 var url = this.url+'/' + data.patientId;
+         var mclass = null;
+         var METHODS = this.getInvocationMethods();
+     	 var operation = {
+             url: url,
+             mclass: null,
+             method: METHODS.METHOD_UPDATE,
+             condition: null,	
+             data:data,
+     		 scope: this,
+     		 success: this.editSuccess,
+     		 fail: this.editFail
+     	};
+     	operations.length = 0;
+     	operations.push(operation);
+    },
+    editSuccess: function(operation) {
+    	XapMessageBox.info("修改成功!");
+    	var owner = this.getOwner();
+    	var chain = owner.getActionChain('cancel');
+    		chain.execute();
+    	
+    	var view = this.up('patientleftlistview');
+    	var chain = owner.getActionChain('init');
+        	chain.execute();
+    },
+    editFail: function(operation) {
+        XapMessageBox.info('修改失败!');
+    }
 });

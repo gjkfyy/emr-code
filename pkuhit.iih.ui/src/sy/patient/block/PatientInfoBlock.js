@@ -23,6 +23,30 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
         }
 	},
 	items: [{
+				header : '创建人ID',
+				name : 'crtUserId',
+				field : 'textfield',
+				type : 'string',
+				hidden : true
+			},{
+				header : '创建人科室ID',
+				name : 'crtDeptCd',
+				field : 'textfield',
+				type : 'string',
+				hidden : true
+			},{
+				header : '最后更新人ID',
+				name : 'crtDeptCd',
+				field : 'textfield',
+				type : 'string',
+				hidden : true
+			},{
+				header : '最后更新人科室ID',
+				name : 'lastUpdDeptCd',
+				field : 'textfield',
+				type : 'string',
+				hidden : true
+			},{
 				xtype:'xaptextfield',
 				colspan: 6,
 				padding:'10 0 0 5',
