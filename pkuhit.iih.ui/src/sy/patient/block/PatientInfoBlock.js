@@ -19,7 +19,8 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
             cellspacing: 1
         },
         tdAttrs: {
-            valign: 'left'
+            valign: 'left',
+            buttonAlign:'center'
         }
 	},
 	items: [{
@@ -48,22 +49,30 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				hidden : true
 			},{
 				xtype:'xaptextfield',
-				colspan: 6,
+				colspan: 3,
 				padding:'10 0 0 5',
 		        labelWidth:70,
 		        fieldLabel:'X片号',
-		        width:495,
+		        width:230,
 		        //id:'xpianNo',
 		        name:'xpianNo'
 			},{
 				xtype:'xaptextfield',
-				colspan: 6,
+				colspan: 3,
 				padding:'10 0 0 5',
 		        labelWidth:50,
 		        fieldLabel:'住院号',
-		        width:495,
+		        width:230,
 		        //id:'inpatientNo',
 		        name:'inpatientNo'
+			},{
+				xtype: 'xapdisplayfield',
+				fieldLabel: '',
+				colspan:6,
+				width:10,
+				valign: 'left',
+				name:'',
+				value: ''
 			},{
 				xtype:'xaptextfield',
 				colspan: 2,
@@ -142,7 +151,7 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 	            ],
 	            displayField: 'value',
 	            valueField: 'code',
-	            allowBlank:false,
+	            allowBlank:true,
 	            editable:false,
 	            value:''
 			},{
@@ -365,105 +374,41 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        fieldLabel:'其它疾病史',
 		        displayField: 'parentName'
 			},{
+				xtype: 'xapdisplayfield',
+				fieldLabel: '',
+				colspan:4,
+				width:10,
+				valign: 'center',
+				name:'',
+				value: ''
+			},{
 				xtype: 'button',
 				text: '保存',
-				colspan: 6,
+				colspan: 2,
 				iconCls: 'icon-save',
-				action: 'save'
+				action: 'save',
+				buttonAlign:'center'
 			},{
 				xtype: 'button',
 				text: '取消',
-				colspan: 6,
+				colspan: 2,
 				iconCls: 'icon-cancel',
-				action: 'cancel'
-			}]
+				action: 'cancel',
+				buttonAlign:'center'
+			},{
+				xtype: 'xapdisplayfield',
+				fieldLabel: '',
+				colspan:4,
+				width:10,
+				valign: 'center',
+				name:'',
+				value: ''
+			}],
+			setData: function(data) {
+			    this.callParent(arguments);
+			},
+		    getData: function() {
+		        this.callParent(arguments);
+		    }
 			
-			
-			
-	        
-	        /*
-	        {
-			xtype: 'button',
-			text: '新建患者',
-			margin:'5 0 5 0',
-			iconCls: 'icon-Create',
-			valign : 'left',
-			action : 'newPatient'
-			handler:function(btn,e){
-				var patientForm = new Ext.FormPanel({
-					url: 'patient',
-					method:'post',
-					items: [{}]
-				})
-				
-    			var win=new Ext.Window({
-    				width:1050,
-    				height:500,
-    				title:'新建患者',
-    				closable:true,
-    				layout:'table',//布局方式
-    				maximizable:true,
-//    				minimizable:true,
-    				closeAction:'hide',
-    				constrainHeader:true,
-    				//constrain:true,
-    				defaultButton:0,
-    				resizable:true,
-    				resizeHandles:'se',
-    				modal:true,
-    				plain:true,
-    				animateTarget:'target',
-    				items:[patientForm],
-    				buttons:[
-    					{
-    						text:'保存',
-    						iconCls: 'icon-save',
-    						action:'save',
-    						handler:function(){
-    							patientForm.getForm().submit({ 
-    			                    success:function(){  
-    			                        Ext.Msg.alert('消息',"成功");  
-    			                    },  
-    			                    failure:function(){  
-    			                        Ext.Msg.alert('消息','失败');  
-    			                    }  
-    			                });
-    							
-    							var data = {};
-    					       	data.patientName = Ext.getCmp("patientName").getValue();
-    					       	
-    							alert(patientForm);	
-    							return;
-    							var operations = this.getForm();
-    							var properties = this.getOwner().getLayer(Xap.ej.block.Layer.PROPERTIES);
-    							// 患者信息
-    							var data = {};
-    					       	data.patientName = Ext.getCmp("patientName").getValue();
-    					       	
-    							var operation = {
-    						            url: 'patient',
-    						            mclass: null,
-    						            method: METHODS.METHOD_CREATE,
-    						            condition: null,	
-    						            data:data,
-    						    		scope: this,
-    						    		success: this.onSuccess
-    						    };
-    						    operations.length = 0;
-    						    patientForm.push(operation);
-    						    
-    						}
-    					},{
-    						text:'取消',
-    						iconCls: 'icon-cancel',
-    						handler:function(){
-    							win.close();	
-    						}
-    					}	 
-    				]
-    								   
-    			});	
-    			
-    			win.show();
-    		}*/
 })

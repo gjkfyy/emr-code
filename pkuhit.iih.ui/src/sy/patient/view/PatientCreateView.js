@@ -6,8 +6,8 @@ Ext.define('iih.sy.patient.view.PatientCreateView',{
 	requires:[
 	   		  'Xap.ej.element.button.Button',
 	   		  'iih.sy.patient.block.PatientInfoBlock',
-	          'iih.sy.pwd.action.SaveNewPwdAction',
-	          'iih.mr.qa.process_qa_work.action.FaultInputCloseAction'
+	          'iih.mr.qa.process_qa_work.action.FaultInputCloseAction',
+	          'iih.sy.patient.action.PatientEditInitAction'
 	          ],
 	
 	xapConfig:{         
@@ -17,6 +17,13 @@ Ext.define('iih.sy.patient.view.PatientCreateView',{
 			}
 		},
 		actions:{
+			'init':{
+				xclass: 'iih.sy.patient.action.PatientEditInitAction',
+				url:'iemrPatient',
+				blocks: {
+				    content: 'content'
+				}
+			},
 			'savePatient':{
 				xclass: 'iih.sy.patient.action.PatientSaveAction',
 				url:'patient',
@@ -32,11 +39,16 @@ Ext.define('iih.sy.patient.view.PatientCreateView',{
 			}
 		},
 		chains:{
+			'init' : ['init'],
 			'savePatient':['savePatient'],
 			'cancel':['cancel']
 		},
 		connections:{
-			'content':[{
+			'content':[{    
+			    //加载数据
+	            event: 'afterrender',
+	            chain: 'init'
+	        },{
 				selector: 'button[action=save]',
 				event: 'click',
 				chain: 'savePatient'
@@ -45,6 +57,9 @@ Ext.define('iih.sy.patient.view.PatientCreateView',{
 				event: 'click',
 				chain: 'cancel'
 			}]
+		},
+		initComponent : function() {
+			this.callParent();
 		}
 	}
 })

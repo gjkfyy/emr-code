@@ -51,11 +51,11 @@ Ext.define(
 												text: '编辑',
 												iconCls: 'icon-edit',
 												valign : 'left',
-												action : 'modifyPatient'
+												action : 'editPatient'
 									        }]
 									},{
 										xtype : 'xaptextfield',
-										name : 'hiddenData',
+										name : 'patientId',
 										hidden : true
 									},{
 										xtype : 'xapdisplayfield',
@@ -298,40 +298,39 @@ Ext.define(
 												field : 'textfield',
 												type : 'string',
 												flex : 1
-											}]
+											}],
+											setData : function(data) {
+												var grid = this.down('xapgrid[name=userList]');
+												if(data){
+													var dataList=data.dataList;
+											    	if(grid){
+											    		if(dataList){
+													    	var totalList = {"total":data.total,"dataList":dataList};
+													    	var pageSize = data.pageSize;
+													    	if(pageSize == undefined || typeof(data.pageSize) == 'object'){
+													    		grid.setPageData(totalList);	//初始化赋值
+													    	}else{
+													    		grid.setData(dataList);	//翻页时赋值
+													    	}
+											        	}else{
+											        		var totalList = {"total":data.total,"dataList":dataList};
+											        		grid.setPageData(totalList);
+											        	}
+											    	}
+												}
+											},
+											setData : function(data) {
+												if (data) {
+													var hiddenData = this.down('xaptextfield[name=hiddenData]');
+													hiddenData.setRawValue(data);
+													this.getForm().setValues(data);
+												}
+											},
+											setGridData : function(data) {
+												if (data) {
+													
+												}
+											}
 									}]
-								}],
-								setData : function(data) {
-									var grid = this.down('xapgrid[name=userList]');
-									if(data){
-										var dataList=data.dataList;
-								    	if(grid){
-								    		if(dataList){
-										    	var totalList = {"total":data.total,"dataList":dataList};
-										    	var pageSize = data.pageSize;
-										    	if(pageSize == undefined || typeof(data.pageSize) == 'object'){
-										    		grid.setPageData(totalList);	//初始化赋值
-										    	}else{
-										    		grid.setData(dataList);	//翻页时赋值
-										    	}
-								        	}else{
-								        		var totalList = {"total":data.total,"dataList":dataList};
-								        		grid.setPageData(totalList);
-								        	}
-								    	}
-									}
-								},
-					
-					setData : function(data) {
-						if (data) {
-							var hiddenData = this.down('xaptextfield[name=hiddenData]');
-							hiddenData.setRawValue(data);
-							this.getForm().setValues(data);
-						}
-					},
-					setGridData : function(data) {
-						if (data) {
-							
-						}
-					}
+						}]
 				})

@@ -12,7 +12,7 @@ Ext.define('iih.sy.patient.view.PatientContentView', {
 				blocks : {
 					'left' : {
 						xclass : 'iih.sy.patient.view.PatientLeftListView',
-						width : 300,
+						width : 350,
 						region:'west',
 						split: true,
 		                collapsible: true,
@@ -33,22 +33,17 @@ Ext.define('iih.sy.patient.view.PatientContentView', {
 								result: 'right'
 							}
 						},
-						'create': {
-			                xclass: 'iih.sy.patient.action.PatientCreateWinAction',
+						'editPatient': {
+			                xclass: 'iih.sy.patient.action.PatientEditWinAction',
 			                url:'patient',
 			                blocks:{
-			                    result:'left'
+			                    result:'right'
 			                }
-			            },
-						'patientCreate': {
-							xclass: 'iih.sy.patient.action.PatientCreateAction',
-							url:''
-						}
+			            }
 					},
 					chains : {
 						'patientRightList': ['patientRightList'],
-						'create' : ['create'],
-						'patientCreate' : ['patientCreate']
+						'editPatient' : ['editPatient']
 					},
 
 					connections : {
@@ -61,9 +56,9 @@ Ext.define('iih.sy.patient.view.PatientContentView', {
 									event: 'afterrender',
 									chain: 'init'
 								},{
-									selector: 'button[action=modifyPatient]',
+									selector: 'button[action=editPatient]',
 									event: 'click',
-									chain: 'patientCreate'
+									chain: 'editPatient'
 								}]
 					}
 				}
