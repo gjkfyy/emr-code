@@ -5,7 +5,7 @@ Ext.define('iih.po.com.block.FunctionNavigationBlock',{
 
     alias:'widget.functionnavigationblock',
     
-    title: '功能导航栏555',
+    title: '功能导航栏',
 
     layout: 'accordion',
 
