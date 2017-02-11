@@ -48,7 +48,7 @@ Ext.define('iih.po.com.action.PortalInitAction', {
             if(w.modal)w.close();
         });*/
         
-        /*if(!IMER_GLOBAL.encounterSn && IMER_GLOBAL.portal.code == IMER_CONSTANT.PORTAL_CD_101){
+        /*if(!IMER_GLOBAL.encounterSn && IMER_GLOBAL.portal.code == IMER_CONSTANT.PORTAL_CD_1001){
             var patientChain = view.getActionChain('patientPop');
             patientChain.execute();
         };*/
@@ -70,7 +70,8 @@ Ext.define('iih.po.com.action.PortalInitAction', {
         };
         //门诊时功能导航栏收起
         var functionBlock = view.down('functionnavigationblock');
-        if(IMER_GLOBAL.portal.code == IMER_CONSTANT.PORTAL_CD_1 || IMER_GLOBAL.portal.code == IMER_CONSTANT.PORTAL_CD_8 || IMER_GLOBAL.portal.code == IMER_CONSTANT.PORTAL_CD_9)
+        
+        if(IMER_GLOBAL.portal.code == IMER_CONSTANT.PORTAL_CD_1001 || IMER_GLOBAL.portal.code == IMER_CONSTANT.PORTAL_CD_1 || IMER_GLOBAL.portal.code == IMER_CONSTANT.PORTAL_CD_8 || IMER_GLOBAL.portal.code == IMER_CONSTANT.PORTAL_CD_9)
             functionBlock.collapse();
         else
             functionBlock.expand();
