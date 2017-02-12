@@ -37,14 +37,25 @@ public class PatientServiceImpl implements PatientService
 		return patient;
 	}
 
+	/**
+	 * 更新患者信息
+	 */
 	@Override
 	public SingleResult<Patient> update(String patientId, Patient patient) {
-		// TODO Auto-generated method stub
-		return null;
+		patient.setPatientId(patientId);
+		IemrPatient iemrPatient = imerPatientDao.selectIemrPatientById(patientId);
+		BigInteger newUpdCnt = iemrPatient.getUpdCnt().add(BigInteger.valueOf(1));
+		BeanCopyUtil.modelToEntity(iemrPatient, patient);
+		iemrPatient.setLastUpdTime(new Timestamp(new Date().getTime()));
+		iemrPatient.setUpdCnt(newUpdCnt);
+		imerPatientDao.updateExcludeNull(iemrPatient);
+		SingleResultBuilder<Patient> builder = SingleResultBuilder.newSingleResult(Patient.class);
+        builder.withData(iemrPatient);
+		return builder.build();
 	}
 
 	@Override
-	public SingleResult<Patient> selectIemrPatientById(String patientId) {
+	public SingleResult<Patient> selectIemrPatientById(String patientId,String flag) {
         IemrPatient iemrPatient = imerPatientDao.selectIemrPatientById(patientId);
         Patient patient = this.wrapData(iemrPatient);
         if("0".equalsIgnoreCase(patient.getSex())){
@@ -54,6 +65,7 @@ public class PatientServiceImpl implements PatientService
         }else if("-1".equalsIgnoreCase(patient.getSex())){
         	patient.setSexValue("未知的性别");
         }
+        patient.setFlag(flag);
         SingleResultBuilder<Patient> builder = SingleResultBuilder.newSingleResult(Patient.class);
         builder.withData(patient);
 		return builder.build();
