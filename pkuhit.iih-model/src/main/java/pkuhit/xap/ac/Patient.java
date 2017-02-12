@@ -163,6 +163,8 @@ import xap.sv.annotation.Column;
     //删除标识
     @Column(name = "DEL_F")
     Short delF;
+    
+    String flag;
 
 	public String getPatientId() {
 		return patientId;
@@ -500,4 +502,12 @@ import xap.sv.annotation.Column;
 		this.delF = delF;
 	}
 
+	public String getFlag() {
+		return flag;
+	}
+
+	public void setFlag(String flag) {
+		this.flag = flag;
+	}
+	
 }
