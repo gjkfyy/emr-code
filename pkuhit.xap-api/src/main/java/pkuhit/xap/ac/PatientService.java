@@ -52,8 +52,8 @@ public interface PatientService
      * @param patient
      * @return
      */
-    @RequestMapping(value = "/iemrPatient/{id}", method = RequestMethod.GET)
-    SingleResult<Patient> selectIemrPatientById(@PathVariable("id") String patientId);
+    @RequestMapping(value = "/iemrPatient/{id}/{flag}", method = RequestMethod.GET)
+    SingleResult<Patient> selectIemrPatientById(@PathVariable("id") String patientId,@PathVariable("flag") String flag);
     
     /**
      * map中key值：
