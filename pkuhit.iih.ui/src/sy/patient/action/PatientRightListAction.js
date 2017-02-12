@@ -21,7 +21,7 @@ Ext.define('iih.sy.patient.action.PatientRightListAction', {
     		 return;
     	}
     	var url = this.url;
-    	url += '/'+id;
+    	url += '/'+id +'/no';
     	var operation = {
             url: url,
     		method: 'get',

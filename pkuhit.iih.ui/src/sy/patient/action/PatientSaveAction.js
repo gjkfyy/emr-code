@@ -21,13 +21,13 @@ Ext.define('iih.sy.patient.action.PatientSaveAction', {
         if(!operations) {
      		return;
 	    }
+        
         //判断是新建还是修改患者信息
-       /* if(){
-        	
+        if(Ext.getCmp('flag').getValue()=="edit"){
+        	this.editPatient(operations,data)
         }else{
-        	
-        }*/
-        this.createPatient(operations,data);
+        	this.createPatient(operations,data);
+        }
     },
     
     //新建患者信息
@@ -64,7 +64,7 @@ Ext.define('iih.sy.patient.action.PatientSaveAction', {
 
     //修改患者信息
     editPatient: function(operations,data) {
-    	 var url = this.url+'/' + data.patientId;
+    	 var url = this.url+'/' + Ext.getCmp('patientId').getValue();
          var mclass = null;
          var METHODS = this.getInvocationMethods();
      	 var operation = {
@@ -85,10 +85,10 @@ Ext.define('iih.sy.patient.action.PatientSaveAction', {
     	var owner = this.getOwner();
     	var chain = owner.getActionChain('cancel');
     		chain.execute();
-    	
+    	/*
     	var view = this.up('patientleftlistview');
     	var chain = owner.getActionChain('init');
-        	chain.execute();
+        	chain.execute();*/
     },
     editFail: function(operation) {
         XapMessageBox.info('修改失败!');

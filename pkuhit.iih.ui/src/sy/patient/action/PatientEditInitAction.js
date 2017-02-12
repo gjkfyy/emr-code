@@ -7,13 +7,13 @@ Ext.define('iih.sy.patient.action.PatientEditInitAction', {
         var operations = context.operations;
         var owner = this.getOwner();
         var properties = owner.getLayer(Xap.ej.block.Layer.PROPERTIES);
-        /*properties.setData({
+        properties.setData({
             customerData: context.customerData,   
             patientId:context.patientId, 
             filePk:context.filePk,
             sourceView:context.sourceView,  
             block:context.block
-        });*/
+        });
         console.log(context.customerData);
         console.log(context.sourceView);
         if(context.customerData=='new'){
@@ -23,11 +23,11 @@ Ext.define('iih.sy.patient.action.PatientEditInitAction', {
             if(!operations) {
                 return;
             }
-            this.prepareOperations(operations,context.patientId);
+            this.prepareOperations(operations,context);
         }
 	},  
 	 prepareOperations: function(operations,data) {
-        var url = this.url +'/'+data;    
+        var url = this.url +'/'+data.patientId + "/"+data.customerData;    
         var METHODS = this.getInvocationMethods();
         var operation = {
             url: url,
