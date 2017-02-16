@@ -2,30 +2,30 @@ package pkuhit.xap.dao.auto;
 
 /** */
 @org.springframework.stereotype.Repository()
-@javax.annotation.Generated(value = { "Doma", "1.35.0" }, date = "2017-01-30T22:37:26.198+0800")
+@javax.annotation.Generated(value = { "Doma", "1.35.0" }, date = "2017-02-16T21:21:03.123+0800")
 public class IemrPatientDaoImpl extends org.seasar.doma.internal.jdbc.dao.AbstractDao implements pkuhit.xap.dao.auto.IemrPatientDao {
 
     static {
         org.seasar.doma.internal.Artifact.validateVersion("1.35.0");
     }
 
-    private static final java.lang.reflect.Method __method0 = org.seasar.doma.internal.jdbc.dao.AbstractDao.__getDeclaredMethod(pkuhit.xap.dao.auto.IemrPatientDao.class, "insert", pkuhit.xap.dao.auto.entity.IemrPatient.class);
+    private static final java.lang.reflect.Method __method1 = org.seasar.doma.internal.jdbc.dao.AbstractDao.__getDeclaredMethod(pkuhit.xap.dao.auto.IemrPatientDao.class, "insert", pkuhit.xap.dao.auto.entity.IemrPatient.class);
 
-    private static final java.lang.reflect.Method __method1 = org.seasar.doma.internal.jdbc.dao.AbstractDao.__getDeclaredMethod(pkuhit.xap.dao.auto.IemrPatientDao.class, "insertExludeNull", pkuhit.xap.dao.auto.entity.IemrPatient.class);
+    private static final java.lang.reflect.Method __method2 = org.seasar.doma.internal.jdbc.dao.AbstractDao.__getDeclaredMethod(pkuhit.xap.dao.auto.IemrPatientDao.class, "insertExludeNull", pkuhit.xap.dao.auto.entity.IemrPatient.class);
 
-    private static final java.lang.reflect.Method __method2 = org.seasar.doma.internal.jdbc.dao.AbstractDao.__getDeclaredMethod(pkuhit.xap.dao.auto.IemrPatientDao.class, "update", pkuhit.xap.dao.auto.entity.IemrPatient.class);
+    private static final java.lang.reflect.Method __method3 = org.seasar.doma.internal.jdbc.dao.AbstractDao.__getDeclaredMethod(pkuhit.xap.dao.auto.IemrPatientDao.class, "update", pkuhit.xap.dao.auto.entity.IemrPatient.class);
 
-    private static final java.lang.reflect.Method __method3 = org.seasar.doma.internal.jdbc.dao.AbstractDao.__getDeclaredMethod(pkuhit.xap.dao.auto.IemrPatientDao.class, "updateExcludeNull", pkuhit.xap.dao.auto.entity.IemrPatient.class);
+    private static final java.lang.reflect.Method __method4 = org.seasar.doma.internal.jdbc.dao.AbstractDao.__getDeclaredMethod(pkuhit.xap.dao.auto.IemrPatientDao.class, "updateExcludeNull", pkuhit.xap.dao.auto.entity.IemrPatient.class);
 
-    private static final java.lang.reflect.Method __method4 = org.seasar.doma.internal.jdbc.dao.AbstractDao.__getDeclaredMethod(pkuhit.xap.dao.auto.IemrPatientDao.class, "markDelete", pkuhit.xap.dao.auto.entity.IemrPatient.class);
+    private static final java.lang.reflect.Method __method5 = org.seasar.doma.internal.jdbc.dao.AbstractDao.__getDeclaredMethod(pkuhit.xap.dao.auto.IemrPatientDao.class, "markDelete", pkuhit.xap.dao.auto.entity.IemrPatient.class);
 
-    private static final java.lang.reflect.Method __method5 = org.seasar.doma.internal.jdbc.dao.AbstractDao.__getDeclaredMethod(pkuhit.xap.dao.auto.IemrPatientDao.class, "delete", pkuhit.xap.dao.auto.entity.IemrPatient.class);
+    private static final java.lang.reflect.Method __method6 = org.seasar.doma.internal.jdbc.dao.AbstractDao.__getDeclaredMethod(pkuhit.xap.dao.auto.IemrPatientDao.class, "delete", pkuhit.xap.dao.auto.entity.IemrPatient.class);
 
-    private static final java.lang.reflect.Method __method6 = org.seasar.doma.internal.jdbc.dao.AbstractDao.__getDeclaredMethod(pkuhit.xap.dao.auto.IemrPatientDao.class, "batchInsert", java.util.List.class);
+    private static final java.lang.reflect.Method __method7 = org.seasar.doma.internal.jdbc.dao.AbstractDao.__getDeclaredMethod(pkuhit.xap.dao.auto.IemrPatientDao.class, "batchInsert", java.util.List.class);
 
-    private static final java.lang.reflect.Method __method7 = org.seasar.doma.internal.jdbc.dao.AbstractDao.__getDeclaredMethod(pkuhit.xap.dao.auto.IemrPatientDao.class, "batchUpdate", java.util.List.class);
+    private static final java.lang.reflect.Method __method8 = org.seasar.doma.internal.jdbc.dao.AbstractDao.__getDeclaredMethod(pkuhit.xap.dao.auto.IemrPatientDao.class, "batchUpdate", java.util.List.class);
 
-    private static final java.lang.reflect.Method __method8 = org.seasar.doma.internal.jdbc.dao.AbstractDao.__getDeclaredMethod(pkuhit.xap.dao.auto.IemrPatientDao.class, "batchDelete", java.util.List.class);
+    private static final java.lang.reflect.Method __method9 = org.seasar.doma.internal.jdbc.dao.AbstractDao.__getDeclaredMethod(pkuhit.xap.dao.auto.IemrPatientDao.class, "batchDelete", java.util.List.class);
 
     /**
      * @param config the config
@@ -36,6 +36,33 @@ public class IemrPatientDaoImpl extends org.seasar.doma.internal.jdbc.dao.Abstra
     }
 
     @Override
+    public pkuhit.xap.dao.auto.entity.IemrPatient selectIemrPatientById(java.lang.String patientId) {
+        entering("pkuhit.xap.dao.auto.IemrPatientDaoImpl", "selectIemrPatientById", patientId);
+        try {
+            org.seasar.doma.internal.jdbc.query.SqlFileSelectQuery __query = new org.seasar.doma.internal.jdbc.query.SqlFileSelectQuery();
+            __query.setConfig(config);
+            __query.setSqlFilePath("META-INF/pkuhit/xap/dao/auto/IemrPatientDao/selectIemrPatientById.sql");
+            __query.addParameter("patientId", java.lang.String.class, patientId);
+            __query.setCallerClassName("pkuhit.xap.dao.auto.IemrPatientDaoImpl");
+            __query.setCallerMethodName("selectIemrPatientById");
+            __query.setResultEnsured(false);
+            __query.setResultMappingEnsured(false);
+            __query.setQueryTimeout(-1);
+            __query.setMaxRows(-1);
+            __query.setFetchSize(-1);
+            __query.prepare();
+            org.seasar.doma.internal.jdbc.command.SelectCommand<pkuhit.xap.dao.auto.entity.IemrPatient> __command = new org.seasar.doma.internal.jdbc.command.SelectCommand<pkuhit.xap.dao.auto.entity.IemrPatient>(__query, new org.seasar.doma.internal.jdbc.command.EntitySingleResultHandler<pkuhit.xap.dao.auto.entity.IemrPatient>(pkuhit.xap.dao.auto.entity._IemrPatient.getSingletonInternal()));
+            pkuhit.xap.dao.auto.entity.IemrPatient __result = __command.execute();
+            __query.complete();
+            exiting("pkuhit.xap.dao.auto.IemrPatientDaoImpl", "selectIemrPatientById", __result);
+            return __result;
+        } catch (java.lang.RuntimeException __e) {
+            throwing("pkuhit.xap.dao.auto.IemrPatientDaoImpl", "selectIemrPatientById", __e);
+            throw __e;
+        }
+    }
+
+    @Override
     public int insert(pkuhit.xap.dao.auto.entity.IemrPatient entity) {
         entering("pkuhit.xap.dao.auto.IemrPatientDaoImpl", "insert", entity);
         try {
@@ -43,7 +70,7 @@ public class IemrPatientDaoImpl extends org.seasar.doma.internal.jdbc.dao.Abstra
                 throw new org.seasar.doma.DomaNullPointerException("entity");
             }
             org.seasar.doma.internal.jdbc.query.AutoInsertQuery<pkuhit.xap.dao.auto.entity.IemrPatient> __query = new org.seasar.doma.internal.jdbc.query.AutoInsertQuery<pkuhit.xap.dao.auto.entity.IemrPatient>(pkuhit.xap.dao.auto.entity._IemrPatient.getSingletonInternal());
-            __query.setMethod(__method0);
+            __query.setMethod(__method1);
             __query.setConfig(config);
             __query.setEntity(entity);
             __query.setCallerClassName("pkuhit.xap.dao.auto.IemrPatientDaoImpl");
@@ -72,7 +99,7 @@ public class IemrPatientDaoImpl extends org.seasar.doma.internal.jdbc.dao.Abstra
                 throw new org.seasar.doma.DomaNullPointerException("entity");
             }
             org.seasar.doma.internal.jdbc.query.AutoInsertQuery<pkuhit.xap.dao.auto.entity.IemrPatient> __query = new org.seasar.doma.internal.jdbc.query.AutoInsertQuery<pkuhit.xap.dao.auto.entity.IemrPatient>(pkuhit.xap.dao.auto.entity._IemrPatient.getSingletonInternal());
-            __query.setMethod(__method1);
+            __query.setMethod(__method2);
             __query.setConfig(config);
             __query.setEntity(entity);
             __query.setCallerClassName("pkuhit.xap.dao.auto.IemrPatientDaoImpl");
@@ -101,7 +128,7 @@ public class IemrPatientDaoImpl extends org.seasar.doma.internal.jdbc.dao.Abstra
                 throw new org.seasar.doma.DomaNullPointerException("entity");
             }
             org.seasar.doma.internal.jdbc.query.AutoUpdateQuery<pkuhit.xap.dao.auto.entity.IemrPatient> __query = new org.seasar.doma.internal.jdbc.query.AutoUpdateQuery<pkuhit.xap.dao.auto.entity.IemrPatient>(pkuhit.xap.dao.auto.entity._IemrPatient.getSingletonInternal());
-            __query.setMethod(__method2);
+            __query.setMethod(__method3);
             __query.setConfig(config);
             __query.setEntity(entity);
             __query.setCallerClassName("pkuhit.xap.dao.auto.IemrPatientDaoImpl");
@@ -134,7 +161,7 @@ public class IemrPatientDaoImpl extends org.seasar.doma.internal.jdbc.dao.Abstra
                 throw new org.seasar.doma.DomaNullPointerException("entity");
             }
             org.seasar.doma.internal.jdbc.query.AutoUpdateQuery<pkuhit.xap.dao.auto.entity.IemrPatient> __query = new org.seasar.doma.internal.jdbc.query.AutoUpdateQuery<pkuhit.xap.dao.auto.entity.IemrPatient>(pkuhit.xap.dao.auto.entity._IemrPatient.getSingletonInternal());
-            __query.setMethod(__method3);
+            __query.setMethod(__method4);
             __query.setConfig(config);
             __query.setEntity(entity);
             __query.setCallerClassName("pkuhit.xap.dao.auto.IemrPatientDaoImpl");
@@ -167,7 +194,7 @@ public class IemrPatientDaoImpl extends org.seasar.doma.internal.jdbc.dao.Abstra
                 throw new org.seasar.doma.DomaNullPointerException("entity");
             }
             org.seasar.doma.internal.jdbc.query.AutoUpdateQuery<pkuhit.xap.dao.auto.entity.IemrPatient> __query = new org.seasar.doma.internal.jdbc.query.AutoUpdateQuery<pkuhit.xap.dao.auto.entity.IemrPatient>(pkuhit.xap.dao.auto.entity._IemrPatient.getSingletonInternal());
-            __query.setMethod(__method4);
+            __query.setMethod(__method5);
             __query.setConfig(config);
             __query.setEntity(entity);
             __query.setCallerClassName("pkuhit.xap.dao.auto.IemrPatientDaoImpl");
@@ -200,7 +227,7 @@ public class IemrPatientDaoImpl extends org.seasar.doma.internal.jdbc.dao.Abstra
                 throw new org.seasar.doma.DomaNullPointerException("entity");
             }
             org.seasar.doma.internal.jdbc.query.AutoDeleteQuery<pkuhit.xap.dao.auto.entity.IemrPatient> __query = new org.seasar.doma.internal.jdbc.query.AutoDeleteQuery<pkuhit.xap.dao.auto.entity.IemrPatient>(pkuhit.xap.dao.auto.entity._IemrPatient.getSingletonInternal());
-            __query.setMethod(__method5);
+            __query.setMethod(__method6);
             __query.setConfig(config);
             __query.setEntity(entity);
             __query.setCallerClassName("pkuhit.xap.dao.auto.IemrPatientDaoImpl");
@@ -228,7 +255,7 @@ public class IemrPatientDaoImpl extends org.seasar.doma.internal.jdbc.dao.Abstra
                 throw new org.seasar.doma.DomaNullPointerException("entities");
             }
             org.seasar.doma.internal.jdbc.query.AutoBatchInsertQuery<pkuhit.xap.dao.auto.entity.IemrPatient> __query = new org.seasar.doma.internal.jdbc.query.AutoBatchInsertQuery<pkuhit.xap.dao.auto.entity.IemrPatient>(pkuhit.xap.dao.auto.entity._IemrPatient.getSingletonInternal());
-            __query.setMethod(__method6);
+            __query.setMethod(__method7);
             __query.setConfig(config);
             __query.setEntities(entities);
             __query.setCallerClassName("pkuhit.xap.dao.auto.IemrPatientDaoImpl");
@@ -257,7 +284,7 @@ public class IemrPatientDaoImpl extends org.seasar.doma.internal.jdbc.dao.Abstra
                 throw new org.seasar.doma.DomaNullPointerException("entities");
             }
             org.seasar.doma.internal.jdbc.query.AutoBatchUpdateQuery<pkuhit.xap.dao.auto.entity.IemrPatient> __query = new org.seasar.doma.internal.jdbc.query.AutoBatchUpdateQuery<pkuhit.xap.dao.auto.entity.IemrPatient>(pkuhit.xap.dao.auto.entity._IemrPatient.getSingletonInternal());
-            __query.setMethod(__method7);
+            __query.setMethod(__method8);
             __query.setConfig(config);
             __query.setEntities(entities);
             __query.setCallerClassName("pkuhit.xap.dao.auto.IemrPatientDaoImpl");
@@ -289,7 +316,7 @@ public class IemrPatientDaoImpl extends org.seasar.doma.internal.jdbc.dao.Abstra
                 throw new org.seasar.doma.DomaNullPointerException("entities");
             }
             org.seasar.doma.internal.jdbc.query.AutoBatchDeleteQuery<pkuhit.xap.dao.auto.entity.IemrPatient> __query = new org.seasar.doma.internal.jdbc.query.AutoBatchDeleteQuery<pkuhit.xap.dao.auto.entity.IemrPatient>(pkuhit.xap.dao.auto.entity._IemrPatient.getSingletonInternal());
-            __query.setMethod(__method8);
+            __query.setMethod(__method9);
             __query.setConfig(config);
             __query.setEntities(entities);
             __query.setCallerClassName("pkuhit.xap.dao.auto.IemrPatientDaoImpl");
