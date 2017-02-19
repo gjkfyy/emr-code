@@ -175,7 +175,13 @@ Ext.define(
 								        	            		text: '上肢',
 								        	            		tooltip:'上肢',
 								        	            		handler:function(btn,e){
-								        	            			
+								        	            			alert(btn.text);
+								        	            			var portal = this.up('patientcontentview');
+					        	                                    var chain = portal.getActionChain('newDoc');
+					        	                                    chain.execute({
+					        	                                    	text:item.text,
+					        	                                    	name:item.name
+					        	                                    });
 								        	            		}
 								        					},{
 	

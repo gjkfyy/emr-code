@@ -6,7 +6,8 @@ Ext.define('iih.sy.patient.view.PatientContentView', {
 					'iih.sy.patient.action.PatientRightDeptDelAction',
 					'iih.sy.patient.action.PatientLeftSearchAction',
 					'iih.sy.patient.action.PatientRightListAction',
-					'iih.sy.patient.action.PatientCreateAction'],
+					'iih.sy.patient.action.PatientCreateAction',
+					'iih.sy.patient.action.ToReportAction'],
 
 			xapConfig : {
 				blocks : {
@@ -39,11 +40,20 @@ Ext.define('iih.sy.patient.view.PatientContentView', {
 			                blocks:{
 			                    result:'right'
 			                }
+			            },
+			            'newDoc':{
+			            	xclass: 'iih.sy.patient.action.ToReportAction',
+							blocks: {
+								condition: 'left',
+								result: 'right'
+							}
 			            }
+			            
 					},
 					chains : {
 						'patientRightList': ['patientRightList'],
-						'editPatient' : ['editPatient']
+						'editPatient' : ['editPatient'],
+						'newDoc' : ['newDoc']
 					},
 
 					connections : {
