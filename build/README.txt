@@ -23,7 +23,7 @@ node "C:\Program Files\nodejs\node_modules\npm\cli.js" install npm -g
 http://172.18.65.157/software/SenchaCmd-4.0.4.84-windows.exe.zip
 
 6）安装clean-css
-6.1）npm install clean-css -g
+//6.1）npm install clean-css -g
 6.2）运行以下命令找到npm的prefix配置
 npm config ls -l | grep prefix
 结果：
@@ -31,30 +31,25 @@ npm config ls -l | grep prefix
 prefix = "C:\\Users\\user\\AppData\\Roaming\\npm"
 ...
 6.3）设置环境变量NODE_PATH（目的是可以在代码中引用到安装的clean-css模块）
-export NODE_PATH=/c/Users/dell/AppData/Roaming/npm/node_modules
-
+//export NODE_PATH=/c/Users/dell/AppData/Roaming/npm/node_modules
+ //          C:/Users/li_zheng/AppData/Roaming/npm/node_modules
 7）安装bower
 npm -g install bower
 
 8）利用bower下载代码依赖
 8.1）cd进入build目录
-8.2）bower install xap.ej#develop
+//8.2）bower install xap.ej#develop
 bower cache clean
 
 9）打包Javascript和css
 node run.js package IIH_IEMR --css(说明：在pkuhit-all\pkuhit.iih.ui\test目录下生成iih_iemr.js。打开iih_iemr.js，需要将Xap.ej.element.MessageBox.MessageBox组件的代码移到js文件的最后面。)
 mvn package -DskipTests（说明：在pkuhit-all\pkuhit.iih.ui\target目录下生成pkuhit.iih.ui-0.1-SNAPSHOT-bin.zip）
 
-10）Node Js调试
-npm install -g node-inspector
-node-inspector
-http://127.0.0.1:8080/debug?port=5858
-node --debug-brk server.js
+
+替换补充的 jar 文件
 
 
-
-
-iihsrc\pkuhit\pkuhit-all目录下执行mvn install -DskipTests
+以下无用
 
 
 iihsrc\pkuhit\pkuhit-all\pkuhit-app目录下执行mvn clean -P reset install -P init
