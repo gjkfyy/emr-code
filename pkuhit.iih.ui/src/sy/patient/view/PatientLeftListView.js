@@ -30,7 +30,7 @@ Ext.define('iih.sy.patient.view.PatientLeftListView',{
 						labelAlign : 'right',
 						readOnly : false,
 						fieldStyle:'color:#c6c6c6',
-						value : '输入姓名、住院号、入院时间检索',
+						value : '输入姓名、住院号、手机号检索',
 						fieldLabel : '',
 						listeners:{
 				        	specialkey : function(field, e) {  
@@ -45,13 +45,15 @@ Ext.define('iih.sy.patient.view.PatientLeftListView',{
 				            blur : function() {
 								var value = Ext.getCmp('searchCondition').getValue();
 								if(value==""){
-									Ext.getCmp('searchCondition').setValue('输入姓名、住院号、入院时间检索');
+									Ext.getCmp('searchCondition').setValue('输入姓名、住院号、手机号检索');
+									Ext.getCmp('searchCondition').setFieldStyle('color:#c6c6c6');
 								}
 							},
 							focus : function(area, The, eOpts) {
 								var value = Ext.getCmp('searchCondition').getValue();
-								if(value=='输入姓名、住院号、入院时间检索'){
+								if(value=='输入姓名、住院号、手机号检索'){
 									Ext.getCmp('searchCondition').setValue('');
+									Ext.getCmp('searchCondition').setFieldStyle('color:#000000');
 								}
 			                }
 				        }
