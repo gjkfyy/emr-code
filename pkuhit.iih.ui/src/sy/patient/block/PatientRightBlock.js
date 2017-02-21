@@ -121,7 +121,8 @@ Ext.define(
 										name : 'admissionDate',
 										readOnly : true,
 										colspan:1,
-										fieldLabel : '入院时间',
+										//fieldLabel : '入院时间',
+										fieldLabel : '住院日期',
 									},{
 										labelWidth : 60,
 										labelAlign : 'right',
