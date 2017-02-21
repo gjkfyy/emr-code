@@ -57,13 +57,16 @@ Ext.define('iih.sy.patient.block.PatientLeftGridBlock', {
 			type : 'string',
 			flex : 1
 		}, {
-			header : '入院时间',
-			dataIndex : 'admissionDate',
+			//header : '入院时间',
+			header : '手机号',
+			//dataIndex : 'admissionDate',
+			dataIndex : 'tel',
 			field : 'textfield',
 			type : 'string',
 			flex : 1
 		}, {
-			header : '来源',
+			//header : '来源',
+			header : '诊断',
 			//dataIndex : 'serviceDepartName',
 			value : '住院',
 			field : 'textfield',
