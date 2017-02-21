@@ -121,29 +121,29 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        fieldLabel:'年龄'
 			},{
 				xtype:'xaptextfield',
-				colspan: 2,
-				padding:'5 0 0 5',
-		        labelWidth:30,
-		        width:140,
+				colspan: 4,
+				padding:'5 0 0 0',
+		        labelWidth:100,
+		        width:230,
 		        name:'nation',
 		        fieldLabel:'民族'
 			},{
 				xtype:'xaptextfield',
-				colspan: 2,
+				colspan: 3,
 				padding:'5 0 0 5',
-		        labelWidth:30,
+		        labelWidth:70,
 		        fieldLabel:'胎次',
-		        width:140,
+		        width:230,
 		        name:'parity'
 			},{
 	        	xtype:'xapcombobox',
 	            name:'enType',
 	            fieldLabel:'婚姻',
-	            padding:'5 0 0 5',
+				padding:'5 20 0 5',
 	            colspan: 3,
-	            width:150,
+		        labelWidth:60,
 		        name:'marriage',
-	            labelWidth:70,
+		        width:230,
 	            labelAlign:'right',
 	            comboData : [
 	    			 {"code":'1', "value":"已婚"},
@@ -154,7 +154,7 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 	            allowBlank:true,
 	            editable:false,
 	            value:''
-			},{
+			},/*{
 				xtype:'xapdatefield',
 				colspan: 3,
 				padding:'5 20 0 5',
@@ -168,7 +168,7 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 						startDate.setMaxValue( this.getValue( ) );
 					}
 				}
-			},{
+			},*/{
 				xtype:'xaptextfield',
 				colspan: 2,
 				padding:'5 0 0 5',
