@@ -1,5 +1,5 @@
 Ext.define('iih.mr.wr.omr.action.OmrCustClaSearchAction', {
-	extend:  Xap.ej.action.ServiceInvocation ,
+	extend:  'Xap.ej.action.ServiceInvocation',
 	
 	/*
 	* @Override
