@@ -165,53 +165,9 @@ Ext.define(
 								            margin  : '0 0 0 0',  
 											height:30,
 											items: [{                   
-														text: '新建',
+														text: '新建病历',
 														iconCls: 'icon-Create',
-														menu: Ext.create('Ext.menu.Menu', {
-															cls: 'top-base',
-															frame: false,
-									        				margin: 0,
-									        				padding: 0,
-													        items: [{
-								        	            		text: '上肢',
-								        	            		tooltip:'上肢',
-								        	            		handler:function(btn,e){
-								        	            			alert(btn.text);
-								        	            			var portal = this.up('patientcontentview');
-					        	                                    var chain = portal.getActionChain('newDoc');
-					        	                                    chain.execute({
-					        	                                    	text:item.text,
-					        	                                    	name:item.name
-					        	                                    });
-								        	            		}
-								        					},{
-	
-								        	            		text: '下肢',
-								        	            		tooltip:'下肢',
-								        	            		handler:function(btn,e){
-								        	            			
-								        	            		}
-								        					
-								        					},{
-								        	            		text: '脊柱',
-								        	            		tooltip:'脊柱',
-								        	            		handler:function(btn,e){
-								        	            			
-								        	            		}
-								        					},{
-								        	            		text: '足底畸形',
-								        	            		tooltip:'足底畸形',
-								        	            		handler:function(btn,e){
-								        	            			
-								        	            		}
-								        					},{
-								        	            		text: '躯干侧弯',
-								        	            		tooltip:'躯干侧弯',
-								        	            		handler:function(btn,e){
-								        	            			
-								        	            		}
-								        					}]
-														})         
+														method: 'createDoc'        
 													},{
 														xtype: 'button',
 														text: '打开',

@@ -7,7 +7,9 @@ Ext.define('iih.sy.patient.view.PatientContentView', {
 					'iih.sy.patient.action.PatientLeftSearchAction',
 					'iih.sy.patient.action.PatientRightListAction',
 					'iih.sy.patient.action.PatientCreateAction',
-					'iih.sy.patient.action.ToReportAction'],
+					'iih.sy.patient.action.ToReportAction',
+					'iih.sy.patient.action.HasEditConfirmAction',
+					'iih.sy.patient.action.CreateOmrDocAction'],
 
 			xapConfig : {
 				blocks : {
@@ -47,13 +49,28 @@ Ext.define('iih.sy.patient.view.PatientContentView', {
 								condition: 'left',
 								result: 'right'
 							}
+			            },
+			            'hasEditConfirm': {
+			                xclass: 'iih.sy.patient.action.HasEditConfirmAction',
+			                url: 'omr',
+			                blocks: {
+			                    result: 'right'
+			                }
+			            },
+			            'createDoc': {
+			                xclass: 'iih.sy.patient.action.CreateOmrDocAction',
+			                url:'param',
+			                blocks:{
+			                    result:'left'
+			                }
 			            }
-			            
 					},
 					chains : {
 						'patientRightList': ['patientRightList'],
 						'editPatient' : ['editPatient'],
-						'newDoc' : ['newDoc']
+						'newDoc' : ['newDoc'],
+						'hasEditConfirm' : ['hasEditConfirm'],
+						'createDoc' : ['createDoc']
 					},
 
 					connections : {
@@ -69,7 +86,11 @@ Ext.define('iih.sy.patient.view.PatientContentView', {
 									selector: 'button[action=editPatient]',
 									event: 'click',
 									chain: 'editPatient'
-								}]
+								},{
+					                selector: 'button[method=createDoc]',
+					                event: 'click',
+					                chain: 'hasEditConfirm'
+					            },]
 					}
 				}
 		});
