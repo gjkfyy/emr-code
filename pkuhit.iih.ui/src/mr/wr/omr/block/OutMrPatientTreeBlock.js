@@ -10,7 +10,7 @@ Ext.define('iih.mr.wr.omr.block.OutMrPatientTreeBlock',{
 	autoScroll: true,
 	items: [{
 		xtype:'xaptree',
-		title : '患者列表111',
+		title : '患者列表',
 		name : 'omrDocSortTree',
 		border:false,
 		ifSelect:true,
