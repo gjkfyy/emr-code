@@ -176,11 +176,11 @@ Ext.define('iih.po.com.view.TopBase', {
                             action: 'config'
                         },{
                             iconCls: 'config_16',
-                            text: '修改密码11',
+                            text: '修改密码',
                             action: 'password'
                         },{
                             iconCls: 'help_16',
-                            text: '帮助11',
+                            text: '帮助',
                             action: 'help'
                         }],
                         listeners: {
