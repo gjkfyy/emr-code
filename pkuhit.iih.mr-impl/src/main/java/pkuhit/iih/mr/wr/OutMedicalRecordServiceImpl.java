@@ -789,6 +789,9 @@ public class OutMedicalRecordServiceImpl implements OutMedicalRecordService {
 
 		String mrTypeCode = value.getTypeCode();
 		String encounterPk = value.getEncounterPk();
+		if(null ==encounterPk){
+			encounterPk="0001";
+		}
 		if (null == mrTypeCode) {
 			Notification notification = new Notification(MessageCode.MISS_PARAM, "mrTypeCode【医疗记录类型编码】");
 			throw new NotificationException(notification);
@@ -799,10 +802,12 @@ public class OutMedicalRecordServiceImpl implements OutMedicalRecordService {
 		}
 		SingleResult<MedicalRecord> result = null;
 		SingleResultBuilder<MedicalRecord> builder = SingleResultBuilder.newSingleResult(MedicalRecord.class);
-		// 检查是否可新建
-		Amr amr = amrService.get(value.getEncounterPk()).getData();
-		actionCheck.checkCanCreate(value, amr, this);
+		// 检查是否可新建 
+		 // lizheng start
+		//Amr amr = amrService.get(value.getEncounterPk()).getData();
+		//actionCheck.checkCanCreate(value, amr, this);
 		// Notification msg=actionCheck.checkCanCreateMessage(value, this);
+		//lizheng end
 		value.setCanCreate(1);
 		// if (msg != null){
 		// value.setCanCreate(0);
