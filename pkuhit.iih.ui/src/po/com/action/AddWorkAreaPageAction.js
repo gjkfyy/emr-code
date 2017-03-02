@@ -73,7 +73,7 @@ Ext.define('iih.po.com.action.AddWorkAreaPageAction', {
             }
         };
         
-        if(true){
+        if(config.itemView){
             var canvas = Xap.getCanvas();
             canvas.fireEvent("addWorkPage",{pageCode:config.itemView.cd});
         }
