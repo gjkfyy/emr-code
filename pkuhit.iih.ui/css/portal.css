@@ -163,6 +163,12 @@ background-size:100% 100%;
 	background: url( ./images/portal/IIH_MRM_WK_MS.png) no-repeat;
 }
 
+.IIH_MRM_SEARCH{
+	width: 130px;
+	height: 130px;
+	background: url( ./images/portal/IIH_MRM_SEARCH.png) no-repeat;
+}
+
 .BACK_LOGIN{
 	width: 100px;
 	height: 100px;
@@ -344,6 +350,11 @@ background-size:100% 100%;
 
 .UserRoleManage { 
 background-image: url(images/icons/UserRoleManage.png) !important; 
+background-size:100% 100%; 
+}
+
+.AdvancedSearch { 
+background-image: url(images/icons/AdvancedSearch.png) !important; 
 background-size:100% 100%; 
 }
 
