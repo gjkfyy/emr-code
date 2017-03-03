@@ -103,6 +103,7 @@ Ext.define('iih.mr.wr.omr.action.ConfimCreateOmrDocAction', {
 		//就诊号
 		var encounterSn = IMER_GLOBAL.encounterSn;
 		var data = {'typeCode':typeCode,'encounterPk':encounterSn}
+		
 		this.prepareOperations(context.operations,data);
 		
 	},
