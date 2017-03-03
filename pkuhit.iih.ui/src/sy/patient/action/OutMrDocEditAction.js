@@ -20,11 +20,12 @@ Ext.define('iih.sy.patient.action.OutMrDocEditAction', {
     	}
     	var opType=this.getOwner().opType;
     	if(opType!=undefined){
-    		var rs = this.getBlock('content');   
+    		var rs = this.getOwner().getBlock('content'); 
     		if(opType!='readonly'){
     			this.addEditorEvent(rs);
             	this.showProgress();//显示进度条
     		}
+    		
             if(opType=='new'){//创建新病历
                 var filePk=this.getOwner().medicalRecord.filePk;//得到模板文件pk
                 this.addPrepareOperations(operations,filePk);
@@ -79,7 +80,6 @@ Ext.define('iih.sy.patient.action.OutMrDocEditAction', {
         }
     },
     openPrepareOperations: function(operations, mrSn) {
-    	alert(2333);
         var url = this.url+'/'+mrSn+'?withFile=true';
         var METHODS = this.getInvocationMethods();
         var operation = {
@@ -219,9 +219,9 @@ Ext.define('iih.sy.patient.action.OutMrDocEditAction', {
             success: this.onAddSuccess
         };
         operations.push(operation);
+        this.closeProgress();
     },
     reSelectTempPrepareOperations: function(operations,filePk) {
-    	alert(666);
         var url = 'mr/basefile/'+filePk;
         var METHODS = this.getInvocationMethods();
         var operation = {

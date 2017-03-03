@@ -1,5 +1,5 @@
 Ext.define('iih.sy.patient.view.PatientLeftListView',{
-	extend : 'Xap.ej.stl.view.SearchTemplate',
+	extend : 'Xap.ej.template.BaseTemplate',
 
 	alias:'widget.patientleftlistview',
 	

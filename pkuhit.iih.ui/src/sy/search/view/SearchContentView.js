@@ -9,7 +9,7 @@ Ext.define('iih.sy.search.view.SearchContentView', {
 						xclass : 'iih.sy.search.view.SearchLeftView',
 						width : 350,
 						region:'west',
-						split: true,
+						split: false,
 		                collapsible: true,
 		                header:false
 					},

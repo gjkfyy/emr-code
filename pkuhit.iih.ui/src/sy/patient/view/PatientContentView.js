@@ -19,7 +19,7 @@ Ext.define('iih.sy.patient.view.PatientContentView', {
 						xclass : 'iih.sy.patient.view.PatientLeftListView',
 						width : 350,
 						region:'west',
-						split: true,
+						split: false,
 		                collapsible: true,
 		                header:false
 					},
@@ -92,7 +92,7 @@ Ext.define('iih.sy.patient.view.PatientContentView', {
 					                selector: 'button[method=createDoc]',
 					                event: 'click',
 					                chain: 'hasEditConfirm'
-					            },]
+					            }]
 					}
 				}
 		});

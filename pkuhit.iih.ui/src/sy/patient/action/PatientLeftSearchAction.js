@@ -1,6 +1,6 @@
 Ext.define('iih.sy.patient.action.PatientLeftSearchAction', {
 	extend: 'Xap.ej.action.ServiceInvocation',
-	
+	requires : [ 'iih.sy.patient.block.PatientLeftGridBlock' ],
 	/*
 	* @Override
 	*/
@@ -11,6 +11,10 @@ Ext.define('iih.sy.patient.action.PatientLeftSearchAction', {
     	if(!operations) {
     		return;
     	}
+    	/*var block = owner.getBlock('result');
+    	block.setData({
+            mclass: 'patientleftgridblock'
+        });*/
     	
     	this.prepareOperations(operations,context);
     },
@@ -59,11 +63,12 @@ Ext.define('iih.sy.patient.action.PatientLeftSearchAction', {
         var data;
    	 	var pageSize=this.getOwner().pageSize;
         var block = this.getOwner().getBlock('result');
+        
         // TODO 数据格式就这样了？
         if(operation.result){
 	        resultData=operation.result;
 	        resultData.pageSize=pageSize;
-    	 	 block.setData(resultData);
+    	 	block.setData(resultData);
         }else{
        	 	block.setData(null);
         }
