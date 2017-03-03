@@ -11,7 +11,7 @@ Ext.define('iih.sy.patient.block.CreateMrBlock',{
             xtype: "button",
             name: 'confim',
             method:'confim',
-            text: '确认11',
+            text: '确认',
             disable:true,
             iconCls: 'icon-OK'
         },{

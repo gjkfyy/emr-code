@@ -21,7 +21,7 @@ Ext.define('iih.sy.patient.view.OmrTemplateSelectView',{
 		blocks: {
 		    'condition': {
                 xclass: 'iih.sy.patient.block.MrTemplateSearchConditionBlock',
-                height:85
+                height:60
             },
 			'result': {
 				xclass: 'iih.sy.patient.block.WrTemplateListBlock'
@@ -37,7 +37,31 @@ Ext.define('iih.sy.patient.view.OmrTemplateSelectView',{
 		            result:'result',
 		            condition:'condition'
 		        }
-		    }/*,
+		    },
+		    'initMrCustCla':{ 
+                xclass:'iih.sy.patient.action.OmrCustClaSearchAction',
+                url:'mr/create/init',
+
+                blocks:{
+                    result:'condition'
+                }
+            },
+            'select':{
+                xclass:'iih.sy.patient.action.OmrTemplateSelectAction',
+                url:'mr/dataBaseTime',
+                blocks:{
+                    result:'result'
+                }
+            },
+            'confim':{
+                xclass:'iih.sy.patient.action.OmrTemplateDblclickAction'
+            },
+            'enterPress':{
+                xclass:'iih.sy.patient.action.EnterPressAction',
+                blocks:{
+                    result:'condition'
+                }
+            }/*,
 		    'select':{
                 xclass:'iih.sy.patient.action.OmrTemplateSelectAction',
                 url:'mr/dataBaseTime',
@@ -78,7 +102,11 @@ Ext.define('iih.sy.patient.view.OmrTemplateSelectView',{
 		},
 
 		chains: {
-		    'init':['init']/*,
+		    'init':['init'],
+		    'initMrCustCla':['initMrCustCla'],
+		    'select':['select'],
+		    'confim':['confim'],
+		    'enterPress':['enterPress']/*,
 		    'select':['select'],
 		    'confim':['confim'],
 		    'creatMrDoc':['creatMrDoc'],
@@ -89,6 +117,26 @@ Ext.define('iih.sy.patient.view.OmrTemplateSelectView',{
 		},
 
 		connections: {
+			'result':[{
+		        event:'afterrender',
+		        chain:'init'
+		    },{
+                selector: 'xapgrid',
+                event: 'itemclick',
+                chain: 'select'
+            },{
+            	selector: 'xapgrid',
+                event: 'itemdblclick',
+                chain: 'confim'
+            }],
+			'condition':[{
+                event:'afterrender',
+                chain:'initMrCustCla'
+            },{
+                selector: 'xaptextfield[name=templateNm]',
+                event: 'specialkey',
+                chain: 'enterPress'
+            }]
 		    /*'result':[{
 		        event:'afterrender',
 		        chain:'init'

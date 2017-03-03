@@ -32,6 +32,7 @@ Ext.define('iih.sy.patient.action.PatientRightListAction', {
     },
     onSuccess: function(operation) {
         var block = this.getBlock('result');// 当前页面是UserInfoLeftListView
+        block = block.getBlock('content'); 
         var m = operation.result;
         // TODO 数据格式就这样了？
         if(m instanceof Ext.data.Model) {
@@ -40,6 +41,30 @@ Ext.define('iih.sy.patient.action.PatientRightListAction', {
                 data: m.getData(true)
             });
         } else {
+        	var data = {'patientId':'123',
+        			'pk':'854883',
+        				'amrNo':'12',
+        				'patientName':'3',
+        				'sexName':'3',
+        				'age':'3',
+        				'receiveTime':'3',
+        				'encounterCount':'3',
+        				'paInsurNm':'3',
+        				'currentMainDiagnosisName':'3'
+        				}
+        	var rec = data;
+			var workArea = Ext.getCmp('workareapageview');
+            var callBack = function(patient){
+                var canvas = Xap.getCanvas();
+                canvas.fireEvent("updatePatient",{patient:patient});
+            };
+            workArea.callBack = {
+                method: callBack,
+                params: [rec]
+            };
+            var canvas = Xap.getCanvas();
+            canvas.fireEvent("portalRender2");
+            
             block.setData(m.data);
         }
     }

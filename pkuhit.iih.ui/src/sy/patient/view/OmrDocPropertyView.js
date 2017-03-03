@@ -4,7 +4,7 @@ Ext.define('iih.sy.patient.view.OmrDocPropertyView',{
 	requires: [
 	    'iih.mr.wr.omr.block.OmrDocPropertyBlock',
 //	    'iih.mr.tm.omr.action.CancelTemplatePropertyEditAction',
-	    'iih.mr.wr.omr.action.ConfimCreateOmrDocAction',
+	    'iih.sy.patient.action.ConfimCreateOmrDocAction',
 	    'iih.mr.wr.omr.action.InitOmrDocPropertyAction',
 	    'iih.mr.wr.omr.action.ModifyOmrProAction'/*,
 	    'iih.mr.wr.omr.action.InitjobTitleAction'*/
@@ -37,7 +37,7 @@ Ext.define('iih.sy.patient.view.OmrDocPropertyView',{
                 }
             }*/,
             'confim':{
-                xclass:'iih.mr.wr.omr.action.ConfimCreateOmrDocAction',
+                xclass:'iih.sy.patient.action.ConfimCreateOmrDocAction',
                 url:'mr_doc_file',
                 blocks:{
                     content:'content'

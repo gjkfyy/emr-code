@@ -50,7 +50,7 @@ Ext.define('iih.sy.patient.block.MrTemplateSearchConditionBlock',{
         labelWidth:80,
         colspan: 3,
         width:220,
-        fieldLabel:'模板名称11'
+        fieldLabel:'模板名称'
     }/*,{
         xtype: 'xapcheckboxgroup',
         padding:'10 0 0 15',

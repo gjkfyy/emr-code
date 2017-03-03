@@ -19,16 +19,16 @@ Ext.define('iih.sy.patient.action.OmrCustClaSearchAction', {
     },
     onSuccess: function(operation) {
         var block = this.getOwner().getBlock('condition');
-        var mrCustClaCd=block.down('[name=mrCategoryCode]');
-        var mrTypeCd=block.down('[name=typeCode]');
+     /*   var mrCustClaCd=block.down('[name=mrCategoryCode]');
+        var mrTypeCd=block.down('[name=typeCode]');*/
         //为辅助录入赋值 
-        var mrDeptCode=block.down('[name=deptCode]');
+      /*  var mrDeptCode=block.down('[name=deptCode]');
         var departCode = IMER_GLOBAL.department.code;//登陆科室编码
         mrDeptCode.select(departCode);
-        
+        */
         var owner=this.getOwner();	
         var properties = owner.ownerCt.ownerCt.ownerCt.ownerCt.getLayer(Xap.ej.block.Layer.PROPERTIES);
-        mrCustClaCd.setData(operation.result.data.mrTypeCustomCategorys);
+       // mrCustClaCd.setData(operation.result.data.mrTypeCustomCategorys);
   //      mrTypeCd.setData(operation.result.data.mrTypes);
 		//树节点选择病历分类编号
         if(properties.data){
@@ -37,13 +37,13 @@ Ext.define('iih.sy.patient.action.OmrCustClaSearchAction', {
                 //给病历类型分类赋值
                 	var searchTemplateConfig=operation.result.data.searchTemplateConfig;
                 	if('1'==searchTemplateConfig){
-						mrCustClaCd.select('MRM14.03');
-                		owner.mrTypeCd='MRM16.18';
+						//mrCustClaCd.select('MRM14.03');
+                		//owner.mrTypeCd='MRM16.18';
                 	}else{
 						if(ccatCode&&ccatCode!='merge'){
-                			mrCustClaCd.select(ccatCode);
+                			//mrCustClaCd.select(ccatCode);
 						}else{
-							mrCustClaCd.select('MRM14.09');
+							//mrCustClaCd.select('MRM14.09');
 						}
                 	}
                 var result = this.getOwner();
@@ -51,19 +51,19 @@ Ext.define('iih.sy.patient.action.OmrCustClaSearchAction', {
                 initChain.execute();*/
             }else{
 				if(ccatCode&&ccatCode!='merge'){
-                	mrCustClaCd.select(ccatCode);
+                	//mrCustClaCd.select(ccatCode);
 				}else{
-					mrCustClaCd.select('MRM14.09');
+					//mrCustClaCd.select('MRM14.09');
 				}
 			}
         }else{
         	var searchTemplateConfig=operation.result.data.searchTemplateConfig;
         	if('1'==searchTemplateConfig){
-        		mrCustClaCd.select('MRM14.03');
-        		owner.mrTypeCd='MRM16.18';
+        		//mrCustClaCd.select('MRM14.03');
+        		//owner.mrTypeCd='MRM16.18';
         		console.log(createmrblock);
         	}else{
-        		mrCustClaCd.select('MRM14.09');
+        		//mrCustClaCd.select('MRM14.09');
         	}
         }
     }

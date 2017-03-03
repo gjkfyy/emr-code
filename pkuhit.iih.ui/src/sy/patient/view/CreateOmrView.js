@@ -18,8 +18,8 @@ Ext.define('iih.sy.patient.view.CreateOmrView',{
         	'init': {
 				xclass: 'iih.mr.wr.mr.action.MrTemplateInitAction'
             },
-            'confim':{
-                xclass:'iih.mr.wr.omr.action.ConfimCreateOmrDocAction',
+            'confimOmr':{
+                xclass:'iih.sy.patient.action.ConfimCreateOmrDocAction',
                 url:'mr_doc_file',
                 blocks:{
                     content:'content'
@@ -35,7 +35,7 @@ Ext.define('iih.sy.patient.view.CreateOmrView',{
         },  
         chains: {
         	'init': ['init'],
-        	'confim': ['confim'],
+        	'confimOmr': ['confimOmr'],
             'cancel': ['cancel']
         },
         connections: {

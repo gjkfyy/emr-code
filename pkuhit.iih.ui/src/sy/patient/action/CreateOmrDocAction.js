@@ -19,35 +19,62 @@ Ext.define('iih.sy.patient.action.CreateOmrDocAction', {
 		var select = grid.getSelectionModel().getSelection();
 		var workpageview = this.getOwner().ownerCt.items.items[1];
 		var ccatCode = '';
-		if(select.length>0&&select[0].raw&&select[0].raw.mrTypeCustomCode){
-			ccatCode = select[0].raw.mrTypeCustomCode;
-		}else if(select.length>0){
-			ccatCode = select[0].raw.id;
-		};
-		var opType=context.opType;
-		var title='新建病历';
-		if(opType&&'reSelectTemp'==opType){
-			title='重新选择模板';
+		if(select.length==0){
+			XapMessageBox.info("请先选择患者!");
+		}else{
+			//设置患者信息---begin
+			var rec = select[0].data;
+			var data = {'patientId':'123',
+        			'pk':'835897',
+        				'amrNo':'12',
+        				'patientName':'3',
+        				'sexName':'3',
+        				'age':'3',
+        				'receiveTime':'3',
+        				'encounterCount':'3',
+        				'paInsurNm':'3',
+        				'currentMainDiagnosisName':'3'
+        				}
+			
+			var workArea = Ext.getCmp('workareapageview');
+            var callBack = function(patient){
+                var canvas = Xap.getCanvas();
+                canvas.fireEvent("updatePatient",{patient:patient});
+            };
+            workArea.callBack = {
+                method: callBack,
+                params: [data]
+            };
+           
+            var canvas = Xap.getCanvas();
+            canvas.fireEvent("portalRender2");
+            //设置患者信息---end 
+            
+			var opType=context.opType;
+			var title='新建病历';
+			if(opType&&'reSelectTemp'==opType){
+				title='重新选择模板';
+			}
+	    	var config = {
+	    	    modal: true,           
+	    		width: 850,
+	    		height:550,
+	    		title :title,
+	    		contentConfig: {
+	    			xtype: 'createomrview',
+	    			initChain: {
+	    				name: 'init',
+	    				context: {
+	    					id:ccatCode,
+	    					opType:opType,
+	    					omrDocEditPage:omrDocEditPage,
+	    					workpageview:workpageview
+	    				}
+	    			}
+	    		}
+	    	};
+			me.createWindow(config,context);
 		}
-    	var config = {
-    	    modal: true,           
-    		width: 850,
-    		height:550,
-    		title :title,
-    		contentConfig: {
-    			xtype: 'createomrview',
-    			initChain: {
-    				name: 'init',
-    				context: {
-    					id:ccatCode,
-    					opType:opType,
-    					omrDocEditPage:omrDocEditPage,
-    					workpageview:workpageview
-    				}
-    			}
-    		}
-    	};
-		me.createWindow(config,context);
     },
     
     createWindow:function(context,context2){

@@ -1,6 +1,7 @@
 Ext.define('iih.sy.patient.view.PatientContentView', {
 			extend : 'Xap.ej.stl.view.LeftRightContainerTemplate',
 			alias : 'widget.patientcontentview',
+			id : 'patientcontentview',
 			requires : ['iih.sy.patient.view.PatientLeftListView',
 					'iih.sy.patient.block.PatientRightBlock',
 					'iih.sy.patient.action.PatientRightDeptDelAction',
@@ -9,7 +10,8 @@ Ext.define('iih.sy.patient.view.PatientContentView', {
 					'iih.sy.patient.action.PatientCreateAction',
 					'iih.sy.patient.action.ToReportAction',
 					'iih.sy.patient.action.HasEditConfirmAction',
-					'iih.sy.patient.action.CreateOmrDocAction'],
+					'iih.sy.patient.action.CreateOmrDocAction',
+					'iih.sy.patient.view.PatientRightView'],
 
 			xapConfig : {
 				blocks : {
@@ -22,7 +24,7 @@ Ext.define('iih.sy.patient.view.PatientContentView', {
 		                header:false
 					},
 					'right' : {
-						xclass : 'iih.sy.patient.block.PatientRightBlock',
+						xclass : 'iih.sy.patient.view.PatientRightView',
 						flex : 1
 					}
 				},
