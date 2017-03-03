@@ -27,34 +27,30 @@ Ext.define('iih.mr.wr.omr.block.CreateMrBlock',{
         xtype:'xaptabpanel',
         layout: 'fit',
         border:false,
-        items:[//{
-            //title:'按组套选择',
-           // xtype:'csakrview',
-           // name:'csakrview',
-           // height:427,
-           // visable:false,
+        items:[{
+            title:'按组套选择',
+            xtype:'csakrview',
+            name:'csakrview',
+            height:427,
+            visable:false,
 //            layout: 'fit',
-           // border:false,
-           // autoScroll:true
-        //},
-        {
-        
+            border:false,
+            autoScroll:true
+        },{
             title:'按类别选择',
             name:'createomrdocview',
             xtype:'createomrdocview',
 //            layout: 'border',
             border:false,
             autoScroll:true
-        }//,{
-          //  title:'既往病历选择',
-          //  name:'pastmrselectview',
-          //  xtype:'pastmrselectview',
+        },{
+            title:'既往病历选择',
+            name:'pastmrselectview',
+            xtype:'pastmrselectview',
 //            layout: 'fit',
-          //  border:false,
-          //  autoScroll:true
-        //}
-    ]
-    
+            border:false,
+            autoScroll:true
+        }]
     },{
         xtype:'omrdocpropertyview',
 //        layout: 'border',
