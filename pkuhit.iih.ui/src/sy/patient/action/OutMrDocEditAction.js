@@ -209,6 +209,7 @@ Ext.define('iih.sy.patient.action.OutMrDocEditAction', {
         
     },
     addPrepareOperations: function(operations,filePk) {
+    	filePk = "D13321E54B8C40B29241C4689A0315C0";
         var url = 'mr/basefile/'+filePk;
         var METHODS = this.getInvocationMethods();
         var operation = {
@@ -220,6 +221,7 @@ Ext.define('iih.sy.patient.action.OutMrDocEditAction', {
         operations.push(operation);
     },
     reSelectTempPrepareOperations: function(operations,filePk) {
+    	alert(666);
         var url = 'mr/basefile/'+filePk;
         var METHODS = this.getInvocationMethods();
         var operation = {
