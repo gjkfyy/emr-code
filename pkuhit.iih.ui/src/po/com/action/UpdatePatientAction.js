@@ -13,7 +13,7 @@ Ext.define('iih.po.com.action.UpdatePatientAction', {
         var patient = context.patient;
         if(patient && patient.pk){
             var operations = context.operations;
-            var url = 'mr/ens/' + patient.pk;
+            var url = 'iemrPatient/' + patient.pk;
             var mclass = null;
             param = {
                 'id': patient.pk
@@ -45,10 +45,11 @@ Ext.define('iih.po.com.action.UpdatePatientAction', {
         if(m){
             var patient = m.data;
             IMER_GLOBAL.encounterOldSn = IMER_GLOBAL.encounterSn;
-            IMER_GLOBAL.encounterSn = patient.pk;
-            IMER_GLOBAL.patientId = patient.patientId;
-            IMER_GLOBAL.amrNo=patient.amrNo;
-            IMER_GLOBAL.mainDiCd = patient.currentManageDoctorId;
+            //IMER_GLOBAL.encounterSn = patient.patientId;
+            //IMER_GLOBAL.patientId = patient.patientId;
+            IMER_GLOBAL.amrNo=patient.inpatientNo;
+            IMER_GLOBAL.mainDiCd = m.xpianNo;
+            IMER_GLOBAL.patientName = patient.patientName;
             if(IMER_GLOBAL.portal.code == IMER_CONSTANT.PORTAL_CD_2){
                 var info = Ext.getCmp('inpatientTop_info');
                 var model = Ext.create('iih.po.model.PatientModel',patient);
