@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import pkuhit.iih.mr.wr.Amr;
 import xap.sv.annotation.Service;
 import xap.sv.model.ArrayResult;
 import xap.sv.model.SingleResult;
@@ -69,5 +70,14 @@ public interface PatientService
      */
     @RequestMapping(value = "/iemrPatients", method = RequestMethod.GET)
     ArrayResult<Patient> search(@RequestParam Map<String, String> params);
+    
+    /**
+     * 查询患者（单记录） 
+     * @param id
+     * @return
+     * @throws Throwable
+     */
+    @RequestMapping(value = "/iemrPatient/{id}", method = RequestMethod.GET)
+    SingleResult<Patient> getEncounterById(@PathVariable("id")  String id) throws Throwable;
    
 }
