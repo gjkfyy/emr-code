@@ -18,6 +18,7 @@ Ext.define('iih.sy.patient.action.CreateOmrDocAction', {
 		//var omrDocEditPage=this.getOwner().getBlock('right');
 		var omrDocEditPage=this.getOwner();
 		var select = grid.getSelectionModel().getSelection();
+		var id = select[0].data.patientId;
 		var workpageview = this.getOwner().ownerCt.items.items[1];
 		var ccatCode = '';
 		if(select.length==0){
@@ -26,7 +27,7 @@ Ext.define('iih.sy.patient.action.CreateOmrDocAction', {
 			//设置患者信息---begin
 			var rec = select[0].data;
 			var data = {'patientId':'123',
-        			'pk':'835897',
+        				'pk':id,
         				'amrNo':'12',
         				'patientName':'3',
         				'sexName':'3',
