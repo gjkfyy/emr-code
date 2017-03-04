@@ -24,10 +24,11 @@ extend: 'Xap.ej.action.PopAction',
         IMER_GLOBAL.patientId = patientId;*/
 	    
 	    var mrPk='3A28274DC68445F5A16EF8B4FD38B518';
+	    var pageTitle = "为患者["+IMER_GLOBAL.patientName+"]新建病历"
 	    var config = {
                 pageCode: 'mrdoceditview',
                 xclass: 'iih.mr.wr.mr.view.MrDocEditView',
-                pageTitle: '为张三新建上肢病历文书01',
+                pageTitle: pageTitle,
                 viewConfig:{
                     mrSn:mrPk,
                     opType:'open'
