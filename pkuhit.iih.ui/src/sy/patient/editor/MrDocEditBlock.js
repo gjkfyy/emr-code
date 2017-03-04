@@ -1,15 +1,15 @@
 Ext.define('iih.sy.patient.editor.MrDocEditBlock',{
-    extend : 'Xap.ej.block.Block',
+	   extend : 'Xap.ej.block.Block',
 
-    requires: ['Xap.ej.element.objectview.ObjectView'],
+	    requires: ['Xap.ej.element.objectview.ObjectView'],
 
-    alias:'widget.mrdoceditblock',
-    id : 'mrdoceditblock',
-    //layout: 'fit',
-    items: [{
-        xtype: "button",
-        name: 'editorEvent',
-        hidden : true,
-        method : 'editorEvent'
-    }]
+	    alias:'widget.mrdoceditblock',
+
+	    //layout: 'fit',
+	    items: [{
+	        xtype: "button",
+	        name: 'editorEvent',
+	        hidden : true,
+	        method : 'editorEvent'
+	    }]
 })

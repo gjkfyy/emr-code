@@ -1,24 +1,25 @@
 Ext.define('iih.sy.patient.view.OutMrDocEditView', {
     extend: 'Xap.ej.template.BaseTemplate',
 
-    requires: [],
+    requires: ['iih.sy.patient.editor.MrDocEditBlock',
+               'iih.sy.patient.action.OutMrDocEditAction'],
     alias: 'widget.outmrdoceditview',
     layout:  'fit',
     id:'outmrdoceditview',
     xapConfig: {
         blocks: {
             'content': {
-                xclass: 'iih.mr.block.editor.MrDocEditBlock',
+                xclass: 'iih.sy.patient.editor.MrDocEditBlock',
                 flex: 1
             }
         },
 
         actions: {
             'init': {
-                xclass: 'iih.mr.wr.omr.action.OutMrDocEditAction',
+                xclass: 'iih.sy.patient.action.OutMrDocEditAction',
                 url:'omr',
                 blocks: {
-                    content: 'content'
+                	content: 'content'
                 }
             },
             'omrUseSign':{
