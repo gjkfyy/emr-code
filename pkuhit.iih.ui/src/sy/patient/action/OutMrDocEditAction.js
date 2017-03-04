@@ -5,6 +5,7 @@ Ext.define('iih.sy.patient.action.OutMrDocEditAction', {
 	* @Override
 	*/
 	execute: function(context) {
+		alert(883);
 	    Ext.useShims=true;
 	    var a=Ext.getCmp('patientcontentview');
 	    var b=a.ownerCt.ownerCt;
@@ -20,13 +21,8 @@ Ext.define('iih.sy.patient.action.OutMrDocEditAction', {
     	var opType=this.getOwner().opType;
     	if(opType!=undefined){
     		var rs = this.getBlock('content'); 
-    		alert(123);
     		if(opType!='readonly'){
-    			//this.addEditorEvent(rs);
-    			var aa = rs.down('button[name=editorEvent]');
-    			alert(aa);
-    	        aa.addEvents('editorEvent');
-    	        
+    			this.addEditorEvent(rs);
             	this.showProgress();//显示进度条
     		}
     		

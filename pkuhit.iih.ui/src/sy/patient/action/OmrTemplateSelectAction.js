@@ -41,14 +41,14 @@ Ext.define('iih.sy.patient.action.OmrTemplateSelectAction', {
         operations.push(operation);
     },
     onSuccess: function(operation) {
-    	if(operation.result.data.dataBaseTime){
+    	if(operation.result.data.dataBaseTime){/*
     		var owner=this.getOwner();
     		var content = owner.ownerCt.ownerCt.ownerCt;
     		var logicSmtTimeDateFiled=content.down('[name=logicSmtDate]');
             if(logicSmtTimeDateFiled){
             	logicSmtTimeDateFiled.setValue(operation.result.data.dataBaseTime);
             }
-    	}else{
+    	*/}else{
     		console.log("获取数据库时间出错！");
     	}
         

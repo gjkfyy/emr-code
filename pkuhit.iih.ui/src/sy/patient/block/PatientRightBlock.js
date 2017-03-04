@@ -22,7 +22,14 @@ Ext.define(
 						}
 					},
 					
-					items: [{
+					items: [/*{
+
+				        xtype: "button",
+				        name: 'editorEvent',
+				        hidden : true,
+				        method : 'editorEvent'
+				    	
+							},*/{
 								title : "患者基本信息",
 								id : 'baseInfo',
 								autoScroll:true,

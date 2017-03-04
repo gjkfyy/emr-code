@@ -15,7 +15,8 @@ Ext.define('iih.sy.patient.action.CreateOmrDocAction', {
 		var block = this.getBlock('result');
 		var me=this;
 		var grid=block.down('xapgrid');
-		var omrDocEditPage=this.getOwner().getBlock('right');
+		//var omrDocEditPage=this.getOwner().getBlock('right');
+		var omrDocEditPage=this.getOwner();
 		var select = grid.getSelectionModel().getSelection();
 		var workpageview = this.getOwner().ownerCt.items.items[1];
 		var ccatCode = '';

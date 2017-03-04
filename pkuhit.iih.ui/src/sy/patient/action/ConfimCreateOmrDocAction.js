@@ -121,6 +121,7 @@ Ext.define('iih.sy.patient.action.ConfimCreateOmrDocAction', {
             
 		    //得到文书编辑器页面
             var right = properties.data.omrDocEditPage;
+            //right = Ext.getCmp('patientoutmrdoceditview');
             if(right){
       			delete right.mrTpCcatCd;
       			var objView=right.down("objectview");
@@ -129,12 +130,10 @@ Ext.define('iih.sy.patient.action.ConfimCreateOmrDocAction', {
       			}
 				right.opType = 'new';
 				right.medicalRecord=medicalRecord;
-		        var initChain =  right.getActionChain('init');
+		        var initChain =  right.getActionChain('newDoc');
 		        initChain.execute();
           	}
             
             owner.ownerCt.close();
-        
-    
     }       
 });

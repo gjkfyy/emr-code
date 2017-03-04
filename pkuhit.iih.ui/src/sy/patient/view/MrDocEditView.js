@@ -1,11 +1,10 @@
-Ext.define('iih.sy.patient.view.OutMrDocEditView', {
+Ext.define('iih.sy.patient.view.MrDocEditView', {
     extend: 'Xap.ej.template.BaseTemplate',
 
-    requires: ['iih.sy.patient.editor.MrDocEditBlock',
-               'iih.sy.patient.action.OutMrDocEditAction'],
-    alias: 'widget.outmrdoceditview',
-    layout:  'fit',
-    id:'patientoutmrdoceditview',
+    requires: [],
+    alias: 'widget.mrdoceditview',
+    layout: 'fit',
+
     xapConfig: {
         blocks: {
             'content': {
@@ -16,23 +15,15 @@ Ext.define('iih.sy.patient.view.OutMrDocEditView', {
 
         actions: {
             'init': {
-                xclass: 'iih.sy.patient.action.OutMrDocEditAction',
-                url:'omr',
-                blocks: {
-                	content: 'content'
-                }
-            },
-            'omrUseSign':{
-            	xclass: 'iih.mr.wr.omr.action.OmrUseSignAction',
-                //url:'mrSign/user',
-            	url:'omr/signPic',
+                xclass: 'iih.mr.wr.mr.action.MrDocEditAction',
+                url:'mr',
                 blocks: {
                     content: 'content'
                 }
-            },
+            }, 
             'openMrDoc': {
                 xclass: 'iih.mr.wr.mr.action.OpenMrAction',
-                url: 'omr',
+                url: 'mr',
                 blocks: {
                     content: 'content'
                 }
@@ -43,41 +34,93 @@ Ext.define('iih.sy.patient.view.OutMrDocEditView', {
                     content: 'content'
                 }
             },
-            'editorCallBackAction': {
-                xclass: 'iih.mr.wr.omr.action.EditorCallBackAction',
-                url:'param',
-                blocks: {
-                    content: 'content'
-                }
-            },
-            'emrEditorOperator': {
-                xclass: 'iih.mr.action.editor.EmrEditorOperatorAction'
-            },
             'emrSave': {
-                xclass: 'iih.mr.wr.omr.action.OmrDocSaveAction',
-                url: 'omr',
-//                url: 'http://127.0.0.1:8081/mr',
+                xclass: 'iih.mr.wr.mr.action.MrDocSaveAction',
+                url: 'mr',
                 blocks: {
                     content: 'content'
                 }
+            },
+            'emrReadOnly': {
+                xclass: 'iih.mr.wr.mr.action.MrReadonlyAction',
+                url: 'locked/mr'
+            },
+            'emrEdit':{
+            	xclass:'iih.mr.wr.mr.action.MrDocCanEditAction',
+            	url:'locked/mr'
             },
             'emrDocProperty': {
-            	xclass: 'iih.mr.wr.omr.action.OmrDocPropertyAction',
-                url: 'omr',
+                xclass: 'iih.mr.wr.mr.action.MrDocPropertyAction',
+                url: 'mr',
                 blocks: {
                     content: 'content'
                 }
             },
             'emrSubmit':{
-                xclass: 'iih.mr.wr.omr.action.OmrDocSubmitAction',
-                url: 'submit/omr',
+                xclass: 'iih.mr.wr.mr.action.MrCheckUserCaAction',
+                url: '/signUser',
                 blocks: {
                     content: 'content'
                 }
             },
-            'emrSendMq':{
-                xclass: 'iih.mr.wr.omr.action.OmrDocSendMqAction',
-                url: 'platform/sendMq',
+            'showLoginWin':{
+                xclass: 'iih.mr.wr.mr.action.MrShowLoginWinAction',
+                //url: '/signUser',
+                blocks: {
+                    content: 'content'
+                }
+            },
+            'checkUserRole':{
+                xclass: 'iih.mr.wr.mr.action.CheckUseRoleAction',
+                url: 'mr/xapUserCheckMrSubmit',
+                blocks: {
+                    content: 'content'
+                }
+            },
+            'emrSubmit2': {
+                xclass: 'iih.mr.wr.mr.action.MrDocSubmitAction',
+                url: 'submit/mr',
+                blocks: {
+                    content: 'content'
+                }
+            },
+            /*'emrPrint':{
+                xclass: 'iih.mr.wr.mr.action.MrPrintAction',
+                blocks: {
+                    content: 'content'
+                }
+            },*/
+            'approvePost': {
+                xclass: 'iih.mr.wr.mr.action.MrDocApprovePostAction',
+                url: 'approve/mr',
+                blocks: {
+                    content: 'content'
+                }
+            },
+            'emrRevoke': {
+                xclass: 'iih.mr.wr.mr.action.MrDocRevokeAction',
+                url: 'submit/mr',
+                blocks: {
+                    content: 'content'
+                }
+            },
+            'emrApprove2': {
+                xclass: 'iih.mr.wr.mr.action.MrDocApproveAction',
+                url: 'signUser',
+                blocks: {
+                    content: 'content'
+                }
+            },
+            'emrApprove': {
+           	 	xclass: 'iih.mr.wr.mr.action.MrCheckUserCaAction',
+           	 	url: '/signUser',
+           	 	blocks: {
+           	 		content: 'content'
+           	 	}
+            },
+            'emrStartApprove':{
+            	xclass: 'iih.mr.wr.mr.action.MrDocStartApproveAction',
+                url: 'startApprove/mr',
                 blocks: {
                     content: 'content'
                 }
@@ -89,30 +132,64 @@ Ext.define('iih.sy.patient.view.OutMrDocEditView', {
                     content: 'content'
                 }
             },
-            'emrRevoke': {
-                xclass: 'iih.mr.wr.omr.action.OmrDocRevokeAction',
-                url: 'submit/omr',
+            'emrReject': {
+                xclass: 'iih.mr.wr.mr.action.MrDocRejectAction',
+                url: 'rejected/mr/',
+                blocks: {
+                    content: 'content'
+                }
+            },
+            'emrAuditRevoke': {
+                xclass: 'iih.mr.wr.mr.action.MrDocAuditRevokeAction',
+                url: 'approve/mr',
+                blocks: {
+                    content: 'content'
+                }
+            },
+            'emrSaveAsTemplate': {
+                xclass: 'iih.mr.wr.mr.action.MrDocSaveAsTemplateAction',
                 blocks: {
                     content: 'content'
                 }
             },
             'emrRefreshMacro': {
-                xclass: 'iih.mr.wr.omr.action.RefreshMacroAction',
+                xclass: 'iih.mr.wr.mr.action.RefreshMacroAction',
                 url:'macroElement',
                 blocks: {
                     content: 'content'
                 }
-            }/*,
+            },
             'emrRefreshMrDocValue': {
-                xclass: 'iih.mr.wr.omr.action.RefreshMrDocValueAction',
+                xclass: 'iih.mr.wr.mr.action.RefreshMrDocValueAction',
                 url:'mrDocValue',
                 blocks: {
                     content: 'content'
                 }
-            }*/,
+            },
             'emrRefreshDiagnosis': {
-                xclass: 'iih.mr.wr.omr.action.RefreshMrDiagnosisAction',
+                xclass: 'iih.mr.wr.mr.action.RefreshMrDiagnosisAction',
                 url:'diagnosises',
+                blocks: {
+                    content: 'content'
+                }
+            },
+            'editorCallBackAction': {
+                xclass: 'iih.mr.wr.mr.action.EditorCallBackAction',
+                url:'signUser',
+                blocks: {
+                    content: 'content'
+                }
+            },
+            'disabledOfficeToolBarAction': {
+                xclass: 'iih.mr.wr.mr.action.DisabledOfficeToolBarAction',
+                url:'current_user',
+                blocks: {
+                    content: 'content'
+                }
+            },
+            'emrNeatPrint': {
+                xclass: 'iih.mr.wr.mr.action.MrDocNeatPrintAction',
+                url: 'mr_doc_file',
                 blocks: {
                     content: 'content'
                 }
@@ -123,69 +200,25 @@ Ext.define('iih.sy.patient.view.OutMrDocEditView', {
                     content: 'content'
                 }
             },
-            'emrRefreshOutpatientDisposal': {
-                xclass: 'iih.mr.wr.omr.action.RefreshPrescriptionAction',
-                url:'omr/prescription',
-                blocks: {
-                    content: 'content'
-                }
-            },
-            'getSystemConfig': {
-                xclass: 'iih.mr.wr.omr.action.GetSystemConfigAction',
-                url:'param',
-                blocks: {
-                    content: 'content'
-                }
-            },
-            'disabledOfficeToolBarAction': {
-                xclass: 'iih.mr.wr.omr.action.DisabledOfficeToolBarAction',
-                url:'param',
-                blocks: {
-                    content: 'content'
-                }
-            },
-            'emrNeatPrint': {
-                xclass: 'iih.mr.wr.omr.action.OmrDocNeatPrintAction',
-                url: 'mr_doc_file',
-                blocks: {
-                    content: 'content'
-                }
-            },
-            'submitAndRevokeCheck': {
-                xclass: 'iih.mr.wr.omr.action.OmrSubmitAndRevokeCheckAction',
-                url: 'param',
-                blocks: {
-                    content: 'content'
-                }
-            },
-            'mergeAllMr': {
-                xclass: 'iih.mr.wr.omr.action.MergeAllMrAction',
-                blocks: {
-                    content: 'content'
-                }
-            },
-            'emrExportXML':{
-            	xclass: 'iih.mr.wr.mr.action.EmrEmrExportXMLAction',
-                blocks: {
-                    content: 'content'
-                }
-            }/*,
             'emrContinuePrint': {
-                xclass: 'iih.mr.wr.omr.action.OmrContinuePrintAction',
-                url: 'omrs',
+                xclass: 'iih.mr.wr.mr.action.MrContinuePrintAction',
+                url: 'mrs/for/continue/print',
                 blocks: {
                     content: 'content'
                 }
             },
             'emrSelectContinuePrint': {
-                xclass: 'iih.mr.wr.omr.action.OmrSelectContinuePrintAction',
-                url: 'omrs',
+                xclass: 'iih.mr.wr.mr.action.MrSelectContinuePrintAction',
+                url: 'mrs',
                 blocks: {
                     content: 'content'
                 }
             },
+            'emrEditorOperator': {
+                xclass: 'iih.mr.action.editor.EmrEditorOperatorAction'
+            },
             'emrRefreshValues':{
-            	xclass: 'iih.mr.wr.omr.action.RefreshValuesAction',
+            	xclass: 'iih.mr.wr.mr.action.RefreshValuesAction',
             	url: 'allValue',
                 blocks: {
                     content: 'content'
@@ -193,25 +226,37 @@ Ext.define('iih.sy.patient.view.OutMrDocEditView', {
             },
             'mergeAll':{
             	xclass: 'iih.mr.wr.mr.action.MergeAllAction',
-//            	url: 'allValue',
                 blocks: {
                     content: 'content'
                 }
             },
             'closeProgress':{
             	xclass: 'iih.mr.wr.mr.action.CloseProgressAction',
-//            	url: 'allValue',
                 blocks: {
                     content: 'content'
                 }
             },
-            'upPro':{
-            	xclass: 'iih.mr.wr.mr.action.UpProAction',
-//            	url: 'allValue',
+            'emrPrint':{
+            	xclass: 'iih.mr.wr.mr.action.PrintAction',
+            	url:'mr/checkMrPrint',
                 blocks: {
                     content: 'content'
                 }
-            }*/
+            },
+            'mrbPrint':{
+            	xclass: 'iih.mr.wr.mr.action.AddPrintCountAction',
+            	url:'mr/updateMrPrintCount',
+                blocks: {
+                    content: 'content'
+                }
+            },
+            
+            'emrExportXML':{
+            	xclass: 'iih.mr.wr.mr.action.EmrEmrExportXMLAction',
+                blocks: {
+                    content: 'content'
+                }
+            }
             ,'showHyperlink':{
             	xclass: 'iih.mr.action.editor.ShowHyperlinkWindowAction',
             	blocks: {
@@ -230,30 +275,34 @@ Ext.define('iih.sy.patient.view.OutMrDocEditView', {
                 blocks: {
                     content: 'content'
                 }
-            }
-        },
-       
+        }
+       },
+
         chains: {
             'init': ['init'],
             'emrExportXML':['emrExportXML'],
             'openMrDoc': ['openMrDoc'],
-            'emrRefreshOutpatientDisposal':['emrRefreshOutpatientDisposal'],
-//            'upPro': ['upPro'],
+            'emrPrint': ['emrPrint'],
+            'emrPrintSelected':['emrPrintSelected'],
             'emrCmdDispatch': ['emrCmdDispatch'],
             'emrSave': ['emrSave'],
-            'mergeAllMr': ['mergeAllMr'],
             'closeProgress': ['closeProgress'],
             'doSave': ['emrSave'],
             'emrReadOnly': ['emrReadOnly'],
             'emrEdit': ['emrEdit'],
             'mergeAll': ['mergeAll'],
             'emrDocProperty': ['emrDocProperty'],
-            'emrSubmit':['emrSubmit'],
-            'emrSendMq':['emrSendMq'],
+            'emrSubmit':['checkUserRole'],
+            'emrSubmit1':['emrSubmit'],
+            'showLoginWin':['showLoginWin'],
+            'emrSubmit2':['emrSubmit2'],
+            'emrPrint':['emrPrint'],
+            'emrApprove2':['emrApprove2'],
+            'mrSubmit':['mrSubmit'],
             'emrSignDispose':['emrSignDispose'],
             'emrRevoke':['emrRevoke'],
             'emrStartApprove':['emrStartApprove'],
-            'emrApprove':['emrSubmit'],
+            'emrApprove':['checkUserRole'],
             'emrReject':['emrReject'],
             'emrAuditRevoke':['emrAuditRevoke'],
             'emrSaveAsTemplate':['emrSaveAsTemplate'],
@@ -264,14 +313,14 @@ Ext.define('iih.sy.patient.view.OutMrDocEditView', {
             'emrRefreshDiagnosis':['emrRefreshDiagnosis'],
             'disabledOfficeToolBarAction':['disabledOfficeToolBarAction'],
             'editorCallBackAction':['editorCallBackAction'],
-            'emrPrint':['submitAndRevokeCheck'],
-            'emrContinuePrint':['emrContinuePrint'],
-            'getSystemConfig':['getSystemConfig'],
             'emrNeatPrint':['emrNeatPrint'],
-            'omrUseSign':['omrUseSign'],
+            'emrContinuePrint':['emrContinuePrint'],
+            'approvePost':['approvePost'],
+            'emrSelectContinuePrint':['emrSelectContinuePrint'],
             'showHyperlink':['showHyperlink'],
-            'emrPrintSelected':['emrPrintSelected'],
             'emrHyperlink':['emrHyperlink'],
+            'checkUserRole':['checkUserRole'],
+            'mrbPrint':['mrbPrint'],
             'mrPrintOPLog':['mrPrintOPLog']
         },
 

@@ -6,11 +6,12 @@ Ext.define('iih.sy.patient.action.ToReportAction', {
 extend: 'Xap.ej.action.Action',
 
 	requires: ['iih.mr.qa.qa_reports.view.QaReportWithoutConditionView',
-	           'iih.mr.wr.mr.view.MrDocEditView'],
+	           'iih.mr.wr.mr.view.MrDocEditView',
+	           'iih.sy.patient.view.OutMrDocEditView'],
 	
 	execute: function(context) {
 		this.callParent();
-		var pageCode = 'qareportwithoutconditionview';
+		var pageCode = 'patientoutmrdoceditview';
 		var record = context.record;
 	    var viewConfig = {
 	    	reportRecord:record
@@ -26,7 +27,7 @@ extend: 'Xap.ej.action.Action',
             }
         };*/
 	    //A8C7634DC3984863B797E8113DA0FCA5
-	    var mrPk='A8C7634DC3984863B797E8113DA0FCA5';
+	    var mrPk='D13321E54B8C40B29241C4689A0315C0';
 	    var config = {
                 pageCode: 'mrdoceditview',
                 xclass: 'iih.mr.wr.mr.view.MrDocEditView',

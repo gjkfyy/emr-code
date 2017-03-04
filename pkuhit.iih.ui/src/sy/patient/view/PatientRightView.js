@@ -15,17 +15,23 @@ Ext.define('iih.sy.patient.view.PatientRightView', {
         },
 
         actions: {
-            'init': {
+            /*'init': {
                 xclass: 'iih.sy.patient.view.OutMrDocEditView',
-                url:'omr',
                 blocks: {
                     content: 'content'
                 }
-            }
+            },*/
+            /*'init': {
+                xclass: 'iih.sy.patient.action.OutMrDocEditAction',
+                blocks: {
+                    content: 'content'
+                }
+            }*/
         },
        
         chains: {
-            'init': ['init']
+            //'init': ['init'],
+            //'open':['open']
         },
 
         connections: {

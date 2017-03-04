@@ -11,7 +11,8 @@ Ext.define('iih.sy.patient.view.PatientContentView', {
 					'iih.sy.patient.action.ToReportAction',
 					'iih.sy.patient.action.HasEditConfirmAction',
 					'iih.sy.patient.action.CreateOmrDocAction',
-					'iih.sy.patient.view.PatientRightView'],
+					'iih.sy.patient.view.PatientRightView',
+					'iih.sy.patient.action.OutMrDocEditAction'],
 
 			xapConfig : {
 				blocks : {
@@ -30,6 +31,12 @@ Ext.define('iih.sy.patient.view.PatientContentView', {
 				},
 
 					actions : {
+						'init':{
+							xclass: 'iih.sy.patient.action.OutMrDocEditAction',
+			                blocks: {
+			                	right: 'right'
+			                }
+						},
 						'patientRightList': {
 							xclass: 'iih.sy.patient.action.PatientRightListAction',
 							url: 'iemrPatient',
@@ -68,6 +75,7 @@ Ext.define('iih.sy.patient.view.PatientContentView', {
 			            }
 					},
 					chains : {
+						'init':['init'],
 						'patientRightList': ['patientRightList'],
 						'editPatient' : ['editPatient'],
 						'newDoc' : ['newDoc'],
