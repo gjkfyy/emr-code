@@ -16,7 +16,7 @@ Ext.define('iih.sy.patient.view.PatientRightView', {
 
         actions: {
             'init': {
-                xclass: 'iih.sy.patient.action.OutMrDocEditAction',
+                xclass: 'iih.sy.patient.view.OutMrDocEditView',
                 url:'omr',
                 blocks: {
                     content: 'content'

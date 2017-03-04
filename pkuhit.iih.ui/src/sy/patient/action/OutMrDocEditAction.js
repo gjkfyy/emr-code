@@ -20,11 +20,10 @@ Ext.define('iih.sy.patient.action.OutMrDocEditAction', {
     	var opType=this.getOwner().opType;
     	if(opType!=undefined){
     		var rs = this.getBlock('content'); 
+    		alert(123);
     		if(opType!='readonly'){
-    			alert(44);
     			//this.addEditorEvent(rs);
-    			alert(rs);
-    			var aa = this.getBlock("content").down('button[name=editorEvent]');
+    			var aa = rs.down('button[name=editorEvent]');
     			alert(aa);
     	        aa.addEvents('editorEvent');
     	        
