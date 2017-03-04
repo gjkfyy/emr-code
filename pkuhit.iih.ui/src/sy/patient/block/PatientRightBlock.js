@@ -29,7 +29,7 @@ Ext.define(
 				        hidden : true,
 				        method : 'editorEvent'
 				    	
-							},*/{
+							},*//*{
 								title : "患者基本信息",
 								id : 'baseInfo',
 								autoScroll:true,
@@ -153,7 +153,7 @@ Ext.define(
 										name:'',
 										value: ''
 									}]
-								},{
+								},*/{
 										title : '已书写文书',
 										layout: {
 											type:'vbox',

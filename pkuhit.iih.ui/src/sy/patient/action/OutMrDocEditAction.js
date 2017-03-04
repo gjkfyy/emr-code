@@ -5,7 +5,6 @@ Ext.define('iih.sy.patient.action.OutMrDocEditAction', {
 	* @Override
 	*/
 	execute: function(context) {
-		alert(883);
 	    Ext.useShims=true;
 	    var a=Ext.getCmp('patientcontentview');
 	    var b=a.ownerCt.ownerCt;

@@ -9,7 +9,8 @@ Ext.define('iih.sy.patient.view.PatientLeftListView',{
 		'iih.sy.patient.block.PatientLeftGridBlock',
 		'iih.sy.patient.action.PatientLeftSearchAction',
 		'iih.sy.patient.action.PatientRightListAction',
-		'iih.sy.patient.action.PatientSaveAction'
+		'iih.sy.patient.action.PatientSaveAction',
+		'iih.sy.patient.action.PatientEditWinAction'
 		//'iih.sy.patient.action.CreatePatientAction'
 	],
 	xapConfig: {
@@ -87,13 +88,21 @@ Ext.define('iih.sy.patient.view.PatientLeftListView',{
 			'patientCreate': {
 				xclass: 'iih.sy.patient.action.PatientCreateAction',
 				url:'patient'
-			}
+			},
+			'editPatient': {
+                xclass: 'iih.sy.patient.action.PatientEditWinAction',
+                url:'patient',
+                blocks:{
+                    result:'right'
+                }
+            }
 		},
 
 		chains: {
 			'init':['init'],
 			'create':['create'],
-			'patientCreate':['patientCreate']
+			'patientCreate':['patientCreate'],
+			'editPatient':['editPatient']
 		},
 
 		connections: {
@@ -101,6 +110,10 @@ Ext.define('iih.sy.patient.view.PatientLeftListView',{
 				selector: 'button[action=newPatient]',
 				event: 'click',
 				chain: 'patientCreate'
+			},{
+				selector: 'button[action=editPatient]',
+				event: 'click',
+				chain: 'editPatient'
 			}],
 			'result': [{// 翻页操作
 				selector : 'xapgrid',

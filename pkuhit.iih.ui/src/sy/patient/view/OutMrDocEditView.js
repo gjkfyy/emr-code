@@ -3,9 +3,11 @@ Ext.define('iih.sy.patient.view.OutMrDocEditView', {
 
     requires: ['iih.sy.patient.editor.MrDocEditBlock',
                'iih.sy.patient.action.OutMrDocEditAction'],
+               
     alias: 'widget.outmrdoceditview',
+    
     layout:  'fit',
-    id:'patientoutmrdoceditview',
+    
     xapConfig: {
         blocks: {
             'content': {
@@ -280,10 +282,10 @@ Ext.define('iih.sy.patient.view.OutMrDocEditView', {
                 selector: 'button[method=editorEvent]',
                 event: 'editorEvent',
                 chain: 'emrCmdDispatch'
-            }, {
+            }/*, {
                 event: 'afterrender',
                 chain: 'init'
-            }]
+            }*/]
         }
     },
     

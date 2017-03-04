@@ -13,8 +13,17 @@ Ext.define('iih.sy.patient.action.PatientEditWinAction', {
 	*/
 	execute: function(context) {
 		var owner = this.getOwner();
-	    var block = owner.getBlock('right');
-	    var patientId = block.down('xaptextfield[name=patientId]').getValue();
+	    var block = owner.ownerCt.getBlock('left');
+	    var grid = block.down('xapgrid');
+		var rb = grid.getSelectionModel().getSelection();
+		var patientId = "";
+		if(rb.length == 0){
+			XapMessageBox.info('请先选择一个患者！');
+            return
+        }else{
+        	patientId = rb[0].data.patientId;
+        }	
+	    
 	    var config = {
     	    modal: true,           
     		width: 1050,

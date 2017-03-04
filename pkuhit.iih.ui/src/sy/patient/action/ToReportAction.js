@@ -3,7 +3,7 @@
  * @author ：cheng_feng
  */
 Ext.define('iih.sy.patient.action.ToReportAction', {
-extend: 'Xap.ej.action.Action',
+extend: 'Xap.ej.action.PopAction',
 
 	requires: ['iih.mr.qa.qa_reports.view.QaReportWithoutConditionView',
 	           'iih.mr.wr.mr.view.MrDocEditView',
@@ -16,18 +16,14 @@ extend: 'Xap.ej.action.Action',
 	    var viewConfig = {
 	    	reportRecord:record
 	    }
+	   /* var arguments = context.event.arguments;
+	    encounterPk = arguments[0].encounterPk;
+        patientId = arguments[0].patientId;
+        alert(encounterPk);
+        IMER_GLOBAL.encounterSn = encounterPk;
+        IMER_GLOBAL.patientId = patientId;*/
 	    
-      /*  var config = {
-        	pageCode: pageCode,
-        	pageTitle: '病历文书',
-            xclass: 'iih.mr.qa.qa_reports.view.QaReportWithoutConditionView',
-            viewConfig:  {
-                opType:'open',
-                reportRecord:record
-            }
-        };*/
-	    //A8C7634DC3984863B797E8113DA0FCA5
-	    var mrPk='D13321E54B8C40B29241C4689A0315C0';
+	    var mrPk='3A28274DC68445F5A16EF8B4FD38B518';
 	    var config = {
                 pageCode: 'mrdoceditview',
                 xclass: 'iih.mr.wr.mr.view.MrDocEditView',

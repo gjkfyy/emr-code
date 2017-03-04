@@ -92,11 +92,11 @@ Ext.define('iih.sy.patient.view.PatientContentView', {
 						'right' : [{
 									event: 'afterrender',
 									chain: 'init'
-								},{
+								},/*{
 									selector: 'button[action=editPatient]',
 									event: 'click',
 									chain: 'editPatient'
-								},{
+								},*/{
 					                selector: 'button[method=createDoc]',
 					                event: 'click',
 					                chain: 'hasEditConfirm'

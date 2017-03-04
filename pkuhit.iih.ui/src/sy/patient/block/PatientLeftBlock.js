@@ -30,5 +30,11 @@ Ext.define('iih.sy.patient.block.PatientLeftBlock',{
 			iconCls: 'icon-Create',
 			valign : 'left',
 			action : 'newPatient'
+	},{
+			xtype: 'button',
+			text: '编辑患者',
+			iconCls: 'icon-edit',
+			valign : 'left',
+			action : 'editPatient'
 	}]
 })
