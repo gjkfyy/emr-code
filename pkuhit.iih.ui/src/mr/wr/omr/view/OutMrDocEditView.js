@@ -279,10 +279,10 @@ Ext.define('iih.mr.wr.omr.view.OutMrDocEditView', {
                 selector: 'button[method=editorEvent]',
                 event: 'editorEvent',
                 chain: 'emrCmdDispatch'
-            }/*, {
+            }, {
                 event: 'afterrender',
                 chain: 'init'
-            }*/]
+            }]
         }
     },
     

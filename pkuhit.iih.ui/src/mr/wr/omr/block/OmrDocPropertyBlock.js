@@ -78,7 +78,7 @@ Ext.define('iih.mr.wr.omr.block.OmrDocPropertyBlock',{
 		labelWidth:60,
 		width:210,
 		padding:'5 0 0 22'
-	},{
+	},/*{
 		xtype:'xapcombobox',
 		name:'higherLvlEmpId',
 		padding:'5 0 0 15',
@@ -90,7 +90,7 @@ Ext.define('iih.mr.wr.omr.block.OmrDocPropertyBlock',{
 		queryMode: 'local',
 		displayField: 'name',
 		valueField: 'id'
-	}/*,{
+	}*//*,{
 		xtype:'xapcombobox',
 		name:'relevance',
 		fieldLabel:'关联医嘱',

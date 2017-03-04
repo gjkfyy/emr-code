@@ -101,8 +101,8 @@ Ext.define('iih.mr.action.editor.EmrEditorOperatorAction', {
      *            宿主对象所在page
      */
     addEditorEvent: function(page) {
-       // var editorEvent = page.down('button[name=editorEvent]');
-        //editorEvent.addEvents('editorEvent');
+        var editorEvent = page.down('button[name=editorEvent]');
+        editorEvent.addEvents('editorEvent');
     },
 
     /**
