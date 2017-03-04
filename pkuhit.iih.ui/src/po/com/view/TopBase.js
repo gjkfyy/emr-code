@@ -276,7 +276,7 @@ Ext.define('iih.po.com.view.TopBase', {
                     xtype: 'button',
                     iconCls: 'minimize_16',
                     hidden: IMER_CONSTANT.CLIENT == 'browser' ? true : false,
-                    tooltip: '最小化aaa',
+                    tooltip: '最小化',
                     height: 19,
                     width: 28,
                     margin: 0,
