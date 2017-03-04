@@ -10,6 +10,8 @@ import org.seasar.doma.jdbc.SelectOptions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 
+import pkuhit.iih.di.DiagnosisModel;
+import pkuhit.iih.mr.wr.Amr;
 import pkuhit.xap.dao.auto.IemrPatientDao;
 import pkuhit.xap.dao.auto.entity.IemrPatient;
 import pkuhit.xap.util.BeanCopyUtil;
@@ -140,4 +142,24 @@ public class PatientServiceImpl implements PatientService
 	        return value;
 	 }
 	 
+	 
+	 @Override
+    public SingleResult<Patient> getEncounterById(String id) throws Throwable {
+	    SingleResult<Patient> result;
+        SingleResultBuilder<Patient> builder = SingleResultBuilder.newSingleResult(Patient.class);
+        IemrPatient iemrPatient = imerPatientDao.selectIemrPatientById(id);
+        if (null != iemrPatient) {
+        	Patient patient = this.wrapData(iemrPatient);
+            if("0".equalsIgnoreCase(patient.getSex())){
+            	patient.setSexValue("女");
+            }else if("1".equalsIgnoreCase(patient.getSex())){
+            	patient.setSexValue("男");
+            }else if("-1".equalsIgnoreCase(patient.getSex())){
+            	patient.setSexValue("未知的性别");
+            }
+            builder.withData(patient);
+        }
+        result = builder.build();
+        return result;
+    }
 }
