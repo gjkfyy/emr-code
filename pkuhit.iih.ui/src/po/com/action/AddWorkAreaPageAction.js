@@ -243,7 +243,7 @@ Ext.define('iih.po.com.action.AddWorkAreaPageAction', {
                 },{
                     xtype: 'label',
                     width: 5
-                },{
+                },/*{									//去掉页面右上方的"重新选择模板"模板按钮    wang_dehong 2017-03-04
                     xtype: 'button',
                     id:'reSelectTempBtn',
                     text: '重新选择模板',
@@ -261,7 +261,7 @@ Ext.define('iih.po.com.action.AddWorkAreaPageAction', {
             				}
             			});
                     }
-                },{     
+                },*/{     
                 	xtype: 'label',
                     width: 5
                 },{
