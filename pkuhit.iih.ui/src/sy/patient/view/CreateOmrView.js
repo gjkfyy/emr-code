@@ -43,7 +43,7 @@ Ext.define('iih.sy.patient.view.CreateOmrView',{
                 //确认按钮（新建病历选择模板属性）
                 selector: 'button[method=confim]',
                 event: 'click',
-                chain: 'confim'
+                chain: 'confimOmr'
             },{    
                 //取消按钮
                 selector: 'button[method=cancel]',
