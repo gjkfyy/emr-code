@@ -43,7 +43,7 @@ Ext.define('iih.po.com.action.TopInitAction', {
         var switchBtn = top.down('container[name=switchBtn]');
         switchBtn.removeAll();
         //病历管理
-        var mrmBtn = Ext.create('Ext.button.Button',{
+        /*var mrmBtn = Ext.create('Ext.button.Button',{
             name: 'mrmBtn',
             iconCls: 'icon-minimum',
             scale: 'large',
@@ -58,10 +58,10 @@ Ext.define('iih.po.com.action.TopInitAction', {
                 });
             }
         });
-        switchBtn.add(mrmBtn);
+        switchBtn.add(mrmBtn);*/
         
         //模板管理
-        var templetBtn = Ext.create('Ext.button.Button',{
+       /* var templetBtn = Ext.create('Ext.button.Button',{
             name: 'templetBtn',
             iconCls: 'icon-minimum',
             scale: 'large',
@@ -76,10 +76,10 @@ Ext.define('iih.po.com.action.TopInitAction', {
                 });
             }
         });
-        switchBtn.add(templetBtn);
+        switchBtn.add(templetBtn);*/
         
         //随访管理
-        var fumBtn = Ext.create('Ext.button.Button',{
+       /* var fumBtn = Ext.create('Ext.button.Button',{
             name: 'fumBtn',
             iconCls: 'icon-minimum',
             scale: 'large',
@@ -95,10 +95,10 @@ Ext.define('iih.po.com.action.TopInitAction', {
                 });
             }
         });
-        switchBtn.add(fumBtn);
+        switchBtn.add(fumBtn);*/
         
         //随访管理
-        var searchBtn = Ext.create('Ext.button.Button',{
+       /* var searchBtn = Ext.create('Ext.button.Button',{
             name: 'searchBtn',
             iconCls: 'icon-minimum',
             scale: 'large',
@@ -114,7 +114,7 @@ Ext.define('iih.po.com.action.TopInitAction', {
                 });
             }
         });
-        switchBtn.add(searchBtn);
+        switchBtn.add(searchBtn);*/
         
         
         /*//患者与功能切换按钮
