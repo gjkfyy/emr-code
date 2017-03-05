@@ -32,7 +32,8 @@ Ext.define('iih.sy.patient.block.PatientLeftGridBlock', {
 		// selType:'checkboxmodel',
 		pageSize : 20,
 		pageShow : true,
-		ifSelect: false,
+		ifSelect: true,
+		selectBy: 'patientId',
 		//checkOnly : true,
 		mode:'simple',
 		showHeaderCheckbox : false,
@@ -80,6 +81,12 @@ Ext.define('iih.sy.patient.block.PatientLeftGridBlock', {
 			var dataList=data.dataList;
 	    	if(grid){
 	    		if(dataList){
+	    			
+	    			//记住上次选中行，若第一次加载则默认选中第一行
+	    			if(dataList.length >0 &&grid.nodeId == null){
+	    				grid.nodeId = dataList[0][grid.selectBy];
+	    			}
+	    			
 			    	var totalList = {"total":data.total,"dataList":dataList};
 			    	var pageSize = data.pageSize;
 			    	if(pageSize == undefined || typeof(data.pageSize) == 'object'){
@@ -91,6 +98,7 @@ Ext.define('iih.sy.patient.block.PatientLeftGridBlock', {
 	        		var totalList = {"total":data.total,"dataList":dataList};
 	        		grid.setPageData(totalList);
 	        	}
+	    		
 	    	}
 		}
 	}

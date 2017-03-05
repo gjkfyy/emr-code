@@ -53,9 +53,9 @@ Ext.define('iih.sy.patient.action.PatientSaveAction', {
     	var owner = this.getOwner();
     	var chain = owner.getActionChain('cancel');
     		chain.execute();
-    	
-    	var view = this.up('patientleftlistview');
-    	var chain = owner.getActionChain('init');
+    	var patientleftlistview = Ext.getCmp('patientleftlistview');
+    	//var view = this.up('patientleftlistview');
+    	var chain = patientleftlistview.getActionChain('init');
         	chain.execute();
     },
     createFail: function(operation) {

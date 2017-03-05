@@ -2,6 +2,7 @@ Ext.define('iih.sy.patient.view.PatientLeftListView',{
 	extend : 'Xap.ej.template.BaseTemplate',
 
 	alias:'widget.patientleftlistview',
+	id:'patientleftlistview',
 	
 	requires :[
 	    'Xap.ej.element.button.Button',
