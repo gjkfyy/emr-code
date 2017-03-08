@@ -170,9 +170,9 @@ Ext.define('iih.po.com.block.LoginBlock',{
             name: 'caCheck',
             vertical: true,
             colspan:16,
-            items: [
-                { boxLabel: 'CA登录', name: 'caLogin', inputValue: '1' ,style:'height:20px;lineHeight:20px;font-size:18px;color:#7C7C7C'}
-            ],
+            //items: [  //lizheng 注释ca登录显示
+             //   { boxLabel: 'CA登录', name: 'caLogin', inputValue: '1' ,style:'height:20px;lineHeight:20px;font-size:18px;color:#7C7C7C'}
+           // ],
             margin:'0 0 0 70'
         },
 		{
