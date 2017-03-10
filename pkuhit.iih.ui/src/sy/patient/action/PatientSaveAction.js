@@ -16,7 +16,10 @@ Ext.define('iih.sy.patient.action.PatientSaveAction', {
         data.crtDeptCd = deptCd;
         data.lastUpdUserId = userId;
         data.lastUpdDeptCd = deptCd;
-        data.admissionDate = data.admissionDate;
+        //data.admissionDate = data.admissionDate;
+        data.admissionDate = Ext.util.Format.date(new Date(data.admissionDate), "Y-m-d H:i:s");
+        data.isPic = data.isPic == 'on'? 1 : 0;
+        data.isVideo = data.isVideo == 'on'? 1 : 0;
 		var operations = context.operations;
         if(!operations) {
      		return;
