@@ -102,9 +102,9 @@ Ext.define('iih.po.com.action.TopInitAction', {
             name: 'searchBtn',
             iconCls: 'icon-minimum',
             scale: 'large',
-            text: '高级搜索',
+            text: '高级检索',
             style:'font-size:14px', 
-            tooltip: '高级搜索',
+            tooltip: '高级检索',
             margin: '20 20 5 0',
             handler:function(btn,e){
                 var top = this.up('topview');
