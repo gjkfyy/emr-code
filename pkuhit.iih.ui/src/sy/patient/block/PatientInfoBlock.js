@@ -66,9 +66,23 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        //id:'inpatientNo',
 		        name:'inpatientNo'
 			},{
+				xtype:'xapdatefield',
+				colspan: 3,
+				padding:'5 0 0 5',
+		        labelWidth:60,
+		        fieldLabel:'入院日期',
+		        width:160,
+		        name:'admissionDate',
+		        listeners: {
+					change: function( v, newValue, oldValue, eOpts ) {
+						var startDate = this.up('panel').down('xapdatefield[name=admissionDate]');
+						startDate.setMaxValue( this.getValue( ) );
+					}
+				}
+			},{
 				xtype: 'xapdisplayfield',
 				fieldLabel: '',
-				colspan:6,
+				colspan:3,
 				width:10,
 				valign: 'left',
 				name:'',
@@ -115,7 +129,7 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				colspan: 2,
 				padding:'5 20 0 5',
 		        labelWidth:50,
-		        width:150,
+		        width:160,
 //		        id:'age',
 		        name:'age',
 		        fieldLabel:'年龄'
@@ -154,26 +168,12 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 	            allowBlank:true,
 	            editable:false,
 	            value:''
-			},/*{
-				xtype:'xapdatefield',
-				colspan: 3,
-				padding:'5 20 0 5',
-		        labelWidth:60,
-		        fieldLabel:'入院日期',
-		        width:230,
-		        name:'admissionDate',
-		        listeners: {
-					change: function( v, newValue, oldValue, eOpts ) {
-						var startDate = this.up('panel').down('xapdatefield[name=admissionDate]');
-						startDate.setMaxValue( this.getValue( ) );
-					}
-				}
-			},*/{
+			},{
 				xtype:'xaptextfield',
 				colspan: 2,
 				padding:'5 0 0 5',
 		        labelWidth:50,
-		        width:150,
+		        width:160,
 		        name:'occupation',
 		        fieldLabel:'职业'
 			},{
@@ -206,7 +206,7 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				padding:'5 0 0 5',
 		        labelWidth:50,
 		        fieldLabel:'家族史',
-		        width:150,
+		        width:160,
 		        name:'familyHistory'
 			},{
 				xtype:'xaptextfield',
@@ -347,7 +347,7 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        fieldLabel:'照相',
 		        width:150,
 		        name:'isPic',
-		        displayField: 'parentName'
+		        displayField: 'isPic'
 			},{
 				xtype:'xapcheckbox',
 				colspan: 2,
@@ -357,7 +357,7 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        fieldLabel:'录像',
 		        width:150,
 		        name:'isVideo',
-		        displayField: 'parentName'
+		        displayField: 'isVideo'
 			},{
 				xtype: 'xapdisplayfield',
 				fieldLabel: '',
