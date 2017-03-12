@@ -10,6 +10,11 @@ Ext.define('iih.sy.patient.action.PatientSaveAction', {
 		var block = this.getBlock('content');
 		var form= block.getForm();
         var data = form.getValues();
+        var valid = form.isValid();
+        if(!valid){
+        	Ext.MessageBox.alert("错误提示","请检查必填项！");
+        	return;
+        }
         var userId = IMER_GLOBAL.user.code;
         var deptCd = IMER_GLOBAL.department.code
         data.crtUserId = userId;

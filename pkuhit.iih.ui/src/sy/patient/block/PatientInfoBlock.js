@@ -61,7 +61,7 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				colspan: 3,
 				padding:'10 0 0 5',
 		        labelWidth:50,
-		        fieldLabel:'住院号',
+		        fieldLabel:'住院号<font color:\'ff0000\'>*</font>',
 		        allowBlank:false,
 		        blankText : '不能为空',
 		        width:230,
@@ -72,7 +72,7 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				colspan: 3,
 				padding:'5 0 0 5',
 		        labelWidth:60,
-		        fieldLabel:'入院日期',
+		        fieldLabel:'入院日期<font color:\'ff0000\'>*</font>',
 		        allowBlank:false,
 		        blankText : '不能为空',
 		        width:160,
@@ -96,7 +96,7 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				colspan: 2,
 				padding:'5 0 0 5',
 		        labelWidth:70,
-		        fieldLabel:'姓名',
+		        fieldLabel:'姓名<font color:\'ff0000\'>*</font>',
 		        allowBlank:false,
 		        blankText : '不能为空',
 		        width:150,
@@ -106,7 +106,7 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 	        	xtype:'xapcombobox',
 		       // id:'sex',
 		        name:'sex',
-	            fieldLabel:'性别',
+	            fieldLabel:'性别<font color:\'ff0000\'>*</font>',
 	            padding:'5 0 0 5',
 	            colspan: 2,
 	            width:150,
@@ -139,7 +139,9 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        width:160,
 //		        id:'age',
 		        name:'age',
-		        fieldLabel:'年龄'
+		        blankText : '不能为空',
+	            editable:false,
+		        fieldLabel:'年龄<font color:\'ff0000\'>*</font>'
 			},{
 				xtype:'xaptextfield',
 				colspan: 4,
@@ -264,7 +266,7 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        name:'adress',
 		        allowBlank:false,
 		        blankText : '不能为空',
-		        fieldLabel:'联系地址'
+		        fieldLabel:'联系地址<font color:\'ff0000\'>*</font>'
 			},{
 				xtype:'xaptextfield',
 				colspan: 6,
