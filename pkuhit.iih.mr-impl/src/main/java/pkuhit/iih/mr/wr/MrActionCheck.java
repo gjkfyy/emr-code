@@ -267,12 +267,12 @@ public class MrActionCheck {
 	private Notification getCheckCanEditMessage(MedicalRecord mr, Amr amr, String userSignLevelCode, String userId,
 			DataObjectService dataObjectService) {
 		Notification result = null;
-
+		mr.setPermitF((short)2);// lizheng 添加
 		// 病案状态为书写已开始
 		if (AmrStatus.WRITE_STARTED.equals(amr.getStatusCode())) {
 			// Step1 判断病历状态是否为新建
 			if (MrStatus.CREATED.equals(mr.getStatusCode())) {
-				if (mr.getPermitF()!=1) {
+				if (mr.getPermitF() !=1) {
 					// 当前用户非创建者不可编辑
 					if (!userId.equals(mr.getCreateUserId())) {
 						result = new Notification(MessageCode.UN_EDIT_NOT_CREATER);
