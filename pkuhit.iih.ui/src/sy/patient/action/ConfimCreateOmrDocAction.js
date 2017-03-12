@@ -25,7 +25,8 @@ Ext.define('iih.sy.patient.action.ConfimCreateOmrDocAction', {
 		
 		//就诊号
 		var encounterSn = IMER_GLOBAL.encounterSn;
-		var data = {'typeCode':typeCode,'encounterPk':encounterSn}
+		//templeCode为模板id
+		var data = {'typeCode':typeCode,'encounterPk':encounterSn,templeCode:rb[0].data.code}
 		this.prepareOperations(context.operations,data);
 		
 	},
