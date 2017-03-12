@@ -62,6 +62,8 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				padding:'10 0 0 5',
 		        labelWidth:50,
 		        fieldLabel:'住院号',
+		        allowBlank:false,
+		        blankText : '不能为空',
 		        width:230,
 		        //id:'inpatientNo',
 		        name:'inpatientNo'
@@ -71,6 +73,8 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				padding:'5 0 0 5',
 		        labelWidth:60,
 		        fieldLabel:'入院日期',
+		        allowBlank:false,
+		        blankText : '不能为空',
 		        width:160,
 		        name:'admissionDate',
 		        listeners: {
@@ -93,6 +97,8 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				padding:'5 0 0 5',
 		        labelWidth:70,
 		        fieldLabel:'姓名',
+		        allowBlank:false,
+		        blankText : '不能为空',
 		        width:150,
 		       // id:'parentName',
 		        name:'patientName'
@@ -113,7 +119,8 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 	            ],
 	            displayField: 'value',
 	            valueField: 'code',
-	            allowBlank:true,
+		        allowBlank:false,
+		        blankText : '不能为空',
 	            editable:false,
 	            value:''
 			},{
@@ -255,6 +262,8 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        labelWidth:70,
 		        width:1020,
 		        name:'adress',
+		        allowBlank:false,
+		        blankText : '不能为空',
 		        fieldLabel:'联系地址'
 			},{
 				xtype:'xaptextfield',
