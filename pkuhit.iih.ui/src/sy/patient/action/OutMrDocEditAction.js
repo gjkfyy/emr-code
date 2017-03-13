@@ -37,7 +37,7 @@ Ext.define('iih.sy.patient.action.OutMrDocEditAction', {
                         'readonly':'false',
                         'callBackAction':'editorCallBackAction'
                 };
-                alert(6);
+                //alert(6);
                 this.insertWriter(mrDocEditPage,params);
             	
             }else if(opType=='reSelectMr'){
@@ -50,7 +50,7 @@ Ext.define('iih.sy.patient.action.OutMrDocEditAction', {
                         'readonly':'false',
                         'callBackAction':'editorCallBackAction'
                 };
-                alert(7);
+                //alert(7);
                 this.insertWriter(mrDocEditPage,params);
             	
             }else if(opType=='reSelectTemp'){
@@ -150,7 +150,7 @@ Ext.define('iih.sy.patient.action.OutMrDocEditAction', {
     			'callBackAction':'editorCallBackAction'//编辑器加载完成后要执行的回调Action
     	};
     	//将编辑器插入当前page
-    	alert(8);
+    	//alert(8);
     	this.insertWriter(mrDocEditPage,params);
     },
     onOpenAllSuccess: function(operation) {
@@ -169,7 +169,7 @@ Ext.define('iih.sy.patient.action.OutMrDocEditAction', {
         			'callBackAction':'mergeAllMr'//编辑器加载完成后要执行的回调Action
         	};
         	//将编辑器插入当前page
-        	alert(9);
+        	//alert(9);
         	this.insertWriter(mrDocEditPage,params);
     	}else{
     		this.closeProgress();
@@ -189,7 +189,7 @@ Ext.define('iih.sy.patient.action.OutMrDocEditAction', {
                 'readonly':true,
                 'callBackAction':'closeProgress'
         };
-        alert(1);
+        //alert(1);
         self.insertWriter(mrDocEditPage,params);
     },
     
@@ -208,7 +208,7 @@ Ext.define('iih.sy.patient.action.OutMrDocEditAction', {
                     'hidden':true,
                     'callBackAction':'mergeAll'
             };
-        	alert(2);
+        	//alert(2);
             self.insertWriter(mrDocEditPage,params);
         }
         
@@ -259,7 +259,7 @@ Ext.define('iih.sy.patient.action.OutMrDocEditAction', {
                 'readonly':'false',
                 'callBackAction':'editorCallBackAction'
         };
-        alert(3);
+        //alert(3);
         this.insertWriter(mrDocEditPage,params);
     },
     onReSelectTempSuccess: function(operation) {
@@ -273,7 +273,7 @@ Ext.define('iih.sy.patient.action.OutMrDocEditAction', {
                 'readonly':'false',
                 'callBackAction':'editorCallBackAction'
         };
-        alert(4);
+        //alert(4);
         this.insertWriter(mrDocEditPage,params);
     },
     onAddSuccessFromPastMr: function(operation) {
@@ -287,7 +287,7 @@ Ext.define('iih.sy.patient.action.OutMrDocEditAction', {
                 'readonly':'false',
                 'callBackAction':'editorCallBackAction'
         };
-        alert(5);
+        //alert(5);
         this.insertWriter(mrDocEditPage,params);
     },
     refreshTop:function(medicalRecord){
