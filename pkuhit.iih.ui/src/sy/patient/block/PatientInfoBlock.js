@@ -139,6 +139,7 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        width:160,
 //		        id:'age',
 		        name:'age',
+		        allowBlank:false,
 		        blankText : '不能为空',
 	            editable:false,
 		        fieldLabel:'年龄<font color:\'ff0000\'>*</font>'
