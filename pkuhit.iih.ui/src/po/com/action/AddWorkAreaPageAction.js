@@ -191,7 +191,7 @@ Ext.define('iih.po.com.action.AddWorkAreaPageAction', {
         };
         
         //门诊病历书写添加“模板选择”按
-        if((config.cd='XAPM07.69'||config.cd=='XAPM07.82')){
+        if((config.cd=='XAPM07.69'||config.cd=='XAPM07.82')){
             tabbar.add({
                 xtype: 'container',
                 name: 'enContainer',
