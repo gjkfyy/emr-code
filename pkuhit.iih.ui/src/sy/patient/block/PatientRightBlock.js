@@ -1,14 +1,9 @@
-Ext.define(
-				'iih.sy.patient.block.PatientRightBlock',
-				{
-					extend : 'Xap.ej.block.FormBlock',
-					requires : [
-							'Xap.ej.element.form.Form',
-							'Xap.ej.block.ToolbarBlock'],
-					alias : 'widget.patientrightblock',
-
-					layout : {
-						type : 'table',
+Ext.define('iih.sy.patient.block.PatientRightBlock',
+		{extend : 'Xap.ej.block.FormBlock',
+		 requires : ['Xap.ej.element.form.Form',
+					 'Xap.ej.block.ToolbarBlock'],
+		alias : 'widget.patientrightblock',
+		layout : {      type : 'table',
 						border : 0,
 						columns: 1,
 						tableAttrs : {
@@ -208,7 +203,7 @@ Ext.define(
 											checkboxShow : false,
 											CM_JR_Record : [{
 												header : 'empId',
-												dataIndex : 'employeeId',
+												dataIndex : 'encounterPk',
 												field : 'textfield',
 												type : 'string',
 												hidden:true
@@ -221,7 +216,7 @@ Ext.define(
 												flex : 1
 											},{
 												header : '文书编号',
-												dataIndex : 'id',
+												dataIndex : 'filePk',
 												field : 'textfield',
 												type : 'string',
 												flex : 1
@@ -233,25 +228,25 @@ Ext.define(
 												flex : 1
 											}, {
 												header : '书写人',
-												dataIndex : 'statusName',
+												dataIndex : 'crtUserId',
 												field : 'textfield',
 												type : 'string',
 												flex : 1
 											}, {
 												header : '书写时间',
-												dataIndex : 'serviceDepartName',
+												dataIndex : 'logicSubmitTime',
 												field : 'textfield',
 												type : 'string',
 												flex : 1
 											}, {
 												header : '最后更新人',
-												dataIndex : 'serviceDepartName',
+												dataIndex : 'dirDoctorName',
 												field : 'textfield',
 												type : 'string',
 												flex : 1
 											}, {
 												header : '最后更新时间',
-												dataIndex : 'serviceDepartName',
+												dataIndex : 'mastDoctorDate',
 												field : 'textfield',
 												type : 'string',
 												flex : 1
@@ -263,12 +258,13 @@ Ext.define(
 												flex : 1
 											}, {
 												header : '审签时间',
-												dataIndex : 'serviceDepartName',
+												dataIndex : 'submitName',
 												field : 'textfield',
 												type : 'string',
 												flex : 1
 											}],
 											setData : function(data) {
+											  console.log('--data='+data.toString())
 												var grid = this.down('xapgrid[name=userList]');
 												if(data){
 													var dataList=data.dataList;
@@ -288,7 +284,7 @@ Ext.define(
 											    	}
 												}
 											},
-											setData : function(data) {
+											getData : function(data) {
 												if (data) {
 													var hiddenData = this.down('xaptextfield[name=hiddenData]');
 													hiddenData.setRawValue(data);
