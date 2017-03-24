@@ -136,6 +136,23 @@ public interface OutMedicalRecordService {
 	ArrayResult<MedicalRecord> search(@RequestParam Map<String, String> param)
 		throws Throwable;
     
+	
+	/**
+	 * 【医疗记录】查询服务（多记录）
+	 * 
+	 * @param param
+	 * @param encounterPk
+	 *            就诊序号
+	 * @param mrTypeCustomCode
+	 * 			      医疗记录自定义分类编码
+	 * @param userSignLevelCode
+	 * 				用户审签等级
+	 * @return ArrayResult<MedicalRecord>
+	 * @throws Throwable
+	 */
+	@RequestMapping(value = "/omrs2/{enPk}", method = RequestMethod.GET)
+	ArrayResult<MedicalRecord> search2(@PathVariable("enPk") String enPk)
+		throws Throwable;
 	/**
      * 门诊病历书写病历文书导航树
      * @param condition.encounterCode 就诊编号

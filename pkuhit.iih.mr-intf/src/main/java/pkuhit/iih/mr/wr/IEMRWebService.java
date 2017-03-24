@@ -7,6 +7,9 @@ import java.util.Map;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 
+import pkuhit.xap.ac.Patient;
+import xap.sv.model.ArrayResult;
+
 @WebService
 public interface IEMRWebService {
 	/**
@@ -88,4 +91,6 @@ public interface IEMRWebService {
 	 * @return 患者病历信息
 	 */
 	public String mrOrigFileList(String patientId,Integer times,String visitFlag);
+	
+	
 }
