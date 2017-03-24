@@ -552,6 +552,48 @@ public class OutMedicalRecordServiceImpl implements OutMedicalRecordService {
 		return result;
 	}
 
+	
+	@Override
+	public ArrayResult<MedicalRecord> search2(String enPk) throws Throwable {
+		ArrayResult<MedicalRecord> result = null;
+		ArrayResultBuilder<MedicalRecord> builder = ArrayResultBuilder.newArrayResult(MedicalRecord.class);
+		List<MedicalRecord> listMr = new ArrayList<MedicalRecord>();
+		List<Mr> list = new ArrayList<Mr>();
+		list = cusMrDao.selectByEnPkForEmergencyMrNumber(enPk);
+		// 此处有循环调用，需要控制记录条数，否则影响性能
+				for (Mr mr : list) {
+					MedicalRecord medicalRecord = new MedicalRecord();
+					BeanCopyUtil.entityToModel(medicalRecord, mr, MedicalRecord.OBJ_CD, dictionaryService);
+					medicalRecord.setCreateUserName(IihUtils.userIdToName(dataObjectService, mr.getCrtUserId()));
+					medicalRecord.setLastUpdateUserName(IihUtils.userIdToName(dataObjectService, mr.getLastUpdUserId()));
+					// 是否查询文件
+					/*if (null != withFile && ("1".equals(withFile) || "true".equals(withFile))) {
+						// 获取业务文件
+						FileObject fileObject = null;
+						try {
+							fileObject = fileService.getFile(medicalRecord.getFilePk());
+						} catch (Exception e) {
+							log.error("调用文件服务获取文件发生错误，可业务文件[" + medicalRecord.getFilePk() + "]不存在,错误信息如下："
+									+ e.getLocalizedMessage());
+							e.printStackTrace();
+						}
+						// 判断业务文件是否存在
+						if (null == fileObject) {
+							Notification msg = null;
+							msg = new Notification(MessageCode.BIZ_FILE_NO_EXITS, medicalRecord.getFilePk());
+							throw new NotificationException(msg);
+						}
+						medicalRecord.setFileData(new String(fileObject.asByteArray()));
+					}*/
+					listMr.add(medicalRecord);
+				}
+		if (listMr.size() > 0) {
+			builder.withData(listMr.toArray(new MedicalRecord[0]));
+		}
+		result = builder.build();
+		result.setTotal(listMr.size());
+		return result;
+	}
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -653,7 +695,7 @@ public class OutMedicalRecordServiceImpl implements OutMedicalRecordService {
 		PerformancePrinter.start("getContinuePrintF");
 		// 增加是否可续打标识
 		MdMrTpCcat mdMrTpCcat = mdMrTpCcatDao.selectById(mrTypeCustomCode);
-		medicalRecord.setCanContinuePrint(mdMrTpCcat.getContinuePrintF());
+		//medicalRecord.setCanContinuePrint(mdMrTpCcat.getContinuePrintF());
 		PerformancePrinter.end("getContinuePrintF");
 
 		PerformancePrinter.start("getNewPageF");

@@ -811,14 +811,14 @@ public class MedicalRecordServiceImpl implements MedicalRecordService {
 		PerformancePrinter.start("getContinuePrintF");
 		// 增加是否可续打标识
 		MdMrTpCcat mdMrTpCcat = mdMrTpCcatDao.selectById(mrTypeCustomCode);
-		medicalRecord.setCanContinuePrint(mdMrTpCcat.getContinuePrintF());
+		//medicalRecord.setCanContinuePrint(mdMrTpCcat.getContinuePrintF());
 		PerformancePrinter.end("getContinuePrintF");
 
 		PerformancePrinter.start("getNewPageF");
 		// 增加是否新起一页打印标识
 		MdMrTp mdMrTp = mdMrTpDao.selectById(mr.getMrTpCd());
-		medicalRecord.setNewPageF(mdMrTp.getNewPageF());
-		medicalRecord.setPermitF(mdMrTp.getPermitF() == null ? 1 : mdMrTp.getPermitF());
+		//medicalRecord.setNewPageF(mdMrTp.getNewPageF());
+		//medicalRecord.setPermitF(mdMrTp.getPermitF() == null ? 1 : mdMrTp.getPermitF());
 		PerformancePrinter.end("getNewPageF");
 		PerformancePrinter.start("setActionFlag");
 		// 检查全部的5个操作标志，并赋予医疗记录对象
