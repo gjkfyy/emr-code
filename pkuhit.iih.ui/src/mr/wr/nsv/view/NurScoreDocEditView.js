@@ -288,5 +288,5 @@ Ext.define('iih.mr.wr.nsv.view.NurScoreDocEditView', {
         } else {
             return false;
         }
-    },
+    }
 })

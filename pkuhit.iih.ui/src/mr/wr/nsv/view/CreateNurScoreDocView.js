@@ -20,10 +20,10 @@ Ext.define('iih.mr.wr.nsv.view.CreateNurScoreDocView', {
 				height:85
 			},
 			'content':{
-				xclass: 'iih.mr.wr.nsv.block.NurScoreGridListBlock',
+				xclass: 'iih.mr.wr.nsv.block.NurScoreGridListBlock'
 			},
 			'bottom':{
-				xclass: 'iih.mr.wr.nsv.block.NurScorePropertyBlock',
+				xclass: 'iih.mr.wr.nsv.block.NurScorePropertyBlock'
 			}
 		},
 		
