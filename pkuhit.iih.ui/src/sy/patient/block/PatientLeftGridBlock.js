@@ -6,18 +6,6 @@ Ext.define('iih.sy.patient.block.PatientLeftGridBlock', {
 	alias : 'widget.patientleftgridblock',
 
 	layout : {
-//		type : 'table',
-//		border : '0',
-//		columns : 1,
-//		tableAttrs : {
-//			border : 0,
-//			cellpadding : 5,
-//			cellspacing : 1,
-//			width : '100%'
-//		},
-//		tdAttrs : {
-//			valign : 'left'
-//		}
 		type:'vbox',
         align: 'stretch'
 	},
