@@ -552,7 +552,7 @@ public class OutMedicalRecordServiceImpl implements OutMedicalRecordService {
 		return result;
 	}
 
-	
+   // 国际康复使用 患者病历列表
 	@Override
 	public ArrayResult<MedicalRecord> search2(String enPk) throws Throwable {
 		ArrayResult<MedicalRecord> result = null;
@@ -566,7 +566,8 @@ public class OutMedicalRecordServiceImpl implements OutMedicalRecordService {
 					BeanCopyUtil.entityToModel(medicalRecord, mr, MedicalRecord.OBJ_CD, dictionaryService);
 					medicalRecord.setCreateUserName(IihUtils.userIdToName(dataObjectService, mr.getCrtUserId()));
 					medicalRecord.setLastUpdateUserName(IihUtils.userIdToName(dataObjectService, mr.getLastUpdUserId()));
-					// 是否查询文件
+					//文件注释   李政修改
+ 					// 是否查询文件
 					/*if (null != withFile && ("1".equals(withFile) || "true".equals(withFile))) {
 						// 获取业务文件
 						FileObject fileObject = null;
