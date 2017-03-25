@@ -9,7 +9,7 @@ Ext.define('iih.sy.patient.view.PatientLeftListView',{
 		'iih.sy.patient.block.PatientLeftBlock',
 		'iih.sy.patient.block.PatientLeftGridBlock',
 		'iih.sy.patient.action.PatientLeftSearchAction',
-		'iih.sy.patient.action.PatientRightListAction',
+	
 		'iih.sy.patient.action.PatientSaveAction',
 		'iih.sy.patient.action.PatientEditWinAction'
 		//'iih.sy.patient.action.CreatePatientAction'

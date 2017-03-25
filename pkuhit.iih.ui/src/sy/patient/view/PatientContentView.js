@@ -39,7 +39,7 @@ Ext.define('iih.sy.patient.view.PatientContentView', {
 						},
 						'patientRightList': {
 							xclass: 'iih.sy.patient.action.PatientRightListAction',
-							url: 'iemrPatient',
+							url: 'omrs2',
 							blocks: {
 								condition: 'left',
 								result: 'right'

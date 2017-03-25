@@ -2,7 +2,8 @@ Ext.define('iih.sy.patient.view.PatientRightView', {
     extend: 'Xap.ej.template.BaseTemplate',
 
     requires: ['iih.sy.patient.block.PatientRightBlock',
-               'iih.sy.patient.action.OutMrDocEditAction'],
+               'iih.sy.patient.action.OutMrDocEditAction',
+               'iih.sy.patient.action.PatientRightListAction'],
     alias: 'widget.patientrightview',
     layout:  'fit',
     id:'patientrightview',

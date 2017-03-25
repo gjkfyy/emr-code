@@ -17,137 +17,7 @@ Ext.define('iih.sy.patient.block.PatientRightBlock',
 						}
 					},
 					
-					items: [/*{
-
-				        xtype: "button",
-				        name: 'editorEvent',
-				        hidden : true,
-				        method : 'editorEvent'
-				    	
-							},*//*{
-								title : "患者基本信息",
-								id : 'baseInfo',
-								autoScroll:true,
-								layout: {
-									type : 'table',
-									border : 0,
-									columns : 6,
-									tableAttrs : {
-										border : 0,
-										cellpadding : 0,
-										cellspacing : 0,
-										width : '100%'
-									},
-									tdAttrs : {
-										valign : 'left'
-									}
-		    				    },
-								items : [{
-									xtype :'toolbar',
-									width : '100%',
-						            margin : '0 0 0 0',  
-									height :30,
-									colspan : 6,
-									items: [{
-												xtype: 'button',
-												text: '编辑',
-												iconCls: 'icon-edit',
-												valign : 'left',
-												action : 'editPatient'
-									        }]
-									},{
-										xtype : 'xaptextfield',
-										name : 'patientId',
-										hidden : true
-									},{
-										xtype : 'xapdisplayfield',
-										labelWidth : 60,
-										labelAlign : 'right',
-										name : 'patientName',
-										readOnly : true,
-										colspan:1,
-										fieldLabel : '姓名'
-									},{
-										xtype : 'xapdisplayfield',
-										name : 'sexValue',
-										labelWidth : 100,
-										colspan:1,
-										labelAlign : 'right',
-										readOnly : true,
-										fieldLabel : '性别'
-									},{
-										xtype : 'xapdisplayfield',
-										name : 'age',
-										labelWidth : 60,
-										colspan:1,
-										labelAlign : 'right',
-										valign : 'right',
-										readOnly : true,
-										fieldLabel : '年龄'
-									},{
-										xtype: 'xapdisplayfield',
-										fieldLabel: '',
-										colspan:1,
-										width : 50,
-										valign: 'left',
-										name:'',
-										value: '岁'
-									},{
-										xtype : 'xapdisplayfield',
-										name : 'tel',
-										labelWidth : 60,
-										colspan:1,
-										labelAlign : 'right',
-										readOnly : true,
-										fieldLabel : '电话'
-									},{
-								        xtype: 'xapdisplayfield',
-								        labelWidth : 100,
-								        name : 'adress',
-								        fieldLabel: '住址',
-								        colspan:1,
-								        labelAlign : 'right'
-									},
-									{
-										xtype : 'xapdisplayfield',
-										name : 'inpatientNo',
-										labelWidth : 60,
-										colspan:1,
-										labelAlign : 'right',
-										readOnly : true,
-										fieldLabel : '住院号'
-									},{
-										labelWidth : 100,
-										labelAlign : 'right',
-										xtype : 'xapdisplayfield',
-										name : 'admissionDate',
-										readOnly : true,
-										colspan:1,
-										fieldLabel : '住院日期',
-									},{
-										labelWidth : 60,
-										labelAlign : 'right',
-										xtype : 'xapdisplayfield',
-										name : 'sex',
-										readOnly : true,
-										colspan : 2,
-										fieldLabel : '诊断',
-									},{
-										xtype: 'xapdisplayfield',
-										fieldLabel: '',
-										colspan:1,
-										labelWidth : 60,
-										name:'',
-										value: ''
-									},{
-										xtype: 'xapdisplayfield',
-										fieldLabel: '',
-										colspan:1,
-										labelWidth : 100,
-										name:'',
-										value: ''
-									}]
-								},*/{
+					items: [{
 										title : '已书写文书',
 										layout: {
 											type:'vbox',
@@ -292,6 +162,7 @@ Ext.define('iih.sy.patient.block.PatientRightBlock',
 												}
 											},
 											setGridData : function(data) {
+												  console.log('-2-data='+data.toString())
 												if (data) {
 													
 												}
