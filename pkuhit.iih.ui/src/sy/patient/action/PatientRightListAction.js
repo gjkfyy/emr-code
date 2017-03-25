@@ -14,7 +14,7 @@ Ext.define('iih.sy.patient.action.PatientRightListAction', {
 		//var omrDocEditPage=this.getOwner().getBlock('right');
 		var select = grid.getSelectionModel().getSelection();
 		var id = select[0].data.patientId;
-		 var mrSn='3A28274DC68445F5A16EF8B4FD38B518';
+		 var mrSn='861376';//3A28274DC68445F5A16EF8B4FD38B518';
 		var data = [{'employeeId':'123',
         'name':'name'
 		
@@ -42,7 +42,7 @@ Ext.define('iih.sy.patient.action.PatientRightListAction', {
 	    //rihgtblock.down('xapgrid').setData(rec);
        
     	var url = this.url;
-    	url = 'omr/'+mrSn+'?withFile=false';
+    	url += '/'+mrSn+'';
     	var operation = {
             url: url,
     	    method: 'GET',
@@ -53,8 +53,12 @@ Ext.define('iih.sy.patient.action.PatientRightListAction', {
     },
     onSuccess: function(operation,id) {
     	//operation.
+       console.log('--------------33--');
+       alert('数据 =='+operation.result.dataList.length+' 条');
        var block3 = this.getBlock('result').getBlock('content');
-    	block3.setData(operation.result);
+       var e =  block3.down();
+      
+    	block3.setData(operation.result.dataList);
     	/*
         var block = this.getBlock('result');// 当前页面是UserInfoLeftListView
         block = block.getBlock('content'); 
