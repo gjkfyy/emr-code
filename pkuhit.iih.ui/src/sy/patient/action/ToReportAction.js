@@ -7,7 +7,8 @@ extend: 'Xap.ej.action.PopAction',
 
 	requires: ['iih.mr.qa.qa_reports.view.QaReportWithoutConditionView',
 	           'iih.mr.wr.mr.view.MrDocEditView',
-	           'iih.sy.patient.view.OutMrDocEditView'],
+	           'iih.sy.patient.view.OutMrDocEditView'
+	          ],
 	
 	execute: function(context) {
 		this.callParent();
@@ -24,6 +25,7 @@ extend: 'Xap.ej.action.PopAction',
         IMER_GLOBAL.patientId = patientId;*/
 	    
 	    var mrPk='3A28274DC68445F5A16EF8B4FD38B518';
+	    //var mrPk ='265E4DBE03224E85AC993DB509533033';
 	    var pageTitle = "为患者["+IMER_GLOBAL.patientName+"]新建病历"
 	    var config = {
                 pageCode: 'mrdoceditview',

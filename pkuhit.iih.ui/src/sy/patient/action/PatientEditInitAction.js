@@ -27,7 +27,8 @@ Ext.define('iih.sy.patient.action.PatientEditInitAction', {
         }
 	},  
 	 prepareOperations: function(operations,data) {
-        var url = this.url +'/'+data.patientId + "/"+data.customerData;    
+        var url = this.url +'/'+data.patientId + "/"+data.customerData; 
+        console.log('url='+url);
         var METHODS = this.getInvocationMethods();
         var operation = {
             url: url,
