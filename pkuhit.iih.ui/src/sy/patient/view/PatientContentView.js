@@ -59,13 +59,6 @@ Ext.define('iih.sy.patient.view.PatientContentView', {
 								result: 'right'
 							}
 			            },
-			            'hasEditConfirm': {
-			                xclass: 'iih.sy.patient.action.HasEditConfirmAction',
-			                url: 'omr',
-			                blocks: {
-			                    result: 'right'
-			                }
-			            },
 			            'createDoc': {
 			                xclass: 'iih.sy.patient.action.CreateOmrDocAction',
 			                url:'param',
@@ -79,7 +72,6 @@ Ext.define('iih.sy.patient.view.PatientContentView', {
 						'patientRightList': ['patientRightList'],
 						'editPatient' : ['editPatient'],
 						'newDoc' : ['newDoc'],
-						'hasEditConfirm' : ['hasEditConfirm'],
 						'createDoc' : ['createDoc']
 					},
 
@@ -99,7 +91,7 @@ Ext.define('iih.sy.patient.view.PatientContentView', {
 								},*/{
 					                selector: 'button[method=createDoc]',
 					                event: 'click',
-					                chain: 'hasEditConfirm'
+					                chain: 'createDoc'
 					            }]
 					}
 				}
