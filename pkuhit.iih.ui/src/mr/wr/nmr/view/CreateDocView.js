@@ -20,10 +20,10 @@ Ext.define('iih.mr.wr.nmr.view.CreateDocView', {
 				height:85
 			},
 			'content':{
-				xclass: 'iih.mr.wr.nmr.block.NmrGridListBlock',
+				xclass: 'iih.mr.wr.nmr.block.NmrGridListBlock'
 			},
 			'bottom':{
-				xclass: 'iih.mr.wr.nmr.block.NursingRecordsPropertyBlock',
+				xclass: 'iih.mr.wr.nmr.block.NursingRecordsPropertyBlock'
 			}
 		},
 		

@@ -15,7 +15,7 @@ Ext.define('iih.mr.wr.nmr.view.CreateImageElementView', {
 	xapConfig: {
 		blocks: {
 			'content':{
-				xclass: 'iih.mr.wr.nmr.block.EmrImageElementBlock',
+				xclass: 'iih.mr.wr.nmr.block.EmrImageElementBlock'
 			}
 		},
 		
@@ -37,7 +37,7 @@ Ext.define('iih.mr.wr.nmr.view.CreateImageElementView', {
             	blocks: {
  		            content: 'content'
  		        }
-            },
+            }
 		},
 		
 		chains: {

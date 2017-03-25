@@ -286,5 +286,5 @@ Ext.define('iih.mr.wr.nmr.view.NursingRecordsContentView', {
 		} else {
 			return false;
 		}
-	},
+	}
 });

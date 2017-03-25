@@ -247,5 +247,5 @@ Ext.define('iih.mr.wr.nmr.view.BatchDocEditView', {
 		} else {
 			return false;
 		}
-	},
+	}
 });
