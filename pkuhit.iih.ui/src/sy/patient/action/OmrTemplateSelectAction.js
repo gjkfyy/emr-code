@@ -23,11 +23,11 @@ Ext.define('iih.sy.patient.action.OmrTemplateSelectAction', {
         	var higherLvlEmpNm = higherLvlEmpId.getRawValue();
         	mrDocNmText.setRawValue(higherLvlEmpNm+" "+mrDocNm);
             //设置只读
-            higherLvlEmpId.setDisabled(false);
+            //higherLvlEmpId.setDisabled(false);
         }else{
-        	higherLvlEmpId.select('');
+        	//higherLvlEmpId.select('');
             //设置只读
-            higherLvlEmpId.setDisabled(true);
+            //higherLvlEmpId.setDisabled(true);
         }
         this.initOrcaleGetDate(context.operations);
     },initOrcaleGetDate: function(operations) {

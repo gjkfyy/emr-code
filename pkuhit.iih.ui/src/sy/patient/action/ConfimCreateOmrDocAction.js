@@ -61,7 +61,10 @@ Ext.define('iih.sy.patient.action.ConfimCreateOmrDocAction', {
 			var grid = this.getBlock('content').down('createomrdocview').getBlock('content').down('xapgrid');
 		    var rb = grid.getSelectionModel().getSelection(); 
 		    var conditionBlock=this.getBlock('content').down('createomrdocview').getBlock('content').getBlock('condition');
-		   /* var mrCustClaCd=conditionBlock.down('[name=mrCategoryCode]');
+		   
+		    	
+	
+	/* var mrCustClaCd=conditionBlock.down('[name=mrCategoryCode]');
 		    mrTypeCustomCode=mrCustClaCd.getValue();*/
 //			if(rb.length == 0){
 //				XapMessageBox.info('请先选一个模板！');
@@ -131,7 +134,7 @@ Ext.define('iih.sy.patient.action.ConfimCreateOmrDocAction', {
       			}
 				right.opType = 'new';
 				right.medicalRecord=medicalRecord;
-		        var initChain =  right.getActionChain('newDoc');
+		        var initChain =  right.getActionChain('init');
 		        initChain.execute();
           	}
             
