@@ -115,7 +115,6 @@ import xap.sv.util.UUIDGenerator;
  * </p>
  * 医疗记录服务
  * 
- * @author 李春学(li_chunxue@founder.com.cn, 18600168159@163.com)
  * @version 0.0.0
  *          <table style="border:1px solid gray;">
  *          <tr>
