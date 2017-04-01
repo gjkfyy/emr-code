@@ -151,7 +151,7 @@ public interface OutMedicalRecordService {
 	 * @throws Throwable
 	 */
 	@RequestMapping(value = "/omrs2/{enPk}", method = RequestMethod.GET)
-	ArrayResult<MedicalRecord> search2(@PathVariable("enPk") String enPk)
+	ArrayResult<MedicalRecord> search2(@PathVariable("enPk") String enPk,@RequestParam Map<String, String> params)
 		throws Throwable;
 	/**
      * 门诊病历书写病历文书导航树
