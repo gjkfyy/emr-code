@@ -78,7 +78,7 @@ public interface CusMrDao {
 	 * @return
 	 */
     @Select
-    List<Mr> selectByEnPkForEmergencyMrNumber(String enPk);
+    List<Mr> selectByEnPkForEmergencyMrNumber(String enPk,SelectOptions options);
     
     /**
      * 根据就诊号查询医疗记录
