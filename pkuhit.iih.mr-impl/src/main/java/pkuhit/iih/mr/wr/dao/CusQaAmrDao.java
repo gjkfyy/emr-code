@@ -15,7 +15,6 @@ import xap.sv.dao.annotation.RepositoryConfig;
  * <p>CusQaAmrDao</p>
  * <p>质控查询患者列表所需接口</p>
  *
- * @author		chengfeng(cheng_feng@founder.com)
  * @version		0.0.0
  */
 @Dao
