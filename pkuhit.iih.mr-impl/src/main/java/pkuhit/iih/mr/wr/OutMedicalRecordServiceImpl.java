@@ -12,6 +12,7 @@ import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
 import org.seasar.doma.jdbc.OptimisticLockException;
+import org.seasar.doma.jdbc.SelectOptions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,6 +60,7 @@ import pkuhit.md.SysFunctionCode;
 import pkuhit.me.DataObjectService;
 import pkuhit.org.Employee;
 import pkuhit.org.WorkGroupEmpService;
+import pkuhit.xap.ac.Patient;
 import pkuhit.xap.ac.Session;
 import pkuhit.xap.ac.User;
 import pkuhit.xap.ac.UserService;
@@ -554,19 +556,37 @@ public class OutMedicalRecordServiceImpl implements OutMedicalRecordService {
 
    // 国际康复使用 患者病历列表
 	@Override
-	public ArrayResult<MedicalRecord> search2(String enPk) throws Throwable {
+	public ArrayResult<MedicalRecord> search2(String enPk,Map<String, String> params) throws Throwable {
+		String pageNum = null;
+		String pageSize = null;
+		if (params.containsKey("pageNum") && params.containsKey("pageSize")) {
+			pageNum = (String) params.get("pageNum");
+			pageSize = (String) params.get("pageSize");
+		}
+		if (org.apache.commons.lang3.StringUtils.isBlank(pageNum)) {
+			pageNum = "1";
+		}
+		if (org.apache.commons.lang3.StringUtils.isBlank(pageSize)) {
+			pageSize = "20";
+		}
+		SelectOptions options = SelectOptions.get().offset((Integer.valueOf(pageNum) - 1) * Integer.valueOf(pageSize))
+				.limit(Integer.valueOf(pageSize)).count();
+		
 		ArrayResult<MedicalRecord> result = null;
 		ArrayResultBuilder<MedicalRecord> builder = ArrayResultBuilder.newArrayResult(MedicalRecord.class);
 		List<MedicalRecord> listMr = new ArrayList<MedicalRecord>();
 		List<Mr> list = new ArrayList<Mr>();
-		list = cusMrDao.selectByEnPkForEmergencyMrNumber(enPk);
+		list = cusMrDao.selectByEnPkForEmergencyMrNumber(enPk,options);
 		// 此处有循环调用，需要控制记录条数，否则影响性能
+		if(list != null && list.size() > 0){
+				MedicalRecord[] mrList = new MedicalRecord[list.size()];
+				int i = 0;
 				for (Mr mr : list) {
 					MedicalRecord medicalRecord = new MedicalRecord();
 					BeanCopyUtil.entityToModel(medicalRecord, mr, MedicalRecord.OBJ_CD, dictionaryService);
 					medicalRecord.setCreateUserName(IihUtils.userIdToName(dataObjectService, mr.getCrtUserId()));
 					medicalRecord.setLastUpdateUserName(IihUtils.userIdToName(dataObjectService, mr.getLastUpdUserId()));
-					//文件注释   李政修改
+					//文件注释  lz修改
  					// 是否查询文件
 					/*if (null != withFile && ("1".equals(withFile) || "true".equals(withFile))) {
 						// 获取业务文件
@@ -586,13 +606,14 @@ public class OutMedicalRecordServiceImpl implements OutMedicalRecordService {
 						}
 						medicalRecord.setFileData(new String(fileObject.asByteArray()));
 					}*/
+					mrList[i] = medicalRecord;
+					i++;
 					listMr.add(medicalRecord);
 				}
-		if (listMr.size() > 0) {
-			builder.withData(listMr.toArray(new MedicalRecord[0]));
+				builder.withData(mrList);
 		}
 		result = builder.build();
-		result.setTotal(listMr.size());
+		result.setTotal(Integer.valueOf(options.getCount()+""));
 		return result;
 	}
 	/*
@@ -1170,7 +1191,7 @@ public class OutMedicalRecordServiceImpl implements OutMedicalRecordService {
 				if (matchAmrGroupF) {
 					list = cusMrDao.selectByEnPksForEmergencyMrNumber(enPks);
 				} else {
-					list = cusMrDao.selectByEnPkForEmergencyMrNumber(encounterPk);
+					//list = cusMrDao.selectByEnPkForEmergencyMrNumber(encounterPk);
 				}
 				if ("new".equals(opType)) {
 					emergencyMrNumber = list.size() + 1;
