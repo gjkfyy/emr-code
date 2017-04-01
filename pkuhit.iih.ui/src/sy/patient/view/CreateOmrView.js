@@ -27,7 +27,6 @@ Ext.define('iih.sy.patient.view.CreateOmrView',{
             },
 		    'cancel': {
 		        xclass: 'iih.mr.wr.mr.action.CancelCreateMrDocAction',
-		        //url:'cancelTemplatePropertyEdit',
 		        blocks: {
 		            content: 'content'
 		        }

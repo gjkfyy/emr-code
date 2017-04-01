@@ -10,7 +10,6 @@ extend: 'Xap.ej.action.Action',
 	           ],
 	
 	execute: function(context) {
-		alert(111);
 		var me = this;
 		
 		var owner = this.getOwner();   

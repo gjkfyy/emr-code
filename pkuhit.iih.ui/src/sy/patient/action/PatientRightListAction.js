@@ -27,5 +27,8 @@ Ext.define('iih.sy.patient.action.PatientRightListAction', {
 	    };
 	    var canvas = Xap.getCanvas();
 	    canvas.fireEvent("portalRender2");
+	    
+	    //刷新右侧已写的病历
+	    
     }
 });

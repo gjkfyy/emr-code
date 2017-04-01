@@ -25,17 +25,7 @@ Ext.define('iih.sy.patient.action.CreateOmrDocAction', {
 		}else{
 			//设置患者信息---begin
 			var rec = select[0].data;
-			var data = {'patientId':'123',
-        				'pk':id,
-        				'amrNo':'12',
-        				'patientName':'3',
-        				'sexName':'3',
-        				'age':'3',
-        				'receiveTime':'3',
-        				'encounterCount':'3',
-        				'paInsurNm':'3',
-        				'currentMainDiagnosisName':'3'
-        				}
+			var data = {'pk':id}
 			
 			var workArea = Ext.getCmp('workareapageview');
             var callBack = function(patient){
