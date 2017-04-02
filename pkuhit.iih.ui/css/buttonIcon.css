@@ -46,6 +46,22 @@ background-size:100% 100%;
 background-image: url(images/icons/minimum.png) !important; 
 background-size:100% 100%; 
 }
+.icon-docMgr { 
+background-image: url(images/icons/docMgr.png) !important; 
+background-size:100% 100%; 
+}
+.icon-templateMgr { 
+background-image: url(images/icons/WR.png) !important; 
+background-size:100% 100%; 
+}
+.icon-followUpMgr { 
+background-image: url(images/icons/followUp.png) !important; 
+background-size:100% 100%; 
+}
+.icon-query { 
+background-image: url(images/icons/AdvancedSearch.png) !important; 
+background-size:100% 100%; 
+}
 .icon-inTerminal { 
 background-image: url(images/icons/inTerminal.png) !important; 
 background-size:100% 100%; 
