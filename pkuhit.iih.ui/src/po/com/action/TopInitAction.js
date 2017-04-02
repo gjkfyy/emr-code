@@ -14,12 +14,13 @@ Ext.define('iih.po.com.action.TopInitAction', {
         top.removeAll(true);
     	this.patientInfo = context.patientInfo;
         if(this.patientInfo){
+        	console.log(this.patientInfo);
             IMER_GLOBAL.encounterSn = this.patientInfo.pk;
             IMER_GLOBAL.patientId = this.patientInfo.patientId;
-            IMER_GLOBAL.amrNo = this.patientInfo.amrNo;
+            IMER_GLOBAL.amrNo = this.patientInfo.inpatientNo;
             IMER_GLOBAL.encounterCount = this.patientInfo.encounterCount;
             IMER_GLOBAL.mainDiCd = this.patientInfo.currentMainDiagnosisCode;
-            if(IMER_GLOBAL.portal.code == IMER_CONSTANT.PORTAL_CD_2 || IMER_GLOBAL.portal.code == IMER_CONSTANT.PORTAL_CD_4 || IMER_GLOBAL.portal.code == IMER_CONSTANT.PORTAL_CD_6 || IMER_GLOBAL.portal.code == IMER_CONSTANT.PORTAL_CD_7 || IMER_GLOBAL.portal.code == IMER_CONSTANT.PORTAL_CD_10){
+            if(IMER_GLOBAL.portal.code == IMER_CONSTANT.PORTAL_CD_1001 || IMER_GLOBAL.portal.code == IMER_CONSTANT.PORTAL_CD_2 || IMER_GLOBAL.portal.code == IMER_CONSTANT.PORTAL_CD_4 || IMER_GLOBAL.portal.code == IMER_CONSTANT.PORTAL_CD_6 || IMER_GLOBAL.portal.code == IMER_CONSTANT.PORTAL_CD_7 || IMER_GLOBAL.portal.code == IMER_CONSTANT.PORTAL_CD_10){
                 item = Xap.create('iih.po.com.view.PatientTopPage');
                 var model = Ext.create('iih.po.model.PatientModel',this.patientInfo);
                 var content = item.info.apply(model.getData());
@@ -248,7 +249,7 @@ Ext.define('iih.po.com.action.TopInitAction', {
         //患者照片
         var photoArea = top.down('container[name=photoArea]');
         if(photoArea && this.patientInfo){
-            var src = this.patientInfo.sexCode == IMER_CONSTANT.SEX_NAM?'css/images/man.png':'css/images/woman.png';
+            var src = this.patientInfo.sex == '1'?'css/images/man.png':'css/images/woman.png';
             photoArea.removeAll();
             var photoBtn = Ext.create('Ext.Img',{
                 cls: 'inpatienttop-border-div',

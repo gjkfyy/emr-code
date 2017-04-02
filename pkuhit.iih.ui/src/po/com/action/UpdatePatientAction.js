@@ -44,12 +44,15 @@ Ext.define('iih.po.com.action.UpdatePatientAction', {
         var top = view.down('topview');
         if(m){
             var patient = m.data;
+            console.log(patient);
+            
             IMER_GLOBAL.encounterOldSn = IMER_GLOBAL.encounterSn;
-            //IMER_GLOBAL.encounterSn = patient.patientId;
-            //IMER_GLOBAL.patientId = patient.patientId;
-            IMER_GLOBAL.amrNo=patient.inpatientNo;
-            IMER_GLOBAL.mainDiCd = m.xpianNo;
+            IMER_GLOBAL.encounterSn = patient.patientId;
+            IMER_GLOBAL.patientId = patient.patientId;
+            IMER_GLOBAL.amrNo = patient.inpatientNo;
+            IMER_GLOBAL.mainDiCd = "x345672";
             IMER_GLOBAL.patientName = patient.patientName;
+            
             if(IMER_GLOBAL.portal.code == IMER_CONSTANT.PORTAL_CD_2){
                 var info = Ext.getCmp('inpatientTop_info');
                 var model = Ext.create('iih.po.model.PatientModel',patient);
@@ -59,11 +62,12 @@ Ext.define('iih.po.com.action.UpdatePatientAction', {
             };
             if(info){
                 var content = item.info.apply(model.getData());
+                console.log(content);
                 info.update(content);
                 //患者照片
                 var photoArea = top.down('container[name=photoArea]');
                 if(photoArea){
-                    var src = patient.sexCode == IMER_CONSTANT.SEX_NAM?'css/images/man.png':'css/images/woman.png';
+                    var src = patient.sex == '1'?'css/images/man.png':'css/images/woman.png';
                     photoArea.removeAll();
                     var photoBtn = Ext.create('Ext.Img',{
                         cls: 'inpatienttop-border-div',
