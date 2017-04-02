@@ -5,7 +5,7 @@ Ext.define('iih.mr.wr.omr.action.InitOmrDocPropertyAction', {
 	* @Override
 	*/
 	execute: function(context) {
-	    /*if(this.getOwner().ownerCt.ownerCt==undefined){//从病历文书属性进来
+	    if(this.getOwner().ownerCt.ownerCt==undefined){//从病历文书属性进来
 	        if(undefined!=context.mrSn){
 	            if(context.from=='editor'){//从编辑器打开属性
 	                var block = this.getOwner().getBlock('content');
@@ -23,9 +23,9 @@ Ext.define('iih.mr.wr.omr.action.InitOmrDocPropertyAction', {
 	            this.getOwner().mrPk=context.mrSn;
 	            this.initMrDocProperty(context.operations,context.mrSn);
 	        }
-	    }else{//从新建病历文书进来*/
+	    }else{//从新建病历文书进来
 	        this.initHigherLvlEmpId(context.operations);
-//	    }
+	    }
     },
     initHigherLvlEmpId: function(operations) {
         var url = this.url+'?deptCd='+IMER_GLOBAL.department.code;
