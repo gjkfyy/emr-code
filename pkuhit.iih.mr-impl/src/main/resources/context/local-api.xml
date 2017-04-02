@@ -212,6 +212,10 @@
 	<bean id="dataElememtDimenService" class="pkuhit.iih.mr.md.service.DataElememtDimenServiceImpl"></bean>
 	<sca:service name="dataElememtDimenService" target="dataElememtDimenService" />
 	
+	<bean id="mrService" class="pkuhit.iih.mr.wr.MrServiceImpl"></bean>
+	<sca:service name="mrService" target="mrService" />
+	
+	
 	<bean id="platformMessageService" class="pkuhit.iih.mr.wr.PlatformMessageServiceImpl" />
 	<sca:service name="platformMessageService"
 		target="platformMessageService" />
