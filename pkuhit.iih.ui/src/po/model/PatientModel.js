@@ -2,15 +2,16 @@ Ext.define("iih.po.model.PatientModel",{
 	extend: 'Ext.data.Model',
 	alias:'widget.patientmodel',
 	fields: ['pk',
-	         'amrNo',
+	         'inpatientNo',
 	         'encounterTypeCode',
 	         'encounterStatusCode',
 	         'patientId',
 	         'patientName',
 	         'currentBedCode',
-	         'sexCode',
-	         'sexName',
+	         'sex',
+	         'sexValue',
 	         'age',
+	         'tel',
              'currentManageDoctorId',
              'currentManageDoctorName',
              'currentMainDiagnosisName',
@@ -19,7 +20,7 @@ Ext.define("iih.po.model.PatientModel",{
              'paInsurCd',
              'paInsurNm',
              {
-                name:'currentDeptIntoTime',
+                name:'admissionDate',
                 convert: function(v, record) {
                     if(v){
                         var time = Ext.Date.parse(v, 'time');
