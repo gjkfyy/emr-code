@@ -121,22 +121,36 @@ Ext.define('iih.sy.patient.action.ConfimCreateOmrDocAction', {
             		superiorDoctorName:superiorDoctorName,
             		templeCode:data.code};
             var properties = owner.getLayer(Xap.ej.block.Layer.PROPERTIES);
-            
+//            alert(11);
             
 		    //得到文书编辑器页面
-            var right = properties.data.omrDocEditPage;
-            //right = Ext.getCmp('patientoutmrdoceditview');
-            if(right){
-      			delete right.mrTpCcatCd;
-      			var objView=right.down("objectview");
-      			if(objView){
-      				right.remove(objView);
-      			}
-				right.opType = 'new';
-				right.medicalRecord=medicalRecord;
-		        var initChain =  right.getActionChain('init');
-		        initChain.execute();
-          	}
+//            var right = properties.data.omrDocEditPage;
+//            //right = Ext.getCmp('patientoutmrdoceditview');
+//            if(right){
+//      			delete right.mrTpCcatCd;
+//      			var objView=right.down("objectview");
+//      			if(objView){
+//      				right.remove(objView);
+//      			}
+//				right.opType = 'new';
+//				right.medicalRecord=medicalRecord;
+//		        var initChain =  right.getActionChain('init');
+//		        initChain.execute();
+//          	}
+            
+           
+            
+            var canvas = Xap.getCanvas();            
+            var config = {
+         		   pageCode:'mrdoceditview',
+                    xclass: 'iih.mr.wr.mr.view.MrWriteView',
+                    pageTitle: medicalRecord.name,
+                    viewConfig:{
+                        opType:'new',
+                        medicalRecord:medicalRecord
+                    }
+            };       
+            canvas.fireEvent("addWorkPage",config);
             
             owner.ownerCt.close();
     }       

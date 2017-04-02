@@ -19,7 +19,7 @@ Ext.define('iih.sy.patient.action.PatientRightSearchAction', {
             return;
         }else{
         	this.showLoading();
-          	patientId = rb[0].data.patientId;
+          	patientId = rb[0].data.inpatientNo;
           	this.prepareOperations(operations,context,patientId);
         }	
     },

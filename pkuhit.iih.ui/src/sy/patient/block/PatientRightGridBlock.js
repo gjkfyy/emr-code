@@ -88,44 +88,44 @@ Ext.define('iih.sy.patient.block.PatientRightGridBlock',
 												hidden:true,
 												flex : 1
 											},{
-												header : '文书编号',
-												dataIndex : 'mrPk',
+												header : '病历类型',
+												dataIndex : 'typeName',
 												field : 'textfield',
 												type : 'string',
 												flex : 1
 											}, {
-												header : '病历分类名',
-												dataIndex : 'mrTypeCustomCode',
+												header : '病历名称',
+												dataIndex : 'name',
 												field : 'textfield',
 												type : 'string',
 												flex : 1
 											}, {
 												header : '书写人',
-												dataIndex : 'submitName',
+												dataIndex : 'createUserName',
 												field : 'textfield',
 												type : 'string',
 												flex : 1
 											}, {
 												header : '书写时间',
-												dataIndex : 'submitDate',
+												dataIndex : 'createTime',
 												field : 'textfield',
 												type : 'string',
 												flex : 1
 											}, {
 												header : '最后更新人',
-												dataIndex : 'mrPk',
+												dataIndex : 'lastUpdateUserName',
 												field : 'textfield',
 												type : 'string',
 												flex : 1
 											}, {
 												header : '最后更新时间',
-												dataIndex : 'mrPk',
+												dataIndex : 'lastUpdTime',
 												field : 'textfield',
 												type : 'string',
 												flex : 1
 											}, {
 												header : '审签人',
-												dataIndex : 'dirDoctorName',
+												dataIndex : 'signLevelName',
 												field : 'textfield',
 												type : 'string',
 												flex : 1
@@ -146,10 +146,10 @@ Ext.define('iih.sy.patient.block.PatientRightGridBlock',
 								var dataList=data.dataList;
 						    	if(grid){
 						    		if(dataList){
-						    			/*//记住上次选中行，若第一次加载则默认选中第一行
+						    			//记住上次选中行，若第一次加载则默认选中第一行
 						    			if(dataList.length >0 &&grid.nodeId == null){
 						    				grid.nodeId = dataList[0][grid.selectBy];
-						    			}*/
+						    			}
 								    	var totalList = {"total":data.total,"dataList":dataList};
 								    	var pageSize = data.pageSize;
 								    	if(pageSize == undefined || typeof(data.pageSize) == 'object'){
@@ -161,7 +161,7 @@ Ext.define('iih.sy.patient.block.PatientRightGridBlock',
 						        		var totalList = {"total":data.total,"dataList":dataList};
 						        		grid.setPageData(totalList);
 						        	}
-						    		
+						    		grid.setData(dataList);	//翻页时赋值
 						    	}
 							}
 						}
