@@ -5,31 +5,27 @@ Ext.define('iih.sy.patient.action.PatientRightSearchAction', {
 	* @Override
 	*/
 	execute: function(context) {
-		//this.showLoading();
     	var owner = this.getOwner();
     	var operations = context.operations;
     	if(!operations) {
     		return;
     	}
-    	
     	//判断患者是否被选中
     	var block = owner.ownerCt.getBlock('left').getBlock('result');
   	    var grid = block.down('xapgrid');
   		var rb = grid.getSelectionModel().getSelection();
-  		var patientId = "000010012800_83";
+  		//var patientId = "000010012800_83";
   		if(rb.length == 0){
-  			//XapMessageBox.info('请先选择一个患者！');
-            //return;
+            return;
         }else{
-          	//patientId = rb[0].data.patientId;
+        	this.showLoading();
+          	patientId = rb[0].data.patientId;
           	this.prepareOperations(operations,context,patientId);
         }	
-  		this.prepareOperations(operations,context,patientId);
     },
     
     prepareOperations: function(operations,context,patientId) {
         var block = this.getOwner().getBlock('condition');
-        //var searchCondition = Ext.getCmp('searchCondition').getValue();
         //获取分页数
         var pageNum,pageSize ;
 		if(context.event && context.event.name == "turnpage"){
@@ -40,7 +36,6 @@ Ext.define('iih.sy.patient.action.PatientRightSearchAction', {
 			pageSize = context.pageSize; 
 		}
     	var condition = block.getData();
-    	//condition.pageNum=pageNum;
     	condition.pageSize=pageSize;
     	this.getOwner().pageSize=pageSize;
         var url = this.url;

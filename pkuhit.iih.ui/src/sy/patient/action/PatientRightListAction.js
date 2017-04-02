@@ -29,6 +29,11 @@ Ext.define('iih.sy.patient.action.PatientRightListAction', {
 	    canvas.fireEvent("portalRender2");
 	    
 	    //刷新右侧已写的病历
+	   // var patientleftlistview = Ext.getCmp('patientleftlistview');
+	    
+	    var block = this.getBlock('result');
+	    var initChain =  block.getActionChain('init');
+        initChain.execute();
 	    
     }
 });
