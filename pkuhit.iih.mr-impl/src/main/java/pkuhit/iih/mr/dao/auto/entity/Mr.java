@@ -14,7 +14,7 @@ import org.seasar.doma.Version;
  */
 @Entity(listener = MrListener.class)
 @Table(name = "MR")
-public class Mr {
+public class Mr{
 
     /** 主键 */
     @Id
