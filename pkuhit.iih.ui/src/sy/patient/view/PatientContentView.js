@@ -9,10 +9,10 @@ Ext.define('iih.sy.patient.view.PatientContentView', {
 					'iih.sy.patient.action.PatientRightListAction',
 					'iih.sy.patient.action.PatientCreateAction',
 					'iih.sy.patient.action.ToReportAction',
-					'iih.sy.patient.action.HasEditConfirmAction',
+					
 					'iih.sy.patient.action.CreateOmrDocAction',
-					'iih.sy.patient.view.PatientRightView',
-					'iih.sy.patient.action.OutMrDocEditAction'],
+					'iih.sy.patient.view.PatientRightView'
+					],
 
 			xapConfig : {
 				blocks : {
@@ -23,18 +23,25 @@ Ext.define('iih.sy.patient.view.PatientContentView', {
 						split: false,
 		                collapsible: true,
 		                header:false
-					},
-					'right' : {
+					},'right' : {
 						xclass : 'iih.sy.patient.view.PatientRightView',
-						flex : 1
-					}
+					flex : 1
+				   },
+				   'content': {
+		                xclass: 'iih.mr.block.editor.MrDocEditBlock',
+					    region:'east',
+				       collapsible: false,
+				       split: false
+		            }
+					
 				},
 
 					actions : {
 						'init':{
 							xclass: 'iih.sy.patient.action.OutMrDocEditAction',
+						    url:'omr',
 			                blocks: {
-			                	right: 'right'
+			                	content: 'content'
 			                }
 						},
 						'patientRightList': {
