@@ -17,7 +17,7 @@
 
 	<build>
 		<plugins>		
-			<plugin>
+				<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-remote-resources-plugin</artifactId>
 				<version>1.4</version>
