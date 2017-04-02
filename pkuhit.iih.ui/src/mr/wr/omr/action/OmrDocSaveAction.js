@@ -99,8 +99,8 @@ Ext.define('iih.mr.wr.omr.action.OmrDocSaveAction', {
 //        Ext.Msg.alert('提示','保存成功!');
     },
     onAddSuccess: function(returnData) {
-    	var refresh = this.getOwner().ownerCt.getActionChain('refresh');
-    	refresh.execute({from:'addSuccess'});
+//    	var refresh = this.getOwner().ownerCt.getActionChain('refresh');
+//    	refresh.execute({from:'addSuccess'});
         var plugin = document.getElementById('iemrEditor');
         plugin.EnableOCX(true);
         this.getOwner().opType='open';
@@ -111,16 +111,16 @@ Ext.define('iih.mr.wr.omr.action.OmrDocSaveAction', {
         plugin.SetCommandEnable('com.founder.iemr.editor.toolbar:emrDocDelete',true);
         plugin.SetCommandEnable('com.founder.iemr.editor.toolbar:emrDocProperty',true);
         //重新选择模板按钮
-        var reSelectTempBtn=Ext.getCmp('reSelectTempBtn');
-        if(reSelectTempBtn){
-			reSelectTempBtn.setDisabled(false);
-		}
+//        var reSelectTempBtn=Ext.getCmp('reSelectTempBtn');
+//        if(reSelectTempBtn){
+//			reSelectTempBtn.setDisabled(false);
+//		}
       //电子签名按钮
-        var erpSignBtn=Ext.getCmp('erpSignBtn');
-        if(erpSignBtn){
-        	erpSignBtn.setDisabled(false);
-		}
-        this.callback();
+//        var erpSignBtn=Ext.getCmp('erpSignBtn');
+//        if(erpSignBtn){
+//        	erpSignBtn.setDisabled(false);
+//		}
+//        this.callback();
     },
     onFail: function(operation) {
     	 plugin.SetCommandEnable('com.founder.iemr.editor.toolbar:emrSave', true);
