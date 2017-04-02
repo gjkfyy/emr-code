@@ -60,7 +60,6 @@ import pkuhit.md.SysFunctionCode;
 import pkuhit.me.DataObjectService;
 import pkuhit.org.Employee;
 import pkuhit.org.WorkGroupEmpService;
-import pkuhit.xap.ac.Patient;
 import pkuhit.xap.ac.Session;
 import pkuhit.xap.ac.User;
 import pkuhit.xap.ac.UserService;
@@ -193,8 +192,8 @@ public class OutMedicalRecordServiceImpl implements OutMedicalRecordService {
 	public SingleResult<MedicalRecord> create(MedicalRecord value) throws Throwable {
 		SingleResult<MedicalRecord> result;
 		// 检查是否可新建
-		Amr amr = amrService.get(value.getEncounterPk()).getData();
-		actionCheck.checkCanCreate(value, amr, this);
+//		Amr amr = amrService.get(value.getEncounterPk()).getData();
+//		actionCheck.checkCanCreate(value, amr, this);
 		// 补全数据
 		Mr mr = new Mr();
 		BeanCopyUtil.modelToEntity(mr, value);
@@ -249,7 +248,7 @@ public class OutMedicalRecordServiceImpl implements OutMedicalRecordService {
 		// 保存到MR表
 		mrDao.insertExludeNull(mr);
 		// 门诊暂时没有使用引用元素，先注释掉
-		saveDocValue(mr.getEnPk(), mr.getMrPk(), value.getReferenceElem());
+//		saveDocValue(mr.getEnPk(), mr.getMrPk(), value.getReferenceElem());
 		// 判断是否是新建时直接点的提交，如果是则调用提交服务
 		if (MrStatus.SUBMITTED.equals(value.getStatusCode())) {
 			result = this.sign(mr.getMrPk(), this.searchById(mr.getMrPk(), true).getData());
@@ -576,7 +575,7 @@ public class OutMedicalRecordServiceImpl implements OutMedicalRecordService {
 		ArrayResultBuilder<MedicalRecord> builder = ArrayResultBuilder.newArrayResult(MedicalRecord.class);
 		List<MedicalRecord> listMr = new ArrayList<MedicalRecord>();
 		List<Mr> list = new ArrayList<Mr>();
-		list = cusMrDao.selectByEnPkForEmergencyMrNumber(enPk,options);
+		list = cusMrDao.selectByEnPkForEmergencyMrNumber(enPk);
 		// 此处有循环调用，需要控制记录条数，否则影响性能
 		if(list != null && list.size() > 0){
 				MedicalRecord[] mrList = new MedicalRecord[list.size()];
@@ -640,12 +639,12 @@ public class OutMedicalRecordServiceImpl implements OutMedicalRecordService {
 		}
 		// 查询就诊
 		// PerformancePrinter.start("amrService.get");
-		Amr amr = amrService.get(mr.getEnPk()).getData();
+//		Amr amr = amrService.get(mr.getEnPk()).getData();
 		// PerformancePrinter.end("amrService.get");
-		if (null == amr) {
-			Notification notification = new Notification(MessageCode.AMR_NOT_EXITS, mr.getEnPk());
-			throw new NotificationException(notification);
-		}
+//		if (null == amr) {
+//			Notification notification = new Notification(MessageCode.AMR_NOT_EXITS, mr.getEnPk());
+//			throw new NotificationException(notification);
+//		}
 		// 补全数据（用户名转用户名称）
 		MedicalRecord medicalRecord = new MedicalRecord();
 		PerformancePrinter.start("userIdToName");
@@ -729,8 +728,8 @@ public class OutMedicalRecordServiceImpl implements OutMedicalRecordService {
 		Param[] params = paramsService.getParam(SysFunctionCode.MR_UPDATE_TIME_LIMIT_CONFIG).getDataList();
 
 		// 检查全部的5个操作标志，并赋予医疗记录对象
-		medicalRecord = actionCheck.setActionFlag(medicalRecord, amr, userId, dataObjectService, params, paramsService,
-				paramsSetService);
+//		medicalRecord = actionCheck.setActionFlag(medicalRecord, amr, userId, dataObjectService, params, paramsService,
+//				paramsSetService);
 		PerformancePrinter.end("setActionFlag");
 		if (medicalRecord.getCanErpSign() != null && medicalRecord.getCanErpSign() == 1) {
 			// 可修改签章
@@ -1191,7 +1190,7 @@ public class OutMedicalRecordServiceImpl implements OutMedicalRecordService {
 				if (matchAmrGroupF) {
 					list = cusMrDao.selectByEnPksForEmergencyMrNumber(enPks);
 				} else {
-					//list = cusMrDao.selectByEnPkForEmergencyMrNumber(encounterPk);
+					list = cusMrDao.selectByEnPkForEmergencyMrNumber(encounterPk);
 				}
 				if ("new".equals(opType)) {
 					emergencyMrNumber = list.size() + 1;
@@ -1312,4 +1311,6 @@ public class OutMedicalRecordServiceImpl implements OutMedicalRecordService {
 		mrPrintOpLog.setPrintTime(date);
 		mrPrintOpLogDao.insertExludeNull(mrPrintOpLog);		
 	}
+
+
 }
