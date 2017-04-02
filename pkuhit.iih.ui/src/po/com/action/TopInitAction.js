@@ -46,7 +46,7 @@ Ext.define('iih.po.com.action.TopInitAction', {
         //病历管理
         var mrmBtn = Ext.create('Ext.button.Button',{
             name: 'mrmBtn',
-            iconCls: 'icon-minimum',
+            iconCls: 'icon-docMgr',
             scale: 'large',
             text: '病历管理',
             tooltip: '病历管理',
@@ -55,7 +55,7 @@ Ext.define('iih.po.com.action.TopInitAction', {
                 var top = this.up('topview');
                 var chain = top.getActionChain('topBaseButtons');
                 chain.execute({
-                    action: 'minimum'
+                    action: 'docMgr'
                 });
             }
         });
@@ -64,16 +64,16 @@ Ext.define('iih.po.com.action.TopInitAction', {
         //模板管理
         var templetBtn = Ext.create('Ext.button.Button',{
             name: 'templetBtn',
-            iconCls: 'icon-minimum',
+            iconCls: 'icon-templateMgr',
             scale: 'large',
-            text: '模板管理',
-            tooltip: '模板管理',
+            text: '病历模板管理',
+            tooltip: '病历模板管理',
             margin: '20 20 5 0',
             handler:function(btn,e){
                 var top = this.up('topview');
                 var chain = top.getActionChain('topBaseButtons');
                 chain.execute({
-                    action: 'minimum'
+                    action: 'templateMgr'
                 });
             }
         });
@@ -82,7 +82,7 @@ Ext.define('iih.po.com.action.TopInitAction', {
         //随访管理
         var fumBtn = Ext.create('Ext.button.Button',{
             name: 'fumBtn',
-            iconCls: 'icon-minimum',
+            iconCls: 'icon-followUpMgr',
             scale: 'large',
             text: '随访管理',
             style:'font-size:14px', 
@@ -91,9 +91,9 @@ Ext.define('iih.po.com.action.TopInitAction', {
             handler:function(btn,e){
                 var top = this.up('topview');
                 var chain = top.getActionChain('topBaseButtons');
-                chain.execute({
+               /* chain.execute({
                     action: 'minimum'
-                });
+                });*/
             }
         });
         switchBtn.add(fumBtn);
@@ -101,7 +101,7 @@ Ext.define('iih.po.com.action.TopInitAction', {
         //随访管理
         var searchBtn = Ext.create('Ext.button.Button',{
             name: 'searchBtn',
-            iconCls: 'icon-minimum',
+            iconCls: 'icon-query',
             scale: 'large',
             text: '高级检索',
             style:'font-size:14px', 
@@ -111,7 +111,7 @@ Ext.define('iih.po.com.action.TopInitAction', {
                 var top = this.up('topview');
                 var chain = top.getActionChain('topBaseButtons');
                 chain.execute({
-                    action: 'minimum'
+                    action: 'seniorQuery'
                 });
             }
         });

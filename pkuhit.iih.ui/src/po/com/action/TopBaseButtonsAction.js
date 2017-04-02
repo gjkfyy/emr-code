@@ -10,8 +10,16 @@ Ext.define('iih.po.com.action.TopBaseButtonsAction', {
 	    var block = this.getOwner();
 	    switch (context.action) {
         case 'skin' : break;
+        case 'docMgr':
+        	this.selectPortal('XAPM06.1001','病历管理');
+            break;
+        case 'seniorQuery':
+        	this.selectPortal('XAPM06.1002','高级检索');
+        	break;
+        case 'templateMgr':
+        	this.selectPortal('XAPM06.03','病历模板管理');
+        	break;
         case 'minimum':
-            
             global.mainWindow = gui.Window.get();
             if (global && global.mainWindow) {
                 global.mainWindow.minimize();
@@ -50,7 +58,19 @@ Ext.define('iih.po.com.action.TopBaseButtonsAction', {
             break;
         }
     },
-    
+    selectPortal: function(portalCode,portalName){
+    	 var portal = this.getOwner().ownerCt.up('portalview');
+         var chain = portal.getActionChain('init');
+         
+         chain.execute({
+             hospitalAreaCode:IMER_GLOBAL.hospitalArea.code,
+             hospitalAreaName:IMER_GLOBAL.hospitalArea.name,
+             departmentCode:IMER_GLOBAL.department.code,
+             departmentName:IMER_GLOBAL.department.name,
+             portalCode:portalCode,
+             portalName:portalName
+         });
+    },
     maximize: function() {
         if (window.global) {
             if (window.maxmized) {
