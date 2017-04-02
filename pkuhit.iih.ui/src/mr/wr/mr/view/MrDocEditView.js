@@ -35,8 +35,8 @@ Ext.define('iih.mr.wr.mr.view.MrDocEditView', {
                 }
             },
             'emrSave': {
-                xclass: 'iih.mr.wr.mr.action.MrDocSaveAction',
-                url: 'mr',
+                xclass: 'iih.mr.wr.omr.action.OmrDocSaveAction',
+                url: 'omr',
                 blocks: {
                     content: 'content'
                 }
