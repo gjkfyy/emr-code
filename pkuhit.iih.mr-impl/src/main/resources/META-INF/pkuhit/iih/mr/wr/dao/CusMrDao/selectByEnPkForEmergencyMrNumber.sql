@@ -34,7 +34,5 @@ select m.mr_pk,
   from mr m
  where m.del_f = '0'
    and m.en_pk = /*enPk*/'a'
-   and m.mr_tp_cd in (select mmtc.mr_tp_cd
-                        from md_mr_tp_ccat_itm mmtc
-                       where (mmtc.mr_tp_ccat_cd = 'MRM14.09' or mmtc.mr_tp_ccat_cd='MRM14.03') and mmtc.del_f=0 )
+   
    order by m.biz_time
