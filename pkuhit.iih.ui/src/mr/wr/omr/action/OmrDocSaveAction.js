@@ -110,17 +110,6 @@ Ext.define('iih.mr.wr.omr.action.OmrDocSaveAction', {
         plugin.SetCommandEnable('com.founder.iemr.editor.toolbar:emrSave', true);
         plugin.SetCommandEnable('com.founder.iemr.editor.toolbar:emrDocDelete',true);
         plugin.SetCommandEnable('com.founder.iemr.editor.toolbar:emrDocProperty',true);
-        //重新选择模板按钮
-//        var reSelectTempBtn=Ext.getCmp('reSelectTempBtn');
-//        if(reSelectTempBtn){
-//			reSelectTempBtn.setDisabled(false);
-//		}
-      //电子签名按钮
-//        var erpSignBtn=Ext.getCmp('erpSignBtn');
-//        if(erpSignBtn){
-//        	erpSignBtn.setDisabled(false);
-//		}
-//        this.callback();
     },
     onFail: function(operation) {
     	 plugin.SetCommandEnable('com.founder.iemr.editor.toolbar:emrSave', true);

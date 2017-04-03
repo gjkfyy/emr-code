@@ -99,13 +99,7 @@ Ext.define('iih.mr.qa.terminal_qa_patient.view.TerminalQAPatientListView',{
 					result: 'result'
 				}
 			},
-			'inTerminal': { //进入终末质控
-				xclass: 'iih.mr.qa.process_qa_work.action.ProcessWorkAction',
-				blocks: {
-					condition: 'condition',
-					result: 'result'
-				}
-			},
+			
 			'finishTerminal': {//完成终末质控
 				xclass: 'iih.mr.qa.terminal_qa_patient.action.TerminalFinishAction',
 				url:'qa/qaCompleted/amr',

@@ -68,12 +68,12 @@ Ext.define('iih.mr.wr.mr.action.EditorCallBackAction', {
     		var disabledOfficeToolBarAction=self.getOwner().getActionChain("disabledOfficeToolBarAction");
     		disabledOfficeToolBarAction.execute();
     		
-    		//刷新宏元素
+//    		刷新宏元素
     		var emrRefreshMacro=this.getOwner().getActionChain("emrRefreshMacro");
     		emrRefreshMacro.execute();
     		
-    		var emrRefreshDiagnosis=this.getOwner().getActionChain("emrRefreshDiagnosis");
-    		emrRefreshDiagnosis.execute();
+//    		var emrRefreshDiagnosis=this.getOwner().getActionChain("emrRefreshDiagnosis");
+//    		emrRefreshDiagnosis.execute();
     		
     		//设置newF为1，则刷新宏元素后会自动刷新引用元素
     		this.getOwner().newF=1;
@@ -83,15 +83,19 @@ Ext.define('iih.mr.wr.mr.action.EditorCallBackAction', {
                 return;
             }
             //设置编辑器按钮状态
-    		var disabledOfficeToolBarAction=self.getOwner().getActionChain("disabledOfficeToolBarAction");
-    		disabledOfficeToolBarAction.execute();
+//    		var disabledOfficeToolBarAction=self.getOwner().getActionChain("disabledOfficeToolBarAction");
+//    		disabledOfficeToolBarAction.execute();
     		//判断是否为审签模式
     		var medicalRecord=self.getOwner().medicalRecord;
-    		medicalRecord.xmlFileData=plugin.ExportXML();
-    		if(medicalRecord.canApprove&&medicalRecord.canApprove==1){
-//    			console.log('----------------------plugin.ShowRedline(1);');
-    			self.openPrepareOperations(operations);
-    		}
+    		setTimeout(function() {
+            	Ext.MessageBox.hide();
+            	plugin.EnableOCX(true);
+            },950);
+//    		medicalRecord.xmlFileData=plugin.ExportXML();
+//    		if(medicalRecord.canApprove&&medicalRecord.canApprove==1){
+////    			console.log('----------------------plugin.ShowRedline(1);');
+//    			self.openPrepareOperations(operations);
+//    		}
     	}else if('readonly'==opType){
     		if(printable!=undefined&&printable==true){
                 //设置编辑器按钮状态

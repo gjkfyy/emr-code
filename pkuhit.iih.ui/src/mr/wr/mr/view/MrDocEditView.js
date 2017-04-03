@@ -154,7 +154,7 @@ Ext.define('iih.mr.wr.mr.view.MrDocEditView', {
             },
             'emrRefreshMacro': {
                 xclass: 'iih.mr.wr.mr.action.RefreshMacroAction',
-                url:'macroElement',
+                url:'iemrPatient',
                 blocks: {
                     content: 'content'
                 }

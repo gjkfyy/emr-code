@@ -31,10 +31,28 @@ Ext.define('iih.mr.wr.mr.view.MrWriteView', {
                 blocks: {
                     content: 'content'
                 }
+            },
+			'refreshMrList': {
+                xclass: 'iih.mr.wr.mr.action.RefreshMrListAction',
+                url: 'mr',
+                blocks: {
+                    content: 'content'
+                }
             }
 		},
 		chains: {
 			'doSave': ['emrSave'],
+			'refreshMrList':['refreshMrList']
+		},
+
+		connections : {
+			'content'	:[{
+						event: 'beforedestroy',
+						chain: 'refreshMrList'
+					}/*,{
+						event: 'destroy',
+						chain: 'refreshMrList'
+					}*/]
 		}
 	},
 	hasEdit: function() {

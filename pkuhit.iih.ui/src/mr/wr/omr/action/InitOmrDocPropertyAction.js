@@ -5,6 +5,9 @@ Ext.define('iih.mr.wr.omr.action.InitOmrDocPropertyAction', {
 	* @Override
 	*/
 	execute: function(context) {
+		 var block = this.getOwner().getBlock('content');
+		var logicSmtDate=block.down('[name=logicSmtDate]');
+        logicSmtDate.setValue(new Date());
 	    if(this.getOwner().ownerCt.ownerCt==undefined){//从病历文书属性进来
 	        if(undefined!=context.mrSn){
 	            if(context.from=='editor'){//从编辑器打开属性

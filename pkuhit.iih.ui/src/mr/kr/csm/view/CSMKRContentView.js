@@ -20,11 +20,11 @@ Ext.define('iih.mr.kr.csm.view.CSMKRContentView', {
 	     blocks: {
 			   'left':{ 
 					xclass:'iih.mr.kr.csm.block.CSMTreeBlock',
-					width:260,	
+					width:260
 		       },
 		       'right':{ 
 					xclass:'iih.mr.kr.csm.block.CSMDiAndMrTemplateBlock'
-		       },
+		       }
            },
          actions:{
         	   'csmsearchAction': {
@@ -110,7 +110,7 @@ Ext.define('iih.mr.kr.csm.view.CSMKRContentView', {
         	   'csmForAdminsearchAction':['csmForAdminsearchAction'],
         	   'csmEventAction':['csmEventAction'],
         	   'csmBtnOpAction':['csmBtnOpAction'],
-        	   'csmdisuiteDelAction':['csmdisuiteDelAction'],
+        	   'csmdisuiteDelAction':['csmdisuiteDelAction']
            },
            connections:{
         	   'left':[{

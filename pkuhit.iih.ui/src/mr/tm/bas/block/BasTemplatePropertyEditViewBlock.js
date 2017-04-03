@@ -27,7 +27,7 @@ Ext.define('iih.mr.tm.bas.block.BasTemplatePropertyEditViewBlock',{
         xtype: "button",
         name: 'confim',
         method:'confim',
-        text: '确认',
+        text: '确认'
     },{
         xtype: "button",
         name: 'cancel',

@@ -9,14 +9,14 @@ Ext.define('iih.mr.wr.mr.action.RefreshMacroAction', {
         if(!operations) {
             return;
         }
-//        Ext.Msg.alert("提示",'刷新宏元素成功!');
+        Ext.Msg.alert("提示",'刷新宏元素成功!');
         this.prepareOperations(operations);
     },
     
     prepareOperations: function(operations) {
         var condition=this.getOwner().medicalRecord;
         condition.opType=this.getOwner().opType;
-        var url=this.url+'?opType='+condition.opType+'&encounterPk='+condition.encounterPk+'&typeCode='+condition.typeCode+'&mrPk='+condition.mrPk;
+        var url=this.url+'/'+IMER_GLOBAL.patientId;
         var operation = {
             url: url,
             method: 'get',
@@ -95,10 +95,10 @@ Ext.define('iih.mr.wr.mr.action.RefreshMacroAction', {
         if(iDays<1)return 1;
         return iDays ;
         }
-        var patient = macroElementValue.patient;
-        var encounter = macroElementValue.amr;
+        var patient = macroElementValue;
+//        var encounter = macroElementValue.amr;
 //        console.log(encounter);
-        var temperature=macroElementValue.vitalsign;//生命体征
+//        var temperature=macroElementValue.vitalsign;//生命体征
         var allMacroIds = plugin.GetAllMacro();//获取文档中所有的宏元素id
         var sAllMacroValue = null;//所有宏元素的值
         var allMacroIdKeys = null;//所有宏元素的key（ID）
@@ -116,65 +116,69 @@ Ext.define('iih.mr.wr.mr.action.RefreshMacroAction', {
             var macroValue = null;
             switch (macroId) {
             case macroConstants.MR_ELEMENT_CD_1:
-                macroValue = patient.nm; // 患者姓名
+                macroValue = patient.parentName; // 患者姓名
                 break;
             case macroConstants.MR_ELEMENT_CD_2:// 性别名称
-                macroValue = patient.sexNm;
+                macroValue = patient.sexValue;
                 break;
             case macroConstants.MR_ELEMENT_CD_3: // 年龄
-                macroValue = encounter.age;
+                macroValue = patient.age;
                 break;
             case macroConstants.MR_ELEMENT_CD_4:// 婚姻状况
-                macroValue = patient.mariNm;
+            	if(1==patient.marriage){
+            		macroValue='已婚';
+            	}else if(0==patient.marriage){
+            		macroValue='未婚';
+            	}
                 break;
             case macroConstants.MR_ELEMENT_CD_5:// 民族
-                macroValue = patient.nationNm;
+                macroValue = patient.nation;
                 break;
             case macroConstants.MR_ELEMENT_CD_6:// 职业
-                macroValue = patient.occuNm;
+                macroValue = patient.occupation;
                 break;
             case macroConstants.MR_ELEMENT_CD_7:// 出生地信息
-                macroValue = patient.distNm;
+                macroValue = '';
                 break;
             case macroConstants.MR_ELEMENT_CD_8:// 工作单位
-                macroValue = patient.workOrgNm;
+                macroValue = '';
                 break;
             case macroConstants.MR_ELEMENT_CD_9:// 身份证号
-                macroValue = patient.idCardNo;
+                macroValue = '';
                 break;
             case macroConstants.MR_ELEMENT_CD_10:// 现住址信息
-                macroValue = patient.homeAddress;
+                macroValue = patient.adress;
                 break;
             case macroConstants.MR_ELEMENT_CD_11:// 患者电话
-                macroValue = patient.telNo;
+                macroValue = patient.tel;
                 break;
             case macroConstants.MR_ELEMENT_CD_12:// 暂时取的patientId
-            	macroValue=patient.paId;
+            	macroValue=patient.patientId;
                 break;
             case macroConstants.MR_ELEMENT_CD_13:// 住院号
-                macroValue = encounter.inpatientNo;
+                macroValue = patient.inpatientNo;
                 break;
             case macroConstants.MR_ELEMENT_CD_14:// 住院次数信息
-                macroValue = encounter.encounterCount;
+                macroValue ='';
                 break;
             case macroConstants.MR_ELEMENT_CD_15:// 床号
-                macroValue = encounter.currentBedCode;
+                macroValue = '';
                 break;
             case macroConstants.MR_ELEMENT_CD_16:// 入院时间
-                if (encounter.receiveTime != undefined) {
-                    macroValue = getFormatDate(new Date(encounter.receiveTime), 'yyyy-MM-dd hh:mm');
+                if (patient.admissionDate != undefined) {
+                    macroValue = getFormatDate(new Date(patient.admissionDate), 'yyyy-MM-dd hh:mm');
                 }
                 break;
             case macroConstants.MR_ELEMENT_CD_17:// 出院日期
-                if (encounter.finishTime != undefined) {
-                    macroValue = getFormatDate(new Date(encounter.finishTime), 'yyyy-MM-dd');
+                if (patient.admissionDate != undefined) {
+                    macroValue = '';//、getFormatDate(new Date(encounter.finishTime), 'yyyy-MM-dd');
                 }
                 break;
             case macroConstants.MR_ELEMENT_CD_18:// 科室
-                macroValue = encounter.currentDeptName;
+                macroValue = '';
                 break;
             case macroConstants.MR_ELEMENT_CD_19:// 病区
-                macroValue = encounter.currentDeptName;
+                macroValue = '';
                 break;
             case macroConstants.MR_ELEMENT_CD_20:// 国籍（不需要）
                 break;
@@ -196,7 +200,7 @@ Ext.define('iih.mr.wr.mr.action.RefreshMacroAction', {
                 }
                 break;
             case macroConstants.MR_ELEMENT_CD_28:// 住院天数
-                if (encounter.receiveTime != undefined) {
+                /*if (encounter.receiveTime != undefined) {
                     var inpDeptTime=new Date(encounter.receiveTime);
                     var endTime=new Date();
                     
@@ -204,62 +208,62 @@ Ext.define('iih.mr.wr.mr.action.RefreshMacroAction', {
                     	endTime=new Date(encounter.finishTime);
                     }
                     macroValue=parseInt(DateDiff(endTime,inpDeptTime));
-                }
+                }*/
                 break;
             case macroConstants.MR_ELEMENT_CD_29:// 出生日期
                 if (patient.birthday != undefined) {
-                    macroValue=patient.birthday;
+                    macroValue='';
                 }
                 break;
             case macroConstants.MR_ELEMENT_CD_30:// 心率
                 if (temperature.heartRate) {
-                    macroValue=temperature.heartRate;
+                    macroValue='';
                 }
                 break;
             case macroConstants.MR_ELEMENT_CD_31:// 体重
                 if (temperature.weight) {
-                    macroValue=temperature.weight;
+                    macroValue='';
                 }
                 break;
             case macroConstants.MR_ELEMENT_CD_32:// 上级医生
-                if (data != undefined && data.superiorDoctorName!= undefined) {
+                if (data != undefined && data.superiorDoctorName!= undefined) {/*
                     var higherLvlDoctorNm=data.superiorDoctorName;
                     if(higherLvlDoctorNm.indexOf(' ')>0){
                         macroValue=higherLvlDoctorNm.substring(0,higherLvlDoctorNm.indexOf(' '));
                     }else{
                         macroValue=higherLvlDoctorNm;
                     }
-                }
+                */}
                 break;
             case macroConstants.MR_ELEMENT_CD_36://就诊日期
-           	 	if(encounter.receiveTime!= undefined){
-           	 		macroValue = getFormatDate(new Date(encounter.receiveTime), 'yyyy-MM-dd hh:mm');
-           	 	}
+//           	 	if(encounter.receiveTime!= undefined){
+//           	 		macroValue = getFormatDate(new Date(encounter.receiveTime), 'yyyy-MM-dd hh:mm');
+//           	 	}
                 break;
             case macroConstants.MR_ELEMENT_CD_101://体温
-                if(temperature.temper){
-                    macroValue=temperature.temper;
-                }
+//                if(temperature.temper){
+//                    macroValue=temperature.temper;
+//                }
                 break;
             case macroConstants.MR_ELEMENT_CD_102://呼吸
-                if(temperature.breathe){
-                    macroValue=temperature.breathe;
-                }
+//                if(temperature.breathe){
+//                    macroValue=temperature.breathe;
+//                }
                 break;
             case macroConstants.MR_ELEMENT_CD_103://脉搏
-                if(temperature.pulse){
-                    macroValue=temperature.pulse;
-                }
+//                if(temperature.pulse){
+//                    macroValue=temperature.pulse;
+//                }
                 break;
             case macroConstants.MR_ELEMENT_CD_104://收缩压
-                if(temperature.systolicPress){
-                    macroValue=temperature.systolicPress;
-                }
+//                if(temperature.systolicPress){
+//                    macroValue=temperature.systolicPress;
+//                }
                 break;
             case macroConstants.MR_ELEMENT_CD_105://舒张压
-                if(temperature.diastolicPress){
-                    macroValue=temperature.diastolicPress;
-                }
+//                if(temperature.diastolicPress){
+//                    macroValue=temperature.diastolicPress;
+//                }
                 break;
 //            case macroConstants.MR_ELEMENT_CD_106://上级医师
 //            	var mr = this.getOwner().medicalRecord;
@@ -268,16 +272,16 @@ Ext.define('iih.mr.wr.mr.action.RefreshMacroAction', {
 //                }
 //                break;
             case macroConstants.MR_ELEMENT_CD_115://户口地址
-            	macroValue = patient.idCardAdress;
+//            	macroValue = patient.idCardAdress;
                 break;
             case macroConstants.MR_ELEMENT_CD_124:
-                macroValue = patient.relationName; // 联系人
+//                macroValue = patient.relationName; // 联系人
                 break;
             case macroConstants.MR_ELEMENT_CD_125:
-                macroValue = patient.relation; // 与患者关系
+//                macroValue = patient.relation; // 与患者关系
                 break;
             case macroConstants.MR_ELEMENT_CD_126:
-                macroValue = patient.relationTel; // 联系人电话
+//                macroValue = patient.relationTel; // 联系人电话
                 break;
             default:
                 if (unKnownMacros == '') {

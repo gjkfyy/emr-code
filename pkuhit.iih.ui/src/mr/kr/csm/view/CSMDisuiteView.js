@@ -34,7 +34,7 @@ Ext.define('iih.mr.kr.csm.view.CSMDisuiteView', {
 	    					xtype: 'xapbutton',
 	    					text: '取消',
 	    					action: 'close',
-	    					iconCls: 'icon-cancel' ,
+	    					iconCls: 'icon-cancel'
 	    					
 	    				}]
 	    			}

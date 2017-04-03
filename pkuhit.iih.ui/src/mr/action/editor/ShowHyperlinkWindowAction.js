@@ -66,7 +66,7 @@ Ext.define('iih.mr.action.editor.ShowHyperlinkWindowAction', {
 						        	plugin.EnableOCX(true);
 					        	}
 							}
-						},
+						}
 						 
 //						blur : function() {
 //							var view = Ext.getCmp('mddiWin');

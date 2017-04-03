@@ -45,7 +45,7 @@ Ext.define('iih.mr.tm.bas.action.BasTemplatePropertyInitAction', {
             condition: null,
             data:null,
             scope: this,
-            success:this.onSuccess,
+            success:this.onSuccess
             //fail: this.onFail
         };
         operations.push(operation);	    

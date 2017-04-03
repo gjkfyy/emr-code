@@ -28,7 +28,7 @@ Ext.define('iih.mr.wr.nmr.block.BatchConditionBolck',{
         value:'ALL',
         allOptions: true,
         id:'batchCategoryCode',
-        allOptions: true,
+        //allOptions: true,
         fieldLabel:'护理文书类型组',
         queryMode: 'local',
 //        comboData : [

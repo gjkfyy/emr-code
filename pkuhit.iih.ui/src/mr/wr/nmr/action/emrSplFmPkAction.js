@@ -27,7 +27,7 @@ Ext.define('iih.mr.wr.nmr.action.emrSplFmPkAction', {
 			} 
 		}
 		function addNbsp(val,str){
-			for (var int = 0; int < val; int++) {
+			for (var t = 0; t < val; t++) {
 				if(str.length<1){
 					str+='&nbsp';
 				}else{

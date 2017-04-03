@@ -12,6 +12,7 @@ Ext.define('iih.mr.wr.mr.action.MrDocEditAction', {
     	if(!operations) {
             return;
         }
+    	IMER_GLOBAL.editing=1;
     	var printable=this.getOwner().ownerCt.printable;
     	if(printable==undefined){
 			printable=this.getOwner().printable;
@@ -35,6 +36,7 @@ Ext.define('iih.mr.wr.mr.action.MrDocEditAction', {
     			this.addEditorEvent(rs);
             	this.showProgress();//显示进度条
                 var filePk=this.getOwner().medicalRecord.filePk;//得到模板文件pk
+//                alert(filePk);
                 this.addPrepareOperations(operations,filePk);
             }else if(opType=='open'){//打开已有病历
             	if(CONFIG_PARAM.FINGERPRINT_BUTTON_SHOW&&zKOnlineCd){
@@ -123,11 +125,11 @@ Ext.define('iih.mr.wr.mr.action.MrDocEditAction', {
         mrDocEditPage.medicalRecord=medicalRecord;
         this.getOwner().ownerCt.medicalRecord=medicalRecord;
         //调用老孟提供的接口,在TOP页上显示诊断信息
-        this.refreshTop(medicalRecord);
+//        this.refreshTop(medicalRecord);
         
 //        console.log(mrDocEditPage.medicalRecord);
         //根据medicalRecord属性判断当前用户是否要用编辑模式打开
-        var readonlyF=true;
+        var readonlyF=false;
         if(medicalRecord.canEdit&&1==medicalRecord.canEdit){
         	readonlyF=false;
         }

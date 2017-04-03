@@ -207,7 +207,7 @@ Ext.define('iih.mr.kr.csm.action.CSMDisuiteViewreadyAction', {
     	   var comdata = [];
 		   var model = {
                  'text':IMER_GLOBAL.user.name,
-                 'value':IMER_GLOBAL.user.code,
+                 'value':IMER_GLOBAL.user.code
                };
 		   comdata.push(model);
 		   ownerCombox.setData(comdata);
