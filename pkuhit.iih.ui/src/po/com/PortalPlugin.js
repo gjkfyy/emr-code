@@ -186,7 +186,7 @@ Ext.define('iih.po.com.PortalPlugin', {
                      enTypeCode: 'ENM01.04',
                      dctNsF:'1'
                  }
-             },{
+             },/*{
                  cd:'XAPM07.100',
                  baseMenu: true,
                  text:'护理模板管理',
@@ -203,7 +203,7 @@ Ext.define('iih.po.com.PortalPlugin', {
                  text:'片段模板管理',
                  resource: true,
                  xclass:'iih.mr.tm.fr.view.FrTplListView'
-             },{
+             },*/{
                  cd:'XAPM07.32',
                  baseMenu: true,
                  text:'环节质控患者列表',
@@ -425,7 +425,7 @@ Ext.define('iih.po.com.PortalPlugin', {
                  xclass:'iih.mr.wr.omr.view.OutMrWriteView',
                  viewConfig:{},
                  assistantConfig:{}
-             },{
+             },/*{
                  cd:'XAPM07.70',
                  baseMenu: true,
                  text:'门诊模板管理',
@@ -434,7 +434,7 @@ Ext.define('iih.po.com.PortalPlugin', {
                      enTypeCode:'ENM01.01',
                      dctNsF:'1'
                  }
-             },{
+             },*/{
                  cd:'XAPM07.81',
                  baseMenu: true,
                  text:'病历书写22',

@@ -1,5 +1,5 @@
 Ext.define('iih.po.assistant.action.RefreshOutpatientDisposalAction', {
-	extend:  Xap.ej.action.ServiceInvocation ,
+	extend:  'Xap.ej.action.ServiceInvocation' ,
     
     doExecute: function(context) {
 		var operations = context.operations;
