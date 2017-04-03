@@ -166,7 +166,7 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				padding:'5 20 0 5',
 	            colspan: 3,
 		        labelWidth:60,
-		        name:'marriage',
+		        //name:'marriage',
 		        width:230,
 	            labelAlign:'right',
 	            comboData : [

@@ -28,11 +28,19 @@ Ext.define('iih.sy.patient.view.PatientRightView', {
 				blocks: {
 					result: 'result'
 				}
+			},
+			'openMrDocAction': {
+				xclass: 'iih.sy.patient.action.OpenMrDocAction',
+				url: 'omr',
+				blocks: {
+					result: 'result'
+				}
 			}
         },
        
         chains: {
-            'init': ['init']
+            'init': ['init'],
+            'openMrDocAction':['openMrDocAction']
         },
 
         connections: {
@@ -40,7 +48,11 @@ Ext.define('iih.sy.patient.view.PatientRightView', {
 				selector : 'xapgrid',
 				event : 'turnpage',
 				chain : 'init'
-			},{
+			},{// 翻页操作
+				selector : 'xapgrid',
+				event : 'itemdblclick',
+				chain : 'openMrDocAction'
+	    	},{
 				event: 'afterrender',
 				chain: 'init'
 			}]

@@ -123,7 +123,10 @@ Ext.define('iih.sy.patient.view.PatientLeftListView',{
 			},{
 				event: 'afterrender',
 				chain: 'init'
-			}],
+			},{
+				event: 'selectionchange',
+			chain: 'checkPatientChangeAction'
+		}],
 			'toolbar': [{
 				selector: 'button[action=search]',
 				event: 'click',

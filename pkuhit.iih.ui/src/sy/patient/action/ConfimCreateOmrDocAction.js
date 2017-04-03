@@ -24,27 +24,9 @@ Ext.define('iih.sy.patient.action.ConfimCreateOmrDocAction', {
 		}
 		
 		//就诊号
-		var encounterSn = IMER_GLOBAL.amrNo;
-		 IMER_GLOBAL.encounterSn = IMER_GLOBAL.amrNo;
+		var encounterSn = IMER_GLOBAL.encounterSn;
 		//templeCode为模板id
-		var data = {'typeCode':typeCode,'encounterPk':encounterSn,templeCode:rb[0].data.code}
-		this.prepareOperations(context.operations,data);
 		
-	},
-    prepareOperations: function(operations,data) {
-        var url = 'omr/canCreate';
-        var METHODS = this.getInvocationMethods();
-        var operation = {
-            url: url,
-            method: METHODS.METHOD_CREATE,
-            data:data,
-            condition: null,
-            scope: this,
-            success: this.onSuccess
-        };
-        operations.push(operation);
-    },
-    onSuccess: function(operation) {
     	//yangjianbo
     	var form= this.getBlock('content').getForm();
     	var data =form.getValues();
@@ -111,9 +93,12 @@ Ext.define('iih.sy.patient.action.ConfimCreateOmrDocAction', {
             if(higherLvlEmpId){
             	superiorDoctorName=higherLvlEmpId.rawValue.substring(0,higherLvlEmpId.rawValue.indexOf(' '));
             }
+            console.log('IMER_GLOBAL--------------------');
+            console.log(IMER_GLOBAL);
+            console.log(data);
             var medicalRecord={filePk:data.filePk,
             		name:data.mrNm,
-            		encounterPk:IMER_GLOBAL.encounterSn,
+            		encounterPk:IMER_GLOBAL.amrNo,
             		bizTime:data.logicSmtDate,
             		typeCode:data.mrTypeCode,
             		//mrTypeCustomCode:mrTypeCustomCode,

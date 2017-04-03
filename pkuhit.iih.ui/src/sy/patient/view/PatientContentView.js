@@ -87,7 +87,11 @@ Ext.define('iih.sy.patient.view.PatientContentView', {
 									selector: 'xapgrid',
 									event: 'itemclick',
 									chain: 'patientRightList'
-								}],
+								},{
+									selector: 'xapgrid',
+								event: 'beforeselect',
+								chain: 'checkPatientChangeAction'
+							}],
 						'right' : [{
 									event: 'afterrender',
 									chain: 'init'

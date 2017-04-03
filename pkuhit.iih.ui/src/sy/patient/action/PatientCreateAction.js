@@ -14,5 +14,5 @@ Ext.define('iih.sy.patient.action.PatientCreateAction', {
 		var owner=this.getOwner();
 		var create=owner.getActionChain('create');
 		create.execute();
-	},
+	}
 });

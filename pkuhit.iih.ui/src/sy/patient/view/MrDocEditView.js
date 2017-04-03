@@ -296,7 +296,7 @@ Ext.define('iih.sy.patient.view.MrDocEditView', {
             'emrSubmit1':['emrSubmit'],
             'showLoginWin':['showLoginWin'],
             'emrSubmit2':['emrSubmit2'],
-            'emrPrint':['emrPrint'],
+           
             'emrApprove2':['emrApprove2'],
             'mrSubmit':['mrSubmit'],
             'emrSignDispose':['emrSignDispose'],

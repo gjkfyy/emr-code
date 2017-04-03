@@ -47,14 +47,14 @@ Ext.define('iih.sy.search.block.AdvancedSearchBlock', {
               name:'beginTime',
               flex: 3,
               labelAlign:'left',
-              editable:false,
+              editable:false
             }, {
         	  	xtype: 'xapdisplayfield',
         		fieldLabel: '',
         		vertical: true,
         		name:'fenge',
         		padding:'0 5 0 5',
-        		value: '~',
+        		value: '~'
           },{
               	xtype: 'xapdatefield',
             	name:'endTime',
@@ -79,14 +79,14 @@ Ext.define('iih.sy.search.block.AdvancedSearchBlock', {
               name:'beginNo',
               flex: 3,
               labelAlign:'left',
-              editable:false,
+              editable:false
             }, {
         	  	xtype: 'xapdisplayfield',
         		fieldLabel: '',
         		vertical: true,
         		name:'fenge',
         		padding:'0 5 0 5',
-        		value: '~',
+        		value: '~'
           },{
               	xtype: 'xaptextfield',
             	name:'endNo',
@@ -118,7 +118,7 @@ Ext.define('iih.sy.search.block.AdvancedSearchBlock', {
               name:'username',
               flex: 1,
               labelAlign:'left',
-              editable:false,
+              editable:false
             }]
         },{
             xtype: 'fieldcontainer',
@@ -165,14 +165,14 @@ Ext.define('iih.sy.search.block.AdvancedSearchBlock', {
               name:'beginTime',
               flex: 1,
               labelAlign:'left',
-              editable:false,
+              editable:false
             }, {
         	  	xtype: 'xapdisplayfield',
         		fieldLabel: '',
         		vertical: true,
         		name:'fenge',
         		padding:'0 5 0 5',
-        		value: '~',
+        		value: '~'
           },{
               	xtype: 'xapdatefield',
             	name:'endTime',
@@ -197,7 +197,7 @@ Ext.define('iih.sy.search.block.AdvancedSearchBlock', {
               name:'tel',
               flex: 1,
               labelAlign:'left',
-              editable:false,
+              editable:false
             }]
         },{
             xtype: 'fieldcontainer',
@@ -216,7 +216,7 @@ Ext.define('iih.sy.search.block.AdvancedSearchBlock', {
               name:'idCardNo',
               flex: 1,
               labelAlign:'left',
-              editable:false,
+              editable:false
             }]
         },{
             xtype: 'fieldcontainer',
@@ -235,7 +235,7 @@ Ext.define('iih.sy.search.block.AdvancedSearchBlock', {
               name:'address',
               flex: 1,
               labelAlign:'left',
-              editable:false,
+              editable:false
             }]
         }]
 	},{
@@ -261,7 +261,7 @@ Ext.define('iih.sy.search.block.AdvancedSearchBlock', {
               name:'diagnosis',
               flex: 1,
               labelAlign:'left',
-              editable:false,
+              editable:false
             }]
         },{
             xtype: 'fieldcontainer',
@@ -280,7 +280,7 @@ Ext.define('iih.sy.search.block.AdvancedSearchBlock', {
               name:'therapeuticGoal',
               flex: 1,
               labelAlign:'left',
-              editable:false,
+              editable:false
             }]
         },{
             xtype: 'fieldcontainer',
@@ -299,7 +299,7 @@ Ext.define('iih.sy.search.block.AdvancedSearchBlock', {
               name:'operationPlan',
               flex: 1,
               labelAlign:'left',
-              editable:false,
+              editable:false
             }]
         },{
             xtype: 'fieldcontainer',
@@ -318,7 +318,7 @@ Ext.define('iih.sy.search.block.AdvancedSearchBlock', {
               name:'address',
               flex: 1,
               labelAlign:'left',
-              editable:false,
+              editable:false
             }]
         }]
 	},{
@@ -461,7 +461,7 @@ Ext.define('iih.sy.search.block.AdvancedSearchBlock', {
 			    	}
 				}
 			},
-			setData : function(data) {
+			setData:function(data) {
 				if (data) {
 					var hiddenData = this.down('xaptextfield[name=hiddenData]');
 					hiddenData.setRawValue(data);

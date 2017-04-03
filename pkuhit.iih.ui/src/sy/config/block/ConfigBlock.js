@@ -192,6 +192,6 @@ Ext.define('iih.sy.config.block.ConfigBlock',{
 		}else{
 			grid.setData([]);
 		}
-	},
+	}
 
 })

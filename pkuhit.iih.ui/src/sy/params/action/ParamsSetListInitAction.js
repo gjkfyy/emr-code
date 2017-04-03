@@ -29,7 +29,7 @@ Ext.define('iih.sy.params.action.ParamsSetListInitAction', {
 		var data = {
 			pageNum : pageNum,
 			pageSize : pageSize,
-			conditionNm:condition.conditionNm,
+			conditionNm:condition.conditionNm
 		}
 		if(condition.onlyFlag){
 			data.code = 'SYSM01.0';
