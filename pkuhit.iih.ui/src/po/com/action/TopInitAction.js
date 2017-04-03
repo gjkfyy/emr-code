@@ -48,8 +48,8 @@ Ext.define('iih.po.com.action.TopInitAction', {
             name: 'mrmBtn',
             iconCls: 'icon-docMgr',
             scale: 'large',
-            text: '病历管理',
-            tooltip: '病历管理',
+            text: '病例管理',
+            tooltip: '病例管理',
             margin: '20 20 5 0',
             handler:function(btn,e){
                 var top = this.up('topview');
@@ -66,8 +66,8 @@ Ext.define('iih.po.com.action.TopInitAction', {
             name: 'templetBtn',
             iconCls: 'icon-templateMgr',
             scale: 'large',
-            text: '病历模板管理',
-            tooltip: '病历模板管理',
+            text: '模板管理',
+            tooltip: '模板管理',
             margin: '20 20 5 0',
             handler:function(btn,e){
                 var top = this.up('topview');
