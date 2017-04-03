@@ -42,7 +42,7 @@ Ext.define('iih.po.com.view.PatientTopPage', {
 				'</tr>',
 				'<tr align = "left">',
 				    '<td>住院号：</td><td>{inpatientNo}</td>',
-				    '<td>&nbsp入院时间：</td><td>{admissionDate}&nbsp</td>',
+				    '<td>&nbsp入院日期：</td><td>{admissionDate}&nbsp</td>',
                 '</tr>',
 				'</table>',
 				'</div>',
