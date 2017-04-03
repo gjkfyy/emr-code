@@ -46,6 +46,10 @@ Ext.define('iih.po.com.action.LoginAction', {
 		var login = this.getOwner();
 		var app = login.ownerCt;
 		var layout = app.getLayout();
+		IMER_GLOBAL.hospitalArea.code = 'SZLH';
+		IMER_GLOBAL.department.code = '9010002';
+		IMER_GLOBAL.portal.code = 'XAPM06.1001';
+		console.log("yyy"+IMER_GLOBAL.portal.code);
 		if(Ext.isEmpty(IMER_GLOBAL.portal.code, false)){
 		    var portal = app.down('selectportal');
 	        var chain = portal.getActionChain('init')
