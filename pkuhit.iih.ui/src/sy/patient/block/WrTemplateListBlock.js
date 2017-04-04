@@ -11,7 +11,7 @@ Ext.define('iih.sy.patient.block.WrTemplateListBlock',{
     //layout: 'fit',
 
     items: [{
-        title: '病历模板一览',
+        title: '模板一览',
         
         //maxHeight: 800,
         
@@ -23,7 +23,7 @@ Ext.define('iih.sy.patient.block.WrTemplateListBlock',{
            {header: '医疗记录类型编码',dataIndex: 'mrTypeCode',hidden:true},
 //           {header: '模板标准编码',dataIndex: 'mrTplKc',hidden:true},
            {header: '医疗记录类型名称',dataIndex: 'mrTypeName',hidden:true},
-           {header: '病历模板名称',dataIndex: 'name',field: 'textfield',type: 'string',flex:1},
+           {header: '模板名称',dataIndex: 'name',field: 'textfield',type: 'string',flex:1},
            {header: '适用病种',dataIndex: 'diNames',field: 'textfield',type: 'string',width:350},
            {header: '所属',dataIndex: 'ownerName',field: 'textfield',type: 'string',width:150,hidden:true},
            {header: '审签级别编码',dataIndex: 'signLevelCode',hidden:true},
