@@ -260,14 +260,14 @@ Ext.define('iih.po.com.action.TopInitAction', {
             photoArea.add(photoBtn);
         }
         //top显示院区
-    	var hospitalArea = view.down('button[name=orgName]');
-    	hospitalArea.setText(IMER_GLOBAL.hospitalArea.name);
+    	/*var hospitalArea = view.down('button[name=orgName]');
+    	hospitalArea.setText(IMER_GLOBAL.hospitalArea.name);*/
     	//top显示门户
-    	var portalChain = view.getActionChain("searchPortal");
-    	portalChain.execute();
+    	/*var portalChain = view.getActionChain("searchPortal");
+    	portalChain.execute();*/
     	//top显示科室
-    	var deptChain = view.getActionChain("searchDepartment");
-    	deptChain.execute();
+    	/*var deptChain = view.getActionChain("searchDepartment");
+    	deptChain.execute();*/
     	//top显示登录用户
     	var userBtn = view.down('button[name=iemrUser]');
         userBtn.setText(IMER_GLOBAL.user.name);
