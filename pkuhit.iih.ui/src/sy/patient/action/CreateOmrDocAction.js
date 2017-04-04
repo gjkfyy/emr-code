@@ -42,7 +42,7 @@ Ext.define('iih.sy.patient.action.CreateOmrDocAction', {
             //设置患者信息---end 
             
 			var opType=context.opType;
-			var title='新建病历';
+			var title='新建病例';
 			if(opType&&'reSelectTemp'==opType){
 				title='重新选择模板';
 			}
