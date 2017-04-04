@@ -116,7 +116,7 @@ Ext.define('iih.mr.wr.mr.action.RefreshMacroAction', {
             var macroValue = null;
             switch (macroId) {
             case macroConstants.MR_ELEMENT_CD_1:
-                macroValue = patient.parentName; // 患者姓名
+                macroValue = patient.patientName; // 患者姓名
                 break;
             case macroConstants.MR_ELEMENT_CD_2:// 性别名称
                 macroValue = patient.sexValue;
