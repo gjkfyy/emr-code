@@ -139,7 +139,7 @@ Ext.define('iih.po.com.view.TopBase', {
                     margin: '0 4 0 4',
                     padding: 0
                 },
-                items: [{
+                items: [/*{
                     xtype: 'container',
                     name:'selectPorBtn',
                     margin: '0 5 0 0'
@@ -147,7 +147,7 @@ Ext.define('iih.po.com.view.TopBase', {
                     xtype: 'button',
                     name:'orgName',
                     margin: '0 5 0 0'
-                },{
+                },*/{
                     xtype: 'container',
                     name:'selectDeptBtn',
                     margin: '0 5 0 0'
