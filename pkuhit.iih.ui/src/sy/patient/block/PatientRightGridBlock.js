@@ -18,7 +18,7 @@ Ext.define('iih.sy.patient.block.PatientRightGridBlock',
 					},
 					
 					items: [{
-										title : '已书写文书',
+										title : '已书写病例',
 										layout: {
 											type:'vbox',
 									        align: 'stretch',
@@ -36,7 +36,7 @@ Ext.define('iih.sy.patient.block.PatientRightGridBlock',
 								            margin  : '0 0 0 0',  
 											height:30,
 											items: [{                   
-														text: '新建病历',
+														text: '病例',
 														iconCls: 'icon-Create',
 														method: 'createDoc'        
 													},{
@@ -88,13 +88,13 @@ Ext.define('iih.sy.patient.block.PatientRightGridBlock',
 												hidden:true,
 												flex : 1
 											},{
-												header : '病历类型',
+												header : '病例类型',
 												dataIndex : 'typeName',
 												field : 'textfield',
 												type : 'string',
 												flex : 1
 											}, {
-												header : '病历名称',
+												header : '病例名称',
 												dataIndex : 'name',
 												field : 'textfield',
 												type : 'string',
@@ -123,7 +123,7 @@ Ext.define('iih.sy.patient.block.PatientRightGridBlock',
 												field : 'textfield',
 												type : 'string',
 												flex : 1
-											}, {
+											}/*, {
 												header : '审签人',
 												dataIndex : 'signLevelName',
 												field : 'textfield',
@@ -135,7 +135,7 @@ Ext.define('iih.sy.patient.block.PatientRightGridBlock',
 												field : 'textfield',
 												type : 'string',
 												flex : 1
-											}]
+											}*/]
 											
 									}]
 									
