@@ -20,7 +20,7 @@
 	BODY_TOP_PADDING: '5 0 0 0',
 	BODY_LEFT_PADDING: '0 5 0 0',
 	
-	SYSTEMNAME: '定制病例资料管理系统 V1.0',
+	SYSTEMNAME: '病例管理系统V1.0',
 	VERSION: '(版本2.2.2.75.20170101)',
 	IP: '(Server:localhost:8081)',
 
