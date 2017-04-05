@@ -24,7 +24,7 @@ Ext.define("iih.po.model.PatientModel",{
                 convert: function(v, record) {
                     if(v){
                         var time = Ext.Date.parse(v, 'time');
-                        return Ext.Date.format(time, 'Y-m-d H:i');
+                        return Ext.Date.format(time, 'Y-m-d');
                         //var time = Ext.util.Format.date(v, "Y-m-d H:i:s");
                         //return time;
                     }
