@@ -47,7 +47,7 @@ Ext.define('iih.po.com.block.LoginBlock',{
 	        }
 		},
 		bodyStyle:{
-			background:'url(css/images/login/login.png) no-repeat'
+			background:'url(css/images/login/login_old.png) no-repeat'
 		},
 		items: [
 		/*{
@@ -79,18 +79,20 @@ Ext.define('iih.po.com.block.LoginBlock',{
 			height:15,
 			border:0,
 			colspan:16,
-			margin:'250 0 0 50',
+			margin:'150 0 0 150',
 			bodyStyle:'background:#FCFCFC'
 			
-		},
-		
-		{
+		},{
+			html:'<div style=\'width:400px;margin:0 0 0 30px;background:#FCFCFC;color:#0097ca;font-weight:bold;font-size:36px;\'>病例管理系统V1.0</div>',
+			border:0,
+			colspan:16,
+			margin:'0 0 20 0',
+			bodyStyle:'background:#FCFCFC'
+		},{
 			html:'<div style=\'width:60px;margin:0 10px 0 30px;background:#FCFCFC;color:#7C7C7C;font-weight:bold;font-size:16px;font-family:黑体\'>用户名</div>',
 			border:0,
 			margin:'0 0 0 30',
 			bodyStyle:'background:#FCFCFC'
-			
-			
 		},{
 			xtype: 'xaptextfield',
 			colspan:15,
