@@ -45,7 +45,7 @@ Ext.define('iih.sy.patient.block.PatientRightGridBlock',
 														iconCls: 'icon-Open',
 														valign : 'left'
 											        
-											        },{
+											        }/*,{
 														xtype: 'button',
 														text: '诊断',
 														disabled: true,
@@ -58,7 +58,7 @@ Ext.define('iih.sy.patient.block.PatientRightGridBlock',
 														disabled: true,
 														iconCls: 'icon-enable',
 														valign : 'left'
-											        }]
+											        }*/]
 										},{
 											xtype : 'xapgrid',
 											name:'docList',
