@@ -65,7 +65,7 @@ Ext.define('iih.mr.wr.omr.block.OmrDocPropertyBlock',{
 	},*/{
 		xtype:'xaptextfield',
 		name:'mrNm',
-		fieldLabel:'病历标题',
+		fieldLabel:'病例标题',
 		labelWidth:60,
 //		hidden:true,
 		width:250,
@@ -78,7 +78,7 @@ Ext.define('iih.mr.wr.omr.block.OmrDocPropertyBlock',{
 		labelWidth:60,
 		width:210,
 		padding:'5 0 0 22'
-	},{
+	}/*,{
 		xtype:'xapcombobox',
 		name:'higherLvlEmpId',
 		padding:'5 0 0 15',
@@ -90,7 +90,7 @@ Ext.define('iih.mr.wr.omr.block.OmrDocPropertyBlock',{
 		queryMode: 'local',
 		displayField: 'name',
 		valueField: 'id'
-	}/*,{
+	},{
 		xtype:'xapcombobox',
 		name:'relevance',
 		fieldLabel:'关联医嘱',
