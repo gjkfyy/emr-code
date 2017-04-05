@@ -27,9 +27,9 @@ Ext.define('iih.sy.patient.view.PatientLeftListView',{
 						id : 'searchCondition',
 						name : 'searchCondition',
 						colspan : 1,
-						labelWidth : 20,
-						width : 230,
-						labelAlign : 'right',
+						labelWidth : 0,
+						width : 265,
+						align  : 'left',  
 						readOnly : false,
 						fieldStyle:'color:#c6c6c6',
 						value : '输入姓名、住院号、手机号检索',
@@ -61,7 +61,7 @@ Ext.define('iih.sy.patient.view.PatientLeftListView',{
 				        }
 					},{
 						xtype: 'button',
-						text: '查询',
+						text: '检索患者',
 						iconCls: 'icon-Search',
 						action: 'search'
 					}]
