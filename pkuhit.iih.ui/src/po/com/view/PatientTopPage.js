@@ -17,7 +17,7 @@ Ext.define('iih.po.com.view.PatientTopPage', {
 	icon: 'css/images/top/InpatientTop/icon.png',
 	
 	initComponent: function() {
-    	this.title = '定制病例资料管理系统';//FuiLocale.get('title', IemrUser.portal.key);
+    	this.title = '病例管理系统';//FuiLocale.get('title', IemrUser.portal.key);
     	this.info = new Ext.XTemplate(
     			'<table cellSpacing = "0" cellPadding = "0"><tr>',
     			'<td>',
