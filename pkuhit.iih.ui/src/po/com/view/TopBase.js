@@ -170,19 +170,19 @@ Ext.define('iih.po.com.view.TopBase', {
                             iconCls: 'logout_16',
                             text: '注销',
                             action: 'logout'
-                        },{
+                        },/*{
                             iconCls: 'config_16',
                             text: '设置',
                             action: 'config'
-                        },{
+                        },*/{
                             iconCls: 'config_16',
                             text: '修改密码',
                             action: 'password'
-                        },{
+                        }/*,{
                             iconCls: 'help_16',
                             text: '帮助',
                             action: 'help'
-                        }],
+                        }*/],
                         listeners: {
                             click: function(menu, item, e) {
                                 var button = menu.ownerButton;
