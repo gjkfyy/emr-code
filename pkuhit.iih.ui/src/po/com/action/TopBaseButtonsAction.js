@@ -33,7 +33,7 @@ Ext.define('iih.po.com.action.TopBaseButtonsAction', {
             break;
         case 'close':
             // TODO 临时方案 
-            XapMessageBox.confirm2('确定退出定制病历管理系统 V1.0？',function(btn){
+            XapMessageBox.confirm2('确定退出定制病例管理系统 V1.0？',function(btn){
                 if(btn == 'yes') {
                     //window.opener = null;
                     //window.open('', '_self');
