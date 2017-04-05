@@ -1,6 +1,6 @@
 Ext.define('iih.sy.patient.block.PatientRightGridBlock',
 		{extend : 'Xap.ej.block.Block',
-		requires : [ 'Xap.ej.element.grid.Grid' ],
+		requires : [ 'Xap.ej.element.grid.Grid','Xap.ej.element.grid.column.Date' ],
 		alias : 'widget.patientrightgridblock',
 		layout : {      
 						type : 'table',
@@ -109,7 +109,7 @@ Ext.define('iih.sy.patient.block.PatientRightGridBlock',
 												header : '书写时间',
 												dataIndex : 'createTime',
 												field : 'textfield',
-												type : 'string',
+												xtype: 'xapdatecolumn',
 												flex : 1
 											}, {
 												header : '最后更新人',
@@ -121,7 +121,7 @@ Ext.define('iih.sy.patient.block.PatientRightGridBlock',
 												header : '最后更新时间',
 												dataIndex : 'lastUpdTime',
 												field : 'textfield',
-												type : 'string',
+												xtype: 'xapdatecolumn',
 												flex : 1
 											}/*, {
 												header : '审签人',
