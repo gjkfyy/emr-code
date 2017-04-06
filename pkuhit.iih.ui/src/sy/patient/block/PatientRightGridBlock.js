@@ -36,7 +36,7 @@ Ext.define('iih.sy.patient.block.PatientRightGridBlock',
 								            margin  : '0 0 0 0',  
 											height:30,
 											items: [{                   
-														text: '病例',
+														text: '新建病例',
 														iconCls: 'icon-Create',
 														method: 'createDoc'        
 													},{
