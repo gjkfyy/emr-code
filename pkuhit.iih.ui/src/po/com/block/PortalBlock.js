@@ -21,6 +21,7 @@ Ext.define('iih.po.com.block.PortalBlock', {
         split: false,
         header:true,
         collapsible: true,
+        //closable: true,
         collapseMode: 'undefined',
         width: 250
     }, {
