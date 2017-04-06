@@ -15,7 +15,7 @@ Ext.define('iih.po.com.view.RightEditView', {
             type: 'hbox',
             align: 'middle',
             pack: 'end'
-        },
+        }
 	},
 
     items: [],
@@ -23,17 +23,7 @@ Ext.define('iih.po.com.view.RightEditView', {
     initComponent: function() {
     	this.callParent();
     	this.removeAll();
-    	if(this.workscene=='mr'){
-    	    this.add({
-    	        title:'个人知识库',
-    	        xtype:'knowledgeview'
-    	    }).show();
-    	}else{
-    	    this.add({
-    	        title:'片段模板',
-    	        xtype:'frtplview'
-    	    }).show();
-    	};
+    	
     	this.add({
     	    title:'特殊字符',
             xtype:'specialcharacterview'
@@ -46,8 +36,8 @@ Ext.define('iih.po.com.view.RightEditView', {
                 align: 'middle',
                 pack: 'end'
             },
-            flex: 1,
-            items: [{
+            flex: 1
+            /*items: [{
                 xtype: 'button',
                 text: '写回病历',
                 handler : function() {
@@ -68,7 +58,7 @@ Ext.define('iih.po.com.view.RightEditView', {
                     view.fireEvent("writeMrDoc");
                 },
                 hidden:workscene=='mr'?true:false
-            }]
+            }]*/
         });
     }
 });
