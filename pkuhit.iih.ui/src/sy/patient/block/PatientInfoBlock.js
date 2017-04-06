@@ -61,18 +61,26 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				colspan: 3,
 				padding:'10 0 0 5',
 		        labelWidth:50,
-		        fieldLabel:'住院号<font color:\'ff0000\'>*</font>',
+		        fieldLabel:'住院号',
 		        allowBlank:false,
 		        blankText : '不能为空',
 		        width:230,
 		        //id:'inpatientNo',
-		        name:'inpatientNo'
+		        name:'inpatientNo',
+		        initComponent:function(){         
+					if(this.allowBlank!==undefined && !this.allowBlank){ 
+						if(this.fieldLabel){ 
+							this.fieldLabel += '<font color=red>*</font>';             
+						}         
+					}         
+					this.callParent(arguments);     
+				}
 			},{
 				xtype:'xapdatefield',
 				colspan: 3,
 				padding:'5 0 0 5',
 		        labelWidth:60,
-		        fieldLabel:'入院日期<font color:\'ff0000\'>*</font>',
+		        fieldLabel:'入院日期',
 		        allowBlank:false,
 		        blankText : '不能为空',
 		        width:160,
@@ -82,6 +90,14 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 						var startDate = this.up('panel').down('xapdatefield[name=admissionDate]');
 						startDate.setMaxValue( this.getValue( ) );
 					}
+				},
+				initComponent:function(){         
+					if(this.allowBlank!==undefined && !this.allowBlank){ 
+						if(this.fieldLabel){ 
+							this.fieldLabel += '<font color=red>*</font>';             
+						}         
+					}         
+					this.callParent(arguments);     
 				}
 			},{
 				xtype: 'xapdisplayfield',
@@ -96,17 +112,25 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				colspan: 2,
 				padding:'5 0 0 5',
 		        labelWidth:70,
-		        fieldLabel:'姓名<font color:\'ff0000\'>*</font>',
+		        fieldLabel:'姓名',
 		        allowBlank:false,
 		        blankText : '不能为空',
 		        width:150,
 		       // id:'parentName',
-		        name:'patientName'
+		        name:'patientName',
+		        initComponent:function(){         
+					if(this.allowBlank!==undefined && !this.allowBlank){ 
+						if(this.fieldLabel){ 
+							this.fieldLabel += '<font color=red>*</font>';             
+						}         
+					}         
+					this.callParent(arguments);     
+				}
 			},{
 	        	xtype:'xapcombobox',
 		       // id:'sex',
 		        name:'sex',
-	            fieldLabel:'性别<font color:\'ff0000\'>*</font>',
+	            fieldLabel:'性别',
 	            padding:'5 0 0 5',
 	            colspan: 2,
 	            width:150,
@@ -119,7 +143,7 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 	            ],
 	            displayField: 'value',
 	            valueField: 'code',
-		        allowBlank:false,
+//		        allowBlank:false,
 		        blankText : '不能为空',
 	            editable:false,
 	            value:''
@@ -142,7 +166,15 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        allowBlank:false,
 		        blankText : '不能为空',
 	            editable:false,
-		        fieldLabel:'年龄<font color:\'ff0000\'>*</font>'
+		        fieldLabel:'年龄',
+		        initComponent:function(){         
+					if(this.allowBlank!==undefined && !this.allowBlank){ 
+						if(this.fieldLabel){ 
+							this.fieldLabel += '<font color=red>*</font>';             
+						}         
+					}         
+					this.callParent(arguments);     
+				}
 			},{
 				xtype:'xaptextfield',
 				colspan: 4,
@@ -161,7 +193,7 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        name:'parity'
 			},{
 	        	xtype:'xapcombobox',
-	            name:'enType',
+	            name:'marriage',
 	            fieldLabel:'婚姻',
 				padding:'5 20 0 5',
 	            colspan: 3,
@@ -267,7 +299,15 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        name:'adress',
 		        allowBlank:false,
 		        blankText : '不能为空',
-		        fieldLabel:'联系地址<font color:\'ff0000\'>*</font>'
+		        fieldLabel:'联系地址',
+		        initComponent:function(){         
+					if(this.allowBlank!==undefined && !this.allowBlank){ 
+						if(this.fieldLabel){ 
+							this.fieldLabel += '<font color=red>*</font>';             
+						}         
+					}         
+					this.callParent(arguments);     
+				}
 			},{
 				xtype:'xaptextfield',
 				colspan: 6,
