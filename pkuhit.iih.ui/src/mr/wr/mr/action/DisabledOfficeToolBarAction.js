@@ -65,11 +65,16 @@ Ext.define('iih.mr.wr.mr.action.DisabledOfficeToolBarAction', {
             var canCancelApprove=intToBoolean(mr.canCancelApprove);
             var canSaveAsTemplate=intToBoolean(mr.canSaveAsTemplate);
             plugin.SetCommandVisible(emrRefreshOutpatientDisposal,false);
+            plugin.SetCommandVisible(emrContinuePrint,false);
+        	plugin.SetCommandVisible(emrSelectContinuePrint,false);
+        	plugin.SetCommandVisible(emrImageLibraries,false);
+        	plugin.SetCommandVisible(emrPrintSelected,false);
+        	plugin.SetCommandVisible(emrRefreshDiagnosis,false);
         	if(opType=='open'||opType=='readonly'){
         		if(CONFIG_PARAM.MR_TPL_OWNER_TYPE){
-        			plugin.SetCommandEnable(emrSaveAsTemplate,mr.canSaveAsTemplate);
+        			plugin.SetCommandVisible(emrSaveAsTemplate,false);
         		}else{
-        			plugin.SetCommandEnable(emrSaveAsTemplate,false);
+        			plugin.SetCommandVisible(emrSaveAsTemplate,false);
         		}
         		//根据用户审签等级判断隐藏哪些按钮
         		if(mr.userSignLevelCode==null||'MRM02.01'==mr.userSignLevelCode||'MRM02.02'==mr.userSignLevelCode||IMER_GLOBAL.user.code==mr.createUserId){
@@ -81,41 +86,43 @@ Ext.define('iih.mr.wr.mr.action.DisabledOfficeToolBarAction', {
         			plugin.SetCommandVisible(emrSubmit,false);
         			plugin.SetCommandVisible(emrRevoke,false);
         		}
-        		plugin.SetCommandEnable(emrSave,canUpdate);
-            	plugin.SetCommandEnable(emrSubmit,canSign);
-            	plugin.SetCommandEnable(emrRevoke,canCancelSigned);
-            	plugin.SetCommandEnable(emrReject,canReject);
-            	plugin.SetCommandEnable(emrDocDelete,canDelete);
-            	plugin.SetCommandEnable(emrRefreshDiagnosis,canEdit);
-            	plugin.SetCommandEnable(emrRefreshMacro,canEdit);
-            	plugin.SetCommandEnable(emrImageLibraries,canEdit);
-            	plugin.SetCommandEnable(emrStartApprove,canStartApprove);
-            	plugin.SetCommandEnable(emrApprove,canApprove);
-            	plugin.SetCommandEnable(emrAuditRevoke,canCancelApprove);
-            	plugin.SetCommandVisible(emrContinuePrint,canContinuePrint);
-            	plugin.SetCommandVisible(emrSelectContinuePrint,canContinuePrint);
-            	if(opType=='readonly'){
-            		plugin.SetCommandVisible(emrPrintSelected,false);
-            		plugin.SetCommandVisible(emrSave,canUpdate);
-                	plugin.SetCommandVisible(emrSubmit,canSign);
-                	plugin.SetCommandVisible(emrRevoke,canCancelSigned);
-                	plugin.SetCommandVisible(emrReject,canReject);
-                	plugin.SetCommandVisible(emrDocDelete,canDelete);
-                	plugin.SetCommandVisible(emrRefreshDiagnosis,canEdit);
-                	plugin.SetCommandVisible(emrRefreshMacro,canEdit);
-                	plugin.SetCommandVisible(emrImageLibraries,canEdit);
-                	plugin.SetCommandVisible(emrStartApprove,canStartApprove);
-                	plugin.SetCommandVisible(emrApprove,canApprove);
-                	plugin.SetCommandVisible(emrAuditRevoke,canCancelApprove);
-            	}
-            }else{
-            	plugin.SetCommandEnable(emrDocProperty,false);
-            	plugin.SetCommandEnable(emrRevoke,false);
+        		plugin.SetCommandEnable(emrSave,true);
+            	plugin.SetCommandVisible(emrSubmit,false);
+            	plugin.SetCommandVisible(emrRevoke,false);
             	plugin.SetCommandVisible(emrReject,false);
-            	plugin.SetCommandEnable(emrDocDelete,false);
+            	plugin.SetCommandVisible(emrDocDelete,false);
+            	plugin.SetCommandVisible(emrRefreshDiagnosis,false);
+            	plugin.SetCommandVisible(emrRefreshMacro,false);
+            	
             	plugin.SetCommandVisible(emrStartApprove,false);
             	plugin.SetCommandVisible(emrApprove,false);
             	plugin.SetCommandVisible(emrAuditRevoke,false);
+            	if(opType=='readonly'){
+            		plugin.SetCommandVisible(emrPrintSelected,false);
+            		plugin.SetCommandVisible(emrSave,canUpdate);
+                	plugin.SetCommandVisible(emrSubmit,false);
+                	plugin.SetCommandVisible(emrRevoke,false);
+                	plugin.SetCommandVisible(emrReject,false);
+                	plugin.SetCommandVisible(emrDocDelete,false);
+                	plugin.SetCommandVisible(emrRefreshDiagnosis,false);
+                	plugin.SetCommandVisible(emrRefreshMacro,false);
+                	plugin.SetCommandVisible(emrImageLibraries,false);
+                	plugin.SetCommandVisible(emrStartApprove,false);
+                	plugin.SetCommandVisible(emrApprove,false);
+                	plugin.SetCommandVisible(emrAuditRevoke,false);
+            	}
+            }else{
+            	plugin.SetCommandVisible(emrDocProperty,false);
+            	plugin.SetCommandVisible(emrRevoke,false);
+            	plugin.SetCommandVisible(emrReject,false);
+            	plugin.SetCommandVisible(emrDocDelete,false);
+            	plugin.SetCommandVisible(emrStartApprove,false);
+            	plugin.SetCommandVisible(emrApprove,false);
+            	plugin.SetCommandVisible(emrAuditRevoke,false);
+            	plugin.SetCommandVisible(emrSubmit,false);
+            	plugin.SetCommandVisible(emrRefreshMacro,false);
+            	plugin.SetCommandVisible(emrSaveAsTemplate,false);
+            	plugin.SetCommandVisible(emrSaveAsTemplate,false);
 //            	plugin.SetCommandEnable(emrContinuePrint,false);
             }
         	/*
@@ -125,14 +132,14 @@ Ext.define('iih.mr.wr.mr.action.DisabledOfficeToolBarAction', {
             	plugin.SetCommandVisible(emrContinuePrint,false);
         	}*/
         	plugin.UpdateToolbar();
-        	var count=me.getOwner().count;
-            console.log(count);
-            if(count&&count==3){
-            	console.log('----------plugin.EnableOCX(true);---------'+count);
+//        	var count=me.getOwner().count;
+//            console.log(count);
+//            if(count&&count==3){
+//            	console.log('----------plugin.EnableOCX(true);---------'+count);
             	plugin.EnableOCX(true);
-            }else{
-            	me.getOwner().count=count+1;
-            }
+//            }else{
+//            	me.getOwner().count=count+1;
+//            }
         },750);
 //        Ext.MessageBox.hide();
     }

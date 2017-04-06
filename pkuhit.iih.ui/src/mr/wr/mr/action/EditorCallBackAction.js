@@ -83,8 +83,8 @@ Ext.define('iih.mr.wr.mr.action.EditorCallBackAction', {
                 return;
             }
             //设置编辑器按钮状态
-//    		var disabledOfficeToolBarAction=self.getOwner().getActionChain("disabledOfficeToolBarAction");
-//    		disabledOfficeToolBarAction.execute();
+    		var disabledOfficeToolBarAction=self.getOwner().getActionChain("disabledOfficeToolBarAction");
+    		disabledOfficeToolBarAction.execute();
     		//判断是否为审签模式
     		var medicalRecord=self.getOwner().medicalRecord;
     		setTimeout(function() {
