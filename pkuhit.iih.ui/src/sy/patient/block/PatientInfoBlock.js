@@ -83,7 +83,7 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        fieldLabel:'入院日期',
 		        allowBlank:false,
 		        blankText : '不能为空',
-		        width:160,
+		        width:180,
 		        name:'admissionDate',
 		        listeners: {
 					change: function( v, newValue, oldValue, eOpts ) {
@@ -115,7 +115,7 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        fieldLabel:'姓名',
 		        allowBlank:false,
 		        blankText : '不能为空',
-		        width:150,
+		        width:200,
 		       // id:'parentName',
 		        name:'patientName',
 		        initComponent:function(){         
@@ -160,7 +160,7 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				colspan: 2,
 				padding:'5 20 0 5',
 		        labelWidth:50,
-		        width:160,
+		        width:188,
 //		        id:'age',
 		        name:'age',
 		        allowBlank:false,
@@ -272,7 +272,7 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				padding:'5 0 0 5',
 		        labelWidth:50,
 		        fieldLabel:'治疗史',
-		        width:495,
+		        width:485,
 		        name:'treatmentHistory'
 			},{
 				xtype:'xaptextfield',
@@ -295,7 +295,7 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				colspan: 12,
 				padding:'5 20 0 5',
 		        labelWidth:70,
-		        width:1020,
+		        width:1045,
 		        name:'adress',
 		        allowBlank:false,
 		        blankText : '不能为空',
@@ -320,7 +320,7 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				xtype:'xaptextfield',
 				colspan: 6,
 				padding:'5 20 0 5',
-				width:495,
+				width:485,
 		        name:'otherContact',
 		        labelWidth:100,
 		        fieldLabel:'QQ/微信/E-mail'
