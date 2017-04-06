@@ -19,8 +19,8 @@ Ext.define('iih.po.com.block.PortalBlock', {
         region:'west',
         xtype: 'functionnavigationblock',
         split: false,
-        header:false,
-        collapsible: false,
+        header:true,
+        collapsible: true,
         collapseMode: 'undefined',
         width: 250
     }, {
