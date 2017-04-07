@@ -28,9 +28,10 @@ Ext.define('iih.po.com.view.WorkPageView', {
                 },
                 header: false,
                 layout: 'fit',
-                border: true,
+                border: false,
                 padding: '1 1 1 1',
-                height:32
+              
+                height:0
             }
         },
 
