@@ -165,6 +165,10 @@ import xap.sv.annotation.Column;
     Short delF;
     
     String flag;
+    
+    //诊断
+    @Column(name = "DIAGNOSIS")
+    String diagnosis;
 
 	public String getPatientId() {
 		return patientId;
@@ -510,4 +514,11 @@ import xap.sv.annotation.Column;
 		this.flag = flag;
 	}
 	
+	public String getDiagnosis() {
+		return diagnosis;
+	}
+
+	public void setDiagnosis(String diagnosis) {
+		this.diagnosis = diagnosis;
+	}
 }
