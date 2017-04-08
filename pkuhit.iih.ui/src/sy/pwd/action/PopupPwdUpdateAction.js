@@ -5,7 +5,7 @@ Ext.define('iih.sy.pwd.action.PopupPwdUpdateAction', {
 	
 	execute: function(context){
 		var owner = this.getOwner();
-		var blockTitle = '密码修改aaa';
+		var blockTitle = '密码修改';
 		
 		var config = {
 				title:blockTitle,
