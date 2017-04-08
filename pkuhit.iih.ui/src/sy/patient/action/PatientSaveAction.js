@@ -4,7 +4,7 @@ Ext.define('iih.sy.patient.action.PatientSaveAction', {
 	/*
 	* @Override
 	*/
-	execute: function(context) {   
+	execute: function(context) { 
     	var owner = this.getOwner();
     	//var userId = IMER_GLOBAL.user.code;
 		var block = this.getBlock('content');
@@ -93,10 +93,10 @@ Ext.define('iih.sy.patient.action.PatientSaveAction', {
     	var owner = this.getOwner();
     	var chain = owner.getActionChain('cancel');
     		chain.execute();
-    	/*
-    	var view = this.up('patientleftlistview');
-    	var chain = owner.getActionChain('init');
-        	chain.execute();*/
+    		
+		var patientleftlistview = Ext.getCmp('patientleftlistview');
+    	var chain = patientleftlistview.getActionChain('init');
+        	chain.execute();
     },
     editFail: function(operation) {
         XapMessageBox.info('修改失败!');
