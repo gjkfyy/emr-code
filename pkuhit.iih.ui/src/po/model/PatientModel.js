@@ -3,6 +3,7 @@ Ext.define("iih.po.model.PatientModel",{
 	alias:'widget.patientmodel',
 	fields: ['pk',
 	         'inpatientNo',
+	         'diagnosis',
 	         'encounterTypeCode',
 	         'encounterStatusCode',
 	         'patientId',
