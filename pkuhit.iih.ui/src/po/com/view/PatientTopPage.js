@@ -38,7 +38,7 @@ Ext.define('iih.po.com.view.PatientTopPage', {
     			'<div class="inpatienttop-border-div" style="margin-left:5px">',
 				'<table height = "48" border = 0>',
 				'<tr align = "left">',
-				    '<td>入院诊断：</td><td colspan=3>{currentMainDiagnosisName}&nbsp</td>',
+				    '<td>入院诊断：</td><td colspan=3>{diagnosis}&nbsp</td>',
 				'</tr>',
 				'<tr align = "left">',
 				    '<td>住院号：</td><td>{inpatientNo}</td>',
