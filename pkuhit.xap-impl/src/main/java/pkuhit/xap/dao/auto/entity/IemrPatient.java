@@ -179,6 +179,10 @@ public class IemrPatient {
 	    //删除标识
 	    @Column(name = "DEL_F")
 	    Short delF;
+	    
+	    //诊断
+	    @Column(name = "DIAGNOSIS")
+	    String diagnosis;
 
 		public String getPatientId() {
 			return patientId;
@@ -507,5 +511,15 @@ public class IemrPatient {
 		public void setDelF(Short delF) {
 			this.delF = delF;
 		}
+
+		public String getDiagnosis() {
+			return diagnosis;
+		}
+
+		public void setDiagnosis(String diagnosis) {
+			this.diagnosis = diagnosis;
+		}
+		
+		
 		
 }
