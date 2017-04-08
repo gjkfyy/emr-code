@@ -15,7 +15,7 @@ Ext.define('iih.sy.patient.block.PatientLeftGridBlock', {
 		xtype : 'xapgrid',
 		name:'patientList',
 		// pageShow : true,
-		rownumShow : false,
+		rownumShow : true,
 		height : 470,
 		// selType:'checkboxmodel',
 		pageSize : 20,

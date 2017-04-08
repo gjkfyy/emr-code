@@ -53,84 +53,60 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				padding:'10 0 0 5',
 		        labelWidth:70,
 		        fieldLabel:'X片号',
-		        width:230,
+		        width:200,
 		        //id:'xpianNo',
 		        name:'xpianNo'
 			},{
 				xtype:'xaptextfield',
 				colspan: 3,
 				padding:'10 0 0 5',
-		        labelWidth:50,
-		        fieldLabel:'住院号',
+		        labelWidth:60,
+		        fieldLabel:'住院号<font color=red>*</font>',
 		        allowBlank:false,
 		        blankText : '不能为空',
 		        width:230,
 		        //id:'inpatientNo',
-		        name:'inpatientNo',
-		        initComponent:function(){         
-					if(this.allowBlank!==undefined && !this.allowBlank){ 
-						if(this.fieldLabel){ 
-							this.fieldLabel += '<font color=red>*</font>';             
-						}         
-					}         
-					this.callParent(arguments);     
-				}
+		        name:'inpatientNo'
 			},{
 				xtype:'xapdatefield',
-				colspan: 3,
+				colspan: 2,
 				padding:'5 0 0 5',
 		        labelWidth:60,
-		        fieldLabel:'入院日期',
+		        fieldLabel:'入院日期<font color=red>*</font>',
 		        allowBlank:false,
 		        blankText : '不能为空',
-		        width:180,
+		        width:186,
 		        name:'admissionDate',
 		        listeners: {
 					change: function( v, newValue, oldValue, eOpts ) {
 						var startDate = this.up('panel').down('xapdatefield[name=admissionDate]');
 						startDate.setMaxValue( this.getValue( ) );
 					}
-				},
-				initComponent:function(){         
-					if(this.allowBlank!==undefined && !this.allowBlank){ 
-						if(this.fieldLabel){ 
-							this.fieldLabel += '<font color=red>*</font>';             
-						}         
-					}         
-					this.callParent(arguments);     
 				}
 			},{
-				xtype: 'xapdisplayfield',
-				fieldLabel: '',
-				colspan:3,
-				width:10,
-				valign: 'left',
-				name:'',
-				value: ''
+				xtype:'xaptextfield',
+				colspan: 4,
+				padding:'5 0 0 5',
+		        labelWidth:100,
+		        fieldLabel:'入院诊断<font color=red>*</font>',
+		        allowBlank:false,
+		        blankText : '不能为空',
+		        width:230,
+		        name:'diagnosis'
 			},{
 				xtype:'xaptextfield',
 				colspan: 2,
 				padding:'5 0 0 5',
 		        labelWidth:70,
-		        fieldLabel:'姓名',
+		        fieldLabel:'姓名<font color=red>*</font>',
 		        allowBlank:false,
 		        blankText : '不能为空',
 		        width:200,
-		       // id:'parentName',
-		        name:'patientName',
-		        initComponent:function(){         
-					if(this.allowBlank!==undefined && !this.allowBlank){ 
-						if(this.fieldLabel){ 
-							this.fieldLabel += '<font color=red>*</font>';             
-						}         
-					}         
-					this.callParent(arguments);     
-				}
+		        name:'patientName'
 			},{
 	        	xtype:'xapcombobox',
-		       // id:'sex',
 		        name:'sex',
-	            fieldLabel:'性别',
+	            fieldLabel:'性别<font color=red>*</font>',
 	            padding:'5 0 0 5',
 	            colspan: 2,
 	            width:150,
@@ -143,7 +119,7 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 	            ],
 	            displayField: 'value',
 	            valueField: 'code',
-//		        allowBlank:false,
+		        allowBlank:false,
 		        blankText : '不能为空',
 	            editable:false,
 	            value:''
@@ -158,27 +134,19 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 			},{
 				xtype:'xaptextfield',
 				colspan: 2,
-				padding:'5 20 0 5',
-		        labelWidth:50,
-		        width:188,
+				padding:'5 0 0 5',
+		        labelWidth:60,
+		        width:186,
 //		        id:'age',
 		        name:'age',
 		        allowBlank:false,
 		        blankText : '不能为空',
 	            editable:false,
-		        fieldLabel:'年龄',
-		        initComponent:function(){         
-					if(this.allowBlank!==undefined && !this.allowBlank){ 
-						if(this.fieldLabel){ 
-							this.fieldLabel += '<font color=red>*</font>';             
-						}         
-					}         
-					this.callParent(arguments);     
-				}
+		        fieldLabel:'年龄<font color=red>*</font>'
 			},{
 				xtype:'xaptextfield',
 				colspan: 4,
-				padding:'5 0 0 0',
+				padding:'5 0 0 5',
 		        labelWidth:100,
 		        width:230,
 		        name:'nation',
@@ -189,7 +157,7 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				padding:'5 0 0 5',
 		        labelWidth:70,
 		        fieldLabel:'胎次',
-		        width:230,
+		        width:200,
 		        name:'parity'
 			},{
 	        	xtype:'xapcombobox',
@@ -214,14 +182,15 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				xtype:'xaptextfield',
 				colspan: 2,
 				padding:'5 0 0 5',
-		        labelWidth:50,
-		        width:160,
+		        labelWidth:60,
+		        width:186,
 		        name:'occupation',
+		        labelAlign:'right',
 		        fieldLabel:'职业'
 			},{
 				xtype:'xaptextfield',
 				colspan: 4,
-				padding:'5 0 0 0',
+				padding:'5 0 0 5',
 		        labelWidth:100,
 		        width:230,
 		        name:'education',
@@ -232,7 +201,7 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				padding:'5 0 0 5',
 		        labelWidth:70,
 		        fieldLabel:'发病年龄',
-		        width:230,
+		        width:200,
 		        name:'onsetAge'
 			},{
 				xtype:'xaptextfield',
@@ -246,14 +215,15 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				xtype:'xaptextfield',
 				colspan: 2,
 				padding:'5 0 0 5',
-		        labelWidth:50,
+		        labelWidth:60,
+		        labelAlign:'right',
 		        fieldLabel:'家族史',
-		        width:160,
+		        width:186,
 		        name:'familyHistory'
 			},{
 				xtype:'xaptextfield',
 				colspan: 4,
-				padding:'5 0 0 0',
+				padding:'5 0 0 5',
 		        labelWidth:100,
 		        fieldLabel:'供史者',
 		        width:230,
@@ -264,15 +234,15 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				padding:'5 0 0 5',
 		        labelWidth:70,
 		        fieldLabel:'病史',
-		        width:495,
+		        width:525,
 		        name:'medicalHistory'
 			},{
 				xtype:'xaptextfield',
 				colspan: 6,
 				padding:'5 0 0 5',
-		        labelWidth:50,
+		        labelWidth:60,
 		        fieldLabel:'治疗史',
-		        width:485,
+		        width:470,
 		        name:'treatmentHistory'
 			},{
 				xtype:'xaptextfield',
@@ -295,32 +265,24 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				colspan: 12,
 				padding:'5 20 0 5',
 		        labelWidth:70,
-		        width:1045,
+		        width:1020,
 		        name:'adress',
 		        allowBlank:false,
 		        blankText : '不能为空',
-		        fieldLabel:'联系地址',
-		        initComponent:function(){         
-					if(this.allowBlank!==undefined && !this.allowBlank){ 
-						if(this.fieldLabel){ 
-							this.fieldLabel += '<font color=red>*</font>';             
-						}         
-					}         
-					this.callParent(arguments);     
-				}
+		        fieldLabel:'联系地址<font color=red>*</font>'
 			},{
 				xtype:'xaptextfield',
 				colspan: 6,
 				padding:'5 20 0 5',
 		        labelWidth:70,
-		        width:495,
+		        width:525,
 		        name:'tel',
 		        fieldLabel:'手机号码'
 			},{
 				xtype:'xaptextfield',
 				colspan: 6,
 				padding:'5 20 0 5',
-				width:485,
+				width:470,
 		        name:'otherContact',
 		        labelWidth:100,
 		        fieldLabel:'QQ/微信/E-mail'
@@ -361,7 +323,7 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				fieldLabel:'',
 				colspan:1,
 				width:5,
-				valign:'left',
+				valueAlign:'left',
 				name:'HighUnit',
 				value: 'cm'
 			},{
@@ -387,7 +349,7 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				padding:'5 20 0 5',
 		        labelWidth:60,
 		        fieldLabel:'专科检查',
-		        width:160,
+		        width:120,
 		        name:'specialityExam',
 		        displayField: 'parentName'
 			},{
@@ -404,7 +366,7 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				xtype:'xapcheckbox',
 				colspan: 2,
 				padding:'5 20 0 5',
-		        labelWidth:30,
+		        labelWidth:40,
 		        labelAlign:'right',
 		        fieldLabel:'录像',
 		        width:150,

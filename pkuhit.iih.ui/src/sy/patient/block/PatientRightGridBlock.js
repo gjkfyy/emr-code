@@ -39,13 +39,13 @@ Ext.define('iih.sy.patient.block.PatientRightGridBlock',
 														text: '新建病例',
 														iconCls: 'icon-Create',
 														method: 'createDoc'        
-													},{
+													}/*,{
 														xtype: 'button',
 														text: '打开',
 														iconCls: 'icon-Open',
 														valign : 'left'
 											        
-											        }/*,{
+											        },{
 														xtype: 'button',
 														text: '诊断',
 														disabled: true,
@@ -66,7 +66,7 @@ Ext.define('iih.sy.patient.block.PatientRightGridBlock',
 											width: '100%',
 											pageSize : 20,
 											pageNum : 1,
-											rownumShow : false,
+											rownumShow : true,
 											height : 476,
 											pageShow : true,
 											ifSelect: false,
