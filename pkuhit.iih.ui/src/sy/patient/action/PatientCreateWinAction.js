@@ -21,7 +21,7 @@ Ext.define('iih.sy.patient.action.PatientCreateWinAction', {
     			xtype: 'patientcreateview'
     		}
     	};
-	    
+	    IMER_GLOBAL.portal.code = IMER_CONSTANT.PORTAL_CD_1001;
 	    this.callParent([config]);
     }
 });
