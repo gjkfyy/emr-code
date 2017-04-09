@@ -421,7 +421,7 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 			},{
 				xtype: 'xapdisplayfield',
 				fieldLabel: '',
-				colspan:4,
+				colspan:12,
 				width:10,
 				valign: 'center',
 				id : 'flag',
@@ -431,13 +431,32 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 			},{
 				xtype: 'xapdisplayfield',
 				fieldLabel: '',
-				colspan:4,
+				colspan:12,
 				width:10,
 				valign: 'center',
 				id:'patientId',
 				name:'patientId',
 				value: '',
 				hidden : true
+			},{
+				xtype: 'xapdisplayfield',
+				fieldLabel: '',
+				colspan:12,
+//				vertical: true,
+				width:10,
+				valign: 'left',
+				name:'',
+				value: ''
+			},
+			{
+				xtype: 'xapdisplayfield',
+				fieldLabel: '',
+				colspan:12,
+//				vertical: true,
+				width:10,
+				valign: 'left',
+				name:'',
+				value: ''
 			}],
 			setData: function(data) {
 			    this.callParent(arguments);

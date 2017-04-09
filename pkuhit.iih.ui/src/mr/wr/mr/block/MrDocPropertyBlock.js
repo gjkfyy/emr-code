@@ -64,7 +64,7 @@ Ext.define('iih.mr.wr.mr.block.MrDocPropertyBlock',{
 	},*/{
 		xtype:'xaptextfield',
 		name:'mrNm',
-		fieldLabel:'病历标题',
+		fieldLabel:'病例标题',
 		labelWidth:60,
 		width:516,
 		colspan:2,

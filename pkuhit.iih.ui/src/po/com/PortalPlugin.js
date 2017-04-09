@@ -421,7 +421,7 @@ Ext.define('iih.po.com.PortalPlugin', {
              },{
                  cd:'XAPM07.69',
                  baseMenu: true,
-                 text:'病历书写11',
+                 text:'病历书写',
                  xclass:'iih.mr.wr.omr.view.OutMrWriteView',
                  viewConfig:{},
                  assistantConfig:{}
@@ -437,7 +437,7 @@ Ext.define('iih.po.com.PortalPlugin', {
              },*/{
                  cd:'XAPM07.81',
                  baseMenu: true,
-                 text:'病历书写22',
+                 text:'病历书写',
                  xclass:'iih.mr.wr.omr.view.OutMrWriteView',
                  viewConfig:{},
                  itemView:{
