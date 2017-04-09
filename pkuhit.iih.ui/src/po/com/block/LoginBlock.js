@@ -83,7 +83,7 @@ Ext.define('iih.po.com.block.LoginBlock',{
 			bodyStyle:'background:#FCFCFC'
 			
 		},{
-			html:'<div style=\'width:400px;margin:0 0 0 30px;background:#FCFCFC;color:#0097ca;font-weight:bold;font-size:36px;\'>病例管理系统V1.0</div>',
+			html:'<div style=\'width:400px;margin:0 0 0 30px;background:#FCFCFC;\'><span style=\'color:#0097ca;font-weight:bold;font-size:36px;\'>病例管理系统</span><span style=\'color:#0097ca;font-size:25px;\'>&nbsp;V1.0</span></div>',
 			border:0,
 			colspan:16,
 			margin:'0 0 20 0',
