@@ -21,7 +21,7 @@
 	BODY_LEFT_PADDING: '0 5 0 0',
 	
 	SYSTEMNAME: '病例管理系统V1.0',
-	VERSION: '(版本2.2.2.75.20170101)',
+	VERSION: '',
 	IP: '(Server:localhost:8081)',
 
 	//CLIENT: 'browser',
