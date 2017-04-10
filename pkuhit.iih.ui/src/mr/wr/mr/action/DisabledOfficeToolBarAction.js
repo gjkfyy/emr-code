@@ -90,7 +90,7 @@ Ext.define('iih.mr.wr.mr.action.DisabledOfficeToolBarAction', {
             	plugin.SetCommandVisible(emrSubmit,false);
             	plugin.SetCommandVisible(emrRevoke,false);
             	plugin.SetCommandVisible(emrReject,false);
-            	plugin.SetCommandVisible(emrDocDelete,false);
+            	plugin.SetCommandVisible(emrDocDelete,true);
             	plugin.SetCommandVisible(emrRefreshDiagnosis,false);
             	plugin.SetCommandVisible(emrRefreshMacro,false);
             	

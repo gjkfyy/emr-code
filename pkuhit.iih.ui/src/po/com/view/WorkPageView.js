@@ -29,7 +29,7 @@ Ext.define('iih.po.com.view.WorkPageView', {
                 header: false,
                 layout: 'fit',
                 border: false,
-                padding: '1 1 1 1',
+                padding: '0 0 0 0',
               
                 height:0
             }
