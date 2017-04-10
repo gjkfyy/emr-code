@@ -41,7 +41,7 @@ Ext.define('iih.mr.tm.bas.action.DisabledOfficeToolBarAction', {
         }
         var plugin = document.getElementById('iemrEditor');
         setTimeout(function() {
-        	plugin.SetCommandVisible(emrStartApprove,false);
+        	plugin.SetCommandVisible(emrStartApprove,true);
         	plugin.SetCommandVisible(emrSaveAsTemplate,false);
         	plugin.SetCommandVisible(emrSaveAs,false);
         	plugin.SetCommandVisible(emrRefreshOutpatientDisposal,false);
