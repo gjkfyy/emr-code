@@ -1,6 +1,6 @@
 Ext.define('iih.sy.patient.block.PatientRightGridBlock',
 		{extend : 'Xap.ej.block.Block',
-		requires : [ 'Xap.ej.element.grid.Grid' ],
+		requires : [ 'Xap.ej.element.grid.Grid','Xap.ej.element.grid.column.Date' ],
 		alias : 'widget.patientrightgridblock',
 		layout : {      
 						type : 'table',
@@ -36,7 +36,7 @@ Ext.define('iih.sy.patient.block.PatientRightGridBlock',
 								            margin  : '0 0 0 0',  
 											height:30,
 											items: [{                   
-														text: '新建病历',
+														text: '新建病例',
 														iconCls: 'icon-Create',
 														method: 'createDoc'        
 													},{
@@ -76,13 +76,13 @@ Ext.define('iih.sy.patient.block.PatientRightGridBlock',
 												hidden:true,
 												flex : 1
 											},{
-												header : '病历类型',
+												header : '病例类型',
 												dataIndex : 'typeName',
 												field : 'textfield',
 												type : 'string',
 												flex : 1
 											}, {
-												header : '病历名称',
+												header : '病例名称',
 												dataIndex : 'name',
 												field : 'textfield',
 												type : 'string',
@@ -97,7 +97,7 @@ Ext.define('iih.sy.patient.block.PatientRightGridBlock',
 												header : '书写时间',
 												dataIndex : 'createTime',
 												field : 'textfield',
-												type : 'string',
+												type : 'xapdatecolumn',
 												flex : 1
 											}, {
 												header : '最后更新人',
@@ -109,9 +109,9 @@ Ext.define('iih.sy.patient.block.PatientRightGridBlock',
 												header : '最后更新时间',
 												dataIndex : 'lastUpdTime',
 												field : 'textfield',
-												type : 'string',
+												type : 'xapdatecolumn',
 												flex : 1
-											}, {
+											}/*, {
 												header : '审签人',
 												dataIndex : 'signLevelName',
 												field : 'textfield',
@@ -123,7 +123,7 @@ Ext.define('iih.sy.patient.block.PatientRightGridBlock',
 												field : 'textfield',
 												type : 'string',
 												flex : 1
-											}]
+											}*/]
 											
 									}]
 									
