@@ -30,11 +30,11 @@ Ext.define('iih.sy.patient.action.OpenMrDocAction', {
                         //mrCd:condition
                         mrSn:pk,
                         opType:opType
-                    }
-                   // assistantConfig:{
-                   //     tgtObCd: 'MRB02',
-                  //      tgtObPk: pk
-                   // }
+                    }/*,
+                    assistantConfig:{
+                        tgtObCd: 'MRB02',
+                        tgtObPk: pk
+                    }*/
             };       
             canvas.fireEvent("addWorkPage",config);
         }else {

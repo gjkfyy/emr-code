@@ -1,6 +1,6 @@
 Ext.define('iih.sy.patient.block.PatientRightGridBlock',
 		{extend : 'Xap.ej.block.Block',
-		requires : [ 'Xap.ej.element.grid.Grid','Xap.ej.element.grid.column.Date' ],
+		requires : [ 'Xap.ej.element.grid.Grid' ],
 		alias : 'widget.patientrightgridblock',
 		layout : {      
 						type : 'table',
@@ -18,7 +18,7 @@ Ext.define('iih.sy.patient.block.PatientRightGridBlock',
 					},
 					
 					items: [{
-										title : '已书写病例',
+										title : '已书写文书',
 										layout: {
 											type:'vbox',
 									        align: 'stretch',
@@ -36,29 +36,17 @@ Ext.define('iih.sy.patient.block.PatientRightGridBlock',
 								            margin  : '0 0 0 0',  
 											height:30,
 											items: [{                   
-														text: '新建病例',
+														text: '新建病历',
 														iconCls: 'icon-Create',
 														method: 'createDoc'        
-													}/*,{
+													},{
 														xtype: 'button',
-														text: '打开',
-														iconCls: 'icon-Open',
+														text: '删除',
+														iconCls: 'icon-Delete',
+														method: 'delDoc' ,
 														valign : 'left'
 											        
-											        },{
-														xtype: 'button',
-														text: '诊断',
-														disabled: true,
-														iconCls: 'icon-Diagnosis',
-														valign : 'left'
-											        
-											        },{
-														xtype: 'button',
-														text: '随访',
-														disabled: true,
-														iconCls: 'icon-enable',
-														valign : 'left'
-											        }*/]
+											        }]
 										},{
 											xtype : 'xapgrid',
 											name:'docList',
@@ -66,7 +54,7 @@ Ext.define('iih.sy.patient.block.PatientRightGridBlock',
 											width: '100%',
 											pageSize : 20,
 											pageNum : 1,
-											rownumShow : true,
+											rownumShow : false,
 											height : 476,
 											pageShow : true,
 											ifSelect: false,
@@ -88,13 +76,13 @@ Ext.define('iih.sy.patient.block.PatientRightGridBlock',
 												hidden:true,
 												flex : 1
 											},{
-												header : '病例类型',
+												header : '病历类型',
 												dataIndex : 'typeName',
 												field : 'textfield',
 												type : 'string',
 												flex : 1
 											}, {
-												header : '病例名称',
+												header : '病历名称',
 												dataIndex : 'name',
 												field : 'textfield',
 												type : 'string',
@@ -109,7 +97,7 @@ Ext.define('iih.sy.patient.block.PatientRightGridBlock',
 												header : '书写时间',
 												dataIndex : 'createTime',
 												field : 'textfield',
-												xtype: 'xapdatecolumn',
+												type : 'string',
 												flex : 1
 											}, {
 												header : '最后更新人',
@@ -121,9 +109,9 @@ Ext.define('iih.sy.patient.block.PatientRightGridBlock',
 												header : '最后更新时间',
 												dataIndex : 'lastUpdTime',
 												field : 'textfield',
-												xtype: 'xapdatecolumn',
+												type : 'string',
 												flex : 1
-											}/*, {
+											}, {
 												header : '审签人',
 												dataIndex : 'signLevelName',
 												field : 'textfield',
@@ -135,7 +123,7 @@ Ext.define('iih.sy.patient.block.PatientRightGridBlock',
 												field : 'textfield',
 												type : 'string',
 												flex : 1
-											}*/]
+											}]
 											
 									}]
 									

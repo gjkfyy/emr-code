@@ -5,6 +5,7 @@ Ext.define('iih.sy.patient.view.PatientRightView', {
                'iih.sy.patient.block.PatientRightBlock',
                'iih.sy.patient.action.OutMrDocEditAction',
                'iih.sy.patient.action.PatientRightListAction',
+               'iih.sy.patient.action.OpenMrDocAction',
                'iih.sy.patient.action.PatientRightSearchAction'],
     alias: 'widget.patientrightview',
     id:'patientrightview',
@@ -29,18 +30,27 @@ Ext.define('iih.sy.patient.view.PatientRightView', {
 					result: 'result'
 				}
 			},
-			'openMrDocAction': {
+        	'openMrDocAction': {
 				xclass: 'iih.sy.patient.action.OpenMrDocAction',
 				url: 'omr',
 				blocks: {
 					result: 'result'
 				}
+			},
+        	'delMrDocAction': {
+				xclass: 'iih.sy.patient.action.DelMrDocAction',
+				url: 'omr',
+				blocks: {
+					result: 'result'
+				}
 			}
+        
         },
        
         chains: {
             'init': ['init'],
-            'openMrDocAction':['openMrDocAction']
+            'openMrDocAction':['openMrDocAction'],
+            'delDoc':['delMrDocAction']
         },
 
         connections: {
@@ -52,7 +62,11 @@ Ext.define('iih.sy.patient.view.PatientRightView', {
 				selector : 'xapgrid',
 				event : 'itemdblclick',
 				chain : 'openMrDocAction'
-	    	},{
+			},{
+                selector: 'button[method=delDoc]',
+                event: 'click',
+                chain: 'delDoc'
+            },{
 				event: 'afterrender',
 				chain: 'init'
 			}]

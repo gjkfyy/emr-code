@@ -70,7 +70,7 @@ Ext.define('iih.sy.patient.action.PatientRightSearchAction', {
         // TODO 数据格式就这样了？
         if(operation.result){
 	        resultData=operation.result;
-	        resultData.pageSize=operation.result.pageSize;
+	        resultData.pageSize=pageSize;
     	 	block.setData(resultData);
         }else{
        	 	block.setData(null);
