@@ -97,7 +97,7 @@ Ext.define('iih.sy.patient.block.PatientRightGridBlock',
 												header : '书写时间',
 												dataIndex : 'createTime',
 												field : 'textfield',
-												type : 'xapdatecolumn',
+												xtype : 'xapdatecolumn',
 												flex : 1
 											}, {
 												header : '最后更新人',
@@ -109,7 +109,7 @@ Ext.define('iih.sy.patient.block.PatientRightGridBlock',
 												header : '最后更新时间',
 												dataIndex : 'lastUpdTime',
 												field : 'textfield',
-												type : 'xapdatecolumn',
+												xtype : 'xapdatecolumn',
 												flex : 1
 											}/*, {
 												header : '审签人',
