@@ -33,7 +33,7 @@ Ext.define('iih.sy.patient.action.DelMrDocAction', {
     },
     onSuccess: function(operation) {
         var owner = this.getOwner();
-        
+    	XapMessageBox.info('删除成功');
         var init = owner.getActionChain('init');
         if(init) {
         	init.execute();
