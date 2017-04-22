@@ -23,7 +23,7 @@ Ext.define('iih.sy.followup.action.FollowUpListSearchAction', {
 		var pageNum = data.pageNum; 
 		var pageSize = data.pageSize;   
         var url = this.url;    
-        url +='?' + "99&pageNum="+ pageNum +"&pageSize="+ pageSize;
+        url +='?' + "&pageNum="+ pageNum +"&pageSize="+ pageSize;
         var METHODS = this.getInvocationMethods();
         var operation = {
             url: url,
