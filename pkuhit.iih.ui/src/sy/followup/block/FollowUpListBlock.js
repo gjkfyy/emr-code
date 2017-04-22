@@ -101,13 +101,13 @@ Ext.define('iih.sy.followup.block.FollowUpListBlock', {
 	            colspan: 3,
 		        labelWidth:60,
 		        //name:'marriage',
-		        width:150,
+		        width:120,
 	            labelAlign:'right',
 	            comboData : [
 	    			 {"code":'1', "value":"最近14天"},
 	                 {"code":'0', "value":"前7天"},
 	                 {"code":'0', "value":"后7天"},
-	                 {"code":'0', "value":"全部"}
+	                 {"code":'0', "value":"全部时间"}
 	            ],
 	            displayField: 'value',
 	            valueField: 'code',
@@ -154,7 +154,7 @@ Ext.define('iih.sy.followup.block.FollowUpListBlock', {
 			},{
 				xtype: 'button',
 				text: '导出excel',
-				iconCls: 'icon-Search',
+				iconCls: 'icon-Excel',
 				action: 'search'
 			}],
 	
