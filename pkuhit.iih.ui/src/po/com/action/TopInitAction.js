@@ -91,9 +91,9 @@ Ext.define('iih.po.com.action.TopInitAction', {
             handler:function(btn,e){
                 var top = this.up('topview');
                 var chain = top.getActionChain('topBaseButtons');
-               /* chain.execute({
-                    action: 'minimum'
-                });*/
+                chain.execute({
+                    action: 'followUp'
+                });
             }
         });
         switchBtn.add(fumBtn);

@@ -19,6 +19,9 @@ Ext.define('iih.po.com.action.TopBaseButtonsAction', {
         case 'templateMgr':
         	this.selectPortal('XAPM06.03','病历模板管理');
         	break;
+        case 'followUp':
+        	this.selectPortal('XAPM06.1003','随访管理');
+        	break;	
         case 'minimum':
             global.mainWindow = gui.Window.get();
             if (global && global.mainWindow) {
