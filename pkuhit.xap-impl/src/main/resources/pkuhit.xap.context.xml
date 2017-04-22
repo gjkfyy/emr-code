@@ -216,6 +216,9 @@
 	<bean id="orgEmpDeptService" class="pkuhit.org.OrgEmpDeptServiceImpl"></bean>
 	<xap:component name="orgEmpDeptService" target="orgEmpDeptService" />
 	
+	<bean id="followUpService" class="pkuhit.xap.ac.FollowUpServiceImpl"></bean>
+	<xap:component name="followUpService" target="followUpService" />
+	
 	<ctx:component-scan base-package="pkuhit.xap.dao" />
 	<ctx:component-scan base-package="pkuhit.org.dao" />
 
