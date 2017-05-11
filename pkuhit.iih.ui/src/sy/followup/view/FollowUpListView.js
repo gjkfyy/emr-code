@@ -25,20 +25,19 @@ Ext.define('iih.sy.followup.view.FollowUpListView',{
 					result: 'right'
 				}
 			}
-			},
-
+		},
 		chains: {		
 			'init': ['search']
-			
 		},
-
 		connections: {	
-		'right': [
-	            {	//翻页操作
+		'right': [{	//翻页操作
 						event: 'turnpage',
 						chain: 'init'
-				 }
-			]	
+				 }/*,{
+		                selector: 'toolbar button[action=search]',
+		                event: 'click',
+		                chain: 'search'
+		         }*/]	
            }
 	},
 	

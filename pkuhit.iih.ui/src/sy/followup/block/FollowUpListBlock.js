@@ -18,7 +18,7 @@ Ext.define('iih.sy.followup.block.FollowUpListBlock', {
 	//checkboxShow : true,
 	//simple点击行起作用，multi点击checkbox起作用
 	mode: 'simple',
-	//title: '基础模板列表',
+	//title: '',
 	autoScroll:true,
 	pageSize : 25,
 	pageShow : true,
@@ -28,7 +28,7 @@ Ext.define('iih.sy.followup.block.FollowUpListBlock', {
 
 	tbar:[{
 		    	xtype:'xapcombobox',
-	            name:'type',
+	            name:'fuType',
 	            fieldLabel:'',
 				padding:'5 0 0 5',
 		        labelWidth:10,
@@ -43,7 +43,7 @@ Ext.define('iih.sy.followup.block.FollowUpListBlock', {
 	            valueField: 'code',
 	            allowBlank:true,
 	            editable:false,
-	            value:'患者姓名'
+	            value:'patientName'
 			},{
 				xtype: 'xapdisplayfield',
 				fieldLabel: '',
@@ -54,13 +54,12 @@ Ext.define('iih.sy.followup.block.FollowUpListBlock', {
 				value: ':'
 			},{
 				xtype : 'xaptextfield',
-				id : 'value',
-				name : 'value',
+				name : 'fuValue',
 				labelWidth : 0,
 				width : 150,
 				align  : 'left',  
 				readOnly : false,
-				fieldStyle:'color:#c6c6c6',
+				fieldStyle:'',
 				value : '',
 				fieldLabel : '',
 				listeners:{
@@ -74,32 +73,31 @@ Ext.define('iih.sy.followup.block.FollowUpListBlock', {
 				width : 200,
 				align  : 'left',  
 				readOnly : false,
-				fieldStyle:'color:#c6c6c6',
+				fieldStyle:'',
 				value : '',
 				fieldLabel : '诊断'
 			},{
 		    	xtype:'xapcombobox',
-	            name:'marriage',
+	            name:'fuFlag',
 	            fieldLabel:'',
 				padding:'5 20 0 5',
 		        labelWidth:0,
-		        //name:'marriage',
 		        width:120,
 	            labelAlign:'right',
 	            comboData : [
 	    			 {"code":'all', "value":"全部随访状态"},
-	                 {"code":'0', "value":"待随访"},
-	                 {"code":'0', "value":"已随访"},
-	                 {"code":'0', "value":"已忽略"}
+	                 {"code":'1', "value":"待随访"},
+	                 {"code":'2', "value":"已随访"},
+	                 {"code":'3', "value":"已忽略"}
 	            ],
 	            displayField: 'value',
 	            valueField: 'code',
 	            allowBlank:true,
 	            editable:false,
-	            value:'全部随访状态'
+	            value:'all'
 			},{
 		    	xtype:'xapcombobox',
-	            name:'fuTime',
+	            name:'fuDate',
 	            fieldLabel:'',
 				padding:'5 0 0 5',
 		        labelWidth:0,
@@ -116,7 +114,7 @@ Ext.define('iih.sy.followup.block.FollowUpListBlock', {
 	            valueField: 'code',
 	            allowBlank:true,
 	            editable:false,
-	            value:'最近14天',
+	            value:'14',
 	            listeners: {
 					change: function( v, newValue, oldValue, eOpts ) {
 						var startField = this.up('panel').down('xapdatefield[name=startDate]');
@@ -160,7 +158,8 @@ Ext.define('iih.sy.followup.block.FollowUpListBlock', {
 		        fieldLabel:'',
 		        allowBlank:true,
 		        blankText : '',
-		        width:100,
+		        fieldStyle:'background:#e0dfdf',
+		        width:90,
 		        editable:false,
 		        readOnly:true,
 		        name:'startDate',
@@ -186,8 +185,9 @@ Ext.define('iih.sy.followup.block.FollowUpListBlock', {
 		        fieldLabel:'',
 //		        allowBlank:true,
 		        blankText : '不能为空',
-		        width:100,
+		        width:90,
 		        name:'endDate',
+		        fieldStyle:'background:#e0dfdf',
 		        value:new Date((new Date()).getTime()+7*24*60*60*1000),
 		        editable:false,
 		        readOnly:true/*,
@@ -201,12 +201,21 @@ Ext.define('iih.sy.followup.block.FollowUpListBlock', {
 				xtype: 'button',
 				text: '检索',
 				iconCls: 'icon-Search',
-				action: 'search'
+				//action: 'search',
+				handler:function(owner,tool){
+	                var view = this.up('followUpListView');
+	                var chain = view.getActionChain('init');
+	                var gridBlock = view.down('followUpListBlock');
+	                chain.execute({
+	                	pageNum:gridBlock.currentPage,
+	                	pageSize:gridBlock.pageSize
+	                });
+                }
 			},{
 				xtype: 'button',
 				text: '导出excel',
 				iconCls: 'icon-Excel',
-				action: 'search'
+				action: ''
 			}],
 	
 		CM_JR_Record : [ {
@@ -261,7 +270,7 @@ Ext.define('iih.sy.followup.block.FollowUpListBlock', {
 			xtype : 'xapdatecolumn',
 			flex : 1,
 			renderer : function(value) {
-				var v = Ext.Date.parse(value, 'time')
+				var v = Ext.Date.parse(value, 'time');
 				return Ext.Date.format(v, 'Y-m-d');
             }
 		},{
