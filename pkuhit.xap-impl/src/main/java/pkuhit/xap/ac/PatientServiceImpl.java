@@ -31,6 +31,8 @@ public class PatientServiceImpl implements PatientService
 		IemrPatient iemrPatient = new IemrPatient();
 		BeanCopyUtil.modelToEntity(iemrPatient, patient);
 		iemrPatient.setDelF((short)0);
+		//新建患者时默认都要随访
+		iemrPatient.setFuFlag("1");
 		iemrPatient.setPatientId(UUIDGenerator.getUUID());
 		iemrPatient.setCrtTime(new Timestamp(new Date().getTime()));
 		iemrPatient.setLastUpdTime(new Timestamp(new Date().getTime()));

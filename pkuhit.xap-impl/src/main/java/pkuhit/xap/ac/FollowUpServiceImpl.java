@@ -1,5 +1,8 @@
 package pkuhit.xap.ac;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -34,10 +37,52 @@ public class FollowUpServiceImpl implements FollowUpService
 		}
 		SelectOptions options = SelectOptions.get().offset((Integer.valueOf(pageNum) - 1) * Integer.valueOf(pageSize))
 				.limit(Integer.valueOf(pageSize)).count();
-		 //wangyanli add 添加参数 dctNsF 2016-11-8
-        String condition = getParamValue(params, "condition");
+		
+		//默认最近14天
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(new Date());
+		cal.add(Calendar.DAY_OF_MONTH, -7);
+		Date day7Before = cal.getTime();
+		String before7 = df.format(day7Before);
+		
+		cal.add(Calendar.DAY_OF_MONTH, +14);
+		Date day7After = cal.getTime();
+		String after7 = df.format(day7After);
+		
+		String fuDate = getParamValue(params, "fuDate");
+		String startDate = "2017-4-05";
+	    String endDate = "2017-4-09";
+		if("14".equalsIgnoreCase(fuDate)){
+			startDate = before7;
+			endDate = after7;
+		}else if("7".equalsIgnoreCase(fuDate)){
+			
+		}else if("-7".equalsIgnoreCase(fuDate)){
+			
+		}else if("all".equalsIgnoreCase(fuDate)){
+			startDate = null;
+			endDate = null;
+		}
+		
+		//患者姓名查询
+		String fuType = getParamValue(params, "fuType");
+		String fuValue = getParamValue(params, "fuValue");
+		String patientName = "";
+		String inpatientNo = "";
+		String tel = "";
+        if("patientName".equalsIgnoreCase(fuType)){
+        	patientName = fuValue;
+        }else if("inpatientNo".equalsIgnoreCase(fuType)){
+        	inpatientNo = fuValue;
+        }else if("tel".equalsIgnoreCase(fuType)){
+        	tel = fuValue;
+        }
+        
+        String diagnosis = getParamValue(params, "diagnosis");
+        String fuFlag = getParamValue(params, "fuFlag");
        
-        List<IemrPatient> list = imerPatientDao.selectIemrPatientList(condition,options);
+        List<IemrPatient> list = imerPatientDao.selectFollowUpList(startDate,endDate,patientName,inpatientNo,tel,diagnosis,fuFlag,options);
         
         //■　装配并返回
         ArrayResultBuilder<Patient> builder = ArrayResultBuilder.newArrayResult(Patient.class);
