@@ -10,6 +10,7 @@ import org.seasar.doma.jdbc.SelectOptions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 
+import pkuhit.iih.mr.tpl.MrBaseTemplate;
 import pkuhit.xap.dao.auto.IemrPatientDao;
 import pkuhit.xap.dao.auto.entity.IemrPatient;
 import pkuhit.xap.util.BeanCopyUtil;
@@ -57,9 +58,17 @@ public class FollowUpServiceImpl implements FollowUpService
 			startDate = before7;
 			endDate = after7;
 		}else if("7".equalsIgnoreCase(fuDate)){
-			
+			cal.add(Calendar.DAY_OF_MONTH, -6);
+			Date day1After = cal.getTime();
+			String after1 = df.format(day1After);
+			startDate = after1;
+			endDate = after7;
 		}else if("-7".equalsIgnoreCase(fuDate)){
-			
+			cal.add(Calendar.DAY_OF_MONTH, -8);
+			Date day1Before = cal.getTime();
+			String before1 = df.format(day1Before);
+			startDate = before7;
+			endDate = before1;
 		}else if("all".equalsIgnoreCase(fuDate)){
 			startDate = null;
 			endDate = null;
@@ -101,9 +110,12 @@ public class FollowUpServiceImpl implements FollowUpService
             size = patientList.length;
         }
         
-        ArrayResult<Patient> arrayResult = builder.build();
-        arrayResult.setTotal(Integer.valueOf(options.getCount()+""));
-        return arrayResult;
+        ArrayResult<Patient> ar = builder.build();
+        ar.setPageNum(Integer.valueOf(pageNum));
+        ar.setPageSize(Integer.valueOf(pageSize));
+        ar.setTotal(Integer.valueOf(options.getCount()+""));
+		
+        return ar;
 	}
 
 	 private Patient wrapData(IemrPatient imerPatient) {
