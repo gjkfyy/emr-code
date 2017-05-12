@@ -32,7 +32,7 @@ Ext.define('iih.po.com.block.LoginBlock',{
 	items:[
 	   {
 		xtype:'panel',
-		width:1024,
+		width:1050,
 		height:768,
 		layout: {
 			type: 'table',
