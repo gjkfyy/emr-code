@@ -15,7 +15,7 @@ Ext.define('iih.sy.followup.block.FollowUpListBlock', {
 		this.initBlock();
 	},
 	layout: 'fit',
-	//checkboxShow : true,
+	checkboxShow : true,
 	//simple点击行起作用，multi点击checkbox起作用
 	mode: 'simple',
 	//title: '',
@@ -63,8 +63,18 @@ Ext.define('iih.sy.followup.block.FollowUpListBlock', {
 				value : '',
 				fieldLabel : '',
 				listeners:{
-					
-				}
+		        	specialkey : function(field, e) {  
+		                if (e.getKey() == Ext.EventObject.ENTER) { 
+		                	var view = this.up('followUpListView');
+			                var chain = view.getActionChain('init');
+			                var gridBlock = view.down('followUpListBlock');
+			                chain.execute({
+			                	pageNum:gridBlock.currentPage,
+			                	pageSize:gridBlock.pageSize
+			                });
+		                }  
+		            }
+		        }
 			},{
 				xtype : 'xaptextfield',
 				id : 'diagnosis',
@@ -75,7 +85,20 @@ Ext.define('iih.sy.followup.block.FollowUpListBlock', {
 				readOnly : false,
 				fieldStyle:'',
 				value : '',
-				fieldLabel : '诊断'
+				fieldLabel : '诊断',
+				listeners:{
+		        	specialkey : function(field, e) {  
+		                if (e.getKey() == Ext.EventObject.ENTER) { 
+		                	var view = this.up('followUpListView');
+			                var chain = view.getActionChain('init');
+			                var gridBlock = view.down('followUpListBlock');
+			                chain.execute({
+			                	pageNum:gridBlock.currentPage,
+			                	pageSize:gridBlock.pageSize
+			                });
+		                }  
+		            }
+		        }
 			},{
 		    	xtype:'xapcombobox',
 	            name:'fuFlag',
@@ -365,13 +388,13 @@ Ext.define('iih.sy.followup.block.FollowUpListBlock', {
 				var afterDate = Ext.Date.format(cDate, 'Y-m-d');
 				console.log("hhh"+(preDate<v3m && v3m<afterDate));
 				if(preDate<v3m && v3m<afterDate){
-					return "待随访（3M）";
+					return "<a href='www.baidu.com'>待随访（3M）</a>";
 				}else if(preDate<v6m && v6m<afterDate){
-					return "待随访（6M）";
+					return "<a href='www.baidu.com'>待随访（6M）</a>";
 				}else if(preDate<v1y && v1y<afterDate){
-					return "待随访（1Y）";
+					return "<a href='www.baidu.com'>待随访（1Y）</a>";
 				}else if(preDate<v3y && v3y<afterDate){
-					return "待随访（3Y）";
+					return "<a href='www.baidu.com'>待随访（3Y）</a>";
 				}else{
 					return "";
 				}

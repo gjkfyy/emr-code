@@ -59,9 +59,7 @@ Ext.define('iih.sy.followup.action.FollowUpListSearchAction', {
 		 alert("查询失败");
 	 },  
      onSuccess: function(operation) {
-        //alert("success");
         var gridBlock = this.getBlock('result');
-//        var gridBlock = block.down('bastemplatelistblock')
         var m = operation.result;
         // TODO 数据格式就这样了？
         if(m instanceof Ext.data.Model) {
