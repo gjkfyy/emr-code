@@ -1,5 +1,6 @@
 package pkuhit.xap.ac;
 
+import java.util.Date;
 import java.util.Map;
 
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,5 +19,12 @@ public interface FollowUpService
     
     @RequestMapping(value = "/followUpList", method = RequestMethod.GET)
     ArrayResult<Patient> search(@RequestParam Map<String, String> params);
+    
+    /**
+     * 获取服务器端的当前时间
+     * @return
+     */
+    @RequestMapping(value = "/followUp/getDate", method = RequestMethod.GET)
+	public Date getDate();
     
 }
