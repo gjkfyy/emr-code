@@ -10,7 +10,6 @@ import org.seasar.doma.jdbc.SelectOptions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 
-import pkuhit.iih.mr.tpl.MrBaseTemplate;
 import pkuhit.xap.dao.auto.IemrPatientDao;
 import pkuhit.xap.dao.auto.entity.IemrPatient;
 import pkuhit.xap.util.BeanCopyUtil;
@@ -114,7 +113,7 @@ public class FollowUpServiceImpl implements FollowUpService
         ar.setPageNum(Integer.valueOf(pageNum));
         ar.setPageSize(Integer.valueOf(pageSize));
         ar.setTotal(Integer.valueOf(options.getCount()+""));
-		
+		ar.setGenericTypeName(String.valueOf((new Date()).getTime()));
         return ar;
 	}
 
@@ -132,6 +131,11 @@ public class FollowUpServiceImpl implements FollowUpService
 	        }
 	        return value;
 	 }
-	 
 
+	@Override
+	public Date getDate() {
+		Date date = new Date();
+		date.getTime();
+		return new Date();
+	}
 }
