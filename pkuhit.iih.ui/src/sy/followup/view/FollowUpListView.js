@@ -24,28 +24,38 @@ Ext.define('iih.sy.followup.view.FollowUpListView',{
 				blocks: {
 					result: 'right'
 				}
+			},
+			'getDate':{
+				xclass: 'iih.sy.followup.action.FollowUpGetDateAction',
+				url:'followUp/getDate',
+				blocks: {
+					result: 'right'
+				}
 			}
 		},
 		chains: {		
-			'init': ['search']
+			'init': ['search'],
+			'getDate': ['getDate']
 		},
 		connections: {	
 		'right': [{	//翻页操作
 						event: 'turnpage',
 						chain: 'init'
-				 }/*,{
-		                selector: 'toolbar button[action=search]',
-		                event: 'click',
-		                chain: 'search'
-		         }*/]	
-           }
+				 }]	
+        }
 	},
 	
 	initComponent : function() {
 		this.callParent();
+		
+		//从服务器端获取时间
+		var chain = this.getActionChain('getDate');
+		chain.execute({
+			flag:'14'
+		});
+	    
 		var self = this;
         var gridBlock = this.down('followuplistblock');
-        //var pageNum = gridBlock.currentPage;
         var pageNum = '1';
 		this.addEvents("pageRefresh");//为视图添加刷新事件
 		this.addListener('pageRefresh', function(){//添加监听事件
@@ -53,9 +63,11 @@ Ext.define('iih.sy.followup.view.FollowUpListView',{
 	        if(chain) {
 	        	chain.execute({
         			pageNum:pageNum,
-                	pageSize:'25'
+                	pageSize:'23'
 	        	});
 	        }
 		});
+		
+		
 	}
 })

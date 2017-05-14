@@ -15,7 +15,7 @@ Ext.define('iih.sy.followup.block.FollowUpListBlock', {
 		this.initBlock();
 	},
 	layout: 'fit',
-	checkboxShow : true,
+	//checkboxShow : true,
 	//simple点击行起作用，multi点击checkbox起作用
 	mode: 'simple',
 	//title: '',
@@ -63,18 +63,8 @@ Ext.define('iih.sy.followup.block.FollowUpListBlock', {
 				value : '',
 				fieldLabel : '',
 				listeners:{
-		        	specialkey : function(field, e) {  
-		                if (e.getKey() == Ext.EventObject.ENTER) { 
-		                	var view = this.up('followUpListView');
-			                var chain = view.getActionChain('init');
-			                var gridBlock = view.down('followUpListBlock');
-			                chain.execute({
-			                	pageNum:gridBlock.currentPage,
-			                	pageSize:gridBlock.pageSize
-			                });
-		                }  
-		            }
-		        }
+					
+				}
 			},{
 				xtype : 'xaptextfield',
 				id : 'diagnosis',
@@ -85,20 +75,7 @@ Ext.define('iih.sy.followup.block.FollowUpListBlock', {
 				readOnly : false,
 				fieldStyle:'',
 				value : '',
-				fieldLabel : '诊断',
-				listeners:{
-		        	specialkey : function(field, e) {  
-		                if (e.getKey() == Ext.EventObject.ENTER) { 
-		                	var view = this.up('followUpListView');
-			                var chain = view.getActionChain('init');
-			                var gridBlock = view.down('followUpListBlock');
-			                chain.execute({
-			                	pageNum:gridBlock.currentPage,
-			                	pageSize:gridBlock.pageSize
-			                });
-		                }  
-		            }
-		        }
+				fieldLabel : '诊断'
 			},{
 		    	xtype:'xapcombobox',
 	            name:'fuFlag',
@@ -140,29 +117,24 @@ Ext.define('iih.sy.followup.block.FollowUpListBlock', {
 	            value:'14',
 	            listeners: {
 					change: function( v, newValue, oldValue, eOpts ) {
-						var startField = this.up('panel').down('xapdatefield[name=startDate]');
-						var endField = this.up('panel').down('xapdatefield[name=endDate]');
+						var view = this.up('followUpListView');
+		                var chain = view.getActionChain('getDate');
 						if(v.value=='-7'){
-							endField.setValue(new Date()-24*60*60*1000);
-							startField.setValue(new Date(new Date()-7*24*60*60*1000));
+							chain.execute({
+								flag:'-7'
+							});
 						}else if(v.value=='7'){
-							var curDate = new Date();
-							var curDateTime = curDate.getTime();
-							var dateTime = curDateTime + 7*24*60*60*1000; 
-							endField.setValue(dateTime);
-							startField.setValue((new Date()).getTime()+24*60*60*1000);
-						}else if(v.value=='all'){
-							endField.setValue('');
-			                startField.setValue('');
+							chain.execute({
+								flag:'7'
+							});
 						}else if(v.value=='14'){
-							var date = new Date();
-							date.setDate(date.getDate()+7);
-							//new Date(new Date()-13*24*60*60*1000)
-							
-							endField.setValue(date);
-							date = new Date();
-							date.setDate(date.getDate()-7);
-							startField.setValue(date);
+							chain.execute({
+								flag:'14'
+							});
+						}else if(v.value=='all'){
+							chain.execute({
+								flag:'all'
+							});
 						}
 					}
 				}
@@ -181,22 +153,16 @@ Ext.define('iih.sy.followup.block.FollowUpListBlock', {
 		        fieldLabel:'',
 		        allowBlank:true,
 		        blankText : '',
-		        fieldStyle:'background:#e0dfdf',
+		        fieldStyle:'font-size:12px;background:#e0dfdf;',
 		        width:90,
 		        editable:false,
 		        readOnly:true,
 		        name:'startDate',
-		        value:new Date(new Date()-7*24*60*60*1000)/*,
-		        listeners: {
-					change: function( v, newValue, oldValue, eOpts ) {
-						var endDate = this.up('panel').down('xapdatefield[name=endDate]');
-						endDate.setMinValue(this.getValue() );
-					}
-				}*/
+		        anchor:'100% 88%',
+		        value:''
 			},{
 				xtype: 'xapdisplayfield',
 				fieldLabel: '',
-//				vertical: true,
 				width:4,
 				valign: 'left',
 				name:'',
@@ -206,25 +172,17 @@ Ext.define('iih.sy.followup.block.FollowUpListBlock', {
 				padding:'5 0 0 5',
 		        labelWidth:60,
 		        fieldLabel:'',
-//		        allowBlank:true,
 		        blankText : '不能为空',
 		        width:90,
 		        name:'endDate',
 		        fieldStyle:'background:#e0dfdf',
-		        value:new Date((new Date()).getTime()+7*24*60*60*1000),
+		        value:'',
 		        editable:false,
-		        readOnly:true/*,
-		        listeners: {
-					change: function( v, newValue, oldValue, eOpts ) {
-						var startDate = this.up('panel').down('xapdatefield[name=startDate]');
-						startDate.setMaxValue( this.getValue( ) );
-					}
-				}*/
+		        readOnly:true
 			},{
 				xtype: 'button',
 				text: '检索',
 				iconCls: 'icon-Search',
-				//action: 'search',
 				handler:function(owner,tool){
 	                var view = this.up('followUpListView');
 	                var chain = view.getActionChain('init');
@@ -312,7 +270,6 @@ Ext.define('iih.sy.followup.block.FollowUpListBlock', {
 				var v1 = Ext.Date.parse(value, 'time');
 				v1.setMonth(v1.getMonth()+6);
 				var v6m = Ext.Date.format(v1, 'Y-m-d');
-				//v.getFullYear() + "-" + (myDate.getMonth()+1) + "-" + myDate.getDate()
 				
 				//1年
 				var v2 = Ext.Date.parse(value, 'time');
@@ -329,7 +286,6 @@ Ext.define('iih.sy.followup.block.FollowUpListBlock', {
 				var cDate = new Date();
 				var currentDate = Ext.Date.format(cDate, 'Y-m-d');
 				cDate.setDate(cDate.getDate()-7);
-				//console.log("kkk"+Ext.Date.format(cDate, 'Y-m-d'));
 				var preDate = Ext.Date.format(cDate, 'Y-m-d');
 				
 				var cDate = new Date();
@@ -364,7 +320,6 @@ Ext.define('iih.sy.followup.block.FollowUpListBlock', {
 				var v1 = Ext.Date.parse(value, 'time');
 				v1.setMonth(v1.getMonth()+6);
 				var v6m = Ext.Date.format(v1, 'Y-m-d');
-				//v.getFullYear() + "-" + (myDate.getMonth()+1) + "-" + myDate.getDate()
 				
 				//1年
 				var v2 = Ext.Date.parse(value, 'time');
@@ -380,21 +335,19 @@ Ext.define('iih.sy.followup.block.FollowUpListBlock', {
 				var cDate = new Date();
 				var currentDate = Ext.Date.format(cDate, 'Y-m-d');
 				cDate.setDate(cDate.getDate()-7);
-				//console.log("kkk"+Ext.Date.format(cDate, 'Y-m-d'));
 				var preDate = Ext.Date.format(cDate, 'Y-m-d');
 				
 				var cDate = new Date();
 				cDate.setDate(cDate.getDate()+7);
 				var afterDate = Ext.Date.format(cDate, 'Y-m-d');
-				console.log("hhh"+(preDate<v3m && v3m<afterDate));
 				if(preDate<v3m && v3m<afterDate){
-					return "<a href='www.baidu.com'>待随访（3M）</a>";
+					return "待随访（3M）";
 				}else if(preDate<v6m && v6m<afterDate){
-					return "<a href='www.baidu.com'>待随访（6M）</a>";
+					return "待随访（6M）";
 				}else if(preDate<v1y && v1y<afterDate){
-					return "<a href='www.baidu.com'>待随访（1Y）</a>";
+					return "待随访（1Y）";
 				}else if(preDate<v3y && v3y<afterDate){
-					return "<a href='www.baidu.com'>待随访（3Y）</a>";
+					return "待随访（3Y）";
 				}else{
 					return "";
 				}

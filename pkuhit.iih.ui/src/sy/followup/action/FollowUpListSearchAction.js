@@ -6,17 +6,14 @@ Ext.define('iih.sy.followup.action.FollowUpListSearchAction', {
 	    this.callParent();
 	    var pageNum ,pageSize; 
 		if(context.event != undefined){
-			console.log("aaa");
 			pageNum = context.event.arguments[0];
 			pageSize = context.event.arguments[1];
 		}else if(context != undefined){
-			console.log("bbb");
 			pageNum = context.pageNum;
 			pageSize = context.pageSize;
 		}else{
-			console.log("ccc");
 			pageNum = 1;
-			pageSize = 25;
+			pageSize = 23;
 		}
 		var owner = this.getOwner();
 		var block = owner.getBlock('right');
@@ -61,6 +58,7 @@ Ext.define('iih.sy.followup.action.FollowUpListSearchAction', {
      onSuccess: function(operation) {
         var gridBlock = this.getBlock('result');
         var m = operation.result;
+        console.log("==========="+m.genericTypeName);
         // TODO 数据格式就这样了？
         if(m instanceof Ext.data.Model) {
         	gridBlock.setData({
