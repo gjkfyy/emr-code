@@ -102,7 +102,50 @@ public class FollowUpServiceImpl implements FollowUpService
             for (IemrPatient iemrPatient : list)
             {
             	patientList[i] = this.wrapData(iemrPatient);
-                i++;
+               
+                //根据入院日期计算出随访状态
+                df = new SimpleDateFormat("yyyy-MM-dd");
+    			cal = Calendar.getInstance();
+    			cal.setTime(new Date());
+    			cal.add(Calendar.DAY_OF_MONTH, -7);
+    			Date day7Before2 = cal.getTime();
+    			
+    			cal.add(Calendar.DAY_OF_MONTH, +14);
+    			Date day7After2 = cal.getTime();
+    			
+    			Date date = new Date();
+    			try {
+    				date = patientList[i].getAdmissionDate();
+    			} catch (Exception e) {
+    				e.printStackTrace();
+    			}
+    			
+    			cal.setTime(date);
+    			cal.add(Calendar.MONTH, +3);
+    			Date after3m = cal.getTime();
+    			
+    			cal.add(Calendar.MONTH, +3);
+    			Date after6m = cal.getTime();
+    			
+    			cal.add(Calendar.MONTH, +6);
+    			Date after1y = cal.getTime();
+    			
+    			cal.add(Calendar.MONTH, +24);
+    			Date after3y = cal.getTime();
+    			
+    			String fuStatus = "";
+    			if(day7Before2.compareTo(after3m)<0 && day7After2.compareTo(after3m)>0){
+    				fuStatus = "待随访（3M）";
+    			}else if(day7Before2.compareTo(after6m)<0 && day7After2.compareTo(after6m)>0){
+    				fuStatus = "待随访（6M）";
+    			}else if(day7Before2.compareTo(after1y)<0 && day7After2.compareTo(after1y)>0){
+    				fuStatus = "待随访（1Y）";
+    			}else if(day7Before2.compareTo(after3y)<0 && day7After2.compareTo(after3y)>0){
+    				fuStatus = "待随访（3Y）";
+    			}
+            	patientList[i].setFuStutas(fuStatus);
+    			
+            	i++;
             }
             
             builder.withData(patientList);
@@ -110,8 +153,8 @@ public class FollowUpServiceImpl implements FollowUpService
         }
         
         ArrayResult<Patient> ar = builder.build();
-        ar.setPageNum(Integer.valueOf(pageNum));
-        ar.setPageSize(Integer.valueOf(pageSize));
+      /*  ar.setPageNum(Integer.valueOf(pageNum));
+        ar.setPageSize(Integer.valueOf(pageSize));*/
         ar.setTotal(Integer.valueOf(options.getCount()+""));
 		ar.setGenericTypeName(String.valueOf((new Date()).getTime()));
         return ar;
