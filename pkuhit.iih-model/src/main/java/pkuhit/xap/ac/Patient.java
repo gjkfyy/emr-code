@@ -1,8 +1,10 @@
 package pkuhit.xap.ac;
 import java.math.BigInteger;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
-import xap.model.BaseMasterModel;
 import xap.sv.annotation.Column;
 
 public class Patient {
@@ -169,6 +171,18 @@ import xap.sv.annotation.Column;
     //诊断
     @Column(name = "DIAGNOSIS")
     String diagnosis;
+    
+    //随访标识
+    @Column(name = "FU_FLAG")
+    String fuFlag;
+    
+    //随访状态
+    String fuStutas;
+    
+    //备注信息
+    @Column(name = "REMARK")
+    String remark;
+    
 
 	public String getPatientId() {
 		return patientId;
@@ -521,4 +535,29 @@ import xap.sv.annotation.Column;
 	public void setDiagnosis(String diagnosis) {
 		this.diagnosis = diagnosis;
 	}
+
+	public String getFuFlag() {
+		return fuFlag;
+	}
+
+	public void setFuFlag(String fuFlag) {
+		this.fuFlag = fuFlag;
+	}
+
+	public String getFuStutas() {
+		return fuStutas;
+	}
+
+	public void setFuStutas(String fuStatus) {
+		this.fuStutas = fuStatus;
+	}
+
+	public String getRemark() {
+		return remark;
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+	
 }
