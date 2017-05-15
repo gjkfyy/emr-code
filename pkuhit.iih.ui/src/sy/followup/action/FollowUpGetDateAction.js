@@ -43,5 +43,6 @@ Ext.define('iih.sy.followup.action.FollowUpGetDateAction', {
         	 startDate.setValue('');
              endDate.setValue('');
          }
+         
      }    
 });

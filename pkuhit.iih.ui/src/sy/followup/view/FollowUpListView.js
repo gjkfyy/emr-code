@@ -31,17 +31,30 @@ Ext.define('iih.sy.followup.view.FollowUpListView',{
 				blocks: {
 					result: 'right'
 				}
-			}
+			},
+			'flagEdit': {
+                xclass: 'iih.sy.followup.action.FollowUpFlagEditAction',
+                url:'',
+                blocks:{
+                    result:'right'
+                }
+            }
 		},
 		chains: {		
 			'init': ['search'],
-			'getDate': ['getDate']
+			'getDate': ['getDate'],
+			'flagEdit': ['flagEdit']
 		},
 		connections: {	
-		'right': [{	//翻页操作
-						event: 'turnpage',
-						chain: 'init'
-				 }]	
+		'right': [{// 翻页操作
+					selector : 'xapgrid',
+					event : 'turnpage',
+					chain : 'init'
+				},{
+		                selector: 'xapgrid[name=followUpListBlock]',
+		                event: 'linkClick',
+		                chain: 'flagEdit'
+		         }]	
         }
 	},
 	
@@ -55,7 +68,7 @@ Ext.define('iih.sy.followup.view.FollowUpListView',{
 		});
 	    
 		var self = this;
-        var gridBlock = this.down('followuplistblock');
+        var gridBlock = this.down('xapgrid[name=followUpListBlock]')
         var pageNum = '1';
 		this.addEvents("pageRefresh");//为视图添加刷新事件
 		this.addListener('pageRefresh', function(){//添加监听事件
@@ -63,7 +76,7 @@ Ext.define('iih.sy.followup.view.FollowUpListView',{
 	        if(chain) {
 	        	chain.execute({
         			pageNum:pageNum,
-                	pageSize:'23'
+                	pageSize:gridBlock.pageSize
 	        	});
 	        }
 		});

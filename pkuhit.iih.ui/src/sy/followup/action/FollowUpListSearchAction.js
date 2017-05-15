@@ -2,6 +2,7 @@ Ext.define('iih.sy.followup.action.FollowUpListSearchAction', {
 	extend: 'Xap.ej.action.ServiceInvocation',
 	requires: ['Xap.ej.block.Layer'],
 	doExecute: function(context) {
+		 
 		this.showLoading();
 	    this.callParent();
 	    var pageNum ,pageSize; 
@@ -56,19 +57,17 @@ Ext.define('iih.sy.followup.action.FollowUpListSearchAction', {
 		 alert("查询失败");
 	 },  
      onSuccess: function(operation) {
-        var gridBlock = this.getBlock('result');
-        var m = operation.result;
-        console.log("==========="+m.genericTypeName);
-        // TODO 数据格式就这样了？
-        if(m instanceof Ext.data.Model) {
-        	gridBlock.setData({
-                mclass: operation.mclass,
-                data: m.getData(true)
-            });
-        }
-        else {        
-        	gridBlock.setGridData(m);
-        }
-    
-    }    
+         var data;
+    	 var pageSize=this.getOwner().pageSize;
+         var block = this.getBlock('result');
+         
+         // TODO 数据格式就这样了？
+         if(operation.result){
+ 	        resultData=operation.result;
+ 	        resultData.pageSize=pageSize;
+     	 	block.setData(resultData);
+         }else{
+        	block.setData(null);
+         }
+     }    
 });
