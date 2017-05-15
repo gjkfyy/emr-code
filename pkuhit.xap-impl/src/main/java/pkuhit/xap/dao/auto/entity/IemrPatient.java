@@ -183,6 +183,14 @@ public class IemrPatient {
 	    //诊断
 	    @Column(name = "DIAGNOSIS")
 	    String diagnosis;
+	    
+	    //随访标识
+	    @Column(name = "FU_FLAG")
+	    String fuFlag;
+	    
+	  //随访标识
+	    @Column(name = "REMARK")
+	    String remark;
 
 		public String getPatientId() {
 			return patientId;
@@ -519,7 +527,21 @@ public class IemrPatient {
 		public void setDiagnosis(String diagnosis) {
 			this.diagnosis = diagnosis;
 		}
-		
-		
+
+		public String getFuFlag() {
+			return fuFlag;
+		}
+
+		public void setFuFlag(String fuFlag) {
+			this.fuFlag = fuFlag;
+		}
+
+		public String getRemark() {
+			return remark;
+		}
+
+		public void setRemark(String remark) {
+			this.remark = remark;
+		}
 		
 }
