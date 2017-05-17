@@ -91,5 +91,6 @@ public interface IemrPatientDao {
     @Select
     List<IemrPatient> selectIemrPatientList(String condition,SelectOptions options);
     
-    
+    @Select
+    List<IemrPatient> selectFollowUpList(String startDate,String endDate,String patientName,String inpatientNo,String tel,String diagnosis,String fuFlag,SelectOptions options);
 }
