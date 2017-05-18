@@ -8,7 +8,7 @@ Ext.define('iih.sy.followup.view.FollowUpListView',{
 	alias:'widget.followUpListView',	
 	
 	layout:'fit',
-	
+	id:'followuplistview',
 	xapConfig: {
 		blocks: {
             'right': {

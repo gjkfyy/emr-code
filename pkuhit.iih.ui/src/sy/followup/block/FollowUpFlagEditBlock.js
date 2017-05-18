@@ -35,7 +35,7 @@ Ext.define('iih.sy.followup.block.FollowUpFlagEditBlock',{
 				fieldLabel: '患者',
 				padding:'5 0 0 50',
 				labelWidth:50,
-				width:50,
+				width:100,
 				colspan: 1,
 				valign: 'right',
 				name:'patientName',
@@ -79,6 +79,16 @@ Ext.define('iih.sy.followup.block.FollowUpFlagEditBlock',{
 		        width:380,
 		        height:120,
 		        name:'remark'
+			},{
+				xtype: 'xapdisplayfield',
+				fieldLabel: '',
+				colspan:12,
+				width:10,
+				valign: 'center',
+				id:'patientId',
+				name:'patientId',
+				value: '',
+				hidden : true
 			},{
 	            xtype: 'xapdisplayfield',
 	            colspan: 1,

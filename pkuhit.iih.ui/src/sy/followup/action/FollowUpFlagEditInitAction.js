@@ -5,7 +5,6 @@ Ext.define('iih.sy.followup.action.FollowUpFlagEditInitAction', {
 	doExecute: function(context) {
 	    this.callParent();
         var operations = context.operations;
-        var owner = this.getOwner();
         
         //编辑页面初始化
         if(!operations) {
@@ -14,7 +13,7 @@ Ext.define('iih.sy.followup.action.FollowUpFlagEditInitAction', {
         this.prepareOperations(operations,context);
 	},  
 	 prepareOperations: function(operations,data) {
-        var url = this.url +'/'+data.patientId + "/edit"; 
+        var url = this.url +'/'+data.patientId + "/" + data.customerData; 
         console.log('url='+url);
         var METHODS = this.getInvocationMethods();
         var operation = {

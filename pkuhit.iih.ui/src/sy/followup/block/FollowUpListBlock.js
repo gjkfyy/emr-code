@@ -183,7 +183,6 @@ Ext.define('iih.sy.followup.block.FollowUpListBlock', {
 		                var view = this.up('followUpListView');
 		                var chain = view.getActionChain('init');
 		                var grid = view.down('xapgrid[name=followUpListBlock]');
-		                console.log(grid);
 		                chain.execute({
 		                	pageNum:grid.currentPage,
 		                	pageSize:grid.pageSize
@@ -300,7 +299,7 @@ Ext.define('iih.sy.followup.block.FollowUpListBlock', {
 	            }
 			},{
 				header : '随访状态',
-				dataIndex : 'fuStutas',
+				dataIndex : 'fuStatus',
 				alink:true,
 				flex : 1/*,
 				renderer : function(value) {

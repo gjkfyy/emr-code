@@ -13,7 +13,6 @@ Ext.define('iih.sy.followup.action.FollowUpFlagSaveAction', {
         //获取患者ID、被修改的随访状态和备注信息三个
         console.log('');
         
-        
 		var operations = context.operations;
         if(!operations) {
      		return;
@@ -25,6 +24,7 @@ Ext.define('iih.sy.followup.action.FollowUpFlagSaveAction', {
     //修改患者信息
     editFlag: function(operations,data) {
     	 var url = this.url+'/' + Ext.getCmp('patientId').getValue();
+    	 console.log("uuu"+url);
          var mclass = null;
          var METHODS = this.getInvocationMethods();
      	 var operation = {
@@ -41,16 +41,19 @@ Ext.define('iih.sy.followup.action.FollowUpFlagSaveAction', {
      	operations.push(operation);
     },
     editSuccess: function(operation) {
-    	XapMessageBox.info("修改成功!");
+    	XapMessageBox.info("更改成功!");
     	var owner = this.getOwner();
     	var chain = owner.getActionChain('cancel');
     		chain.execute();
     	
     	//刷新随访信息列表
-    		
-		/*var patientleftlistview = Ext.getCmp('patientleftlistview');
-    	var chain = patientleftlistview.getActionChain('init');
-        	chain.execute();*/
+		var view = Ext.getCmp('followuplistview');
+		var grid = view.down('xapgrid[name=followUpListBlock]');
+    	var chain = view.getActionChain('init');
+        chain.execute({
+        	pageNum:grid.currentPage,
+            pageSize:grid.pageSize
+        });
     },
     editFail: function(operation) {
         XapMessageBox.info('修改失败!');

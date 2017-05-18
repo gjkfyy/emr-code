@@ -44,11 +44,11 @@ Ext.define('iih.sy.followup.view.FollowUpFlagEditView',{
 			'cancel':['cancel']
 		},
 		connections:{
-			'content':[{    
+			'content':[/*{    
 			    //加载数据
 	            event: 'afterrender',
 	            chain: 'init'
-	        },{
+	        },*/{
 				selector: 'button[action=save]',
 				event: 'click',
 				chain: 'saveFlag'
