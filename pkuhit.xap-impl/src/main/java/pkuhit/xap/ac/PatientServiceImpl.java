@@ -2,6 +2,8 @@ package pkuhit.xap.ac;
 
 import java.math.BigInteger;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -10,8 +12,6 @@ import org.seasar.doma.jdbc.SelectOptions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 
-import pkuhit.iih.di.DiagnosisModel;
-import pkuhit.iih.mr.wr.Amr;
 import pkuhit.xap.dao.auto.IemrPatientDao;
 import pkuhit.xap.dao.auto.entity.IemrPatient;
 import pkuhit.xap.util.BeanCopyUtil;
@@ -69,6 +69,72 @@ public class PatientServiceImpl implements PatientService
         }else if("-1".equalsIgnoreCase(patient.getSex())){
         	patient.setSexValue("未知的性别");
         }
+        
+      //根据入院日期计算出随访状态
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(new Date());
+		cal.add(Calendar.DAY_OF_MONTH, -7);
+		Date day7Before2 = cal.getTime();
+		
+		cal.add(Calendar.DAY_OF_MONTH, +14);
+		Date day7After2 = cal.getTime();
+		
+		Date date = new Date();
+		try {
+			date = iemrPatient.getAdmissionDate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		cal.setTime(date);
+		cal.add(Calendar.MONTH, +3);
+		Date after3m = cal.getTime();
+		
+		cal.add(Calendar.MONTH, +3);
+		Date after6m = cal.getTime();
+		
+		cal.add(Calendar.MONTH, +6);
+		Date after1y = cal.getTime();
+		
+		cal.add(Calendar.MONTH, +24);
+		Date after3y = cal.getTime();
+		
+		String fuStatus = "";
+		if(day7Before2.compareTo(after3m)<0 && day7After2.compareTo(after3m)>0){
+			if("1".equalsIgnoreCase(iemrPatient.getFuFlag())){
+				fuStatus = "待随访（3M）";
+			}else if("2".equalsIgnoreCase(iemrPatient.getFuFlag())){
+				fuStatus = "已随访（3M）";
+			}else if("3".equalsIgnoreCase(iemrPatient.getFuFlag())){
+				fuStatus = "已忽略（3M）";
+			}
+		}else if(day7Before2.compareTo(after6m)<0 && day7After2.compareTo(after6m)>0){
+			if("1".equalsIgnoreCase(iemrPatient.getFuFlag())){
+				fuStatus = "待随访（6M）";
+			}else if("2".equalsIgnoreCase(iemrPatient.getFuFlag())){
+				fuStatus = "已随访（6M）";
+			}else if("3".equalsIgnoreCase(iemrPatient.getFuFlag())){
+				fuStatus = "已忽略（6M）";
+			}
+		}else if(day7Before2.compareTo(after1y)<0 && day7After2.compareTo(after1y)>0){
+			if("1".equalsIgnoreCase(iemrPatient.getFuFlag())){
+				fuStatus = "待随访（1Y）";
+			}else if("2".equalsIgnoreCase(iemrPatient.getFuFlag())){
+				fuStatus = "已随访（1Y）";
+			}else if("3".equalsIgnoreCase(iemrPatient.getFuFlag())){
+				fuStatus = "已忽略（1Y）";
+			}
+		}else if(day7Before2.compareTo(after3y)<0 && day7After2.compareTo(after3y)>0){
+			if("1".equalsIgnoreCase(iemrPatient.getFuFlag())){
+				fuStatus = "待随访（3Y）";
+			}else if("2".equalsIgnoreCase(iemrPatient.getFuFlag())){
+				fuStatus = "已随访（3Y）";
+			}else if("3".equalsIgnoreCase(iemrPatient.getFuFlag())){
+				fuStatus = "已忽略（3Y）";
+			}
+		}
+		patient.setFuStatus(fuStatus);
         patient.setFlag(flag);
         SingleResultBuilder<Patient> builder = SingleResultBuilder.newSingleResult(Patient.class);
         builder.withData(patient);

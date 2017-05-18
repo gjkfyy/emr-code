@@ -1,5 +1,7 @@
 package pkuhit.xap.ac;
 
+import java.math.BigInteger;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -15,6 +17,8 @@ import pkuhit.xap.dao.auto.entity.IemrPatient;
 import pkuhit.xap.util.BeanCopyUtil;
 import xap.sv.model.ArrayResult;
 import xap.sv.model.ArrayResultBuilder;
+import xap.sv.model.SingleResult;
+import xap.sv.model.SingleResultBuilder;
 public class FollowUpServiceImpl implements FollowUpService
 {
     @Autowired
@@ -135,15 +139,39 @@ public class FollowUpServiceImpl implements FollowUpService
     			
     			String fuStatus = "";
     			if(day7Before2.compareTo(after3m)<0 && day7After2.compareTo(after3m)>0){
-    				fuStatus = "待随访（3M）";
+    				if("1".equalsIgnoreCase(patientList[i].getFuFlag())){
+    					fuStatus = "待随访（3M）";
+    				}else if("2".equalsIgnoreCase(patientList[i].getFuFlag())){
+    					fuStatus = "已随访（3M）";
+    				}else if("3".equalsIgnoreCase(patientList[i].getFuFlag())){
+    					fuStatus = "已忽略（3M）";
+    				}
     			}else if(day7Before2.compareTo(after6m)<0 && day7After2.compareTo(after6m)>0){
-    				fuStatus = "待随访（6M）";
+    				if("1".equalsIgnoreCase(patientList[i].getFuFlag())){
+    					fuStatus = "待随访（6M）";
+    				}else if("2".equalsIgnoreCase(patientList[i].getFuFlag())){
+    					fuStatus = "已随访（6M）";
+    				}else if("3".equalsIgnoreCase(patientList[i].getFuFlag())){
+    					fuStatus = "已忽略（6M）";
+    				}
     			}else if(day7Before2.compareTo(after1y)<0 && day7After2.compareTo(after1y)>0){
-    				fuStatus = "待随访（1Y）";
+    				if("1".equalsIgnoreCase(patientList[i].getFuFlag())){
+    					fuStatus = "待随访（1Y）";
+    				}else if("2".equalsIgnoreCase(patientList[i].getFuFlag())){
+    					fuStatus = "已随访（1Y）";
+    				}else if("3".equalsIgnoreCase(patientList[i].getFuFlag())){
+    					fuStatus = "已忽略（1Y）";
+    				}
     			}else if(day7Before2.compareTo(after3y)<0 && day7After2.compareTo(after3y)>0){
-    				fuStatus = "待随访（3Y）";
+    				if("1".equalsIgnoreCase(patientList[i].getFuFlag())){
+    					fuStatus = "待随访（3Y）";
+    				}else if("2".equalsIgnoreCase(patientList[i].getFuFlag())){
+    					fuStatus = "已随访（3Y）";
+    				}else if("3".equalsIgnoreCase(patientList[i].getFuFlag())){
+    					fuStatus = "已忽略（3Y）";
+    				}
     			}
-            	patientList[i].setFuStutas(fuStatus);
+            	patientList[i].setFuStatus(fuStatus);
     			
             	i++;
             }
@@ -180,5 +208,25 @@ public class FollowUpServiceImpl implements FollowUpService
 		Date date = new Date();
 		date.getTime();
 		return new Date();
+	}
+
+	
+	/**
+	 * 更新随访状态和备注信息
+	 */
+	@Override
+	public SingleResult<Patient> saveFlag(String patientId, Patient patient) {
+		patient.setPatientId(patientId);
+		IemrPatient iemrPatient = imerPatientDao.selectIemrPatientById(patientId);
+		BigInteger newUpdCnt = iemrPatient.getUpdCnt().add(BigInteger.valueOf(1));
+		//BeanCopyUtil.modelToEntity(iemrPatient, patient);
+		iemrPatient.setFuFlag(patient.getFuFlag());
+		iemrPatient.setRemark(patient.getRemark());
+		iemrPatient.setLastUpdTime(new Timestamp(new Date().getTime()));
+		iemrPatient.setUpdCnt(newUpdCnt);
+		imerPatientDao.updateExcludeNull(iemrPatient);
+		SingleResultBuilder<Patient> builder = SingleResultBuilder.newSingleResult(Patient.class);
+        builder.withData(iemrPatient);
+		return builder.build();
 	}
 }
