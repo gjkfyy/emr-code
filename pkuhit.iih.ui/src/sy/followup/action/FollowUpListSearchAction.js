@@ -59,8 +59,7 @@ Ext.define('iih.sy.followup.action.FollowUpListSearchAction', {
      onSuccess: function(operation) {
          var data;
     	 var pageSize=this.getOwner().pageSize;
-         var block = this.getBlock('result');
-         
+    	 var block = this.getBlock('result');
          // TODO 数据格式就这样了？
          if(operation.result){
  	        resultData=operation.result;

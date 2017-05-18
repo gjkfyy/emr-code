@@ -39,7 +39,7 @@ Ext.define('iih.sy.followup.block.FollowUpFlagEditBlock',{
 				colspan: 1,
 				valign: 'right',
 				name:'patientName',
-				value: 'sss'
+				value: ''
 			},{
 				xtype: 'xapdisplayfield',
 				fieldLabel: '当前的随访状态是',
@@ -47,8 +47,8 @@ Ext.define('iih.sy.followup.block.FollowUpFlagEditBlock',{
 				padding:'5 0 0 50',
 				colspan: 3,
 				valign: 'left',
-				name:'',
-				value: '待随访（3M）'
+				name:'fuStatus',
+				value: ''
 			},{
 				xtype:'xapcombobox',
 	            name:'fuFlag',
@@ -78,7 +78,7 @@ Ext.define('iih.sy.followup.block.FollowUpFlagEditBlock',{
 		        blankText : '不能为空',*/
 		        width:380,
 		        height:120,
-		        name:'info'
+		        name:'remark'
 			},{
 	            xtype: 'xapdisplayfield',
 	            colspan: 1,

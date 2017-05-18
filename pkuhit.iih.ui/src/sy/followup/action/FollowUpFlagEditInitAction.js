@@ -6,25 +6,15 @@ Ext.define('iih.sy.followup.action.FollowUpFlagEditInitAction', {
 	    this.callParent();
         var operations = context.operations;
         var owner = this.getOwner();
-       
-        //从选择记录中直接提取信息
         
-        
-        
-        
-        
-       /* if(context.customerData=='new'){
-        	
-        }else if(context.customerData=='edit'){
-        	//编辑页面初始化
-            if(!operations) {
-                return;
-            }
-            this.prepareOperations(operations,context);
-        }*/
-	}/*,  
+        //编辑页面初始化
+        if(!operations) {
+            return;
+        }
+        this.prepareOperations(operations,context);
+	},  
 	 prepareOperations: function(operations,data) {
-        var url = this.url +'/'+data.patientId + "/"+data.customerData; 
+        var url = this.url +'/'+data.patientId + "/edit"; 
         console.log('url='+url);
         var METHODS = this.getInvocationMethods();
         var operation = {
@@ -54,5 +44,5 @@ Ext.define('iih.sy.followup.action.FollowUpFlagEditInitAction', {
             //分布赋值
             block.setData(m);
         }
-    }  */
+    }
 });

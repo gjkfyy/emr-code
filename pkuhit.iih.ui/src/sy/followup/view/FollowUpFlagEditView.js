@@ -19,7 +19,7 @@ Ext.define('iih.sy.followup.view.FollowUpFlagEditView',{
 		actions:{
 			'init':{
 				xclass: 'iih.sy.followup.action.FollowUpFlagEditInitAction',
-				url:'',
+				url:'iemrPatient',
 				blocks: {
 				    content: 'content'
 				}
@@ -51,7 +51,7 @@ Ext.define('iih.sy.followup.view.FollowUpFlagEditView',{
 	        },{
 				selector: 'button[action=save]',
 				event: 'click',
-				chain: 'saveFlagRemark'
+				chain: 'saveFlag'
 			},{
 				selector: 'button[action=cancel]',
 				event: 'click',
