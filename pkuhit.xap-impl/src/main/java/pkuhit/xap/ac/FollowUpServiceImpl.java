@@ -8,10 +8,15 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.seasar.doma.jdbc.SelectOptions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 
+import com.alibaba.fastjson.JSONArray;
+
+import pkuhit.util.ExcelUtil;
 import pkuhit.xap.dao.auto.IemrPatientDao;
 import pkuhit.xap.dao.auto.entity.IemrPatient;
 import pkuhit.xap.util.BeanCopyUtil;
@@ -228,5 +233,81 @@ public class FollowUpServiceImpl implements FollowUpService
 		SingleResultBuilder<Patient> builder = SingleResultBuilder.newSingleResult(Patient.class);
         builder.withData(iemrPatient);
 		return builder.build();
+	}
+
+	@Override
+	public void followUpExport(HttpServletResponse response) {
+		/*JSONArray ja = ptmpOrderService.selectStatExport();//获取业务数据集
+        Map<String,String> headMap = ptmpOrderService.getPartStatHeadMap();//获取属性-列头
+        String title = "配件统计表";
+        ExcelUtil.downloadExcelFile(title,headMap,ja,response);*/
+        
+        
+        
+        /*ExportExcel<Student> ex = new ExportExcel<Student>();  
+        String[] headers =  
+        { "学号", "姓名", "年龄", "性别", "出生日期" };  
+        List<Student> dataset = new ArrayList<Student>();  
+        dataset.add(new Student(10000001, "张三", 20, true, new Date()));  
+        dataset.add(new Student(20000002, "李四", 24, false, new Date()));  
+        dataset.add(new Student(30000003, "王五", 22, true, new Date()));  
+        // 测试图书  
+        ExportExcel<Book> ex2 = new ExportExcel<Book>();  
+        String[] headers2 =  
+        { "图书编号", "图书名称", "图书作者", "图书价格", "图书ISBN", "图书出版社", "封面图片" };  
+        List<Book> dataset2 = new ArrayList<Book>();  
+        try  
+        {  
+            BufferedInputStream bis = new BufferedInputStream(  
+                    new FileInputStream("V://book.bmp"));  
+            byte[] buf = new byte[bis.available()];  
+            while ((bis.read(buf)) != -1)  
+            {  
+                //  
+            }  
+            dataset2.add(new Book(1, "jsp", "leno", 300.33f, "1234567",  
+                    "清华出版社", buf));  
+            dataset2.add(new Book(2, "java编程思想", "brucl", 300.33f, "1234567",  
+                    "阳光出版社", buf));  
+            dataset2.add(new Book(3, "DOM艺术", "lenotang", 300.33f, "1234567",  
+                    "清华出版社", buf));  
+            dataset2.add(new Book(4, "c++经典", "leno", 400.33f, "1234567",  
+                    "清华出版社", buf));  
+            dataset2.add(new Book(5, "c#入门", "leno", 300.33f, "1234567",  
+                    "汤春秀出版社", buf));  
+  
+            OutputStream out = new FileOutputStream("E://a.xls");  
+            OutputStream out2 = new FileOutputStream("E://b.xls");  
+            ex.exportExcel(headers, dataset, out); */
+            
+            
+            
+            
+        
+       /* String title = Message.getString("manifestIExportTitle");  
+        String[] rowsName = new String[]{"序号","货物运输批次号","提运单号","状态","录入人","录入时间"};  
+    List<Object[]>  dataList = new ArrayList<Object[]>();  
+    Object[] objs = null;  
+    for (int i = 0; i < manifestIMainList.size(); i++) {  
+        ManifestIMain man = manifestIMainList.get(i);  
+        objs = new Object[rowsName.length];  
+        objs[0] = i;  
+        objs[1] = man.getTranNo();  
+        objs[2] = man.getBillNo();  
+        objs[3] = man.getStatusFlagCnName();  
+        objs[4] = man.getLoginName();  
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  
+        String date = df.format(man.getModiDate());  
+        objs[5] = date;  
+        dataList.add(objs);  
+    }  */
+        
+        
+      //可以点击一个按钮事件触发下面的代码进行导出
+       /* window.open("partExport","_blank");
+        //或者可以提交表单
+        $('#form').attr('action','partExport');
+        $('#form').attr('target','_blank');
+        $('#form').submit();*/
 	}
 }

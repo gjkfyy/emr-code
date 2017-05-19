@@ -8,10 +8,12 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang3.time.DateUtils;
 import org.seasar.doma.jdbc.SelectOptions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 
+import bjca.org.util.DateUtil;
 import pkuhit.xap.dao.auto.IemrPatientDao;
 import pkuhit.xap.dao.auto.entity.IemrPatient;
 import pkuhit.xap.util.BeanCopyUtil;
@@ -138,6 +140,7 @@ public class PatientServiceImpl implements PatientService
         patient.setFlag(flag);
         SingleResultBuilder<Patient> builder = SingleResultBuilder.newSingleResult(Patient.class);
         builder.withData(patient);
+        
 		return builder.build();
 	}
 
