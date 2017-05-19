@@ -177,7 +177,7 @@ import xap.sv.annotation.Column;
     String fuFlag;
     
     //随访状态
-    String fuStutas;
+    String fuStatus;
     
     //备注信息
     @Column(name = "REMARK")
@@ -544,12 +544,12 @@ import xap.sv.annotation.Column;
 		this.fuFlag = fuFlag;
 	}
 
-	public String getFuStutas() {
-		return fuStutas;
+	public String getFuStatus() {
+		return fuStatus;
 	}
 
-	public void setFuStutas(String fuStatus) {
-		this.fuStutas = fuStatus;
+	public void setFuStatus(String fuStatus) {
+		this.fuStatus = fuStatus;
 	}
 
 	public String getRemark() {
