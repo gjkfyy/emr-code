@@ -19,6 +19,7 @@ Ext.define('iih.sy.followup.block.FollowUpListBlock', {
         pageShow:true,
         mode: 'multi',
         pageSize:23,
+        pageNum:1,
         flex:1,
 		name: 'followUpListBlock',
 
@@ -402,14 +403,9 @@ Ext.define('iih.sy.followup.block.FollowUpListBlock', {
 			var dataList=data.dataList;
 	    	if(grid){
 	    		if(dataList){
-	    			//记住上次选中行，若第一次加载则默认选中第一行
-	    			if(dataList.length >0 &&grid.nodeId == null){
-	    				grid.nodeId = dataList[0][grid.selectBy];
-	    			}
-	    			
 			    	var totalList = {"total":data.total,"dataList":dataList};
 			    	var pageSize = data.pageSize;
-			    	if(pageSize == undefined || typeof(data.pageSize) == 'object'){
+			    	if(typeof(data.pageSize) == 'number'){
 			    		grid.setPageData(totalList);	//初始化赋值
 			    	}else{
 			    		grid.setData(dataList);	//翻页时赋值
@@ -421,5 +417,8 @@ Ext.define('iih.sy.followup.block.FollowUpListBlock', {
 	    		
 	    	}
 		}
-	}
+	},
+	getData: function() {
+        this.callParent(arguments);
+    }
 })

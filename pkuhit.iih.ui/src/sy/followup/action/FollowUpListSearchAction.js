@@ -6,18 +6,25 @@ Ext.define('iih.sy.followup.action.FollowUpListSearchAction', {
 		this.showLoading();
 	    this.callParent();
 	    var pageNum ,pageSize; 
-		if(context.event != undefined){
-			pageNum = context.event.arguments[0];
-			pageSize = context.event.arguments[1];
-		}else if(context != undefined){
-			pageNum = context.pageNum;
-			pageSize = context.pageSize;
-		}else{
-			pageNum = 1;
-			pageSize = 23;
-		}
-		var owner = this.getOwner();
+	    var owner = this.getOwner();
 		var block = owner.getBlock('right');
+		this.turnpage = false;
+	    if(context.event && context.event.name == "turnpage"){
+	    	this.turnpage = true;
+    		pageNum = context.event.arguments[0];
+    		pageSize = context.event.arguments[1];
+		}else {
+			pageNum = context.pageNum; 
+			pageSize = context.pageSize; 
+		}
+	    console.log(context);
+	    var condition = block.getData();
+	    
+    	//condition.pageNum=pageNum;
+    	//condition.pageSize=pageSize;
+    	//this.getOwner().pageSize=pageSize;
+    	 
+		
 		var fuDate = block.down('xapcombobox[name=fuDate]');
 		var fuFlag = block.down('xapcombobox[name=fuFlag]');
 		var fuType = block.down('xapcombobox[name=fuType]');
@@ -33,6 +40,7 @@ Ext.define('iih.sy.followup.action.FollowUpListSearchAction', {
 				diagnosis : diagnosis.value
 		}
 	    console.log(context);
+	   
         var operations = context.operations;      
         this.prepareOperations(operations,data);  
 	},  
@@ -40,6 +48,12 @@ Ext.define('iih.sy.followup.action.FollowUpListSearchAction', {
         var url = this.url;    
         url += '?'+"&pageNum="+data.pageNum+"&pageSize="+data.pageSize+"&fuDate="+data.fuDate+"&fuFlag="+data.fuFlag+"&fuType="+data.fuType+"&fuValue="+data.fuValue+"&diagnosis="+data.diagnosis;
         var METHODS = this.getInvocationMethods();
+        
+      /*  var mclass = null;
+        if(block.getModelClass) {
+            mclass = block.getModelClass();
+        }*/
+        
         var operation = {
             url: url,
             mclass: null,
@@ -63,7 +77,10 @@ Ext.define('iih.sy.followup.action.FollowUpListSearchAction', {
          // TODO 数据格式就这样了？
          if(operation.result){
  	        resultData=operation.result;
- 	        resultData.pageSize=pageSize;
+ 	        if(this.turnpage){
+ 	        	resultData.pageSize =undefined;
+ 	        }
+ 	        console.log(resultData);
      	 	block.setData(resultData);
          }else{
         	block.setData(null);

@@ -46,7 +46,7 @@ Ext.define('iih.sy.followup.view.FollowUpListView',{
 			'flagEdit': ['flagEdit']
 		},
 		connections: {	
-		'right': [{// 翻页操作
+				'right': [{// 翻页操作
 					selector : 'xapgrid',
 					event : 'turnpage',
 					chain : 'init'
@@ -70,6 +70,7 @@ Ext.define('iih.sy.followup.view.FollowUpListView',{
 		var self = this;
         var gridBlock = this.down('xapgrid[name=followUpListBlock]')
         var pageNum = '1';
+        console.log("yangjianbobobo");
 		this.addEvents("pageRefresh");//为视图添加刷新事件
 		this.addListener('pageRefresh', function(){//添加监听事件
 	        var chain = this.getActionChain('init');
