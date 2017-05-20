@@ -185,7 +185,7 @@ Ext.define('iih.sy.followup.block.FollowUpListBlock', {
 		                var chain = view.getActionChain('init');
 		                var grid = view.down('xapgrid[name=followUpListBlock]');
 		                chain.execute({
-		                	pageNum:grid.currentPage,
+		                	pageNum:1,
 		                	pageSize:grid.pageSize
 		                });
 	                }
