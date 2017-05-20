@@ -341,6 +341,12 @@ Ext.define('iih.po.com.PortalPlugin', {
                  xclass:'iih.sy.search.view.AdvancedSearchView',
                  viewConfig:{}
              },{
+                 cd:'XAPM07.1003',
+                 baseMenu: true,
+                 text:'随访管理',
+                 xclass:'iih.sy.followup.view.FollowUpListView',
+                 viewConfig:{}
+             },{
                  cd:'XAPM07.74',
                  baseMenu: true,
                  text:'报表角色管理',
