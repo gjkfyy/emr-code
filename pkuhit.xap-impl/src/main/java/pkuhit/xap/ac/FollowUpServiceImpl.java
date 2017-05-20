@@ -186,8 +186,8 @@ public class FollowUpServiceImpl implements FollowUpService
         }
         
         ArrayResult<Patient> ar = builder.build();
-      /*  ar.setPageNum(Integer.valueOf(pageNum));
-        ar.setPageSize(Integer.valueOf(pageSize));*/
+        ar.setPageNum(Integer.valueOf(pageNum));
+        ar.setPageSize(Integer.valueOf(pageSize));
         ar.setTotal(Integer.valueOf(options.getCount()+""));
 		ar.setGenericTypeName(String.valueOf((new Date()).getTime()));
         return ar;
