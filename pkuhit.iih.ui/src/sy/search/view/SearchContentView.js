@@ -23,18 +23,23 @@ Ext.define('iih.sy.search.view.SearchContentView', {
 					result : 'result'
 				}
 			},
+			'clear' : {
+				xclass : 'iih.sy.search.action.ClearSearchConditionAction'
+					
+			},
         	'viewMrDocListAction': {
-				xclass: 'iih.sy.search.action.ViewMrDocListAction'
-//				url: 'omr',
-//				blocks: {
-//					result: 'result'
-//				}
+				xclass: 'iih.sy.search.action.ViewMrDocListAction',
+				url: 'omr',
+				blocks: {
+					result: 'result'
+				}
 			},
 
 		},
 		chains : {
 			'init':['search'],
 			'search': ['search'],
+			'clear' : ['clear'],
 			'viewMrDocListAction': ['viewMrDocListAction']
 		},
 
@@ -50,7 +55,11 @@ Ext.define('iih.sy.search.view.SearchContentView', {
 				selector : 'xapgrid',
 				event : 'itemdblclick',
 				chain : 'viewMrDocListAction'
-			}]
+			},{
+				selector: 'button[action=clear]',
+				event: 'click',
+				chain: 'clear'
+			}],
 		},
 		
 		initComponent : function() {
