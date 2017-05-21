@@ -702,6 +702,12 @@ Ext.define('iih.po.com.PortalPlugin', {
                  closable:true
              },
              {
+                 cd:'mrDocListView',
+                 xclass:'iih.sy.search.view.MrDocListView',
+                 editorInside: true,
+                 closable:true
+             },
+             {
                  cd:'qaAutoConfigView',
                  xclass:'iih.mr.qa.qa_divide_level.view.QaAutoConfigView',
                  editorInside: true,
