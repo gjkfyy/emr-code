@@ -4,6 +4,7 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
 	requires : [ 'Xap.ej.element.grid.Grid' ],
 
 	alias : 'widget.emrsearchconditionblock',
+	id:'emrsearchconditionblock',
 
 	layout : {
 		type:'vbox',

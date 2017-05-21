@@ -1,38 +1,46 @@
-Ext.define('iih.sy.search.view.SearchLeftView',{
+Ext.define('iih.sy.search.view.SearchLeftView', {
 	extend : 'Xap.ej.template.BaseTemplate',
 
-	alias:'widget.searchleftview',
-	
-	requires :[
+	alias : 'widget.searchleftview',
+
+	requires : [
 
 	],
-	xapConfig: {
-		blocks: {
-			'top':{
-				xclass: 'iih.sy.search.block.SearchHistoryBlock',
-				height:300
+	xapConfig : {
+		blocks : {
+			'historyGrid' : {
+				xclass : 'iih.sy.search.block.SearchHistoryBlock'
 			}
 		},
-		actions: {
-			'init': {
-				xclass: 'iih.sy.search.action.SearchHistoryAction',
-				url: 'iemrPatients',
-				blocks: {
-					result: 'result'
+		actions : {
+			'init' : {
+				xclass : 'iih.sy.search.action.SearchConditionListAction',
+				url : 'searchConditionList',
+				blocks : {
+					result : 'historyGrid'
 				}
 			}
 		},
 
-		chains: {
-			'init':['init']
+		chains : {
+			'init' : [ 'init' ]
 		},
 
-		connections: {
-			'top'	:[{
-				selector: 'xapgrid',
-				event: 'itemclick',
-				chain: 'init'
-			}]
+		connections : {
+			
 		}
+	},
+	
+
+	initComponent : function() {
+		this.callParent();
+
+		 //初始化"我的搜索"
+		 var chain = this.getActionChain('init');
+		 chain.execute({
+			 pageNum:1,
+			 pageSize:20
+		 });
+
 	}
 })

@@ -18,7 +18,7 @@ Ext.define('iih.sy.search.block.EMRSearchResultGridBlock', {
 		xtype : 'toolbar',
 		autoScroll : true,
 		width : '100%',
-		margin : '0 0 0 0',
+		margin : '0 10 0 0',
 		height : 30,
 		items : [ {
 			text : '立即搜索',
@@ -49,13 +49,14 @@ Ext.define('iih.sy.search.block.EMRSearchResultGridBlock', {
 			xtype : 'button',
 			text : '保存当前搜索条件',
 			iconCls : 'icon-save',
-			valign : 'right'
+			valign : 'right',
+			action : 'save'
 		} ]
 	}, {
 		xtype : 'xapgrid',
 		name : 'userList',
 		colspan : 1,
-		width : '100%',
+		margin : '0 10 0 0',
 		rownumShow : false,
 		height : 470,
 		pageShow : true,

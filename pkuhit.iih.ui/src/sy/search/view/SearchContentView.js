@@ -7,10 +7,10 @@ Ext.define('iih.sy.search.view.SearchContentView', {
 	xapConfig : {
 		blocks : {
 			'condition' : {
-				xclass : 'iih.sy.search.block.EMRSearchConditionBlock',
+				xclass : 'iih.sy.search.block.EMRSearchConditionBlock'
 			},
 			'result' : {
-				xclass : 'iih.sy.search.block.EMRSearchResultGridBlock',
+				xclass : 'iih.sy.search.block.EMRSearchResultGridBlock'
 			}
 		},
 
@@ -34,13 +34,17 @@ Ext.define('iih.sy.search.view.SearchContentView', {
 					result: 'result'
 				}
 			},
+			'saveHistory' : {
+				xclass : 'iih.sy.search.action.SaveSearchHistoryAction'
+			}
 
 		},
 		chains : {
 			'init':['search'],
 			'search': ['search'],
 			'clear' : ['clear'],
-			'viewMrDocListAction': ['viewMrDocListAction']
+			'viewMrDocListAction': ['viewMrDocListAction'],
+			'saveHistory' : ['saveHistory']
 		},
 
 		connections : {
@@ -59,18 +63,15 @@ Ext.define('iih.sy.search.view.SearchContentView', {
 				selector: 'button[action=clear]',
 				event: 'click',
 				chain: 'clear'
+			},{
+				selector: 'button[action=save]',
+				event: 'click',
+				chain: 'saveHistory'
 			}],
 		},
 		
 		initComponent : function() {
 			this.callParent();
-			
-//			//从服务器端获取时间
-//			var chain = this.getActionChain('init');
-//            chain.execute({
-//            	pageNum:1,
-//            	pageSize:20
-//            });
 			
 		}
 	}

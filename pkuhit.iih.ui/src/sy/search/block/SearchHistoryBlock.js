@@ -6,18 +6,6 @@ Ext.define('iih.sy.search.block.SearchHistoryBlock', {
 	alias : 'widget.searchhistoryblock',
 
 	layout : {
-//		type : 'table',
-//		border : '0',
-//		columns : 1,
-//		tableAttrs : {
-//			border : 0,
-//			cellpadding : 5,
-//			cellspacing : 1,
-//			width : '100%'
-//		},
-//		tdAttrs : {
-//			valign : 'left'
-//		}
 		type:'vbox',
         align: 'stretch'
 	},
@@ -25,62 +13,67 @@ Ext.define('iih.sy.search.block.SearchHistoryBlock', {
 	items : [ {
 		title : '我的搜索',
 		xtype : 'xapgrid',
-		name:'patientList',
-		hideHeaders:true,
+		name:'searchList',
 		// pageShow : true,
-		rownumShow : false,
-		height : 470,
+		border:false,
+		rownumShow : true,
+		height : 612,
 		// selType:'checkboxmodel',
 		pageSize : 20,
 		pageShow : true,
-		ifSelect: false,
+		ifSelect: true,
+		selectBy: 'id',
 		//checkOnly : true,
 		mode:'simple',
 		showHeaderCheckbox : false,
 		//selType : 'cellmodel',
 		checkboxShow : false,
 		CM_JR_Record : [ {
-			header : 'patientId',
-			dataIndex : 'patientId',
+			header : 'id',
+			dataIndex : 'id',
 			field : 'textfield',
 			type : 'string',
 			hidden:true
 		},{
-			header : '姓名',
-			dataIndex : 'patientName',
+			header : '名称',
+			dataIndex : 'conditionName',
 			field : 'textfield',
 			type : 'string',
 			flex : 1
-		}, {
-			header : '住院号',
-			dataIndex : 'inpatientNo',
-			field : 'textfield',
-			type : 'string',
-			flex : 1
-		}, {
-			//header : '入院时间',
-			header : '手机号',
-			//dataIndex : 'admissionDate',
-			dataIndex : 'tel',
-			field : 'textfield',
-			type : 'string',
-			flex : 1
-		}, {
-			//header : '来源',
-			header : '诊断',
-			//dataIndex : 'serviceDepartName',
-			value : '住院',
-			field : 'textfield',
-			type : 'string',
-			flex : 1
-		} ]
+		}
+//		,{
+//			header:"操作",
+//          width:130,
+//          align:"center",
+//          renderer:function(value,cellmeta){
+//            var returnStr = "<INPUT type='button' value='删除'>";
+//            return returnStr;
+//          }
+//	    }
+		,{
+		    xtype: 'actioncolumn',
+		    text: '操作',
+		    align : 'center', 
+		    width: 50,
+		    tdCls: 'action',
+		    items: [{
+		    	iconCls : 'icon-Delete',
+		    	valign : 'center',
+		        tooltip: '删除',
+		        handler: function(grid, rowIndex, colIndex, node, e, record, rowEl) {
+		            // do something...  
+		        	alert('删除');
+		        }
+		    }]
+		}]
 	} ],
 	setData : function(data) {
-		var grid = this.down('xapgrid[name=patientList]');
+		var grid = this.down('xapgrid[name=searchList]');
 		if(data){
 			var dataList=data.dataList;
 	    	if(grid){
 	    		if(dataList){
+	    			
 			    	var totalList = {"total":data.total,"dataList":dataList};
 			    	var pageSize = data.pageSize;
 			    	if(pageSize == undefined || typeof(data.pageSize) == 'object'){
@@ -92,6 +85,7 @@ Ext.define('iih.sy.search.block.SearchHistoryBlock', {
 	        		var totalList = {"total":data.total,"dataList":dataList};
 	        		grid.setPageData(totalList);
 	        	}
+	    		
 	    	}
 		}
 	}
