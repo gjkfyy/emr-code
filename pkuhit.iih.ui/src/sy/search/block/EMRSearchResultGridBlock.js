@@ -36,7 +36,8 @@ Ext.define('iih.sy.search.block.EMRSearchResultGridBlock', {
 			xtype : 'button',
 			text : '清除条件',
 			iconCls : 'icon-points',
-			valign : 'left'
+			valign : 'left',
+			action : 'clear'
 
 		}, '->', {
 			xtype : 'button',
