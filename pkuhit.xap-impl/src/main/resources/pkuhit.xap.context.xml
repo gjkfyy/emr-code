@@ -219,6 +219,9 @@
 	<bean id="followUpService" class="pkuhit.xap.ac.FollowUpServiceImpl"></bean>
 	<xap:component name="followUpService" target="followUpService" />
 	
+	<bean id="advancedSearchService" class="pkuhit.xap.ac.AdvancedSearchServiceImpl"></bean>
+	<xap:component name="advancedSearchService" target="advancedSearchService" />
+	
 	<ctx:component-scan base-package="pkuhit.xap.dao" />
 	<ctx:component-scan base-package="pkuhit.org.dao" />
 
