@@ -29,6 +29,6 @@ public interface SearchConditionService
     @RequestMapping(value = "/searchCondition", method = RequestMethod.POST)
 	public Condition insert(@ModelAttribute Condition condition);
     
-    @RequestMapping(value = "/searchCondition", method = RequestMethod.PUT)
-   	public SingleResult<Condition> saveFlag(@PathVariable("id") String id);
+    @RequestMapping(value = "/deleteCondition/{id}", method = RequestMethod.DELETE)
+   	public ArrayResult<Condition> delete(@PathVariable("id") String id);
 }
