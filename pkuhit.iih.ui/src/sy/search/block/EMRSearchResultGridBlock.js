@@ -43,7 +43,8 @@ Ext.define('iih.sy.search.block.EMRSearchResultGridBlock', {
 			xtype : 'button',
 			text : '导出结果至Excel',
 			iconCls : 'icon-Excel',
-			valign : 'right'
+			valign : 'right',
+			action : 'export'
 
 		}, {
 			xtype : 'button',

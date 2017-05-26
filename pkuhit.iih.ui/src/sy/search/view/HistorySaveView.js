@@ -18,11 +18,18 @@ Ext.define('iih.sy.search.view.HistorySaveView',{
 		actions : {
 			'save' : {
 				xclass : 'iih.sy.search.action.SaveSearchHistoryDataAction',
-				url: 'searchCondition',
+				url: 'searchCondition'
+			},
+			'cancel':{
+				xclass: 'iih.mr.qa.process_qa_work.action.FaultInputCloseAction',
+				blocks: {
+				    content: 'content'
+				}
 			}
 		},
 		chains : {
-			'save':['save']
+			'save':['save'],
+			'cancel':['cancel']
 		},
 		connections : {
 			'content': [{
@@ -32,8 +39,8 @@ Ext.define('iih.sy.search.view.HistorySaveView',{
 			},{
 				selector: 'button[name=cancel]',
 				event: 'click',
-				chain: 'saveHistory'
-			}],
+				chain: 'cancel'
+			}]
 		},
 		
 		initComponent : function() {

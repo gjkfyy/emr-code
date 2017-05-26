@@ -61,8 +61,17 @@ Ext.define('iih.sy.search.block.SearchHistoryBlock', {
 		    	valign : 'center',
 		        tooltip: '删除',
 		        handler: function(grid, rowIndex, colIndex, node, e, record, rowEl) {
-		            // do something...  
-		        	alert('删除');
+					var owner = this.up('searchleftview');
+					XapMessageBox.confirm2 (
+					'确认删除？',
+					function(btn){
+						if(btn == 'yes'){
+							var deleteChain = owner.getActionChain("delete");
+							deleteChain.execute({
+								record:record
+							});
+						}
+					});
 		        }
 		    }]
 		}]

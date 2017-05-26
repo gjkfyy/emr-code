@@ -36,6 +36,10 @@ Ext.define('iih.sy.search.view.SearchContentView', {
 			},
 			'saveHistory' : {
 				xclass : 'iih.sy.search.action.SaveSearchHistoryAction'
+			},
+			'export' : {
+				xclass : 'iih.sy.search.action.ExportExcelAction',
+				url: 'exportExcel'
 			}
 
 		},
@@ -44,7 +48,8 @@ Ext.define('iih.sy.search.view.SearchContentView', {
 			'search': ['search'],
 			'clear' : ['clear'],
 			'viewMrDocListAction': ['viewMrDocListAction'],
-			'saveHistory' : ['saveHistory']
+			'saveHistory' : ['saveHistory'],
+			'export' : ['export']
 		},
 
 		connections : {
@@ -67,7 +72,11 @@ Ext.define('iih.sy.search.view.SearchContentView', {
 				selector: 'button[action=save]',
 				event: 'click',
 				chain: 'saveHistory'
-			}],
+			},{
+				selector: 'button[action=export]',
+				event: 'click',
+				chain: 'export'
+			}]
 		},
 		
 		initComponent : function() {

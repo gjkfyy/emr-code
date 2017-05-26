@@ -4,7 +4,7 @@ Ext.define('iih.sy.search.view.SearchLeftView', {
 	alias : 'widget.searchleftview',
 
 	requires : [
-
+		'iih.sy.search.action.HistoryDeleteAction'
 	],
 	xapConfig : {
 		blocks : {
@@ -19,11 +19,19 @@ Ext.define('iih.sy.search.view.SearchLeftView', {
 				blocks : {
 					result : 'historyGrid'
 				}
+			},
+			'delete': {
+				xclass: 'iih.sy.search.action.HistoryDeleteAction',
+				url:"deleteCondition",
+				blocks: {
+					result: 'historyGrid'
+				}
 			}
 		},
 
 		chains : {
-			'init' : [ 'init' ]
+			'init' : [ 'init' ],
+			'delete' : ['delete']
 		},
 
 		connections : {
