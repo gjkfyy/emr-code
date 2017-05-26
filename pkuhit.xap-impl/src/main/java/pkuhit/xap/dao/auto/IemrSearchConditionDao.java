@@ -8,7 +8,6 @@ import org.seasar.doma.Select;
 import org.seasar.doma.Update;
 import org.seasar.doma.jdbc.SelectOptions;
 
-import pkuhit.xap.dao.auto.entity.IemrPatient;
 import pkuhit.xap.dao.auto.entity.IemrSearchCondition;
 import xap.sv.dao.annotation.RepositoryConfig;
 
@@ -35,6 +34,6 @@ public interface IemrSearchConditionDao {
     
 
     @Update(excludeNull=true)
-    int update(IemrPatient entity);
+    int update(IemrSearchCondition entity);
 
 }
