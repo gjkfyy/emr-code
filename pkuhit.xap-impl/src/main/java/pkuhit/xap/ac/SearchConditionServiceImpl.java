@@ -2,6 +2,7 @@ package pkuhit.xap.ac;
 
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -12,10 +13,8 @@ import org.springframework.util.StringUtils;
 
 import pkuhit.xap.dao.auto.IemrSearchConditionDao;
 import pkuhit.xap.dao.auto.entity.IemrSearchCondition;
-import pkuhit.xap.util.BeanCopyUtil;
 import xap.sv.model.ArrayResult;
 import xap.sv.model.ArrayResultBuilder;
-import xap.sv.model.SingleResult;
 import xap.util.UUIDGenerator;
 public class SearchConditionServiceImpl implements SearchConditionService
 {
@@ -84,9 +83,16 @@ public class SearchConditionServiceImpl implements SearchConditionService
 
 
 	@Override
-	public SingleResult<Condition> saveFlag(String id) {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayResult<Condition> delete(String id) {
+		IemrSearchCondition iemrSearchCondition = new IemrSearchCondition();
+		iemrSearchCondition.setId(id);
+		iemrSearchCondition.setDelF((short)1);
+		iemrSearchConditionDao.update(iemrSearchCondition);
+		
+		Map<String, String> params = new HashMap<String, String>();
+		params.put("pageNum", "1");
+		params.put("pageSize", "20");
+		return search(params);
 	}
 	
 	 private Condition wrapData(IemrSearchCondition iemrSearchCondition) {
