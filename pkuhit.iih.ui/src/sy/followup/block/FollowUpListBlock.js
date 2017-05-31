@@ -193,7 +193,25 @@ Ext.define('iih.sy.followup.block.FollowUpListBlock', {
 					xtype: 'button',
 					text: '导出excel',
 					iconCls: 'icon-Excel',
-					action: ''
+					action: '',
+					handler:function(owner,tool){
+						var view = this.up('followUpListView');
+		                var chain = view.getActionChain('export');
+		                var grid = view.down('xapgrid[name=followUpListBlock]');
+		                chain.execute({
+		                	pageNum:1,
+		                	pageSize:grid.pageSize
+		                });
+		                
+						//window.location.href = Ext.CONTEXT + '/followUp/export';
+		                /*var view = this.up('followUpListView');
+		                var chain = view.getActionChain('init');
+		                var grid = view.down('xapgrid[name=followUpListBlock]');
+		                chain.execute({
+		                	pageNum:1,
+		                	pageSize:grid.pageSize
+		                });*/
+	                }
 				}],
 		
 			CM_JR_Record : [{
@@ -207,7 +225,7 @@ Ext.define('iih.sy.followup.block.FollowUpListBlock', {
 				dataIndex : 'sex',
 				field : 'textfield',
 				type : 'string',
-				flex : 1,
+				flex : 0.5,
 				renderer : function(value) {
 	                return (value == 1)?"男":"女";
 	            }
@@ -216,7 +234,7 @@ Ext.define('iih.sy.followup.block.FollowUpListBlock', {
 				dataIndex : 'age',
 				field : 'textfield',
 				type : 'string',
-				flex : 1
+				flex : 0.5
 			},{
 				header : '手机号',
 				dataIndex : 'tel',
@@ -228,7 +246,7 @@ Ext.define('iih.sy.followup.block.FollowUpListBlock', {
 				dataIndex : 'diagnosis',
 				field : 'textfield',
 				type : 'string',
-				flex : 1
+				flex : 1.5	
 			},{
 				header : '住院号',
 				name : 'aa',
@@ -245,7 +263,6 @@ Ext.define('iih.sy.followup.block.FollowUpListBlock', {
 				flex : 1,
 				activate : function(value) {
 					var v = Ext.Date.parse(value, 'time');
-					//meta.setAlink(true),
 					return Ext.Date.format(v, 'Y-m-d');
 	            }
 			},{

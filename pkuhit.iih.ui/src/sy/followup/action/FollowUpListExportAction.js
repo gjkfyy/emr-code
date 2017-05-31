@@ -1,9 +1,7 @@
-Ext.define('iih.sy.followup.action.FollowUpListSearchAction', {
+Ext.define('iih.sy.followup.action.FollowUpListExportAction', {
 	extend: 'Xap.ej.action.ServiceInvocation',
 	requires: ['Xap.ej.block.Layer'],
 	doExecute: function(context) {
-		 
-		this.showLoading();
 	    this.callParent();
 	    var pageNum ,pageSize; 
 	    var owner = this.getOwner();
@@ -17,14 +15,7 @@ Ext.define('iih.sy.followup.action.FollowUpListSearchAction', {
 			pageNum = context.pageNum; 
 			pageSize = context.pageSize; 
 		}
-	    console.log(context);
-	    var condition = block.getData();
-	    
-    	//condition.pageNum=pageNum;
-    	//condition.pageSize=pageSize;
-    	//this.getOwner().pageSize=pageSize;
-    	 
-		
+	   
 		var fuDate = block.down('xapcombobox[name=fuDate]');
 		var fuFlag = block.down('xapcombobox[name=fuFlag]');
 		var fuType = block.down('xapcombobox[name=fuType]');
@@ -39,7 +30,6 @@ Ext.define('iih.sy.followup.action.FollowUpListSearchAction', {
 				fuValue : fuValue.value,
 				diagnosis : diagnosis.value
 		}
-	    console.log(context);
 	   
         var operations = context.operations;      
         this.prepareOperations(operations,data);  
@@ -49,10 +39,6 @@ Ext.define('iih.sy.followup.action.FollowUpListSearchAction', {
         url += '?'+"&pageNum="+data.pageNum+"&pageSize="+data.pageSize+"&fuDate="+data.fuDate+"&fuFlag="+data.fuFlag+"&fuType="+data.fuType+"&fuValue="+data.fuValue+"&diagnosis="+data.diagnosis;
         var METHODS = this.getInvocationMethods();
         
-      /*  var mclass = null;
-        if(block.getModelClass) {
-            mclass = block.getModelClass();
-        }*/
         console.log(url);
         var operation = {
             url: url,
@@ -70,7 +56,7 @@ Ext.define('iih.sy.followup.action.FollowUpListSearchAction', {
 	 onFail: function(operation) { 
 		 alert("查询失败");
 	 },  
-     onSuccess: function(operation) {
+     onSuccess: function(operation) {/*
          var data;
     	 var pageSize=this.getOwner().pageSize;
     	 var block = this.getBlock('result');
@@ -85,5 +71,5 @@ Ext.define('iih.sy.followup.action.FollowUpListSearchAction', {
          }else{
         	block.setData(null);
          }
-     }    
+     */}    
 });

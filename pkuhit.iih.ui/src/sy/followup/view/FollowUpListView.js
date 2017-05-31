@@ -38,12 +38,20 @@ Ext.define('iih.sy.followup.view.FollowUpListView',{
                 blocks:{
                     result:'right'
                 }
-            }
+            },
+            'export': {
+				xclass: 'iih.sy.followup.action.FollowUpListExportAction',
+				url:'followUpListaa',
+				blocks: {
+					result: 'right'
+				}
+			}
 		},
 		chains: {		
 			'init': ['search'],
 			'getDate': ['getDate'],
-			'flagEdit': ['flagEdit']
+			'flagEdit': ['flagEdit'],
+			'export': ['export']
 		},
 		connections: {	
 				'right': [{// 翻页操作
@@ -70,7 +78,6 @@ Ext.define('iih.sy.followup.view.FollowUpListView',{
 		var self = this;
         var gridBlock = this.down('xapgrid[name=followUpListBlock]')
         var pageNum = '1';
-        console.log("yangjianbobobo");
 		this.addEvents("pageRefresh");//为视图添加刷新事件
 		this.addListener('pageRefresh', function(){//添加监听事件
 	        var chain = this.getActionChain('init');
