@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.seasar.doma.jdbc.SelectOptions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.ModelAttribute;
 
 import pkuhit.xap.dao.auto.IemrPatientDao;
 import pkuhit.xap.dao.auto.entity.IemrPatient;
@@ -20,6 +19,7 @@ import pkuhit.xap.util.BeanCopyUtil;
 import pkuhit.xap.util.ExcelExport;
 import xap.sv.model.ArrayResult;
 import xap.sv.model.ArrayResultBuilder;
+import xap.sv.servlet.mvc.annotation.ModelAttribute;
 import xap.sv.servlet.mvc.annotation.RequestParam;
 public class AdvancedSearchServiceImpl implements AdvancedSearchService
 {
@@ -130,7 +130,26 @@ public class AdvancedSearchServiceImpl implements AdvancedSearchService
         List<IemrPatient> list = imerPatientDao.selectByAdvancedCondition(admissionDateStart, admissionDateEnd, inpatientNoStart, 
         		inpatientNoEnd, patientName, sex, birthdayStart, birthdayEnd, tel, address, diagnosis);
         
-        String title = "学生表";  
+        //■　装配并返回
+        ArrayResultBuilder<Patient> builder = ArrayResultBuilder.newArrayResult(Patient.class);
+        int size = 0;
+        if (list != null && list.size() > 0)
+        {
+            Patient[] patientList = new Patient[list.size()];
+            int i = 0;
+            for (IemrPatient iemrPatient : list)
+            {
+            	patientList[i] = this.wrapData(iemrPatient);
+                i++;
+            }
+            
+            builder.withData(patientList);
+            size = patientList.length;
+        }
+        
+        ArrayResult<Patient> arrayResult = builder.build();
+        
+        String title = "高级检索列表";  
         String[] rowsName = new String[]{"姓名","卡号","就诊日期","来源","性别","年龄","诊断","治疗目标","手术方案"};  
         List<Object[]>  dataList = new ArrayList<Object[]>();  
         Object[] objs = null;  
@@ -147,11 +166,7 @@ public class AdvancedSearchServiceImpl implements AdvancedSearchService
             objs[8] = "";
             dataList.add(objs);  
     }  
-        
-        
-//    ServletServerHttpResponse response1 = new ServletServerHttpResponse(
-//            webRequest.getNativeResponse(HttpServletResponse.class));
-    //HttpServletResponse response = ((ServletWebRequest)RequestContextHolder.getRequestAttributes()).getResponse();
+      
     ExcelExport ex = new ExcelExport(response, title, rowsName, dataList);  
     try {
         ex.export();
@@ -159,7 +174,7 @@ public class AdvancedSearchServiceImpl implements AdvancedSearchService
         e.printStackTrace();
     }  
     
-    return null;
+    return arrayResult;
 	}
 	
 	private String TimestampToDateString(Timestamp ts){
