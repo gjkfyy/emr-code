@@ -46,18 +46,19 @@ extend: 'Xap.ej.action.ServiceInvocation',
             }
         }
         var METHODS = this.getInvocationMethods();
-        
-        var operation = {
-            url: url,
-            mclass: null,
-            method: METHODS.METHOD_GET,
-            condition: null,
-            data:data,
-            scope: this,
-            success: this.onSuccess,
-            fail: this.onFail
-        };
-        operations.push(operation);	    
+        var url = Xap.getApp().getBaseUrl()+url;
+        window.location.href =url;
+//        var operation = {
+//            url: url,
+//            mclass: null,
+//            method: METHODS.METHOD_GET,
+//            condition: null,
+//            data:data,
+//            scope: this,
+//            success: this.onSuccess,
+//            fail: this.onFail
+//        };
+        //operations.push(operation);	    
 	 },
 	 
 	 onFail: function(operation) { 

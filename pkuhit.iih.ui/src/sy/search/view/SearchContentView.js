@@ -39,7 +39,7 @@ Ext.define('iih.sy.search.view.SearchContentView', {
 			},
 			'export' : {
 				xclass : 'iih.sy.search.action.ExportExcelAction',
-				url: 'exportExcel'
+				url: 'file-export'
 			}
 
 		},
