@@ -119,6 +119,16 @@
 		<url-pattern>/ws/mr</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>file-export</servlet-name>
+		<servlet-class>pkuhit.xap.ac.ExportServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>file-export</servlet-name>
+		<url-pattern>/file-export</url-pattern>
+	</servlet-mapping>
+	
 
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
