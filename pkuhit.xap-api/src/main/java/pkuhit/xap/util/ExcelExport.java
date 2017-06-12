@@ -53,7 +53,7 @@ public class ExcelExport {
 			HSSFCellStyle columnTopStyle = this.getColumnTopStyle(workbook);// 获取列头样式对象
 			HSSFCellStyle style = this.getStyle(workbook); // 单元格样式对象
 
-			sheet.addMergedRegion(new CellRangeAddress(0, 1, 0, (rowName.length - 1)));
+			sheet.addMergedRegion(new CellRangeAddress(0, 1, 0, (rowName.length)));
 			cellTiltle.setCellStyle(columnTopStyle);
 			cellTiltle.setCellValue(title);
 
@@ -62,8 +62,13 @@ public class ExcelExport {
 			HSSFRow rowRowName = sheet.createRow(2); // 在索引2的位置创建行(最顶端的行开始的第二行)
 
 			// 将列头设置到sheet的单元格中
+			HSSFCell index = rowRowName.createCell(0); // 创建列头对应个数的单元格
+			index.setCellType(HSSFCell.CELL_TYPE_STRING); // 设置列头单元格的数据类型
+			index.setCellValue("序号"); // 设置列头单元格的值
+			index.setCellStyle(columnTopStyle); // 设置列头单元格样式
+			
 			for (int n = 0; n < columnNum; n++) {
-				HSSFCell cellRowName = rowRowName.createCell(n); // 创建列头对应个数的单元格
+				HSSFCell cellRowName = rowRowName.createCell(n+1); // 创建列头对应个数的单元格
 				cellRowName.setCellType(HSSFCell.CELL_TYPE_STRING); // 设置列头单元格的数据类型
 				HSSFRichTextString text = new HSSFRichTextString(rowName[n]);
 				cellRowName.setCellValue(text); // 设置列头单元格的值
@@ -75,23 +80,22 @@ public class ExcelExport {
 
 				Object[] obj = dataList.get(i);// 遍历每个对象
 				HSSFRow row = sheet.createRow(i + 3);// 创建所需的行数
-
+				
+				HSSFCell indexCell = row.createCell(0, HSSFCell.CELL_TYPE_NUMERIC);
+				indexCell.setCellValue(i); //序号
+				indexCell.setCellStyle(style);
 				for (int j = 0; j < obj.length; j++) {
 					HSSFCell cell = null; // 设置单元格的数据类型
-					if (j == 0) {
-						cell = row.createCell(j, HSSFCell.CELL_TYPE_NUMERIC);
-						cell.setCellValue(i + 1);
-					} else {
-						cell = row.createCell(j, HSSFCell.CELL_TYPE_STRING);
-						if (!"".equals(obj[j]) && obj[j] != null) {
-							cell.setCellValue(obj[j].toString()); // 设置单元格的值
-						}
+					cell = row.createCell(j+1, HSSFCell.CELL_TYPE_STRING);
+					if (obj[j] == null) {
+						obj[j] = " ";
 					}
+					cell.setCellValue(obj[j].toString()); // 设置单元格的值
 					cell.setCellStyle(style); // 设置单元格样式
 				}
 			}
 			// 让列宽随着导出的列长自动适应
-			for (int colNum = 0; colNum < columnNum; colNum++) {
+			for (int colNum = 0; colNum <= columnNum; colNum++) {
 				int columnWidth = sheet.getColumnWidth(colNum) / 256;
 				for (int rowNum = 0; rowNum < sheet.getLastRowNum(); rowNum++) {
 					HSSFRow currentRow;
@@ -126,6 +130,7 @@ public class ExcelExport {
 					response.setHeader("Content-Disposition", headStr);
 					OutputStream out = response.getOutputStream();
 					workbook.write(out);
+					out.flush();
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
