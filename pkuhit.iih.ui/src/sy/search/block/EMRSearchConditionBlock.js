@@ -344,35 +344,12 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
     				colspan: 1,
     				iconCls: 'icon-Create',
     				valign : 'center',
-    				action: '',
     		        listeners: {
     					click: function( v, newValue, oldValue, eOpts ) {
     						var block=Ext.getCmp('emrsearchconditionblock');
     						var data = block.down('xapcombobox[name=mr_element]').getData();
     						var jcxm = this.up('fieldcontainer[name=jcxm]');//items
     						block.addItem(jcxm);
-    					}
-    				}
-    			},{
-    				xtype: 'xapbutton',
-    				text: '',
-    				name: 'delItem',
-    				iconCls: 'icon-Create',
-    				margin:'0 5 0 5',
-    				colspan: 1,
-    				iconCls: 'icon-Delete',
-    				valign : 'center',
-    				action: '',
-    		        listeners: {
-    					click: function( v, newValue, oldValue, eOpts ) {
-    						var block=Ext.getCmp('emrsearchconditionblock');
-    						var data = block.down('xapcombobox[name=mr_element]').getData();
-    						var jcxm = this.up('fieldcontainer[name=jcxm]');//items
-    						var selector = 'fieldcontainer[id='+this.container.id+']';
-    						var item = jcxm.down(selector);
-    						
-    						jcxm.remove(item);
-    						//block.addItem(jcxm);
     					}
     				}
     			}]
@@ -448,11 +425,11 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
 		        listeners: {
 					click: function( v, newValue, oldValue, eOpts ) {
 						var block=Ext.getCmp('emrsearchconditionblock');
-						var data = block.down('xapcombobox[name=mr_element]').getData();
 						var jcxm = this.up('fieldcontainer[name=jcxm]');//items
-						var selector = 'fieldcontainer[id='+this.container.id+']';
-						var item = jcxm.down(selector);
 						
+						var container = this.ownerCt.getLayout().owner;
+						var selector = 'fieldcontainer[id='+container.id+']';
+						var item = jcxm.down(selector);
 						jcxm.remove(item);
 					}
 				}
