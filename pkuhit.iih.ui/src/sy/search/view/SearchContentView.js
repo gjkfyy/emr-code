@@ -40,6 +40,10 @@ Ext.define('iih.sy.search.view.SearchContentView', {
 			'export' : {
 				xclass : 'iih.sy.search.action.ExportExcelAction',
 				url: 'file-export'
+			},
+			'comboboxInit' :{
+				xclass : 'iih.sy.search.action.MrComboboxInitAction',
+				url: 'mr/md/shareElement'
 			}
 
 		},
@@ -49,14 +53,15 @@ Ext.define('iih.sy.search.view.SearchContentView', {
 			'clear' : ['clear'],
 			'viewMrDocListAction': ['viewMrDocListAction'],
 			'saveHistory' : ['saveHistory'],
-			'export' : ['export']
+			'export' : ['export'],
+			'comboboxInit' : ['comboboxInit']
 		},
 
 		connections : {
 			'result': [{// 翻页操作
 				selector : 'xapgrid',
 				event : 'turnpage',
-				chain : 'init'
+				chain : 'search'
 			},{
 				event: 'afterrender',
 				chain: 'init'
@@ -76,6 +81,10 @@ Ext.define('iih.sy.search.view.SearchContentView', {
 				selector: 'button[action=export]',
 				event: 'click',
 				chain: 'export'
+			}],
+			'condition' : [{
+					event: 'afterrender',
+					chain: 'comboboxInit'
 			}]
 		},
 		

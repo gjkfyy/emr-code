@@ -1,7 +1,8 @@
 Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
 	extend : 'Xap.ej.block.FormBlock',
 
-	requires : [ 'Xap.ej.element.grid.Grid' ],
+	requires : [ 'Xap.ej.element.grid.Grid',
+	             'Xap.ej.element.label.Label'],
 
 	alias : 'widget.emrsearchconditionblock',
 	id:'emrsearchconditionblock',
@@ -290,9 +291,10 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
             }]
         },{
             xtype: 'fieldcontainer',
+            name: 'jcxm',
             fieldLabel: '检查项目',
             labelWidth:60,
-            layout: 'hbox',
+            layout: 'vbox',
             columnWidth:0.75,
             combineErrors: true,
             defaultType: 'textfield',
@@ -301,30 +303,162 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
                 hideLabel: 'true'
             },
             items: [{
-              xtype: 'xaptextfield',
-              name:'ExamItem',
-              flex: 1,
-              labelAlign:'left',
-              editable:false
-            },{
-				xtype: 'button',
+            	xtype: 'fieldcontainer',
+            	layout: 'hbox',
+            	defaultType: 'textfield',
+                defaults: {
+                    hideLabel: 'true'
+                },
+                items : [{
+        			xtype: 'xaplabel',
+        			margin:'4 10 0 0',
+        	    	labelAlign : 'left',
+        	    	text: '项目名'
+        		},{
+        	        xtype:'xapcombobox',
+        	        labelAlign : 'right',
+        			margin:'0 10 0 0',
+    				name:'mr_element',
+    				editable:false,
+        			allOptions:false,
+    				queryMode: 'local',
+    				displayField: 'nm',
+    				valueField: 'mrShareElementCd'
+        	    },{
+        			xtype: 'xaplabel',
+        			margin:'4 10 0 10',
+        	    	labelAlign : 'left',
+        	    	text: '值'
+        		},{
+                    xtype: 'xaptextfield',
+                    name:'ExamItem',
+                    flex: 1,
+                    labelAlign:'right',
+                    editable:false
+                  },{
+    				xtype: 'xapbutton',
+    				text: '',
+    				name: 'addItem',
+    				iconCls: 'icon-Create',
+    				margin:'0 5 0 10',
+    				colspan: 1,
+    				iconCls: 'icon-Create',
+    				valign : 'center',
+    				action: '',
+    		        listeners: {
+    					click: function( v, newValue, oldValue, eOpts ) {
+    						var block=Ext.getCmp('emrsearchconditionblock');
+    						var data = block.down('xapcombobox[name=mr_element]').getData();
+    						var jcxm = this.up('fieldcontainer[name=jcxm]');//items
+    						block.addItem(jcxm);
+    					}
+    				}
+    			},{
+    				xtype: 'xapbutton',
+    				text: '',
+    				name: 'delItem',
+    				iconCls: 'icon-Create',
+    				margin:'0 5 0 5',
+    				colspan: 1,
+    				iconCls: 'icon-Delete',
+    				valign : 'center',
+    				action: '',
+    		        listeners: {
+    					click: function( v, newValue, oldValue, eOpts ) {
+    						var block=Ext.getCmp('emrsearchconditionblock');
+    						var data = block.down('xapcombobox[name=mr_element]').getData();
+    						var jcxm = this.up('fieldcontainer[name=jcxm]');//items
+    						var selector = 'fieldcontainer[id='+this.container.id+']';
+    						var item = jcxm.down(selector);
+    						
+    						jcxm.remove(item);
+    						//block.addItem(jcxm);
+    					}
+    				}
+    			}]
+
+            }]
+        }]
+	}],
+	
+	addItem : function (container){
+		var block=Ext.getCmp('emrsearchconditionblock');
+		var data = block.down('xapcombobox[name=mr_element]').getData();
+		
+		var item = Ext.create('Ext.form.FieldContainer', {
+        	layout: 'hbox',
+        	defaultType: 'textfield',
+            defaults: {
+                hideLabel: 'true'
+            },
+            items : [{
+    			xtype: 'xaplabel',
+    			margin:'4 10 0 0',
+    	    	labelAlign : 'left',
+    	    	text: '项目名'
+    		},{
+    	        xtype:'xapcombobox',
+    	        labelAlign : 'right',
+    			margin:'0 10 0 0',
+				name:'mr_element',
+				editable:false,
+    			allOptions:false,
+				queryMode: 'local',
+				displayField: 'nm',
+				valueField: 'mrShareElementCd'
+    	    },{
+    			xtype: 'xaplabel',
+    			margin:'4 10 0 10',
+    	    	labelAlign : 'left',
+    	    	text: '值'
+    		},{
+                xtype: 'xaptextfield',
+                name:'ExamItem',
+                flex: 1,
+                labelAlign:'right',
+                editable:false
+              },{
+				xtype: 'xapbutton',
 				text: '',
+				name: 'addItem',
 				iconCls: 'icon-Create',
 				margin:'0 5 0 10',
 				colspan: 1,
 				iconCls: 'icon-Create',
 				valign : 'center',
-				action: ''
+				action: '',
+		        listeners: {
+					click: function( v, newValue, oldValue, eOpts ) {
+						var block=Ext.getCmp('emrsearchconditionblock');
+						var data = block.down('xapcombobox[name=mr_element]').getData();
+						var jcxm = this.up('fieldcontainer[name=jcxm]');//items
+						block.addItem(jcxm);
+					}
+				}
 			},{
-				xtype: 'button',
+				xtype: 'xapbutton',
 				text: '',
+				name: 'delItem',
 				iconCls: 'icon-Create',
 				margin:'0 5 0 5',
 				colspan: 1,
 				iconCls: 'icon-Delete',
 				valign : 'center',
-				action: ''
+				action: '',
+		        listeners: {
+					click: function( v, newValue, oldValue, eOpts ) {
+						var block=Ext.getCmp('emrsearchconditionblock');
+						var data = block.down('xapcombobox[name=mr_element]').getData();
+						var jcxm = this.up('fieldcontainer[name=jcxm]');//items
+						var selector = 'fieldcontainer[id='+this.container.id+']';
+						var item = jcxm.down(selector);
+						
+						jcxm.remove(item);
+					}
+				}
 			}]
-        }]
-	}]
+		});
+		item.down('xapcombobox[name=mr_element]').setData(data);
+		container.add(item);
+	}
 })

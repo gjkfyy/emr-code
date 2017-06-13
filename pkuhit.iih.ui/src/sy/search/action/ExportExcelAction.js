@@ -48,6 +48,9 @@ extend: 'Xap.ej.action.ServiceInvocation',
         var METHODS = this.getInvocationMethods();
         var url = Xap.getApp().getBaseUrl()+url;
         window.location.href =url;
+        if (document.readyState == "complete") {
+        	this.hideLoading();
+        }
 //        var operation = {
 //            url: url,
 //            mclass: null,
@@ -58,13 +61,13 @@ extend: 'Xap.ej.action.ServiceInvocation',
 //            success: this.onSuccess,
 //            fail: this.onFail
 //        };
-        //operations.push(operation);	    
+//        operations.push(operation);	    
 	 },
 	 
 	 onFail: function(operation) { 
 		 alert("查询失败");
 	 },  
      onSuccess: function(operation) {
-
+    	 
      }    
 });
