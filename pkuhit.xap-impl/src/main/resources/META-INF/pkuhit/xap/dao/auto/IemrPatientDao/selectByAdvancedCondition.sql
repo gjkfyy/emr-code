@@ -1,40 +1,51 @@
- select
-  *
-from
-  IEMR_PATIENT t
-where 1=1
+select  p.* from iemr_patient p , iemr_xml,mr,xap_bizfile
+where 1=1 
+and 	p.inpatient_no = mr.en_pk
+and    iemr_xml.file_pk = mr.file_pk
+and    xap_bizfile.file_pk = mr.file_pk
 /*%if patientName != null */
- and  t.patient_name = /*patientName*/'刑茜2'
+ and  p.patient_name = /*patientName*/'刑茜2'
 /*%end */ 
 /*%if admissionDateStart != null */ 
- and t.admission_date >= to_date(/*admissionDateStart*/'2015-01-01 00:00:00','yyyy-mm-dd hh24:mi:ss')
+ and p.admission_date >= to_date(/*admissionDateStart*/'2015-01-01 00:00:00','yyyy-mm-dd hh24:mi:ss')
 /*%end */ 
 /*%if admissionDateEnd != null */ 
- and t.admission_date <= to_date(/*admissionDateEnd*/'2015-01-01 00:00:00','yyyy-mm-dd hh24:mi:ss')
+ and p.admission_date <= to_date(/*admissionDateEnd*/'2015-01-01 00:00:00','yyyy-mm-dd hh24:mi:ss')
 /*%end */ 
  /*%if inpatientNoStart != null */ 
- and t.inpatient_no > /*inpatientNoStart*/'12'
+ and p.inpatient_no > /*inpatientNoStart*/'12'
 /*%end */ 
  /*%if inpatientNoEnd != null */ 
- and t.inpatient_no < /*inpatientNoEnd*/'100'
+ and p.inpatient_no < /*inpatientNoEnd*/'100'
 /*%end */ 
  /*%if sex != null */ 
- and t.sex = /*sex*/'0'
+ and p.sex = /*sex*/'0'
 /*%end */ 
  /*%if birthdayEnd != null */ 
- and t.age >= sysdate - to_date(/*birthdayEnd*/'2015-01-01 00:00:00','yyyy-mm-dd hh24:mi:ss')
+ and p.age >= sysdate - to_date(/*birthdayEnd*/'2015-01-01 00:00:00','yyyy-mm-dd hh24:mi:ss')
 /*%end */ 
  /*%if birthdayStart != null */ 
- and t.age <= sysdate - to_date(/*birthdayStart*/'2015-01-05 00:00:00','yyyy-mm-dd hh24:mi:ss') 
+ and p.age <= sysdate - to_date(/*birthdayStart*/'2015-01-05 00:00:00','yyyy-mm-dd hh24:mi:ss') 
 /*%end */ 
  /*%if tel != null */ 
- and t.tel = '110'
+ and p.tel = '110'
 /*%end */ 
  /*%if address != null */ 
- and t.adress like /* @contain(address) */'%g%'
+ and p.adress like /* @contain(address) */'%g%'
 /*%end */ 
  /*%if diagnosis != null */ 
- and t.diagnosis like /* @contain(diagnosis) */'%g%'
+ and p.diagnosis like /* @contain(diagnosis) */'%g%'
  /*%end */ 
+ 
+ /*%if itemValuesList != null   && itemValuesList.size() > 0 */  
+  and (
+  /*%for condition : itemValuesList */
+    (iemr_xml.iemr_key = substr(/*condition*/'MR.M.013.D.3|36',0,INSTR(/*condition*/'MR.M.013.D.3|36','|')-1) and iemr_xml.iemr_value = substr(/*condition*/'MR.M.013.D.3|36',INSTR(/*condition*/'MR.M.013.D.3|36','|')+1))
+    /*%if condition_has_next */
+  /*# "or" */
+    /*%end */
+/*%end*/
+    )
+  /*%end*/
 
- and t.del_f = 0
+ and p.del_f = 0
