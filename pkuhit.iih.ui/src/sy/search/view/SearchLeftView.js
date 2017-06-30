@@ -2,6 +2,7 @@ Ext.define('iih.sy.search.view.SearchLeftView', {
 	extend : 'Xap.ej.template.BaseTemplate',
 
 	alias : 'widget.searchleftview',
+	id:'searchleftview',
 
 	requires : [
 		'iih.sy.search.action.HistoryDeleteAction'

@@ -11,6 +11,7 @@ Ext.define('iih.sy.search.view.SearchContentView', {
 			},
 			'result' : {
 				xclass : 'iih.sy.search.block.EMRSearchResultGridBlock'
+				
 			}
 		},
 

@@ -26,10 +26,21 @@ Ext.define('iih.sy.search.action.AdvancedSearchAction', {
     	 
 	    
 	    var data = block.getItemData(block);
-		
+		var itemValues = "";
 	    for(var key in data){
-	    	if(data[key] == null || data[key] == undefined){
+	    	if(data[key] == null || data[key] == undefined || key.indexOf('xapdisplayfield')==0){
 	    		delete data[key];
+	    	}
+	    	
+	    	if(key.indexOf('mr_element')==0){
+	    		if(data[key] != null && data[key] != undefined){
+	    			var itemKey = 'examItem'+key.substring('mr_element'.length);
+	    			var itemValue = data[itemKey];
+	    			var condition = data[key]+"|"+itemValue;
+	    			itemValues += "||" + condition;
+	    			delete data[key];
+	    			delete data[itemKey];
+	    		}
 	    	}
 	    	
 	    	if(data[key] instanceof Date){
@@ -37,6 +48,9 @@ Ext.define('iih.sy.search.action.AdvancedSearchAction', {
 	    		data[key] = Ext.Date.format(date,'Y-m-d H:i:s');
 	    		//data.key = date.format("Y-m-d H:i:s");
 	    	}
+	    }
+	    if(itemValues != ""){
+	    	data.itemValues = itemValues.substring(2);
 	    }
 	    
 	    if(pageNum == null){

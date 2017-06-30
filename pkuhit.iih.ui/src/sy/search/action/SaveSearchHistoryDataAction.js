@@ -15,17 +15,36 @@ Ext.define('iih.sy.search.action.SaveSearchHistoryDataAction', {
 		
 		var userId = IMER_GLOBAL.user.code;
 
-	    console.log(context);
+	    //console.log(context);
 	    
 	    var content = contentBlock.getItemData(contentBlock);
 	    var condition = conditionBlock.getItemData(conditionBlock);
 	    
+		var itemValues = "";
 	    for(var key in condition){
+	    	if(key.indexOf('xapdisplayfield')==0){
+	    		delete condition[key];
+	    	}
+	    	
+	    	if(key.indexOf('mr_element')==0){
+	    		if(condition[key] != null && condition[key] != undefined){
+	    			var itemKey = 'examItem'+key.substring('mr_element'.length);
+	    			var itemValue = condition[itemKey];
+	    			var temp = condition[key]+"|"+itemValue;
+	    			itemValues += "||" + temp;
+	    			delete condition[key];
+	    			delete condition[itemKey];
+	    		}
+	    	}
 	    	
 	    	if(condition[key] instanceof Date){
 	    		var date = condition[key];
 	    		condition[key] = Ext.Date.format(date,'Y-m-d H:i:s');
+	    		//data.key = date.format("Y-m-d H:i:s");
 	    	}
+	    }
+	    if(itemValues != ""){
+	    	condition.itemValues = itemValues.substring(2);
 	    }
 	    
 	    var data = {};
@@ -54,22 +73,19 @@ Ext.define('iih.sy.search.action.SaveSearchHistoryDataAction', {
 	 },
 	 
 	 onFail: function(operation) { 
-		 alert("查询失败");
+		 XapMessageBox.info('保存失败!');
 	 },  
      onSuccess: function(operation) {
-         var data;
-    	 var pageSize=this.getOwner().pageSize;
-    	 var block = this.getBlock('result');
-         // TODO 数据格式就这样了？
-         if(operation.result){
- 	        resultData=operation.result;
- 	        if(this.turnpage){
- 	        	resultData.pageSize =undefined;
- 	        }
- 	        console.log(resultData);
-     	 	block.setData(resultData);
-         }else{
-        	block.setData(null);
-         }
+    	var view = this.getOwner();
+    	var chain = view.getActionChain('cancel');
+    	chain.execute({
+    		flag:'1'
+    	});
+    	XapMessageBox.info('保存成功!');
+		
+		var block=Ext.getCmp('searchleftview');
+		var initChain = block.getActionChain('init');
+		initChain.execute({});
+		//block.getForm().reset(); //清空form
      }    
 });

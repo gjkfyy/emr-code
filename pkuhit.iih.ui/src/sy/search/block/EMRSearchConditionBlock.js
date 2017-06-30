@@ -1,40 +1,63 @@
 Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
 	extend : 'Xap.ej.block.FormBlock',
-
-	requires : [ 'Xap.ej.element.grid.Grid',
-	             'Xap.ej.element.label.Label'],
+	requires: [
+		   		'Xap.ej.element.field.ComboBox',
+		   		'Xap.ej.element.field.Checkbox',
+		   		'Xap.ej.element.field.DateField',
+		   		'Xap.ej.element.field.ComboBoxGrid',
+				'Xap.ej.element.form.Form',
+				'Xap.ej.element.label.Label',
+				'Xap.ej.element.grid.Grid'
+		   	],
 
 	alias : 'widget.emrsearchconditionblock',
 	id:'emrsearchconditionblock',
 
-	layout : {
-		type:'vbox',
-        align: 'stretch'
+//	layout : {
+//		type:'vbox',
+//        align: 'stretch'
+//	},
+	
+	width : '99%',
+	
+	layout: {
+		type: 'table',
+		columns: 12,
+		border:false,
+		tableAttrs: {
+            border: 0,
+            width : '99%',
+            cellpadding: 0,
+            cellspacing: 1
+        },
+        tdAttrs: {
+            valign: 'left',
+            buttonAlign:'center'
+        }
 	},
 
 	items : [ {
 		xtype : 'fieldset',
 		title : '住院',
-		colspan: 12,
+		colspan: 5,
 		defaultType : 'textfield',
 		layout : 'column',
 		items : [{
             xtype: 'fieldcontainer',
             fieldLabel: '入院时间',
-            labelWidth:80,
-            layout: 'hbox',
-            columnWidth:0.75,
+            labelWidth:60,
+            layout: 'table',
             combineErrors: true,
             defaultType: 'textfield',
-            padding:'10 0 5 0',
+            padding:'5 0 5 0',
             defaults: {
                 hideLabel: 'true'
             },
             items: [{
               xtype: 'xapdatefield',
               name:'admissionDateStart',
-              flex: 3,
               labelAlign:'left',
+              width:120,
               editable:false
             }, {
         	  	xtype: 'xapdisplayfield',
@@ -46,16 +69,16 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
           },{
               	xtype: 'xapdatefield',
             	name:'admissionDateEnd',
-                flex: 3,
             	labelAlign:'left',
+            	width:120,
             	editable:false
             }]
         },{
             xtype: 'fieldcontainer',
             fieldLabel: '住院号',
-            labelWidth:80,
-            layout: 'hbox',
-            columnWidth:0.75,
+            colspan: 5,
+            labelWidth:60,
+            layout: 'column',
             combineErrors: true,
             defaultType: 'textfield',
             padding:'5 0 5 0',
@@ -65,8 +88,9 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
             items: [{
               xtype: 'xaptextfield',
               name:'inpatientNoStart',
-              flex: 3,
+              colspan: 2,
               labelAlign:'left',
+              width:120,
               editable:false
             }, {
         	  	xtype: 'xapdisplayfield',
@@ -78,15 +102,22 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
           },{
               	xtype: 'xaptextfield',
             	name:'inpatientNoEnd',
-                flex: 3,
+              	colspan: 2,
             	labelAlign:'left',
+            	width:120,
             	editable:false
             }]
-        }]
+        },{
+        	  	xtype: 'xapdisplayfield',
+        		fieldLabel: '',
+        		name:'',
+        		padding:'5 0 0 0',
+        		value: ''
+          }]
 	},{
 		xtype : 'fieldset',
 		title : '患者',
-		colspan: 12,
+		colspan: 7,
 		defaultType : 'textfield',
 		layout : 'column',
 		items : [{
@@ -97,7 +128,7 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
             columnWidth:0.2,
             combineErrors: true,
             defaultType: 'textfield',
-            padding:'10 0 5 0',
+            padding:'5 0 5 0',
             defaults: {
                 hideLabel: 'true'
             },
@@ -116,7 +147,7 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
             columnWidth:0.25,
             combineErrors: true,
             defaultType: 'textfield',
-            padding:'10 0 5 20',
+            padding:'5 0 5 10',
             defaults: {
                 hideLabel: 'true'
             },
@@ -144,7 +175,7 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
             columnWidth:0.5,
             combineErrors: true,
             defaultType: 'textfield',
-            padding:'10 0 5 20',
+            padding:'5 0 5 10',
             defaults: {
                 hideLabel: 'true'
             },
@@ -176,7 +207,7 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
             columnWidth:0.45,
             combineErrors: true,
             defaultType: 'textfield',
-            padding:'10 0 5 0',
+            padding:'5 0 5 0',
             defaults: {
                 hideLabel: 'true'
             },
@@ -195,7 +226,7 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
             columnWidth:0.5,
             combineErrors: true,
             defaultType: 'textfield',
-            padding:'10 0 5 20',
+            padding:'5 0 5 10',
             defaults: {
                 hideLabel: 'true'
             },
@@ -214,7 +245,7 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
             columnWidth:0.95,
             combineErrors: true,
             defaultType: 'textfield',
-            padding:'10 0 5 0',
+            padding:'5 0 5 0',
             defaults: {
                 hideLabel: 'true'
             },
@@ -237,7 +268,8 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
             fieldLabel: '诊断',
             labelWidth:60,
             layout: 'hbox',
-            columnWidth:0.75,
+            labelAlign:'right',
+            columnWidth:0.25,
             combineErrors: true,
             defaultType: 'textfield',
             padding:'5 0 5 0',
@@ -248,7 +280,6 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
               xtype: 'xaptextfield',
               name:'diagnosis',
               flex: 1,
-              labelAlign:'left',
               editable:false
             }]
         },{
@@ -256,7 +287,8 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
             fieldLabel: '治疗目标',
             labelWidth:60,
             layout: 'hbox',
-            columnWidth:0.75,
+            labelAlign:'right',
+            columnWidth:0.25,
             combineErrors: true,
             defaultType: 'textfield',
             padding:'5 0 5 0',
@@ -267,7 +299,6 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
               xtype: 'xaptextfield',
               name:'treatmentGoal',
               flex: 1,
-              labelAlign:'left',
               editable:false
             }]
         },{
@@ -275,7 +306,8 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
             fieldLabel: '手术方案',
             labelWidth:60,
             layout: 'hbox',
-            columnWidth:0.75,
+            labelAlign:'right',
+            columnWidth:0.25,
             combineErrors: true,
             defaultType: 'textfield',
             padding:'5 0 5 0',
@@ -286,7 +318,6 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
               xtype: 'xaptextfield',
               name:'operationPlan',
               flex: 1,
-              labelAlign:'left',
               editable:false
             }]
         },{
@@ -295,6 +326,7 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
             fieldLabel: '检查项目',
             labelWidth:60,
             layout: 'vbox',
+            labelAlign:'right',
             columnWidth:0.75,
             combineErrors: true,
             defaultType: 'textfield',
@@ -312,16 +344,17 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
                 items : [{
         			xtype: 'xaplabel',
         			margin:'4 10 0 0',
-        	    	labelAlign : 'left',
+        	    	labelAlign:'right',
         	    	text: '项目名'
         		},{
         	        xtype:'xapcombobox',
         	        labelAlign : 'right',
-        			margin:'0 10 0 0',
+        			margin:'0 32 0 0',
     				name:'mr_element',
     				editable:false,
         			allOptions:false,
     				queryMode: 'local',
+    				width:130,
     				displayField: 'nm',
     				valueField: 'mrShareElementCd'
         	    },{
@@ -331,7 +364,7 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
         	    	text: '值'
         		},{
                     xtype: 'xaptextfield',
-                    name:'ExamItem',
+                    name:'examItem',
                     flex: 1,
                     labelAlign:'right',
                     editable:false
@@ -359,6 +392,7 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
 	}],
 	
 	addItem : function (container){
+		var timestamp = new Date().getTime();
 		var block=Ext.getCmp('emrsearchconditionblock');
 		var data = block.down('xapcombobox[name=mr_element]').getData();
 		
@@ -376,11 +410,12 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
     		},{
     	        xtype:'xapcombobox',
     	        labelAlign : 'right',
-    			margin:'0 10 0 0',
-				name:'mr_element',
+    			margin:'0 32 0 0',
+				name:'mr_element_'+timestamp,
 				editable:false,
     			allOptions:false,
 				queryMode: 'local',
+				width:130,
 				displayField: 'nm',
 				valueField: 'mrShareElementCd'
     	    },{
@@ -390,7 +425,7 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
     	    	text: '值'
     		},{
                 xtype: 'xaptextfield',
-                name:'ExamItem',
+                name:'examItem_'+timestamp,
                 flex: 1,
                 labelAlign:'right',
                 editable:false
@@ -435,7 +470,7 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
 				}
 			}]
 		});
-		item.down('xapcombobox[name=mr_element]').setData(data);
+		item.down('xapcombobox').setData(data);
 		container.add(item);
 	}
 })

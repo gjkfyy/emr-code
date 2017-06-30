@@ -17,7 +17,6 @@ Ext.define('iih.sy.search.block.EMRSearchResultGridBlock', {
 	items : [ {
 		xtype : 'toolbar',
 		autoScroll : true,
-		width : '100%',
 		margin : '0 10 0 0',
 		height : 30,
 		items : [ {
