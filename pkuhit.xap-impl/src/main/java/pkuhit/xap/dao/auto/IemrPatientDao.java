@@ -95,10 +95,10 @@ public interface IemrPatientDao {
     List<IemrPatient> selectFollowUpList(String startDate,String endDate,String patientName,String inpatientNo,String tel,String diagnosis,String fuFlag,SelectOptions options);
     
     @Select
-    List<IemrPatient> selectByAdvancedCondition(String admissionDateStart,String admissionDateEnd,String inpatientNoStart, String inpatientNoEnd,String patientName,String sex,
+    List<IemrPatient> selectByAdvancedCondition(List<String> itemValuesList,String admissionDateStart,String admissionDateEnd,String inpatientNoStart, String inpatientNoEnd,String patientName,String sex,
     		String birthdayStart, String birthdayEnd, String tel, String address, String diagnosis);
     
     @Select
-    List<IemrPatient> selectByAdvancedCondition(String admissionDateStart,String admissionDateEnd,String inpatientNoStart, String inpatientNoEnd,String patientName,String sex,
+    List<IemrPatient> selectByAdvancedCondition(List<String> itemValuesList,String admissionDateStart,String admissionDateEnd,String inpatientNoStart, String inpatientNoEnd,String patientName,String sex,
     		String birthdayStart, String birthdayEnd, String tel, String address, String diagnosis,SelectOptions options);
 }
