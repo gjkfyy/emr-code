@@ -17,5 +17,5 @@ select
   LAST_UPD_USER_ID,
   DEL_F
  from MD_MR_SHARE_ELEMENT
- where del_f = 0 and macro_flag = 0
+ where del_f = 0 --and macro_flag = 0
  order by to_number(sort_no)
