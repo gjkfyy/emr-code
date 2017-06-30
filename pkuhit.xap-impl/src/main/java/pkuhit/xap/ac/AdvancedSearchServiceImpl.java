@@ -4,6 +4,8 @@ import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -67,8 +69,15 @@ public class AdvancedSearchServiceImpl implements AdvancedSearchService
         String tel = getParamValue(params, "tel");
         String address = getParamValue(params, "address");
         String diagnosis = getParamValue(params, "diagnosis");
-
-        List<IemrPatient> list = imerPatientDao.selectByAdvancedCondition(admissionDateStart, admissionDateEnd, inpatientNoStart, 
+        
+        List<String> itemValuesList = new ArrayList<String>();
+        String itemValues = getParamValue(params, "itemValues");
+        if(itemValues != null){
+        	String[] split = itemValues.split("\\|\\|");
+        	itemValuesList = Arrays.asList(split);
+        }
+        
+        List<IemrPatient> list = imerPatientDao.selectByAdvancedCondition(itemValuesList,admissionDateStart, admissionDateEnd, inpatientNoStart, 
         		inpatientNoEnd, patientName, sex, birthdayStart, birthdayEnd, tel, address, diagnosis,options);
         
         //■　装配并返回
@@ -126,8 +135,15 @@ public class AdvancedSearchServiceImpl implements AdvancedSearchService
         String tel = getParamValue(params, "tel");
         String address = getParamValue(params, "address");
         String diagnosis = getParamValue(params, "diagnosis");
+        
+        List<String> itemValuesList = new ArrayList<String>();
+        String itemValues = getParamValue(params, "itemValues");
+        if(itemValues != null){
+        	String[] split = itemValues.split("\\|\\|");
+        	itemValuesList = Arrays.asList(split);
+        }
 
-        List<IemrPatient> list = imerPatientDao.selectByAdvancedCondition(admissionDateStart, admissionDateEnd, inpatientNoStart, 
+        List<IemrPatient> list = imerPatientDao.selectByAdvancedCondition(itemValuesList,admissionDateStart, admissionDateEnd, inpatientNoStart, 
         		inpatientNoEnd, patientName, sex, birthdayStart, birthdayEnd, tel, address, diagnosis);
         
         //■　装配并返回
@@ -158,7 +174,7 @@ public class AdvancedSearchServiceImpl implements AdvancedSearchService
             objs[0] = p.getPatientName(); 
             objs[1] = p.getInpatientNo();
             objs[2] = TimestampToDateString(p.getAdmissionDate()); 
-            objs[3] = "来源";
+            objs[3] = "";
             objs[4] = getSex(p.getSex());
             objs[5] = p.getAge();
             objs[6] = p.getDiagnosis();
