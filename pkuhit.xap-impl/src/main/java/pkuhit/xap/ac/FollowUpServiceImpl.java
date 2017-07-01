@@ -9,15 +9,16 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.seasar.doma.jdbc.SelectOptions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.context.request.ServletWebRequest;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -29,6 +30,7 @@ import xap.sv.model.ArrayResult;
 import xap.sv.model.ArrayResultBuilder;
 import xap.sv.model.SingleResult;
 import xap.sv.model.SingleResultBuilder;
+import xap.sv.servlet.mvc.annotation.ModelAttribute;
 import xap.sv.servlet.mvc.annotation.RequestParam;
 public class FollowUpServiceImpl implements FollowUpService
 {
@@ -38,12 +40,21 @@ public class FollowUpServiceImpl implements FollowUpService
 	@Autowired
     IemrPatientDao imerPatientDao;
      
-	protected HttpServletResponse response;
-	    
-    @ModelAttribute
-    public void setResponse(HttpServletResponse response){
-    	this.response = response;
-    }
+	//private static final ThreadLocal<HttpServletRequest> requestContainer = new ThreadLocal<HttpServletRequest>();
+	
+	 private static final ThreadLocal<HttpServletResponse> responseContainer = new ThreadLocal<HttpServletResponse>();
+	 
+	// private static final ThreadLocal<ModelMap> modelContainer = new ThreadLocal<ModelMap>();
+	 
+	 @ModelAttribute
+	 private final void initResponse(HttpServletResponse response) {
+	          responseContainer.set(response);
+	 }
+	 
+	 @ModelAttribute
+	 protected final HttpServletResponse getResponse() {
+		        return responseContainer.get();
+     }
     
 	@Override
 	public ArrayResult<Patient> search(Map<String, String> params) {
@@ -256,9 +267,10 @@ public class FollowUpServiceImpl implements FollowUpService
 		
 		//默认最近14天
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		
 		HttpServletRequest request = ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getRequest();
 		
-	//	HttpServletResponse response11 = ((ServletWebRequest)RequestContextHolder.getRequestAttributes()).getResponse();
+		HttpServletResponse response11 = ((ServletWebRequest)RequestContextHolder.getRequestAttributes()).getResponse();
 		
 //		HttpServletResponse response = (RequestContextHolder.getRequestAttributes()).get.getResponse();
 		//HttpServletResponse resp = (()RequestContextHolder.getRequestAttributes()).getResponse();  
