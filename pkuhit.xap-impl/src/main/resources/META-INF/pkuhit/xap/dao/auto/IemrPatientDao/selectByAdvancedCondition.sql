@@ -1,4 +1,4 @@
-select  p.* from iemr_patient p , iemr_xml,mr,xap_bizfile
+select  distinct p.* from iemr_patient p , iemr_xml,mr,xap_bizfile
 where 1=1 
 and 	p.inpatient_no = mr.en_pk
 and    iemr_xml.file_pk = mr.file_pk
