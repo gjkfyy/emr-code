@@ -40,6 +40,12 @@ Ext.define('iih.sy.search.block.SearchHistoryBlock', {
 			field : 'textfield',
 			type : 'string',
 			flex : 1
+		},{
+			header : 'condition',
+			dataIndex : 'condition',
+			field : 'textfield',
+			type : 'string',
+			hidden:true
 		}
 //		,{
 //			header:"操作",
