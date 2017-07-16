@@ -39,7 +39,7 @@ Ext.define('iih.sy.search.action.SaveSearchHistoryDataAction', {
 	    	
 	    	if(condition[key] instanceof Date){
 	    		var date = condition[key];
-	    		condition[key] = Ext.Date.format(date,'Y-m-d H:i:s');
+	    		condition[key] = Ext.Date.format(date,'Y-m-d');
 	    		//data.key = date.format("Y-m-d H:i:s");
 	    	}
 	    }
