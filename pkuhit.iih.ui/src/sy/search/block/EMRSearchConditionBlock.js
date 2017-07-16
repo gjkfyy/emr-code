@@ -44,7 +44,7 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
 		layout : 'column',
 		items : [{
             xtype: 'fieldcontainer',
-            fieldLabel: '入院时间',
+            fieldLabel: '入院日期',
             labelWidth:60,
             layout: 'table',
             combineErrors: true,
@@ -390,8 +390,10 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
             }]
         }]
 	}],
-	
-	addItem : function (container){
+	test: function(){
+		alert(123);
+	},
+	addItem : function (container,mrElementValue,examItemValue){
 		var timestamp = new Date().getTime();
 		var block=Ext.getCmp('emrsearchconditionblock');
 		var data = block.down('xapcombobox[name=mr_element]').getData();
@@ -428,6 +430,7 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
                 name:'examItem_'+timestamp,
                 flex: 1,
                 labelAlign:'right',
+                value : examItemValue,
                 editable:false
               },{
 				xtype: 'xapbutton',
@@ -471,6 +474,7 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
 			}]
 		});
 		item.down('xapcombobox').setData(data);
+		item.down('xapcombobox').setValue(mrElementValue);
 		container.add(item);
 	}
 })
