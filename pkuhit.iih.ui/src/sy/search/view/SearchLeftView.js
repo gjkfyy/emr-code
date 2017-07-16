@@ -27,15 +27,25 @@ Ext.define('iih.sy.search.view.SearchLeftView', {
 				blocks: {
 					result: 'historyGrid'
 				}
+			},
+			'loadCondition':{
+				xclass : 'iih.sy.search.action.LoadConditionAction'
+					
 			}
 		},
 
 		chains : {
 			'init' : [ 'init' ],
-			'delete' : ['delete']
+			'delete' : ['delete'],
+			'loadCondition' : ['loadCondition']
 		},
 
 		connections : {
+			'historyGrid':[{// 
+				selector : 'xapgrid',
+				event : 'itemdblclick',
+				chain : 'loadCondition'
+			}]
 			
 		}
 	},
