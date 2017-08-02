@@ -26,7 +26,7 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
 		border:false,
 		tableAttrs: {
             border: 0,
-            width : '99%',
+            width : '986',
             cellpadding: 0,
             cellspacing: 1
         },
