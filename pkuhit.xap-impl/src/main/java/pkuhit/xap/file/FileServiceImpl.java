@@ -5,15 +5,21 @@ import java.io.InputStream;
 import java.sql.Clob;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.ColumnMapRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapperResultSetExtractor;
 import org.springframework.jdbc.core.support.AbstractLobCreatingPreparedStatementCallback;
 import org.springframework.jdbc.support.lob.DefaultLobHandler;
 import org.springframework.jdbc.support.lob.LobCreator;
 import org.springframework.jdbc.support.lob.LobHandler;
 import org.springframework.util.Assert;
+
+import com.rollen.sqlbuilder.SelectCreator;
 
 import pkuhit.iih.mr.pub.MessageCode;
 import pkuhit.xap.dao.auto.XapBasefileDao;
@@ -283,5 +289,35 @@ public class FileServiceImpl implements FileService
             return true;
         }
         return false;
+    }
+    
+    @Override
+   public void insertIemrxml(String filePk,String content) throws SQLException, Exception{
+ 
+    	 SelectCreator sc = new SelectCreator();
+    	 sc.column("mr_share_element_cd");
+    	 sc.column("nm");
+    	 sc.from("md_mr_share_element");
+    	 sc.whereEquals("DEL_F", 0);
+        RowMapperResultSetExtractor<Map<String, Object>> rse = new RowMapperResultSetExtractor<Map<String, Object>>(
+                new ColumnMapRowMapper());
+        List<Map<String, Object>> ret  = jdbcTemplate.query(sc, rse);
+     
+    	if(ret != null && ret.size() > 0){
+    	  String[] sqls = new String[ret.size()];
+    	  int i = 0;
+    	  for(Map map:ret){
+    		   String mr_share_element_cd = (String)map.get("mr_share_element_cd");
+    		   String nm = (String)map.get("nm");
+    		  String insert = " insert into iemr_xml ( iemr_xml_id,file_pk,iemr_key,iemr_value) values('"+filePk+"_"+mr_share_element_cd+"','"+filePk+"','"+mr_share_element_cd+"','"+nm+"')";
+    		  this.jdbcTemplate.execute(insert);
+    		
+    		  //sqls[i] =insert;
+    		 // i++;
+    	  }
+    	  //this.jdbcTemplate.batchUpdate(sqls);
+    	}
+    
+    	 
     }
 }
