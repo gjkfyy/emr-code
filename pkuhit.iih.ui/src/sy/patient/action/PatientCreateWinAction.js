@@ -15,7 +15,7 @@ Ext.define('iih.sy.patient.action.PatientCreateWinAction', {
 	    var config = {
     	    modal: true,           
     		width: 1050,
-    		height:480,
+    		height:580,
     		title :'新建患者',
     		contentConfig: {
     			xtype: 'patientcreateview'

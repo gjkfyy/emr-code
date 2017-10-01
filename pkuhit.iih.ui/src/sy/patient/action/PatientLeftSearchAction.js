@@ -33,6 +33,7 @@ Ext.define('iih.sy.patient.action.PatientLeftSearchAction', {
 		}
        // console(orgCd.comboRecord);
     	var condition = block.getData();
+    	console.log(condition.pageNum);
     	condition.pageNum=pageNum;
     	condition.pageSize=pageSize;
     	this.getOwner().pageSize=pageSize;
@@ -42,7 +43,6 @@ Ext.define('iih.sy.patient.action.PatientLeftSearchAction', {
             if(qs) {
                 url += '?' + qs +'&condition=' + searchCondition;
             }
-            console.log(url);
         }
         var mclass = null;
         if(block.getModelClass) {
@@ -68,6 +68,7 @@ Ext.define('iih.sy.patient.action.PatientLeftSearchAction', {
         if(operation.result){
 	        resultData=operation.result;
 	        resultData.pageSize=pageSize;
+	        console.log(resultData);
     	 	block.setData(resultData);
         }else{
        	 	block.setData(null);

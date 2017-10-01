@@ -27,7 +27,7 @@ Ext.define('iih.sy.patient.action.PatientEditWinAction', {
 	    var config = {
     	    modal: true,           
     		width: 1050,
-    		height:480,
+    		height:580,
     		title :'编辑患者',
     		contentConfig: {
     			xtype: 'patientcreateview',
