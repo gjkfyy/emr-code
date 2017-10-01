@@ -188,10 +188,54 @@ public class IemrPatient {
 	    @Column(name = "FU_FLAG")
 	    String fuFlag;
 	    
-	  //随访标识
+	    //随访标识
 	    @Column(name = "REMARK")
 	    String remark;
 
+	    //治疗方案
+	    @Column(name = "TREATMENT_PLAN")
+	    String treatmentPlan;
+	    
+	    //步态
+	    @Column(name = "GAIT")
+	    String gait;
+	    
+	    //行走功能指数
+	    @Column(name = "CARDIAC_FUNCTION")
+	    String cardiacFunction;
+	    
+	    //x光片
+	    @Column(name = "X_RAY")
+	    String xRay;
+	    
+	    //疼痛部位
+	    @Column(name = "PAIN")
+	    String pain;
+	    
+	    //行走距离
+	    @Column(name = "WALKING_DISTANCE")
+	    String walkingDistance;
+	    
+	    //内固定
+	    @Column(name = "INTERNAL_FIXATION")
+	    String internalFixation;
+	    
+	    //环式外固定
+	    @Column(name = "RING")
+	    String ring;
+	    
+	    //组合式外固定
+	    @Column(name = "COMBINED")
+	    String combined;
+	    
+	    //其它外固定
+	    @Column(name = "OTHER_FIXATION")
+	    String otherFixation;
+	    
+	    //智力
+	    @Column(name = "INTELLIGENCE")
+	    String intelligence;
+	    
 		public String getPatientId() {
 			return patientId;
 		}
@@ -543,5 +587,94 @@ public class IemrPatient {
 		public void setRemark(String remark) {
 			this.remark = remark;
 		}
+
+		public String getTreatmentPlan() {
+			return treatmentPlan;
+		}
+
+		public void setTreatmentPlan(String treatmentPlan) {
+			this.treatmentPlan = treatmentPlan;
+		}
+
+		public String getGait() {
+			return gait;
+		}
+
+		public void setGait(String gait) {
+			this.gait = gait;
+		}
+
+		public String getCardiacFunction() {
+			return cardiacFunction;
+		}
+
+		public void setCardiacFunction(String cardiacFunction) {
+			this.cardiacFunction = cardiacFunction;
+		}
+
+		public String getXRay() {
+			return xRay;
+		}
+
+		public void setXRay(String xRay) {
+			this.xRay = xRay;
+		}
+
+		public String getPain() {
+			return pain;
+		}
+
+		public void setPain(String pain) {
+			this.pain = pain;
+		}
+
+		public String getWalkingDistance() {
+			return walkingDistance;
+		}
+
+		public void setWalkingDistance(String walkingDistance) {
+			this.walkingDistance = walkingDistance;
+		}
+
+		public String getInternalFixation() {
+			return internalFixation;
+		}
+
+		public void setInternalFixation(String internalFixation) {
+			this.internalFixation = internalFixation;
+		}
+
+		public String getRing() {
+			return ring;
+		}
+
+		public void setRing(String ring) {
+			this.ring = ring;
+		}
+
+		public String getCombined() {
+			return combined;
+		}
+
+		public void setCombined(String combined) {
+			this.combined = combined;
+		}
+
+		public String getOtherFixation() {
+			return otherFixation;
+		}
+
+		public void setOtherFixation(String otherFixation) {
+			this.otherFixation = otherFixation;
+		}
+
+		public String getIntelligence() {
+			return intelligence;
+		}
+
+		public void setIntelligence(String intelligence) {
+			this.intelligence = intelligence;
+		}
+
 		
 }
