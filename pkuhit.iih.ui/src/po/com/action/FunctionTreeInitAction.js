@@ -11,6 +11,7 @@ Ext.define('iih.po.com.action.FunctionTreeInitAction', {
         var block = this.getBlock('content');
         var url = this.url;
         var mclass = null;
+        IMER_GLOBAL.department.code = "9010002";
         var condition = {
            userId: IMER_GLOBAL.user.code,
            orgCd: IMER_GLOBAL.department.code,
