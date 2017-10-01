@@ -380,6 +380,110 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				value: ''
 			},{
 				xtype:'xaptextfield',
+				colspan: 3,
+				padding:'5 0 0 5',
+		        labelWidth:70,
+		        fieldLabel:'治疗方案',
+		        width:200,
+		        name:'treatmentPlan'
+			},{
+	        	xtype:'xaptextfield',
+	            name:'gait',
+	            fieldLabel:'步态',
+				padding:'5 20 0 5',
+	            colspan: 3,
+		        labelWidth:80,
+		        //name:'marriage',
+		        width:230,
+	            labelAlign:'right'
+			},{
+				xtype:'xaptextfield',
+				colspan: 2,
+				padding:'5 0 0 5',
+		        labelWidth:80,
+		        width:186,
+		        name:'walkingDistance',
+		        labelAlign:'right',
+		        fieldLabel:'行走距离'
+			},{
+				xtype:'xaptextfield',
+				colspan: 4,
+				padding:'5 0 0 5',
+		        labelWidth:100,
+		        width:230,
+		        name:'cardiacFunction',
+		        fieldLabel:'行走功能指数'
+			},{
+				xtype:'xaptextfield',
+				colspan: 3,
+				padding:'5 0 0 5',
+		        labelWidth:70,
+		        fieldLabel:'疼痛部位',
+		        width:200,
+		        name:'pain'
+			},{
+	        	xtype:'xaptextfield',
+	            name:'xRay',
+	            fieldLabel:'X光片',
+				padding:'5 20 0 5',
+	            colspan: 3,
+		        labelWidth:80,
+		        width:230,
+	            labelAlign:'right'
+			},{
+				xtype:'xaptextfield',
+				colspan: 2,
+				padding:'5 0 0 5',
+		        labelWidth:80,
+		        width:186,
+		        name:'intelligence',
+		        labelAlign:'right',
+		        fieldLabel:'智力'
+			},{
+				xtype:'xapdisplayfield',
+				colspan: 4,
+				padding:'5 0 0 5',
+		        labelWidth:100,
+		        width:230,
+		        name:'',
+		        fieldLabel:''
+			},{
+				xtype:'xaptextfield',
+				colspan: 3,
+				padding:'5 0 0 5',
+		        labelWidth:70,
+		        fieldLabel:'内固定',
+		        width:200,
+		        name:'internalFixation'
+			},{
+	        	xtype:'xaptextfield',
+	            name:'ring',
+	            fieldLabel:'环式外固定',
+				padding:'5 20 0 5',
+	            colspan: 3,
+		        labelWidth:80,
+		        width:230,
+	            labelAlign:'right'
+			},{
+				xtype:'xaptextfield',
+				colspan: 2,
+				padding:'5 0 0 5',
+		        labelWidth:80,
+		        width:186,
+		        name:'combined',
+		        labelAlign:'right',
+		        fieldLabel:'组合式外固定'
+			},{
+				xtype:'xaptextfield',
+				colspan: 4,
+				padding:'5 0 0 5',
+		        labelWidth:100,
+		        width:230,
+		        name:'otherFixation',
+		        fieldLabel:'其它外固定',
+		        value: ''
+			},{
+				xtype:'xaptextfield',
 				colspan: 12,
 				padding:'5 20 10 5',
 		        labelWidth:70,
