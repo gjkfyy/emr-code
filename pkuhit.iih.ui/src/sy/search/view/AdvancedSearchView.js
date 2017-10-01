@@ -8,7 +8,7 @@ Ext.define('iih.sy.search.view.AdvancedSearchView', {
 		blocks : {
 			'left' : {
 				xclass : 'iih.sy.search.view.SearchLeftView',
-				width : 350,
+				width : 150,
 				region : 'west',
 				split : false,
 				collapsible : true,
