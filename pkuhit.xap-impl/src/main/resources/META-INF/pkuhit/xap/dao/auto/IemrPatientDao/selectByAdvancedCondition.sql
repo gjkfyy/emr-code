@@ -1,10 +1,10 @@
-select  distinct p.* from iemr_patient p , iemr_xml,mr,xap_bizfile
+select  distinct p.* from iemr_patient p  
+left join  mr on  p.inpatient_no = mr.en_pk
+left join   iemr_xml on iemr_xml.file_pk = mr.file_pk
+left join xap_bizfile on  xap_bizfile.file_pk = mr.file_pk
 where 1=1 
-and 	p.inpatient_no = mr.en_pk
-and    iemr_xml.file_pk = mr.file_pk
-and    xap_bizfile.file_pk = mr.file_pk
 /*%if patientName != null */
- and  p.patient_name = /*patientName*/'刑茜2'
+ and  p.patient_name like /*@contain(patientName)*/'%g%'
 /*%end */ 
 /*%if admissionDateStart != null */ 
  and p.admission_date >= to_date(/*admissionDateStart*/'2015-01-01 00:00:00','yyyy-mm-dd hh24:mi:ss')
