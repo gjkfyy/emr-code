@@ -36,21 +36,40 @@ Ext.define('iih.sy.followup.action.FollowUpListExportAction', {
 	},  
 	 prepareOperations: function(operations,data) { 
         var url = this.url;    
-        url += '?'+"&pageNum="+data.pageNum+"&pageSize="+data.pageSize+"&fuDate="+data.fuDate+"&fuFlag="+data.fuFlag+"&fuType="+data.fuType+"&fuValue="+data.fuValue+"&diagnosis="+data.diagnosis;
+        var from = "&_from=followup"
+        url += '?'+"&pageNum="+data.pageNum+"&pageSize="+data.pageSize+"&fuDate="+data.fuDate+"&fuFlag="+data.fuFlag+"&fuType="+data.fuType+"&fuValue="+data.fuValue+"&diagnosis="+data.diagnosis+from;
         var METHODS = this.getInvocationMethods();
         
-        console.log(url);
-        var operation = {
-            url: url,
-            mclass: null,
-            method: METHODS.METHOD_GET,
-            condition: null,
-            data:data,
-            scope: this,
-            success: this.onSuccess,
-            fail: this.onFail
-        };
-        operations.push(operation);	    
+        var url = Xap.getApp().getBaseUrl()+url;
+        
+        //window.location.href =url;
+        //动态创建iframe访问导出文件url
+        var iframe = document.createElement("iframe"); 
+        iframe.src = url; 
+        if (iframe.attachEvent) {
+			iframe.attachEvent("onload", function() {
+				this.hideLoading();
+			});
+		} else {
+			iframe.onload = function() {
+				this.hideLoading();
+			};
+		} 
+        document.body.appendChild(iframe);
+        if (document.readyState == "complete") {
+        	this.hideLoading();
+        }
+//        var operation = {
+//            url: url,
+//            mclass: null,
+//            method: METHODS.METHOD_GET,
+//            condition: null,
+//            data:data,
+//            scope: this,
+//            success: this.onSuccess,
+//            fail: this.onFail
+//        };
+//        operations.push(operation);	    
 	 },
 	 
 	 onFail: function(operation) { 
