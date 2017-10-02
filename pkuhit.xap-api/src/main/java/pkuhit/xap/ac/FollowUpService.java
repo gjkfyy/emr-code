@@ -3,6 +3,8 @@ package pkuhit.xap.ac;
 import java.util.Date;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -32,4 +34,9 @@ public interface FollowUpService
     
     @RequestMapping(value = "/followUp/saveFlag/{id}", method = RequestMethod.PUT)
    	public SingleResult<Patient> saveFlag(@PathVariable("id") String patientId, @ModelAttribute Patient patient);
+
+    @RequestMapping(value = "/followUp/exportExcel", method = RequestMethod.GET)
+    public void exportExcel(Map<String, String> params);
+    
+    void setResponse(HttpServletResponse response);
 }
