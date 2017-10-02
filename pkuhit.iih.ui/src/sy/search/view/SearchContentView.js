@@ -65,7 +65,7 @@ Ext.define('iih.sy.search.view.SearchContentView', {
 				chain : 'search'
 			},{
 				event: 'afterrender',
-				chain: 'init'
+				chain: 'search'
 			},{// 
 				selector : 'xapgrid',
 				event : 'itemdblclick',
