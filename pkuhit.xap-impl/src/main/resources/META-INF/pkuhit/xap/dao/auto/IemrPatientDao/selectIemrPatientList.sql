@@ -9,4 +9,4 @@ where 1=1
  or tel like /* @contain(condition) */'%X%') --手机号
 /*%end */
  and del_f = 0
- order by last_upd_time desc
+ order by last_upd_time desc nulls last
