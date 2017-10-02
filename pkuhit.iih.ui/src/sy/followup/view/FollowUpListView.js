@@ -41,7 +41,7 @@ Ext.define('iih.sy.followup.view.FollowUpListView',{
             },
             'export': {
 				xclass: 'iih.sy.followup.action.FollowUpListExportAction',
-				url:'followUpListaa',
+				url:'file-export',
 				blocks: {
 					result: 'right'
 				}
