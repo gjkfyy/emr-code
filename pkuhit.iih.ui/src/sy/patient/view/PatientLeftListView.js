@@ -26,7 +26,6 @@ Ext.define('iih.sy.patient.view.PatientLeftListView',{
 						xtype : 'xaptextfield',
 						id : 'searchCondition',
 						name : 'searchCondition',
-						colspan : 1,
 						labelWidth : 0,
 						width : 265,
 						align  : 'left',  
