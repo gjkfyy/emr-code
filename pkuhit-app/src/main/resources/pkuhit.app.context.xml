@@ -86,6 +86,7 @@
 				/logout=xap-logout
 				/webservice/**=anon
 				/ca/**=anon
+				/file-export/**=anon
 				/**=xap-authc
 			</value>
 		</property>
