@@ -45,6 +45,8 @@ extend: 'Xap.ej.action.ServiceInvocation',
                 url += '?' + qs;
             }
         }
+        var from = "&_from=advancedsearch";
+        url += from;
         var METHODS = this.getInvocationMethods();
         var url = Xap.getApp().getBaseUrl()+url;
         
