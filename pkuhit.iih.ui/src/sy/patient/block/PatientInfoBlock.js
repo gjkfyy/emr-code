@@ -338,7 +338,6 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				xtype: 'xapdisplayfield',
 				fieldLabel: '',
 				colspan:1,
-//				vertical: true,
 				width:10,
 				valign: 'left',
 				name:'',
@@ -393,7 +392,6 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				padding:'5 20 0 5',
 	            colspan: 3,
 		        labelWidth:80,
-		        //name:'marriage',
 		        width:230,
 	            labelAlign:'right'
 			},{
@@ -421,15 +419,15 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        fieldLabel:'疼痛部位',
 		        width:200,
 		        name:'pain'
-			},{
-	        	xtype:'xaptextfield',
-	            name:'xRay',
-	            fieldLabel:'X光片',
+			},
+			{
+				xtype:'xaptextfield',
+				colspan: 3,
 				padding:'5 20 0 5',
-	            colspan: 3,
 		        labelWidth:80,
+		        fieldLabel:'X光片',
 		        width:230,
-	            labelAlign:'right'
+		        name:'xRay'
 			},{
 				xtype:'xaptextfield',
 				colspan: 2,
