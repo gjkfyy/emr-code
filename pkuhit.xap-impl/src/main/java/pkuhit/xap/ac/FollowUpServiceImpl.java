@@ -2,7 +2,9 @@ package pkuhit.xap.ac;
 
 import java.math.BigInteger;
 import java.sql.Timestamp;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedHashMap;
@@ -26,6 +28,7 @@ import com.alibaba.fastjson.JSONObject;
 import pkuhit.xap.dao.auto.IemrPatientDao;
 import pkuhit.xap.dao.auto.entity.IemrPatient;
 import pkuhit.xap.util.BeanCopyUtil;
+import pkuhit.xap.util.ExcelExport;
 import xap.sv.model.ArrayResult;
 import xap.sv.model.ArrayResultBuilder;
 import xap.sv.model.SingleResult;
@@ -42,19 +45,27 @@ public class FollowUpServiceImpl implements FollowUpService
      
 	//private static final ThreadLocal<HttpServletRequest> requestContainer = new ThreadLocal<HttpServletRequest>();
 	
-	 private static final ThreadLocal<HttpServletResponse> responseContainer = new ThreadLocal<HttpServletResponse>();
+	// private static final ThreadLocal<HttpServletResponse> responseContainer = new ThreadLocal<HttpServletResponse>();
 	 
 	// private static final ThreadLocal<ModelMap> modelContainer = new ThreadLocal<ModelMap>();
 	 
-	 @ModelAttribute
-	 private final void initResponse(HttpServletResponse response) {
-	          responseContainer.set(response);
-	 }
-	 
-	 @ModelAttribute
-	 protected final HttpServletResponse getResponse() {
-		        return responseContainer.get();
-     }
+//	 @ModelAttribute
+//	 private final void initResponse(HttpServletResponse response) {
+//	          responseContainer.set(response);
+//	 }
+//	 
+//	 @ModelAttribute
+//	 protected final HttpServletResponse getResponse() {
+//		        return responseContainer.get();
+//     }
+		
+	protected HttpServletResponse response;
+
+	@ModelAttribute
+	public void setResponse(HttpServletResponse response) {
+		this.response = response;
+	}
+	    
     
 	@Override
 	public ArrayResult<Patient> search(Map<String, String> params) {
@@ -274,17 +285,11 @@ public class FollowUpServiceImpl implements FollowUpService
 	}
 
 	@Override
-	public void followUpListaa(@RequestParam Map<String, String> params) {
+	public void exportExcel(@RequestParam Map<String, String> params) {
 		
 		//默认最近14天
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		
-		HttpServletRequest request = ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getRequest();
-		
-		HttpServletResponse response11 = ((ServletWebRequest)RequestContextHolder.getRequestAttributes()).getResponse();
-		
-//		HttpServletResponse response = (RequestContextHolder.getRequestAttributes()).get.getResponse();
-		//HttpServletResponse resp = (()RequestContextHolder.getRequestAttributes()).getResponse();  
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(new Date());
 		cal.add(Calendar.DAY_OF_MONTH, -7);
@@ -335,12 +340,17 @@ public class FollowUpServiceImpl implements FollowUpService
         String diagnosis = getParamValue(params, "diagnosis");
         String fuFlag = getParamValue(params, "fuFlag");
         SelectOptions options = SelectOptions.get();
+       
         List<IemrPatient> list = imerPatientDao.selectFollowUpList(startDate,endDate,patientName,inpatientNo,tel,diagnosis,fuFlag,options);
         
         //■　装配并返回
         ArrayResultBuilder<Patient> builder = ArrayResultBuilder.newArrayResult(Patient.class);
-        int size = 0;
-        JSONArray result = new JSONArray();
+        
+        String title = "随访列表";  
+        String[] rowsName = new String[]{"姓名","性别","年龄","手机号","诊断","住院号","上次入院日期","预计随访日期","随访状态"};  
+        List<Object[]>  dataList = new ArrayList<Object[]>();  
+        Object[] objs = null;  
+        
         if (list != null && list.size() > 0)
         {
             Patient[] patientList = new Patient[list.size()];
@@ -427,23 +437,54 @@ public class FollowUpServiceImpl implements FollowUpService
             	patientList[i].setFuStatus(fuStatus);
     			
             	i++;
-            	JSONObject jo = new JSONObject();
-                jo.put("patientName", iemrPatient.getParentName());
-                jo.put("sex", iemrPatient.getSex());
-                jo.put("age", iemrPatient.getAge());
-                result.add(jo);
+                objs = new Object[rowsName.length];  
+                objs[0] = iemrPatient.getPatientName(); 
+                objs[1] = getSex(iemrPatient.getSex());
+                objs[2] = iemrPatient.getAge();
+                objs[3] = iemrPatient.getTel();
+                objs[4] = iemrPatient.getDiagnosis();
+                objs[5] = iemrPatient.getInpatientNo();
+                objs[6] = TimestampToDateString(iemrPatient.getAdmissionDate());
+                objs[7] = "";//预计随访日期
+                objs[8] = fuStatus;
+                dataList.add(objs);  
             }
             builder.withData(patientList);
-            size = patientList.length;
         }
         
-        ArrayResult<Patient> ar = builder.build();
-		
-        
-        Map<String,String> headMap = new LinkedHashMap<String,String>();
-        headMap.put("patientName","姓名");
-        headMap.put("age","年龄");
-        headMap.put("sex","性别");
+		ExcelExport ex = new ExcelExport(response, title, rowsName, dataList);
+		try {
+			ex.export();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
       
 	}
+	
+	
+	
+	private String TimestampToDateString(Timestamp ts){
+		
+		String tsStr = "";
+		if(ts != null){
+			DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			try {
+				tsStr = sdf.format(ts);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return tsStr;
+		
+	}
+	
+	private String getSex(String code){
+		if(code == null)
+			return "";
+		else if(code.equals("0"))
+			return "女";
+		else
+			return "男";
+	}
+
 }
