@@ -242,7 +242,7 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				padding:'5 0 0 5',
 		        labelWidth:60,
 		        fieldLabel:'治疗史',
-		        width:470,
+		        width:460,
 		        name:'treatmentHistory'
 			},{
 				xtype:'xaptextfield',
@@ -272,53 +272,193 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        fieldLabel:'联系地址<font color=red>*</font>'
 			},{
 				xtype:'xaptextfield',
-				colspan: 6,
+				colspan: 3,
 				padding:'5 20 0 5',
 		        labelWidth:70,
-		        width:525,
+		        width:200,
 		        name:'tel',
 		        fieldLabel:'手机号码'
 			},{
 				xtype:'xaptextfield',
-				colspan: 6,
+				colspan: 3,
 				padding:'5 20 0 5',
-				width:470,
+				width:230,
 		        name:'otherContact',
 		        labelWidth:100,
 		        fieldLabel:'QQ/微信/E-mail'
 			},{
-				xtype:'xaptextfield',
-				colspan: 2,
+				xtype:'xapcheckbox',
+				colspan: 3,
 				padding:'5 20 0 5',
+		        labelWidth:60,
+		        labelAlign:'right',
+		        fieldLabel:'照相',
+		        width:150,
+		        name:'isPic',
+		        displayField: 'isPic'
+			},{
+				xtype:'xapcheckbox',
+				colspan: 3,
+				padding:'5 20 0 5',
+		        labelWidth:100,
+		        labelAlign:'right',
+		        fieldLabel:'录像',
+		        width:150,
+		        name:'isVideo',
+		        displayField: 'isVideo'
+			},/*{
+				xtype: 'xapdisplayfield',
+				fieldLabel: '',
+				colspan:8,
+				name:'',
+				value: ''
+			},*/
+			{
+				xtype:'xaptextfield',
+				colspan: 3,
+				padding:'5 0 0 5',
 		        labelWidth:70,
 		        fieldLabel:'体检',
-		        width:150,
+		        width:200,
 		        name:'physicalExam'
 			},{
 				xtype:'xaptextfield',
-				colspan: 2,
-				padding:'5 20 0 5',
-		        labelWidth:40,
+				colspan: 3,
+				padding:'5 0 0 5',
+		        labelWidth:60,
 		        fieldLabel:'发育',
-		        width:140,
+		        width:230,
 		        name:'growth'
 			},{
 				xtype:'xaptextfield',
 				colspan: 2,
-				padding:'5 20 0 5',
-		        labelWidth:40,
+				padding:'5 0 0 5',
+		        labelWidth:60,
+		        labelAlign:'right',
 		        fieldLabel:'营养',
-		        width:140,
+		        width:186,
 		        name:'nutrition'
 			},{
 				xtype:'xaptextfield',
-				colspan: 1,
+				colspan: 4,
 				padding:'5 0 0 5',
-		        labelWidth:50,
+		        labelWidth:100,
 		        fieldLabel:'身高',
-		        width:150,
+		        width:230,
 		        name:'height'
+			},
+			
+			{
+				xtype:'xaptextfield',
+				colspan: 3,
+				padding:'5 0 0 5',
+		        labelWidth:70,
+		        fieldLabel:'体重',
+		        width:200,
+		        name:'weight'
 			},{
+				xtype:'xaptextfield',
+				colspan: 3,
+				padding:'5 0 0 5',
+		        labelWidth:60,
+		        fieldLabel:'专科检查',
+		        width:230,
+		        name:'specialityExam'
+			},{
+				xtype:'xaptextfield',
+				colspan: 2,
+				padding:'5 0 0 5',
+		        labelWidth:60,
+		        labelAlign:'right',
+		        fieldLabel:'X光片',
+		        width:186,
+		        name:'xRay'
+			},{
+				xtype:'xaptextfield',
+				colspan: 4,
+				padding:'5 0 0 5',
+		        labelWidth:100,
+		        fieldLabel:'智力',
+		        width:230,
+		        name:'intelligence'
+			},
+			
+			{
+				xtype:'xaptextfield',
+				colspan: 3,
+				padding:'5 0 0 5',
+		        labelWidth:70,
+		        fieldLabel:'步态',
+		        width:200,
+		        name:'gait'
+			},{
+				xtype:'xaptextfield',
+				colspan: 3,
+				padding:'5 0 0 5',
+		        labelWidth:60,
+		        fieldLabel:'行走距离',
+		        width:230,
+		        name:'walkingDistance'
+			},{
+				xtype:'xaptextfield',
+				colspan: 2,
+				padding:'5 0 0 5',
+		        labelWidth:80,
+		        labelAlign:'right',
+		        fieldLabel:'行走功能指数',
+		        width:186,
+		        name:'cardiacFunction'
+			},{
+				xtype:'xaptextfield',
+				colspan: 4,
+				padding:'5 0 0 5',
+		        labelWidth:100,
+		        fieldLabel:'疼痛部位',
+		        width:230,
+		        name:'pain'
+			},
+			
+			/*
+			
+			
+			
+			
+			
+			
+			
+			{
+				xtype:'xaptextfield',
+				colspan: 3,
+				padding:'5 20 0 5',
+		        labelWidth:70,
+		        fieldLabel:'体检',
+		        width:200,
+		        name:'physicalExam'
+			},{
+				xtype:'xaptextfield',
+				colspan: 3,
+				padding:'5 10 0 5',
+		        labelWidth:60,
+		        fieldLabel:'发育',
+		        width:200,
+		        name:'growth'
+			},{
+				xtype:'xaptextfield',
+				colspan: 3,
+				padding:'5 20 0 5',
+		        labelWidth:40,
+		        fieldLabel:'营养',
+		        width:200,
+		        name:'nutrition'
+			},{
+				xtype:'xaptextfield',
+				colspan: 3,
+				padding:'5 0 0 5',
+		        labelWidth:60,
+		        fieldLabel:'身高',
+		        width:200,
+		        name:'height'
+			},*//*{
 				xtype: 'xapdisplayfield',
 				fieldLabel:'',
 				colspan:1,
@@ -328,11 +468,11 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				value: 'cm'
 			},{
 				xtype:'xaptextfield',
-				colspan: 1,
+				colspan: 3,
 				padding:'5 0 0 5',
 		        labelWidth:50,
 		        fieldLabel:'体重',
-		        width:140,
+		        width:150,
 		        name:'weight'
 			},{
 				xtype: 'xapdisplayfield',
@@ -344,108 +484,90 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				value: 'kg'
 			},{
 				xtype:'xaptextfield',
-				colspan: 2,
+				colspan: 3,
 				padding:'5 20 0 5',
 		        labelWidth:60,
 		        fieldLabel:'专科检查',
-		        width:120,
+		        width:150,
 		        name:'specialityExam',
 		        displayField: 'parentName'
 			},{
-				xtype:'xapcheckbox',
-				colspan: 2,
+				xtype:'xaptextfield',
+				colspan: 3,
 				padding:'5 20 0 5',
-		        labelWidth:70,
-		        labelAlign:'right',
-		        fieldLabel:'照相',
-		        width:150,
-		        name:'isPic',
-		        displayField: 'isPic'
-			},{
-				xtype:'xapcheckbox',
-				colspan: 2,
-				padding:'5 20 0 5',
-		        labelWidth:40,
-		        labelAlign:'right',
-		        fieldLabel:'录像',
-		        width:150,
-		        name:'isVideo',
-		        displayField: 'isVideo'
-			},{
-				xtype: 'xapdisplayfield',
-				fieldLabel: '',
-				colspan:8,
-				name:'',
-				value: ''
+		        labelWidth:50,
+		        fieldLabel:'X光片',
+		        width:140,
+		        name:'xRay'
 			},{
 				xtype:'xaptextfield',
 				colspan: 3,
 				padding:'5 0 0 5',
+		        labelWidth:60,
+		        width:150,
+		        name:'intelligence',
+		        labelAlign:'right',
+		        fieldLabel:'智力'
+			},*/{
+				xtype:'xaptextfield',
+				colspan: 12,
+				padding:'5 0 0 5',
 		        labelWidth:70,
 		        fieldLabel:'治疗方案',
-		        width:200,
+		        width:1020,
 		        name:'treatmentPlan'
-			},{
+			},/*{
 	        	xtype:'xaptextfield',
 	            name:'gait',
 	            fieldLabel:'步态',
 				padding:'5 20 0 5',
-	            colspan: 3,
-		        labelWidth:80,
-		        width:230,
+	            colspan: 2,
+		        labelWidth:70,
+		        width:150,
 	            labelAlign:'right'
 			},{
 				xtype:'xaptextfield',
 				colspan: 2,
-				padding:'5 0 0 5',
-		        labelWidth:80,
-		        width:186,
+				padding:'5 10 0 5',
+		        labelWidth:60,
+		        width:150,
 		        name:'walkingDistance',
 		        labelAlign:'right',
 		        fieldLabel:'行走距离'
 			},{
 				xtype:'xaptextfield',
-				colspan: 4,
-				padding:'5 0 0 5',
-		        labelWidth:100,
-		        width:230,
+				colspan: 2,
+				padding:'5 20 0 5',
+		        labelWidth:40,
+		        width:140,
 		        name:'cardiacFunction',
 		        fieldLabel:'行走功能指数'
 			},{
 				xtype:'xaptextfield',
-				colspan: 3,
-				padding:'5 0 0 5',
-		        labelWidth:70,
-		        fieldLabel:'疼痛部位',
-		        width:200,
-		        name:'pain'
-			},
-			{
-				xtype:'xaptextfield',
-				colspan: 3,
-				padding:'5 20 0 5',
-		        labelWidth:80,
-		        fieldLabel:'X光片',
-		        width:230,
-		        name:'xRay'
-			},{
-				xtype:'xaptextfield',
 				colspan: 2,
-				padding:'5 0 0 5',
-		        labelWidth:80,
-		        width:186,
-		        name:'intelligence',
-		        labelAlign:'right',
-		        fieldLabel:'智力'
+				padding:'5 0 0 0',
+		        labelWidth:60,
+		        fieldLabel:'疼痛部位',
+		        width:150,
+		        name:'pain'
 			},{
-				xtype:'xapdisplayfield',
-				colspan: 4,
-				padding:'5 0 0 5',
-		        labelWidth:100,
-		        width:230,
-		        name:'',
-		        fieldLabel:''
-			},{
+				xtype: 'xapdisplayfield',
+				fieldLabel:'',
+				colspan:1,
+				width:5,
+				valueAlign:'left',
+				name:'',
+				value: ''
+			},*/
+			/*{
+				xtype: 'xapdisplayfield',
+				fieldLabel:'',
+				colspan:1,
+				width:5,
+				valueAlign:'left',
+				name:'',
+				value: ''
+			},*/{
 				xtype:'xaptextfield',
 				colspan: 3,
 				padding:'5 0 0 5',
@@ -459,7 +581,7 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 	            fieldLabel:'环式外固定',
 				padding:'5 20 0 5',
 	            colspan: 3,
-		        labelWidth:80,
+		        labelWidth:70,
 		        width:230,
 	            labelAlign:'right'
 			},{
