@@ -21,7 +21,7 @@ public interface AdvancedSearchService
     @RequestMapping(value = "/advancedSearch", method = RequestMethod.GET)
     ArrayResult<Patient> search(@RequestParam Map<String, String> params);
     
-    @RequestMapping(value = "/exportExcel", method = RequestMethod.GET)
+    @RequestMapping(value = "/advancedSearch/exportExcel", method = RequestMethod.GET)
     ArrayResult<Patient> exportExcel(@RequestParam Map<String, String> params);
     
     void setResponse(HttpServletResponse response);
