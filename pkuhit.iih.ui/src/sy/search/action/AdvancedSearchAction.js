@@ -104,7 +104,8 @@ Ext.define('iih.sy.search.action.AdvancedSearchAction', {
          if(operation.result){
  	        resultData=operation.result;
  	        if(this.turnpage){
- 	        	resultData.pageSize =undefined;
+ 	        	//resultData.pageSize =undefined;
+ 	        	resultData.pageSize = -1;
  	        }
  	        console.log(resultData);
      	 	block.setData(resultData);
