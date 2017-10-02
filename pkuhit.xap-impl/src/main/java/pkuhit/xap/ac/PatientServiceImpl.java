@@ -102,6 +102,9 @@ public class PatientServiceImpl implements PatientService
 		cal.add(Calendar.MONTH, +24);
 		Date after3y = cal.getTime();
 		
+		cal.add(Calendar.MONTH, +24);
+		Date after5y = cal.getTime();
+		
 		String fuStatus = "";
 		if(day7Before2.compareTo(after3m)<0 && day7After2.compareTo(after3m)>0){
 			if("1".equalsIgnoreCase(iemrPatient.getFuFlag())){
@@ -134,6 +137,14 @@ public class PatientServiceImpl implements PatientService
 				fuStatus = "已随访（3Y）";
 			}else if("3".equalsIgnoreCase(iemrPatient.getFuFlag())){
 				fuStatus = "已忽略（3Y）";
+			}
+		}else if(day7Before2.compareTo(after5y)<0 && day7After2.compareTo(after5y)>0){
+			if("1".equalsIgnoreCase(iemrPatient.getFuFlag())){
+				fuStatus = "待随访（5Y）";
+			}else if("2".equalsIgnoreCase(iemrPatient.getFuFlag())){
+				fuStatus = "已随访（5Y）";
+			}else if("3".equalsIgnoreCase(iemrPatient.getFuFlag())){
+				fuStatus = "已忽略（5Y）";
 			}
 		}
 		patient.setFuStatus(fuStatus);
