@@ -635,6 +635,14 @@ import xap.sv.annotation.Column;
 	public void setXRay(String xRay) {
 		this.xRay = xRay;
 	}
+	
+	public String getxRay() {
+		return xRay;
+	}
+
+	public void setxRay(String xRay) {
+		this.xRay = xRay;
+	}
 
 	public String getPain() {
 		return pain;
