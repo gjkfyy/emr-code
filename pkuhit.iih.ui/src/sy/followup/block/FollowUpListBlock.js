@@ -292,6 +292,11 @@ Ext.define('iih.sy.followup.block.FollowUpListBlock', {
 					v3.setFullYear(v3.getFullYear()+3);
 					var v3y = Ext.Date.format(v3, 'Y-m-d');
 					
+					//5年
+					var v5 = Ext.Date.parse(value, 'time');
+					v5.setFullYear(v5.getFullYear()+5);
+					var v5y = Ext.Date.format(v5, 'Y-m-d');
+					
 					
 					//当前时间前后7天范围
 					var cDate = new Date();
@@ -311,6 +316,8 @@ Ext.define('iih.sy.followup.block.FollowUpListBlock', {
 						return v1y;
 					}else if(preDate<v3y && v3y<afterDate){
 						return v3y;
+					}else if(preDate<v5y && v5y<afterDate){
+						return v5y;
 					}else{
 						return "";
 					}
