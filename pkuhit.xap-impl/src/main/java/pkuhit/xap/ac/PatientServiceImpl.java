@@ -138,6 +138,7 @@ public class PatientServiceImpl implements PatientService
 		}
 		patient.setFuStatus(fuStatus);
         patient.setFlag(flag);
+        patient.setxRay(patient.getXRay());
         SingleResultBuilder<Patient> builder = SingleResultBuilder.newSingleResult(Patient.class);
         builder.withData(patient);
         
