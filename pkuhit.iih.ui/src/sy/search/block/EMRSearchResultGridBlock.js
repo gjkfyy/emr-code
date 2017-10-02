@@ -59,9 +59,11 @@ Ext.define('iih.sy.search.block.EMRSearchResultGridBlock', {
 		margin : '0 10 0 0',
 		rownumShow : false,
 		height : 470,
+		pageSize : 20,
 		pageShow : true,
-		ifSelect : false,
-		mode : 'simple',
+		ifSelect: true,
+		selectBy: 'patientId',
+//		mode : 'simple',
 		showHeaderCheckbox : false,
 		checkboxShow : false,
 		CM_JR_Record : [ {
@@ -139,6 +141,25 @@ Ext.define('iih.sy.search.block.EMRSearchResultGridBlock', {
 	},
 	setData : function(data) {
 		var grid = this.down('xapgrid[name=userList]');
+		if(data){
+			var dataList=data.dataList;
+	    	if(grid){
+	    		if(dataList){
+			    	var totalList = {"total":data.total,"dataList":dataList};
+			    	var pageSize = data.pageSize;
+			    	if(pageSize == -1){
+			    		grid.setData(dataList);	//翻页时赋值
+			    	}else{
+			    		grid.setPageData(totalList);	//初始化赋值
+			    	}
+	        	}else{
+	        		var totalList = {"total":data.total,"dataList":dataList};
+	        		grid.setPageData(totalList);
+	        	}
+	    		
+	    	}
+		}
+		/*
 		if (data) {
 			var dataList = data.dataList;
 			if (grid) {
@@ -169,6 +190,6 @@ Ext.define('iih.sy.search.block.EMRSearchResultGridBlock', {
 				}
 
 			}
-		}
+		}*/
 	}
 })
