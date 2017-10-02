@@ -47,7 +47,22 @@ extend: 'Xap.ej.action.ServiceInvocation',
         }
         var METHODS = this.getInvocationMethods();
         var url = Xap.getApp().getBaseUrl()+url;
-        window.location.href =url;
+        
+        
+        //window.location.href =url;
+        //动态创建iframe访问导出文件url
+        var iframe = document.createElement("iframe"); 
+        iframe.src = url; 
+        if (iframe.attachEvent) {
+			iframe.attachEvent("onload", function() {
+				this.hideLoading();
+			});
+		} else {
+			iframe.onload = function() {
+				this.hideLoading();
+			};
+		} 
+        document.body.appendChild(iframe);
         if (document.readyState == "complete") {
         	this.hideLoading();
         }
@@ -68,6 +83,5 @@ extend: 'Xap.ej.action.ServiceInvocation',
 		 alert("查询失败");
 	 },  
      onSuccess: function(operation) {
-    	 
      }    
 });
