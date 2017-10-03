@@ -7,24 +7,16 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.seasar.doma.jdbc.SelectOptions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
-import org.springframework.web.context.request.ServletWebRequest;
 
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
-
+import pkuhit.util.DateUtil;
 import pkuhit.xap.dao.auto.IemrPatientDao;
 import pkuhit.xap.dao.auto.entity.IemrPatient;
 import pkuhit.xap.util.BeanCopyUtil;
@@ -393,6 +385,7 @@ public class FollowUpServiceImpl implements FollowUpService
     			Date after5y = cal.getTime();
     			
     			String fuStatus = "";
+    			Date fuTime = new Date();
     			if(day7Before2.compareTo(after3m)<0 && day7After2.compareTo(after3m)>0){
     				if("1".equalsIgnoreCase(patientList[i].getFuFlag())){
     					fuStatus = "待随访（3M）";
@@ -401,6 +394,7 @@ public class FollowUpServiceImpl implements FollowUpService
     				}else if("3".equalsIgnoreCase(patientList[i].getFuFlag())){
     					fuStatus = "已忽略（3M）";
     				}
+    				fuTime = after3m;
     			}else if(day7Before2.compareTo(after6m)<0 && day7After2.compareTo(after6m)>0){
     				if("1".equalsIgnoreCase(patientList[i].getFuFlag())){
     					fuStatus = "待随访（6M）";
@@ -409,6 +403,7 @@ public class FollowUpServiceImpl implements FollowUpService
     				}else if("3".equalsIgnoreCase(patientList[i].getFuFlag())){
     					fuStatus = "已忽略（6M）";
     				}
+    				fuTime = after6m;
     			}else if(day7Before2.compareTo(after1y)<0 && day7After2.compareTo(after1y)>0){
     				if("1".equalsIgnoreCase(patientList[i].getFuFlag())){
     					fuStatus = "待随访（1Y）";
@@ -417,6 +412,7 @@ public class FollowUpServiceImpl implements FollowUpService
     				}else if("3".equalsIgnoreCase(patientList[i].getFuFlag())){
     					fuStatus = "已忽略（1Y）";
     				}
+    				fuTime = after1y;
     			}else if(day7Before2.compareTo(after3y)<0 && day7After2.compareTo(after3y)>0){
     				if("1".equalsIgnoreCase(patientList[i].getFuFlag())){
     					fuStatus = "待随访（3Y）";
@@ -425,6 +421,7 @@ public class FollowUpServiceImpl implements FollowUpService
     				}else if("3".equalsIgnoreCase(patientList[i].getFuFlag())){
     					fuStatus = "已忽略（3Y）";
     				}
+    				fuTime = after3y;
     			}else if(day7Before2.compareTo(after5y)<0 && day7After2.compareTo(after5y)>0){
     				if("1".equalsIgnoreCase(patientList[i].getFuFlag())){
     					fuStatus = "待随访（5Y）";
@@ -433,6 +430,7 @@ public class FollowUpServiceImpl implements FollowUpService
     				}else if("3".equalsIgnoreCase(patientList[i].getFuFlag())){
     					fuStatus = "已忽略（5Y）";
     				}
+    				fuTime = after5y;
     			}
             	patientList[i].setFuStatus(fuStatus);
     			
@@ -445,7 +443,7 @@ public class FollowUpServiceImpl implements FollowUpService
                 objs[4] = iemrPatient.getDiagnosis();
                 objs[5] = iemrPatient.getInpatientNo();
                 objs[6] = TimestampToDateString(iemrPatient.getAdmissionDate());
-                objs[7] = "";//预计随访日期
+                objs[7] = DateUtil.getDate(fuTime);//预计随访日期
                 objs[8] = fuStatus;
                 dataList.add(objs);  
             }
