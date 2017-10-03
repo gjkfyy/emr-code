@@ -266,7 +266,7 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
 		items : [{
             xtype: 'fieldcontainer',
             fieldLabel: '诊断',
-            labelWidth:70,
+            labelWidth:80,
             layout: 'hbox',
             labelAlign:'right',
             columnWidth:0.25,
@@ -298,25 +298,6 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
             items: [{
               xtype: 'xaptextfield',
               name:'treatmentGoal',
-              flex: 1,
-              editable:false
-            }]
-        },{
-            xtype: 'fieldcontainer',
-            fieldLabel: '手术方案',
-            labelWidth:60,
-            layout: 'hbox',
-            labelAlign:'right',
-            columnWidth:0.25,
-            combineErrors: true,
-            defaultType: 'textfield',
-            padding:'5 0 5 0',
-            defaults: {
-                hideLabel: 'true'
-            },
-            items: [{
-              xtype: 'xaptextfield',
-              name:'operationPlan',
               flex: 1,
               editable:false
             }]
@@ -381,7 +362,7 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
             xtype: 'fieldcontainer',
             name: 'jcxm',
             fieldLabel: '检查项目',
-            labelWidth:70,
+            labelWidth:80,
             layout: 'vbox',
             labelAlign:'right',
             columnWidth:0.75,

@@ -64,7 +64,7 @@ Ext.define('iih.sy.search.block.EMRSearchResultGridBlock', {
 		ifSelect: true,
 		selectBy: 'patientId',
 //		mode : 'simple',
-		showHeaderCheckbox : false,
+		//showHeaderCheckbox : l,
 		checkboxShow : false,
 		CM_JR_Record : [ {
 			header : 'empId',
@@ -126,13 +126,7 @@ Ext.define('iih.sy.search.block.EMRSearchResultGridBlock', {
 			field : 'textfield',
 			type : 'string',
 			flex : 1
-		}, {
-			header : '手术方案',
-			dataIndex : 'operationPlan',
-			field : 'textfield',
-			type : 'string',
-			flex : 1
-		}, {
+		},{
 			header : '治疗方案',
 			dataIndex : 'treatmentPlan',
 			field : 'textfield',
