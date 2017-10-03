@@ -132,6 +132,24 @@ Ext.define('iih.sy.search.block.EMRSearchResultGridBlock', {
 			field : 'textfield',
 			type : 'string',
 			flex : 1
+		}, {
+			header : '治疗方案',
+			dataIndex : 'treatmentPlan',
+			field : 'textfield',
+			type : 'string',
+			flex : 1
+		}, {
+			header : '环式外固定',
+			dataIndex : 'ring',
+			field : 'textfield',
+			type : 'string',
+			flex : 1
+		}, {
+			header : '组合式外固定',
+			dataIndex : 'combined',
+			field : 'textfield',
+			type : 'string',
+			flex : 1
 		} ]
 	} ],
 	
