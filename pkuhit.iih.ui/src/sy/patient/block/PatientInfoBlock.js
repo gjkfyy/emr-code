@@ -242,14 +242,14 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				padding:'5 0 0 5',
 		        labelWidth:60,
 		        fieldLabel:'治疗史',
-		        width:460,
+		        width:440,
 		        name:'treatmentHistory'
 			},{
 				xtype:'xaptextfield',
 				colspan: 12,
 				padding:'5 20 0 5',
 		        labelWidth:70,
-		        width:1020,
+		        width:1004,
 		        name:'lumbarSurgeryHistory',
 		        fieldLabel:'腰部手术史'
 			},{
@@ -257,7 +257,7 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				colspan: 12,
 				padding:'5 20 0 5',
 		        labelWidth:70,
-		        width:1020,
+		        width:1004,
 		        name:'orthopedicSurgeryHistory',
 		        fieldLabel:'矫形手术史'
 			},{
@@ -265,7 +265,7 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				colspan: 12,
 				padding:'5 20 0 5',
 		        labelWidth:70,
-		        width:1020,
+		        width:1004,
 		        name:'adress',
 		        allowBlank:false,
 		        blankText : '不能为空',
@@ -514,7 +514,7 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				padding:'5 0 0 5',
 		        labelWidth:70,
 		        fieldLabel:'治疗方案',
-		        width:1020,
+		        width:1004,
 		        name:'treatmentPlan'
 			},/*{
 	        	xtype:'xaptextfield',
@@ -607,7 +607,7 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 				colspan: 12,
 				padding:'5 20 10 5',
 		        labelWidth:70,
-		        width:1020,
+		        width:1004,
 		        name:'otherDiseasesHistory',
 		        fieldLabel:'其它疾病史',
 		        displayField: 'parentName'
