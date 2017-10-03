@@ -266,7 +266,7 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
 		items : [{
             xtype: 'fieldcontainer',
             fieldLabel: '诊断',
-            labelWidth:60,
+            labelWidth:70,
             layout: 'hbox',
             labelAlign:'right',
             columnWidth:0.25,
@@ -285,7 +285,7 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
         },{
             xtype: 'fieldcontainer',
             fieldLabel: '治疗目标',
-            labelWidth:60,
+            labelWidth:80,
             layout: 'hbox',
             labelAlign:'right',
             columnWidth:0.25,
@@ -322,9 +322,66 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
             }]
         },{
             xtype: 'fieldcontainer',
+            fieldLabel: '治疗方案',
+            labelWidth:60,
+            layout: 'hbox',
+            labelAlign:'right',
+            columnWidth:0.25,
+            combineErrors: true,
+            defaultType: 'textfield',
+            padding:'5 0 5 0',
+            defaults: {
+                hideLabel: 'true'
+            },
+            items: [{
+              xtype: 'xaptextfield',
+              name:'treatmentPlan',
+              flex: 1,
+              editable:false
+            }]
+        },{
+            xtype: 'fieldcontainer',
+            fieldLabel: '环式外固定',
+            labelWidth:70,
+            layout: 'hbox',
+            labelAlign:'right',
+            columnWidth:0.25,
+            combineErrors: true,
+            defaultType: 'textfield',
+            padding:'5 0 5 0',
+            defaults: {
+                hideLabel: 'true'
+            },
+            items: [{
+              xtype: 'xaptextfield',
+              name:'ring',
+              flex: 1,
+              editable:false
+            }]
+        },{
+            xtype: 'fieldcontainer',
+            fieldLabel: '组合式外固定',
+            labelWidth:80,
+            layout: 'hbox',
+            labelAlign:'right',
+            columnWidth:0.25,
+            combineErrors: true,
+            defaultType: 'textfield',
+            padding:'5 0 5 0',
+            defaults: {
+                hideLabel: 'true'
+            },
+            items: [{
+              xtype: 'xaptextfield',
+              name:'combined',
+              flex: 1,
+              editable:false
+            }]
+        },{
+            xtype: 'fieldcontainer',
             name: 'jcxm',
             fieldLabel: '检查项目',
-            labelWidth:60,
+            labelWidth:70,
             layout: 'vbox',
             labelAlign:'right',
             columnWidth:0.75,
@@ -354,19 +411,21 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
     				editable:false,
         			allOptions:false,
     				queryMode: 'local',
-    				width:130,
+    				width:120,
     				displayField: 'nm',
     				valueField: 'mrShareElementCd'
         	    },{
         			xtype: 'xaplabel',
-        			margin:'4 10 0 10',
-        	    	labelAlign : 'left',
+        			margin:'4 30 0 10',
+        	    	labelAlign : 'right',
+        	    	labelWidth:180,
         	    	text: '值'
         		},{
                     xtype: 'xaptextfield',
                     name:'examItem',
                     flex: 1,
                     labelAlign:'right',
+                    width:155,
                     editable:false
                   },{
     				xtype: 'xapbutton',
@@ -417,12 +476,12 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
 				editable:false,
     			allOptions:false,
 				queryMode: 'local',
-				width:130,
+				width:120,
 				displayField: 'nm',
 				valueField: 'mrShareElementCd'
     	    },{
     			xtype: 'xaplabel',
-    			margin:'4 10 0 10',
+    			margin:'4 30 0 10',
     	    	labelAlign : 'left',
     	    	text: '值'
     		},{
@@ -431,6 +490,7 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
                 flex: 1,
                 labelAlign:'right',
                 value : examItemValue,
+                width:155,
                 editable:false
               },{
 				xtype: 'xapbutton',
