@@ -6,6 +6,15 @@ where 1=1
 /*%if patientName != null */
  and  p.patient_name like /*@contain(patientName)*/'%g%'
 /*%end */ 
+ /*%if ring != null */
+ and  p.ring like /*@contain(ring)*/'%g%'
+/*%end */ 
+ /*%if treatmentPlan != null */
+ and  p.treatment_plan like /*@contain(treatmentPlan)*/'%g%'
+/*%end */ 
+ /*%if combined != null */
+ and  p.combined like /*@contain(combined)*/'%g%'
+/*%end */ 
 /*%if admissionDateStart != null */ 
  and p.admission_date >= to_date(/*admissionDateStart*/'2015-01-01 00:00:00','yyyy-mm-dd hh24:mi:ss')
 /*%end */ 
