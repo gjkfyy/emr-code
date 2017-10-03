@@ -172,7 +172,7 @@ public class AdvancedSearchServiceImpl implements AdvancedSearchService
         ArrayResult<Patient> arrayResult = builder.build();
         
         String title = "高级检索列表";  
-        String[] rowsName = new String[]{"姓名","卡号","就诊日期","来源","性别","年龄","诊断","治疗目标","手术方案"};  
+        String[] rowsName = new String[]{"姓名","卡号","就诊日期","来源","性别","年龄","诊断","治疗目标","手术方案","治疗方案","环式外固定","组合式外固定"};  
         List<Object[]>  dataList = new ArrayList<Object[]>();  
         Object[] objs = null;  
         for (IemrPatient p : list) {  
@@ -186,6 +186,9 @@ public class AdvancedSearchServiceImpl implements AdvancedSearchService
             objs[6] = p.getDiagnosis();
             objs[7] = "";
             objs[8] = "";
+            objs[9] = p.getTreatmentPlan();
+            objs[10] = p.getRing();
+            objs[11] = p.getCombined();
             dataList.add(objs);  
     }  
       
