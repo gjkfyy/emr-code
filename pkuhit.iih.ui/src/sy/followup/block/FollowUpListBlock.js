@@ -257,7 +257,7 @@ Ext.define('iih.sy.followup.block.FollowUpListBlock', {
 				flex : 1
 			},{
 				header : '上次入院日期',
-				dataIndex : 'admissionDate',
+				dataIndex : 'visitDate',
 				field : 'textfield',
 				xtype : 'xapdatecolumn',
 				flex : 1,
