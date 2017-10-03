@@ -431,7 +431,6 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
         }]
 	}],
 	test: function(){
-		alert(123);
 	},
 	addItem : function (container,mrElementValue,examItemValue){
 		var timestamp = new Date().getTime();

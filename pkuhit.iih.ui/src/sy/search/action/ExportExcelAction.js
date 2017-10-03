@@ -2,11 +2,14 @@ Ext.define('iih.sy.search.action.ExportExcelAction', {
 extend: 'Xap.ej.action.ServiceInvocation',
 	requires: ['Xap.ej.block.Layer'],
 	doExecute: function(context) {
-		 
 		this.showLoading();
 	    this.callParent();
 	    var pageNum ,pageSize; 
 	    var owner = this.getOwner();
+	    var resultBlock = owner.getBlock('result');
+	    var exportBtn = resultBlock.down('toolbar button[action=export]');
+	    //exportBtn.setDisabled(true);
+	    
 		var block = owner.getBlock('condition');
 		this.turnpage = false;
 	    if(context.event && context.event.name == "turnpage"){
@@ -35,6 +38,7 @@ extend: 'Xap.ej.action.ServiceInvocation',
 	   
         var operations = context.operations;      
         this.prepareOperations(operations,data);  
+        //exportBtn.setDisabled(false);
 	},  
 	
 	 prepareOperations: function(operations,data) { 
@@ -57,11 +61,11 @@ extend: 'Xap.ej.action.ServiceInvocation',
         iframe.src = url; 
         if (iframe.attachEvent) {
 			iframe.attachEvent("onload", function() {
-				this.hideLoading();
+				//this.hideLoading();
 			});
 		} else {
 			iframe.onload = function() {
-				this.hideLoading();
+				//this.hideLoading();
 			};
 		} 
         document.body.appendChild(iframe);
@@ -85,5 +89,6 @@ extend: 'Xap.ej.action.ServiceInvocation',
 		 alert("查询失败");
 	 },  
      onSuccess: function(operation) {
+    	 this.hideLoading();
      }    
 });
