@@ -2,6 +2,7 @@ Ext.define('iih.sy.followup.action.FollowUpListExportAction', {
 	extend: 'Xap.ej.action.ServiceInvocation',
 	requires: ['Xap.ej.block.Layer'],
 	doExecute: function(context) {
+		this.showLoading();
 	    this.callParent();
 	    var pageNum ,pageSize; 
 	    var owner = this.getOwner();
