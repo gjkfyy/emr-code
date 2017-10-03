@@ -217,6 +217,7 @@ public class FollowUpServiceImpl implements FollowUpService
     					fuStatus = "已忽略（5Y）";
     				}
     			}
+    			patientList[i].setVisitDate(DateUtil.getDate(iemrPatient.getAdmissionDate()));
             	patientList[i].setFuStatus(fuStatus);
     			
             	i++;
