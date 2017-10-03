@@ -57,7 +57,7 @@ Ext.define('iih.sy.search.block.EMRSearchResultGridBlock', {
 		name : 'userList',
 		colspan : 1,
 		margin : '0 10 0 0',
-		rownumShow : false,
+		rownumShow : true,
 		height : 470,
 		pageSize : 20,
 		pageShow : true,
