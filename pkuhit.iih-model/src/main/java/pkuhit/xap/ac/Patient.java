@@ -227,6 +227,8 @@ import xap.sv.annotation.Column;
     @Column(name = "INTELLIGENCE")
     String intelligence;
     
+    String visitDate;
+
 
 	public String getPatientId() {
 		return patientId;
@@ -698,6 +700,14 @@ import xap.sv.annotation.Column;
 
 	public void setIntelligence(String intelligence) {
 		this.intelligence = intelligence;
+	}
+
+	public String getVisitDate() {
+		return visitDate;
+	}
+
+	public void setVisitDate(String visitDate) {
+		this.visitDate = visitDate;
 	}
 	
 }
