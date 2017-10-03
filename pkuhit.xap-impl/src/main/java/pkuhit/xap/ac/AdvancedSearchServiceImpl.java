@@ -61,6 +61,9 @@ public class AdvancedSearchServiceImpl implements AdvancedSearchService
         String inpatientNoEnd = getParamValue(params, "inpatientNoEnd");
         String patientName = getParamValue(params, "patientName");
         String sex = getParamValue(params, "sex");
+        String ring = getParamValue(params, "ring");
+        String treatmentPlan = getParamValue(params, "treatmentPlan");
+        String combined = getParamValue(params, "combined");
         if("-1".equals(sex)){
         	sex = null;
         }
@@ -78,7 +81,7 @@ public class AdvancedSearchServiceImpl implements AdvancedSearchService
         }
         
         List<IemrPatient> list = imerPatientDao.selectByAdvancedCondition(itemValuesList,admissionDateStart, admissionDateEnd, inpatientNoStart, 
-        		inpatientNoEnd, patientName, sex, birthdayStart, birthdayEnd, tel, address, diagnosis,options);
+        		inpatientNoEnd, patientName, sex, birthdayStart, birthdayEnd, tel, address, diagnosis,ring,treatmentPlan,combined,options);
         
         //■　装配并返回
         ArrayResultBuilder<Patient> builder = ArrayResultBuilder.newArrayResult(Patient.class);
@@ -127,6 +130,9 @@ public class AdvancedSearchServiceImpl implements AdvancedSearchService
         String inpatientNoEnd = getParamValue(params, "inpatientNoEnd");
         String patientName = getParamValue(params, "patientName");
         String sex = getParamValue(params, "sex");
+        String ring = getParamValue(params, "ring");
+        String treatmentPlan = getParamValue(params, "treatmentPlan");
+        String combined = getParamValue(params, "combined");
         if("-1".equals(sex)){
         	sex = null;
         }
@@ -144,7 +150,7 @@ public class AdvancedSearchServiceImpl implements AdvancedSearchService
         }
 
         List<IemrPatient> list = imerPatientDao.selectByAdvancedCondition(itemValuesList,admissionDateStart, admissionDateEnd, inpatientNoStart, 
-        		inpatientNoEnd, patientName, sex, birthdayStart, birthdayEnd, tel, address, diagnosis);
+        		inpatientNoEnd, patientName, sex, birthdayStart, birthdayEnd, tel, address, diagnosis,ring,treatmentPlan,combined);
         
         //■　装配并返回
         ArrayResultBuilder<Patient> builder = ArrayResultBuilder.newArrayResult(Patient.class);
