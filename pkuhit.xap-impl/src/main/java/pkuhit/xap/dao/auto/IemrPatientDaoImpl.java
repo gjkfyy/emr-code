@@ -2,7 +2,7 @@ package pkuhit.xap.dao.auto;
 
 /** */
 @org.springframework.stereotype.Repository()
-@javax.annotation.Generated(value = { "Doma", "1.35.0" }, date = "2017-02-16T21:21:03.123+0800")
+@javax.annotation.Generated(value = { "Doma", "1.35.0" }, date = "2017-10-03T11:11:31.834+0800")
 public class IemrPatientDaoImpl extends org.seasar.doma.internal.jdbc.dao.AbstractDao implements pkuhit.xap.dao.auto.IemrPatientDao {
 
     static {
@@ -384,6 +384,135 @@ public class IemrPatientDaoImpl extends org.seasar.doma.internal.jdbc.dao.Abstra
             return __result;
         } catch (java.lang.RuntimeException __e) {
             throwing("pkuhit.xap.dao.auto.IemrPatientDaoImpl", "selectIemrPatientList", __e);
+            throw __e;
+        }
+    }
+
+    @Override
+    public java.util.List<pkuhit.xap.dao.auto.entity.IemrPatient> selectFollowUpList(java.lang.String startDate, java.lang.String endDate, java.lang.String patientName, java.lang.String inpatientNo, java.lang.String tel, java.lang.String diagnosis, java.lang.String fuFlag, org.seasar.doma.jdbc.SelectOptions options) {
+        entering("pkuhit.xap.dao.auto.IemrPatientDaoImpl", "selectFollowUpList", startDate, endDate, patientName, inpatientNo, tel, diagnosis, fuFlag, options);
+        try {
+            if (options == null) {
+                throw new org.seasar.doma.DomaNullPointerException("options");
+            }
+            org.seasar.doma.internal.jdbc.query.SqlFileSelectQuery __query = new org.seasar.doma.internal.jdbc.query.SqlFileSelectQuery();
+            __query.setConfig(config);
+            __query.setSqlFilePath("META-INF/pkuhit/xap/dao/auto/IemrPatientDao/selectFollowUpList.sql");
+            __query.setOptions(options);
+            __query.addParameter("startDate", java.lang.String.class, startDate);
+            __query.addParameter("endDate", java.lang.String.class, endDate);
+            __query.addParameter("patientName", java.lang.String.class, patientName);
+            __query.addParameter("inpatientNo", java.lang.String.class, inpatientNo);
+            __query.addParameter("tel", java.lang.String.class, tel);
+            __query.addParameter("diagnosis", java.lang.String.class, diagnosis);
+            __query.addParameter("fuFlag", java.lang.String.class, fuFlag);
+            __query.setCallerClassName("pkuhit.xap.dao.auto.IemrPatientDaoImpl");
+            __query.setCallerMethodName("selectFollowUpList");
+            __query.setResultEnsured(false);
+            __query.setResultMappingEnsured(false);
+            __query.setQueryTimeout(-1);
+            __query.setMaxRows(-1);
+            __query.setFetchSize(-1);
+            __query.prepare();
+            org.seasar.doma.internal.jdbc.command.SelectCommand<java.util.List<pkuhit.xap.dao.auto.entity.IemrPatient>> __command = new org.seasar.doma.internal.jdbc.command.SelectCommand<java.util.List<pkuhit.xap.dao.auto.entity.IemrPatient>>(__query, new org.seasar.doma.internal.jdbc.command.EntityResultListHandler<pkuhit.xap.dao.auto.entity.IemrPatient>(pkuhit.xap.dao.auto.entity._IemrPatient.getSingletonInternal()));
+            java.util.List<pkuhit.xap.dao.auto.entity.IemrPatient> __result = __command.execute();
+            __query.complete();
+            exiting("pkuhit.xap.dao.auto.IemrPatientDaoImpl", "selectFollowUpList", __result);
+            return __result;
+        } catch (java.lang.RuntimeException __e) {
+            throwing("pkuhit.xap.dao.auto.IemrPatientDaoImpl", "selectFollowUpList", __e);
+            throw __e;
+        }
+    }
+
+    @Override
+    public java.util.List<pkuhit.xap.dao.auto.entity.IemrPatient> selectByAdvancedCondition(java.util.List<java.lang.String> itemValuesList, java.lang.String admissionDateStart, java.lang.String admissionDateEnd, java.lang.String inpatientNoStart, java.lang.String inpatientNoEnd, java.lang.String patientName, java.lang.String sex, java.lang.String birthdayStart, java.lang.String birthdayEnd, java.lang.String tel, java.lang.String address, java.lang.String diagnosis, java.lang.String ring, java.lang.String treatmentPlan, java.lang.String combined) {
+        entering("pkuhit.xap.dao.auto.IemrPatientDaoImpl", "selectByAdvancedCondition", itemValuesList, admissionDateStart, admissionDateEnd, inpatientNoStart, inpatientNoEnd, patientName, sex, birthdayStart, birthdayEnd, tel, address, diagnosis, ring, treatmentPlan, combined);
+        try {
+            if (itemValuesList == null) {
+                throw new org.seasar.doma.DomaNullPointerException("itemValuesList");
+            }
+            org.seasar.doma.internal.jdbc.query.SqlFileSelectQuery __query = new org.seasar.doma.internal.jdbc.query.SqlFileSelectQuery();
+            __query.setConfig(config);
+            __query.setSqlFilePath("META-INF/pkuhit/xap/dao/auto/IemrPatientDao/selectByAdvancedCondition.sql");
+            __query.addParameter("itemValuesList", java.util.List.class, itemValuesList);
+            __query.addParameter("admissionDateStart", java.lang.String.class, admissionDateStart);
+            __query.addParameter("admissionDateEnd", java.lang.String.class, admissionDateEnd);
+            __query.addParameter("inpatientNoStart", java.lang.String.class, inpatientNoStart);
+            __query.addParameter("inpatientNoEnd", java.lang.String.class, inpatientNoEnd);
+            __query.addParameter("patientName", java.lang.String.class, patientName);
+            __query.addParameter("sex", java.lang.String.class, sex);
+            __query.addParameter("birthdayStart", java.lang.String.class, birthdayStart);
+            __query.addParameter("birthdayEnd", java.lang.String.class, birthdayEnd);
+            __query.addParameter("tel", java.lang.String.class, tel);
+            __query.addParameter("address", java.lang.String.class, address);
+            __query.addParameter("diagnosis", java.lang.String.class, diagnosis);
+            __query.addParameter("ring", java.lang.String.class, ring);
+            __query.addParameter("treatmentPlan", java.lang.String.class, treatmentPlan);
+            __query.addParameter("combined", java.lang.String.class, combined);
+            __query.setCallerClassName("pkuhit.xap.dao.auto.IemrPatientDaoImpl");
+            __query.setCallerMethodName("selectByAdvancedCondition");
+            __query.setResultEnsured(false);
+            __query.setResultMappingEnsured(false);
+            __query.setQueryTimeout(-1);
+            __query.setMaxRows(-1);
+            __query.setFetchSize(-1);
+            __query.prepare();
+            org.seasar.doma.internal.jdbc.command.SelectCommand<java.util.List<pkuhit.xap.dao.auto.entity.IemrPatient>> __command = new org.seasar.doma.internal.jdbc.command.SelectCommand<java.util.List<pkuhit.xap.dao.auto.entity.IemrPatient>>(__query, new org.seasar.doma.internal.jdbc.command.EntityResultListHandler<pkuhit.xap.dao.auto.entity.IemrPatient>(pkuhit.xap.dao.auto.entity._IemrPatient.getSingletonInternal()));
+            java.util.List<pkuhit.xap.dao.auto.entity.IemrPatient> __result = __command.execute();
+            __query.complete();
+            exiting("pkuhit.xap.dao.auto.IemrPatientDaoImpl", "selectByAdvancedCondition", __result);
+            return __result;
+        } catch (java.lang.RuntimeException __e) {
+            throwing("pkuhit.xap.dao.auto.IemrPatientDaoImpl", "selectByAdvancedCondition", __e);
+            throw __e;
+        }
+    }
+
+    @Override
+    public java.util.List<pkuhit.xap.dao.auto.entity.IemrPatient> selectByAdvancedCondition(java.util.List<java.lang.String> itemValuesList, java.lang.String admissionDateStart, java.lang.String admissionDateEnd, java.lang.String inpatientNoStart, java.lang.String inpatientNoEnd, java.lang.String patientName, java.lang.String sex, java.lang.String birthdayStart, java.lang.String birthdayEnd, java.lang.String tel, java.lang.String address, java.lang.String diagnosis, java.lang.String ring, java.lang.String treatmentPlan, java.lang.String combined, org.seasar.doma.jdbc.SelectOptions options) {
+        entering("pkuhit.xap.dao.auto.IemrPatientDaoImpl", "selectByAdvancedCondition", itemValuesList, admissionDateStart, admissionDateEnd, inpatientNoStart, inpatientNoEnd, patientName, sex, birthdayStart, birthdayEnd, tel, address, diagnosis, ring, treatmentPlan, combined, options);
+        try {
+            if (itemValuesList == null) {
+                throw new org.seasar.doma.DomaNullPointerException("itemValuesList");
+            }
+            if (options == null) {
+                throw new org.seasar.doma.DomaNullPointerException("options");
+            }
+            org.seasar.doma.internal.jdbc.query.SqlFileSelectQuery __query = new org.seasar.doma.internal.jdbc.query.SqlFileSelectQuery();
+            __query.setConfig(config);
+            __query.setSqlFilePath("META-INF/pkuhit/xap/dao/auto/IemrPatientDao/selectByAdvancedCondition.sql");
+            __query.setOptions(options);
+            __query.addParameter("itemValuesList", java.util.List.class, itemValuesList);
+            __query.addParameter("admissionDateStart", java.lang.String.class, admissionDateStart);
+            __query.addParameter("admissionDateEnd", java.lang.String.class, admissionDateEnd);
+            __query.addParameter("inpatientNoStart", java.lang.String.class, inpatientNoStart);
+            __query.addParameter("inpatientNoEnd", java.lang.String.class, inpatientNoEnd);
+            __query.addParameter("patientName", java.lang.String.class, patientName);
+            __query.addParameter("sex", java.lang.String.class, sex);
+            __query.addParameter("birthdayStart", java.lang.String.class, birthdayStart);
+            __query.addParameter("birthdayEnd", java.lang.String.class, birthdayEnd);
+            __query.addParameter("tel", java.lang.String.class, tel);
+            __query.addParameter("address", java.lang.String.class, address);
+            __query.addParameter("diagnosis", java.lang.String.class, diagnosis);
+            __query.addParameter("ring", java.lang.String.class, ring);
+            __query.addParameter("treatmentPlan", java.lang.String.class, treatmentPlan);
+            __query.addParameter("combined", java.lang.String.class, combined);
+            __query.setCallerClassName("pkuhit.xap.dao.auto.IemrPatientDaoImpl");
+            __query.setCallerMethodName("selectByAdvancedCondition");
+            __query.setResultEnsured(false);
+            __query.setResultMappingEnsured(false);
+            __query.setQueryTimeout(-1);
+            __query.setMaxRows(-1);
+            __query.setFetchSize(-1);
+            __query.prepare();
+            org.seasar.doma.internal.jdbc.command.SelectCommand<java.util.List<pkuhit.xap.dao.auto.entity.IemrPatient>> __command = new org.seasar.doma.internal.jdbc.command.SelectCommand<java.util.List<pkuhit.xap.dao.auto.entity.IemrPatient>>(__query, new org.seasar.doma.internal.jdbc.command.EntityResultListHandler<pkuhit.xap.dao.auto.entity.IemrPatient>(pkuhit.xap.dao.auto.entity._IemrPatient.getSingletonInternal()));
+            java.util.List<pkuhit.xap.dao.auto.entity.IemrPatient> __result = __command.execute();
+            __query.complete();
+            exiting("pkuhit.xap.dao.auto.IemrPatientDaoImpl", "selectByAdvancedCondition", __result);
+            return __result;
+        } catch (java.lang.RuntimeException __e) {
+            throwing("pkuhit.xap.dao.auto.IemrPatientDaoImpl", "selectByAdvancedCondition", __e);
             throw __e;
         }
     }
