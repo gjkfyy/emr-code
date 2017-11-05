@@ -55,7 +55,7 @@ Ext.define('iih.sy.followup.action.FollowUpListSearchAction', {
         }*/
         console.log(url);
         var operation = {
-            url: url,
+            url: encodeURI(encodeURI(url)),
             mclass: null,
             method: METHODS.METHOD_GET,
             condition: null,
