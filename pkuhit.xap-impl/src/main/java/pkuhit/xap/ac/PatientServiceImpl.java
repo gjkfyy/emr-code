@@ -147,7 +147,7 @@ public class PatientServiceImpl implements PatientService
 				fuStatus = "已忽略（5Y）";
 			}
 		}
-		patient.setFuStatus(fuStatus);
+		//patient.setFuStatus(fuStatus);
         patient.setFlag(flag);
         patient.setxRay(patient.getXRay());
         SingleResultBuilder<Patient> builder = SingleResultBuilder.newSingleResult(Patient.class);
@@ -182,9 +182,15 @@ public class PatientServiceImpl implements PatientService
 				.limit(Integer.valueOf(pageSize)).count();
 		 //wangyanli add 添加参数 dctNsF 2016-11-8
         String condition = getParamValue(params, "condition");
+        System.out.println("utf-8 值"+getURLEncoderString(condition,"UTF-8"));
+       // System.out.println("GBK-2312 值"+getURLEncoderString(condition,"gbk2312"));
+        System.out.println("GBK 值"+getURLEncoderString(condition,"GBK"));
+        
         if("输入姓名、住院号、手机号检索".equalsIgnoreCase(condition)){
         	condition = null;
         }
+      
+        
         List<IemrPatient> list = imerPatientDao.selectIemrPatientList(condition,options);
         
         //■　装配并返回
@@ -218,6 +224,8 @@ public class PatientServiceImpl implements PatientService
 	 
 	 String getParamValue(Map<String, String> params, String paramName){
 	        String value = params.get(paramName);
+	        System.out.println("查询值  value =="+value);
+	       
 	        if (!StringUtils.hasText(value))
 	        {
 	            return null;
@@ -225,7 +233,18 @@ public class PatientServiceImpl implements PatientService
 	        return value;
 	 }
 	 
-	 
+	 public static String getURLEncoderString(String str,String ucode) {
+	        String result = "";
+	        if (null == str) {
+	            return "";
+	        }
+	        try {
+	            result = java.net.URLEncoder.encode(str, ucode);
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	        return result;
+	    }
 	 @Override
     public SingleResult<Patient> getEncounterById(String id) throws Throwable {
 	    SingleResult<Patient> result;
