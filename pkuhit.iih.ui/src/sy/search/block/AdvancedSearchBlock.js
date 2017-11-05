@@ -150,7 +150,7 @@ Ext.define('iih.sy.search.block.AdvancedSearchBlock', {
      		}]
         },{
             xtype: 'fieldcontainer',
-            fieldLabel: '出生日期',
+            fieldLabel: '出生日期11',
             labelWidth:60,
             layout: 'hbox',
             columnWidth:0.5,
@@ -405,7 +405,7 @@ Ext.define('iih.sy.search.block.AdvancedSearchBlock', {
 				type : 'string',
 				flex : 1
 			}, {
-				header : '来源',
+				header : '来源11',
 				dataIndex : 'source',
 				field : 'textfield',
 				type : 'string',

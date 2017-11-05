@@ -97,12 +97,6 @@ Ext.define('iih.sy.search.block.EMRSearchResultGridBlock', {
 			xtype : 'xapdatecolumn',
 			flex : 1
 		}, {
-			header : '来源',
-			dataIndex : 'source',
-			field : 'textfield',
-			type : 'string',
-			flex : 1
-		}, {
 			header : '性别',
 			dataIndex : 'sex',
 			field : 'textfield',

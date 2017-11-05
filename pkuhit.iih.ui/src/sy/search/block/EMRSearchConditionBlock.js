@@ -169,7 +169,7 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
      		}]
         },{
             xtype: 'fieldcontainer',
-            fieldLabel: '出生日期',
+            fieldLabel: '年龄',
             labelWidth:60,
             layout: 'hbox',
             columnWidth:0.5,
@@ -180,8 +180,8 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
                 hideLabel: 'true'
             },
             items: [{
-              xtype: 'xapdatefield',
-              name:'birthdayStart',
+              xtype: 'xaptextfield',
+              name:'age',
               flex: 1,
               labelAlign:'left',
               editable:false
@@ -191,13 +191,15 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
         		vertical: true,
         		name:'',
         		padding:'0 5 0 5',
-        		value: '~'
+        		value: '~',
+        		hidden:true
           },{
               	xtype: 'xapdatefield',
             	name:'birthdayEnd',
                 flex: 1,
             	labelAlign:'left',
-            	editable:false
+            	editable:false,
+            	hidden:true
             }]
         },{
             xtype: 'fieldcontainer',
@@ -224,6 +226,7 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
             labelWidth:60,
             layout: 'hbox',
             columnWidth:0.5,
+            hidden:true,
             combineErrors: true,
             defaultType: 'textfield',
             padding:'5 0 5 10',
@@ -242,10 +245,10 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
             fieldLabel: '地址',
             labelWidth:60,
             layout: 'hbox',
-            columnWidth:0.95,
+            columnWidth:0.5,
             combineErrors: true,
             defaultType: 'textfield',
-            padding:'5 0 5 0',
+            padding:'5 0 5 10',
             defaults: {
                 hideLabel: 'true'
             },
@@ -289,6 +292,7 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
             layout: 'hbox',
             labelAlign:'right',
             columnWidth:0.25,
+            hidden: true,
             combineErrors: true,
             defaultType: 'textfield',
             padding:'5 0 5 0',
