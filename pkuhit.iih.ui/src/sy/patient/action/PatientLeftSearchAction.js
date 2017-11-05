@@ -50,7 +50,7 @@ Ext.define('iih.sy.patient.action.PatientLeftSearchAction', {
         }
         console.log("##########"+url);
     	var operation = {
-            url: url,
+            url: encodeURI(url),
     		mclass: mclass,
     		method: 'get',
     		condition: condition,
