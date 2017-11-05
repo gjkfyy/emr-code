@@ -39,6 +39,9 @@ where 1=1
  /*%if tel != null */ 
  and p.tel = '110'
 /*%end */ 
+ /*%if age != null */ 
+ and p.age like /* @contain(age) */'%g%'
+/*%end */ 
  /*%if address != null */ 
  and p.adress like /* @contain(address) */'%g%'
 /*%end */ 
