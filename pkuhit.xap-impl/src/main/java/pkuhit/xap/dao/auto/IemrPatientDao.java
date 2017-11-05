@@ -96,9 +96,9 @@ public interface IemrPatientDao {
     
     @Select
     List<IemrPatient> selectByAdvancedCondition(List<String> itemValuesList,String admissionDateStart,String admissionDateEnd,String inpatientNoStart, String inpatientNoEnd,String patientName,String sex,
-    		String birthdayStart, String birthdayEnd, String tel, String address, String diagnosis,String ring,String treatmentPlan,String combined);
+    		String birthdayStart, String birthdayEnd, String tel, String address, String diagnosis,String ring,String treatmentPlan,String combined,String age);
     
     @Select
     List<IemrPatient> selectByAdvancedCondition(List<String> itemValuesList,String admissionDateStart,String admissionDateEnd,String inpatientNoStart, String inpatientNoEnd,String patientName,String sex,
-    		String birthdayStart, String birthdayEnd, String tel, String address, String diagnosis,String ring,String treatmentPlan,String combined,SelectOptions options);
+    		String birthdayStart, String birthdayEnd, String tel, String address, String diagnosis,String ring,String treatmentPlan,String combined,String age,SelectOptions options);
 }

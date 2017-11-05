@@ -2,7 +2,7 @@ package pkuhit.xap.dao.auto;
 
 /** */
 @org.springframework.stereotype.Repository()
-@javax.annotation.Generated(value = { "Doma", "1.35.0" }, date = "2017-10-03T11:11:31.834+0800")
+@javax.annotation.Generated(value = { "Doma", "1.35.0" }, date = "2017-11-05T12:30:09.215+0800")
 public class IemrPatientDaoImpl extends org.seasar.doma.internal.jdbc.dao.AbstractDao implements pkuhit.xap.dao.auto.IemrPatientDao {
 
     static {
@@ -426,8 +426,8 @@ public class IemrPatientDaoImpl extends org.seasar.doma.internal.jdbc.dao.Abstra
     }
 
     @Override
-    public java.util.List<pkuhit.xap.dao.auto.entity.IemrPatient> selectByAdvancedCondition(java.util.List<java.lang.String> itemValuesList, java.lang.String admissionDateStart, java.lang.String admissionDateEnd, java.lang.String inpatientNoStart, java.lang.String inpatientNoEnd, java.lang.String patientName, java.lang.String sex, java.lang.String birthdayStart, java.lang.String birthdayEnd, java.lang.String tel, java.lang.String address, java.lang.String diagnosis, java.lang.String ring, java.lang.String treatmentPlan, java.lang.String combined) {
-        entering("pkuhit.xap.dao.auto.IemrPatientDaoImpl", "selectByAdvancedCondition", itemValuesList, admissionDateStart, admissionDateEnd, inpatientNoStart, inpatientNoEnd, patientName, sex, birthdayStart, birthdayEnd, tel, address, diagnosis, ring, treatmentPlan, combined);
+    public java.util.List<pkuhit.xap.dao.auto.entity.IemrPatient> selectByAdvancedCondition(java.util.List<java.lang.String> itemValuesList, java.lang.String admissionDateStart, java.lang.String admissionDateEnd, java.lang.String inpatientNoStart, java.lang.String inpatientNoEnd, java.lang.String patientName, java.lang.String sex, java.lang.String birthdayStart, java.lang.String birthdayEnd, java.lang.String tel, java.lang.String address, java.lang.String diagnosis, java.lang.String ring, java.lang.String treatmentPlan, java.lang.String combined, java.lang.String age) {
+        entering("pkuhit.xap.dao.auto.IemrPatientDaoImpl", "selectByAdvancedCondition", itemValuesList, admissionDateStart, admissionDateEnd, inpatientNoStart, inpatientNoEnd, patientName, sex, birthdayStart, birthdayEnd, tel, address, diagnosis, ring, treatmentPlan, combined, age);
         try {
             if (itemValuesList == null) {
                 throw new org.seasar.doma.DomaNullPointerException("itemValuesList");
@@ -450,6 +450,7 @@ public class IemrPatientDaoImpl extends org.seasar.doma.internal.jdbc.dao.Abstra
             __query.addParameter("ring", java.lang.String.class, ring);
             __query.addParameter("treatmentPlan", java.lang.String.class, treatmentPlan);
             __query.addParameter("combined", java.lang.String.class, combined);
+            __query.addParameter("age", java.lang.String.class, age);
             __query.setCallerClassName("pkuhit.xap.dao.auto.IemrPatientDaoImpl");
             __query.setCallerMethodName("selectByAdvancedCondition");
             __query.setResultEnsured(false);
@@ -470,8 +471,8 @@ public class IemrPatientDaoImpl extends org.seasar.doma.internal.jdbc.dao.Abstra
     }
 
     @Override
-    public java.util.List<pkuhit.xap.dao.auto.entity.IemrPatient> selectByAdvancedCondition(java.util.List<java.lang.String> itemValuesList, java.lang.String admissionDateStart, java.lang.String admissionDateEnd, java.lang.String inpatientNoStart, java.lang.String inpatientNoEnd, java.lang.String patientName, java.lang.String sex, java.lang.String birthdayStart, java.lang.String birthdayEnd, java.lang.String tel, java.lang.String address, java.lang.String diagnosis, java.lang.String ring, java.lang.String treatmentPlan, java.lang.String combined, org.seasar.doma.jdbc.SelectOptions options) {
-        entering("pkuhit.xap.dao.auto.IemrPatientDaoImpl", "selectByAdvancedCondition", itemValuesList, admissionDateStart, admissionDateEnd, inpatientNoStart, inpatientNoEnd, patientName, sex, birthdayStart, birthdayEnd, tel, address, diagnosis, ring, treatmentPlan, combined, options);
+    public java.util.List<pkuhit.xap.dao.auto.entity.IemrPatient> selectByAdvancedCondition(java.util.List<java.lang.String> itemValuesList, java.lang.String admissionDateStart, java.lang.String admissionDateEnd, java.lang.String inpatientNoStart, java.lang.String inpatientNoEnd, java.lang.String patientName, java.lang.String sex, java.lang.String birthdayStart, java.lang.String birthdayEnd, java.lang.String tel, java.lang.String address, java.lang.String diagnosis, java.lang.String ring, java.lang.String treatmentPlan, java.lang.String combined, java.lang.String age, org.seasar.doma.jdbc.SelectOptions options) {
+        entering("pkuhit.xap.dao.auto.IemrPatientDaoImpl", "selectByAdvancedCondition", itemValuesList, admissionDateStart, admissionDateEnd, inpatientNoStart, inpatientNoEnd, patientName, sex, birthdayStart, birthdayEnd, tel, address, diagnosis, ring, treatmentPlan, combined, age, options);
         try {
             if (itemValuesList == null) {
                 throw new org.seasar.doma.DomaNullPointerException("itemValuesList");
@@ -498,6 +499,7 @@ public class IemrPatientDaoImpl extends org.seasar.doma.internal.jdbc.dao.Abstra
             __query.addParameter("ring", java.lang.String.class, ring);
             __query.addParameter("treatmentPlan", java.lang.String.class, treatmentPlan);
             __query.addParameter("combined", java.lang.String.class, combined);
+            __query.addParameter("age", java.lang.String.class, age);
             __query.setCallerClassName("pkuhit.xap.dao.auto.IemrPatientDaoImpl");
             __query.setCallerMethodName("selectByAdvancedCondition");
             __query.setResultEnsured(false);
