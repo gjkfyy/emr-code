@@ -366,23 +366,34 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        name:'specialityExam'
 			},{
 				xtype:'xaptextfield',
+				colspan: 4,
+				padding:'5 0 0 5',
+		        labelWidth:60,
+		        fieldLabel:'智力',
+		        width:186,
+		        name:'intelligence'
+			},
+			{
+				xtype:'xapdisplayfield',
 				colspan: 2,
+				padding:'5 0 0 5',
+		        labelWidth:60,
+		        labelAlign:'right',
+		        fieldLabel:'',
+		        width:186,
+		        name:''
+			},
+			{
+				xtype:'xaptextfield',
+				colspan: 12,
 				padding:'5 0 0 5',
 		        labelWidth:60,
 		        labelAlign:'right',
 		        fieldLabel:'X光片',
 		        width:186,
-		        name:'xRay'
-			},{
-				xtype:'xaptextfield',
-				colspan: 4,
-				padding:'5 0 0 5',
-		        labelWidth:100,
-		        fieldLabel:'智力',
-		        width:230,
-		        name:'intelligence'
+		        name:'xRay',
+		        hidden:true
 			},
-			
 			{
 				xtype:'xaptextfield',
 				colspan: 3,
@@ -390,7 +401,8 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        labelWidth:70,
 		        fieldLabel:'步态',
 		        width:200,
-		        name:'gait'
+		        name:'gait',
+		        hidden:true
 			},{
 				xtype:'xaptextfield',
 				colspan: 3,
@@ -398,7 +410,8 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        labelWidth:60,
 		        fieldLabel:'行走距离',
 		        width:230,
-		        name:'walkingDistance'
+		        name:'walkingDistance',
+		        hidden:true
 			},{
 				xtype:'xaptextfield',
 				colspan: 2,
@@ -407,7 +420,8 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        labelAlign:'right',
 		        fieldLabel:'行走功能指数',
 		        width:186,
-		        name:'cardiacFunction'
+		        name:'cardiacFunction',
+		        hidden:true
 			},{
 				xtype:'xaptextfield',
 				colspan: 4,
@@ -415,7 +429,8 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        labelWidth:100,
 		        fieldLabel:'疼痛部位',
 		        width:230,
-		        name:'pain'
+		        name:'pain',
+		        hidden:true
 			},
 			
 			/*
@@ -515,7 +530,8 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        labelWidth:70,
 		        fieldLabel:'治疗方案',
 		        width:1004,
-		        name:'treatmentPlan'
+		        name:'treatmentPlan',
+		        hidden:true
 			},/*{
 	        	xtype:'xaptextfield',
 	            name:'gait',
@@ -574,7 +590,8 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        labelWidth:70,
 		        fieldLabel:'内固定',
 		        width:200,
-		        name:'internalFixation'
+		        name:'internalFixation',
+		        hidden:true
 			},{
 	        	xtype:'xaptextfield',
 	            name:'ring',
@@ -583,7 +600,8 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 	            colspan: 3,
 		        labelWidth:70,
 		        width:230,
-	            labelAlign:'right'
+	            labelAlign:'right',
+	            hidden:true
 			},{
 				xtype:'xaptextfield',
 				colspan: 2,
@@ -592,7 +610,8 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        width:186,
 		        name:'combined',
 		        labelAlign:'right',
-		        fieldLabel:'组合式外固定'
+		        fieldLabel:'组合式外固定',
+		        hidden:true
 			},{
 				xtype:'xaptextfield',
 				colspan: 4,
@@ -601,7 +620,8 @@ Ext.define('iih.sy.patient.block.PatientInfoBlock',{
 		        width:230,
 		        name:'otherFixation',
 		        fieldLabel:'其它外固定',
-		        value: ''
+		        value: '',
+		        hidden:true
 			},{
 				xtype:'xaptextfield',
 				colspan: 12,
