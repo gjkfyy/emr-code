@@ -1,5 +1,6 @@
 package pkuhit.xap.ac;
 
+import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
@@ -182,9 +183,27 @@ public class PatientServiceImpl implements PatientService
 				.limit(Integer.valueOf(pageSize)).count();
 		 //wangyanli add 添加参数 dctNsF 2016-11-8
         String condition = getParamValue(params, "condition");
-        System.out.println("utf-8 值"+getURLEncoderString(condition,"UTF-8"));
-       // System.out.println("GBK-2312 值"+getURLEncoderString(condition,"gbk2312"));
-        System.out.println("GBK 值"+getURLEncoderString(condition,"GBK"));
+        
+        byte[] bytes = condition.getBytes();   
+        try {
+			String s1 = new String(bytes,"GBK");
+			String s2 = new String(bytes,"UTF-8");
+			System.out.println("utf-8 值:"+s2);
+		    System.out.println("GBK 值:"+s1);
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
+        String s3="";
+        try {
+        	s3 = new String(condition.getBytes("ISO-8859-1"),"UTF-8");
+        	System.out.println("encodeURI:"+s3);
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+       
         
         if("输入姓名、住院号、手机号检索".equalsIgnoreCase(condition)){
         	condition = null;

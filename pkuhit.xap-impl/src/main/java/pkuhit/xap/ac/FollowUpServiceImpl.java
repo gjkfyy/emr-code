@@ -1,6 +1,8 @@
 package pkuhit.xap.ac;
 
+import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
+import java.net.URLDecoder;
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -120,6 +122,13 @@ public class FollowUpServiceImpl implements FollowUpService
 		String tel = "";
         if("patientName".equalsIgnoreCase(fuType)){
         	patientName = fuValue;
+        	try {
+        		patientName = URLDecoder.decode(patientName,"UTF-8");
+        		System.out.println("患者姓名:"+patientName);
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
         }else if("inpatientNo".equalsIgnoreCase(fuType)){
         	inpatientNo = fuValue;
         }else if("tel".equalsIgnoreCase(fuType)){
