@@ -48,6 +48,7 @@ Ext.define('iih.sy.patient.action.PatientLeftSearchAction', {
         if(block.getModelClass) {
             mclass = block.getModelClass();
         }
+        console.log("##########"+url);
     	var operation = {
             url: url,
     		mclass: mclass,
