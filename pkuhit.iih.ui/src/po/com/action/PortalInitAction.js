@@ -70,11 +70,14 @@ Ext.define('iih.po.com.action.PortalInitAction', {
         };
         //门诊时功能导航栏收起
         var functionBlock = view.down('functionnavigationblock');
+        if(IMER_GLOBAL.portal.code == IMER_CONSTANT.PORTAL_CD_3){
+        	functionBlock.show();
+        }
+        else {
+        	functionBlock.hide();
+        }
         
-        if(IMER_GLOBAL.portal.code == IMER_CONSTANT.PORTAL_CD_1001 || IMER_GLOBAL.portal.code ==IMER_CONSTANT.PORTAL_CD_1002 ||IMER_GLOBAL.portal.code ==IMER_CONSTANT.PORTAL_CD_1003 || IMER_GLOBAL.portal.code == IMER_CONSTANT.PORTAL_CD_1 || IMER_GLOBAL.portal.code == IMER_CONSTANT.PORTAL_CD_8 || IMER_GLOBAL.portal.code == IMER_CONSTANT.PORTAL_CD_9)
-            functionBlock.collapse();
-        else
-            functionBlock.expand();
+        
         
         //病历质控 读取用户 为护士？医生？权限 给全局变量赋值 2016-11-9 wangyanli
         if(IMER_GLOBAL.portal.code == IMER_CONSTANT.PORTAL_CD_4 ){
