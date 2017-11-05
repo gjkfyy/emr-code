@@ -122,13 +122,10 @@ public class FollowUpServiceImpl implements FollowUpService
 		String tel = "";
         if("patientName".equalsIgnoreCase(fuType)){
         	patientName = fuValue;
-        	try {
-        		patientName = URLDecoder.decode(patientName,"UTF-8");
+        	
+        		patientName = getURLEncoderString(patientName,"UTF-8");
         		System.out.println("患者姓名:"+patientName);
-			} catch (UnsupportedEncodingException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		
         }else if("inpatientNo".equalsIgnoreCase(fuType)){
         	inpatientNo = fuValue;
         }else if("tel".equalsIgnoreCase(fuType)){
@@ -495,4 +492,16 @@ public class FollowUpServiceImpl implements FollowUpService
 			return "男";
 	}
 
+	 public static String getURLEncoderString(String str,String ucode) {
+	        String result = "";
+	        if (null == str) {
+	            return "";
+	        }
+	        try {
+	            result = java.net.URLDecoder.decode(str, ucode);
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	        return result;
+	    }
 }
