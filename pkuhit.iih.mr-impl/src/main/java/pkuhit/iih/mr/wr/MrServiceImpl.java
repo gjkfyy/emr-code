@@ -18,7 +18,7 @@ public class MrServiceImpl  implements MrService {
 		// TODO Auto-generated method stub
 		ArrayResult<Mr> result = null;
 		ArrayResultBuilder<Mr> builder = ArrayResultBuilder.newArrayResult(Mr.class);
-		List<Mr> listMr = (List<Mr>) cusMrDao.selectByEnPkForEmergencyMrNumber(enPk);
+		List<Mr> listMr = (List<Mr>) cusMrDao.selectByEnPkForEmergencyMrNumber(enPk, null);
 		if (listMr.size() > 0) {
 			builder.withData(listMr.toArray(new Mr[0]));
 		}

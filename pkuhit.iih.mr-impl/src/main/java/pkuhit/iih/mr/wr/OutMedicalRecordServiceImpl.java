@@ -283,11 +283,12 @@ public class OutMedicalRecordServiceImpl implements OutMedicalRecordService {
 		Session session = Session.get();
 		String userId = session.getUserId();
 		Mr mr = mrDao.selectById(id);
-		Amr amr = amrService.get(mr.getEnPk()).getData();
+		//yjb-经确认，不需要判断Amr
+		//Amr amr = amrService.get(mr.getEnPk()).getData();
 		// 检查是否可删除
 		SingleResult<MedicalRecord> result = this.searchById(id, false);
 		MedicalRecord medicalRecord = result.getData();
-		actionCheck.checkCanDelete(medicalRecord, amr, userId);
+		//actionCheck.checkCanDelete(medicalRecord, amr, userId);*/
 
 		// 持久化
 		mr.setDelF(Short.valueOf("1"));
@@ -583,7 +584,7 @@ public class OutMedicalRecordServiceImpl implements OutMedicalRecordService {
 		ArrayResultBuilder<MedicalRecord> builder = ArrayResultBuilder.newArrayResult(MedicalRecord.class);
 		List<MedicalRecord> listMr = new ArrayList<MedicalRecord>();
 		List<Mr> list = new ArrayList<Mr>();
-		list = cusMrDao.selectByEnPkForEmergencyMrNumber(enPk);
+		list = cusMrDao.selectByEnPkForEmergencyMrNumber(enPk,options);
 		// 此处有循环调用，需要控制记录条数，否则影响性能
 		if(list != null && list.size() > 0){
 				MedicalRecord[] mrList = new MedicalRecord[list.size()];

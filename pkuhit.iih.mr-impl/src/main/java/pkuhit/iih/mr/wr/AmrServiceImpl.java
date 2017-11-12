@@ -196,7 +196,8 @@ public class AmrServiceImpl implements AmrService {
 			PerformancePrinter.end("Amr-entityToModel");
 			amr.setEncounterCount(mrAmr.getEnCnt().toString());//String.valueOf(b));
 			PerformancePrinter.start("diService.search");
-			ArrayResult<DiagnosisModel> diList = diService.search(amr.getPk(), "1", null, null, null);
+			//yjb
+			/*ArrayResult<DiagnosisModel> diList = diService.search(amr.getPk(), "1", null, null, null);
 			PerformancePrinter.end("diService.search");
             if(diList != null && diList.getDataList() != null){
                 DiagnosisModel[] diArr = diList.getDataList();
@@ -204,7 +205,7 @@ public class AmrServiceImpl implements AmrService {
                     amr.setCurrentMainDiagnosisCode(diArr[0].getDiPk());
                     amr.setCurrentMainDiagnosisName(diArr[0].getDiNm());
                 }
-            }
+            }*/
 			builder.withData(amr);
 		}
 		result = builder.build();

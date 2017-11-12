@@ -2,7 +2,7 @@ package pkuhit.iih.mr.wr.dao;
 
 /** */
 @org.springframework.stereotype.Repository()
-@javax.annotation.Generated(value = { "Doma", "1.35.0" }, date = "2017-01-01T01:49:39.126+0800")
+@javax.annotation.Generated(value = { "Doma", "1.35.0" }, date = "2017-11-12T19:23:53.400+0800")
 public class CusQaAmrDaoImpl extends org.seasar.doma.internal.jdbc.dao.AbstractDao implements pkuhit.iih.mr.wr.dao.CusQaAmrDao {
 
     static {

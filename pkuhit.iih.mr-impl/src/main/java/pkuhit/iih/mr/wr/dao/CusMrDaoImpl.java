@@ -2,7 +2,7 @@ package pkuhit.iih.mr.wr.dao;
 
 /** */
 @org.springframework.stereotype.Repository()
-@javax.annotation.Generated(value = { "Doma", "1.35.0" }, date = "2017-01-01T01:49:39.245+0800")
+@javax.annotation.Generated(value = { "Doma", "1.35.0" }, date = "2017-11-12T19:23:53.747+0800")
 public class CusMrDaoImpl extends org.seasar.doma.internal.jdbc.dao.AbstractDao implements pkuhit.iih.mr.wr.dao.CusMrDao {
 
     static {
@@ -206,12 +206,16 @@ public class CusMrDaoImpl extends org.seasar.doma.internal.jdbc.dao.AbstractDao 
     }
 
     @Override
-    public java.util.List<pkuhit.iih.mr.dao.auto.entity.Mr> selectByEnPkForEmergencyMrNumber(java.lang.String enPk) {
-        entering("pkuhit.iih.mr.wr.dao.CusMrDaoImpl", "selectByEnPkForEmergencyMrNumber", enPk);
+    public java.util.List<pkuhit.iih.mr.dao.auto.entity.Mr> selectByEnPkForEmergencyMrNumber(java.lang.String enPk, org.seasar.doma.jdbc.SelectOptions options) {
+        entering("pkuhit.iih.mr.wr.dao.CusMrDaoImpl", "selectByEnPkForEmergencyMrNumber", enPk, options);
         try {
+            if (options == null) {
+                throw new org.seasar.doma.DomaNullPointerException("options");
+            }
             org.seasar.doma.internal.jdbc.query.SqlFileSelectQuery __query = new org.seasar.doma.internal.jdbc.query.SqlFileSelectQuery();
             __query.setConfig(config);
             __query.setSqlFilePath("META-INF/pkuhit/iih/mr/wr/dao/CusMrDao/selectByEnPkForEmergencyMrNumber.sql");
+            __query.setOptions(options);
             __query.addParameter("enPk", java.lang.String.class, enPk);
             __query.setCallerClassName("pkuhit.iih.mr.wr.dao.CusMrDaoImpl");
             __query.setCallerMethodName("selectByEnPkForEmergencyMrNumber");
