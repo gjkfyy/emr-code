@@ -44,7 +44,25 @@ Ext.define('iih.sy.patient.block.PatientRightGridBlock',
 														text: '删除',
 														iconCls: 'icon-Delete',
 														method: 'delDoc' ,
-														valign : 'left'
+														valign : 'left',
+														handler: function(btn, e){
+															var mrTree = btn.up('patientrightview').getBlock('result').down("xapgrid")
+															var treeNode = mrTree.getSelectionModel().getSelection();
+															if(treeNode.length == 0){
+																XapMessageBox.info('请先选择要删除的病例！');
+													            return
+													        }else{
+													        	var view = btn.up('patientrightview'); 
+													        	XapMessageBox.confirm2('是否确认删除所选病例？',
+													                function(btn, text){
+													                    if (btn == 'yes') {
+													                        var chain = view.getActionChain('delDoc');
+													                        chain.execute();
+													                    }
+													                }
+														        );
+													        }
+												        }
 											        
 											        }]
 										},{
@@ -54,7 +72,7 @@ Ext.define('iih.sy.patient.block.PatientRightGridBlock',
 											width: '100%',
 											pageSize : 20,
 											pageNum : 1,
-											rownumShow : false,
+											rownumShow : true,
 											height : 476,
 											pageShow : true,
 											ifSelect: false,
