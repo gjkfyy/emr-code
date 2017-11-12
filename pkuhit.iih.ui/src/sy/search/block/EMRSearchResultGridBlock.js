@@ -101,7 +101,10 @@ Ext.define('iih.sy.search.block.EMRSearchResultGridBlock', {
 			dataIndex : 'sex',
 			field : 'textfield',
 			type : 'string',
-			flex : 1
+			flex : 1,
+			renderer : function(value) {
+                return (value == 1)?"男":"女";
+            }
 		}, {
 			header : '年龄',
 			dataIndex : 'age',
@@ -110,7 +113,7 @@ Ext.define('iih.sy.search.block.EMRSearchResultGridBlock', {
 			flex : 1
 		}, {
 			header : '诊断',
-			dataIndex : 'diagnose',
+			dataIndex : 'diagnosis',
 			field : 'textfield',
 			type : 'string',
 			flex : 1
