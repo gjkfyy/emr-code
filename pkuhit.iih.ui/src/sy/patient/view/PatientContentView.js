@@ -72,14 +72,22 @@ Ext.define('iih.sy.patient.view.PatientContentView', {
 			                blocks:{
 			                    result:'left'
 			                }
-			            }
+			            }/*,
+			            'delDoc': {
+			                xclass: 'iih.sy.patient.action.DelOmrDocAction',
+			                url:'patientMr',
+			                blocks:{
+			                    result:'left'
+			                }
+			            }*/
 					},
 					chains : {
 						'init':['init'],
 						'patientRightList': ['patientRightList'],
 						'editPatient' : ['editPatient'],
 						'newDoc' : ['newDoc'],
-						'createDoc' : ['createDoc']
+						'createDoc' : ['createDoc']/*,
+						'delDoc' : ['delDoc']*/
 					},
 
 					connections : {
@@ -103,7 +111,11 @@ Ext.define('iih.sy.patient.view.PatientContentView', {
 					                selector: 'button[method=createDoc]',
 					                event: 'click',
 					                chain: 'createDoc'
-					            }]
+					            }/*,{
+					                selector: 'button[method=delDoc]',
+					                event: 'click',
+					                chain: 'delDoc'
+					            }*/]
 					}
 				}
 		});

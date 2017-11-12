@@ -63,10 +63,6 @@ Ext.define('iih.sy.patient.view.PatientRightView', {
 				event : 'itemdblclick',
 				chain : 'openMrDocAction'
 			},{
-                selector: 'button[method=delDoc]',
-                event: 'click',
-                chain: 'delDoc'
-            },{
 				event: 'afterrender',
 				chain: 'init'
 			}]
