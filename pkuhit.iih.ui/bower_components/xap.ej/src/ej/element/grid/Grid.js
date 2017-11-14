@@ -51,6 +51,8 @@ Ext.define('Xap.ej.element.grid.Grid', {
      * @cfg {String} 为该grid指定url,数据将根据url远程获取。
      */ 
 	url : null,
+	
+	total : null,
 	/**
 	 * @cfg {object} 
 	 *  记录行id
@@ -529,15 +531,14 @@ Ext.define('Xap.ej.element.grid.Grid', {
 			];
 			
 			/*this.bbar = Ext.create('Ext.PagingToolbar', {   
-				store: this.store,   
+				store: this.getStore(),   
 				displayInfo: true, 
 				emptyMsg: '没有数据',			
-				//displayMsg: '显示 {0} - {1} 条，共计 {2} 条',   
-				displayMsg: ' ',   
+				displayMsg: '显示 {0} - {1} 条，共计 {2} 条',   
+				//displayMsg: ' ',   
 				beforePageText: '第',
 				afterPageText: '页/共{0}页'
-				}  
-			)*/
+				})*/
 		}
 		
 		
@@ -555,7 +556,7 @@ Ext.define('Xap.ej.element.grid.Grid', {
 	set_page_info:function(currentPage){
 		if(currentPage){
 			this.down('label[pageName=info]')
-				.setText('第'+currentPage+'页/共'+this.pageCount+'页');
+				.setText('第'+currentPage+'页/共'+this.pageCount+'页'+ ' 总数:'+ this.total);
 		}else{
 			this.down('label[pageName=info]').setText('没有数据！');
 		}
@@ -579,8 +580,10 @@ Ext.define('Xap.ej.element.grid.Grid', {
 	*/
 	setPageData:function( data ){
 		var me = this;
+		this.total = data.total;
 		if(data.total>0){
 			var pageCount = Math.ceil(data.total/me.pageSize);
+			
 			me.pageCount = pageCount;
 			if(pageCount>1){
 				me.setDisabled_down_page(false);
@@ -591,6 +594,7 @@ Ext.define('Xap.ej.element.grid.Grid', {
 			me.currentPage = 1;
 			me.set_page_info(1);
 			me.setData(data.dataList);
+			
 		}else{
 			me.setDisabled_down_page(true);
 			me.setDisabled_up_page(true);
