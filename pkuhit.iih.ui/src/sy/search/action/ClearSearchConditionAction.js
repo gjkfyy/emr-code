@@ -10,8 +10,9 @@ Ext.define('iih.sy.search.action.ClearSearchConditionAction', {
 		
 	    var data = block.getItemData(block);
 	    for(var key in data){
-	    	
-	    	data[key] = null;
+	    	if(key!='aaa'){
+	    		data[key] = null;
+	    	}
 	    }
 	    block.setData(data);
 	    
