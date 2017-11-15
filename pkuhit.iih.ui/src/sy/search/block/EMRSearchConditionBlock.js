@@ -39,7 +39,7 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
 	items : [ {
 		xtype : 'fieldset',
 		title : '住院',
-		colspan: 5,
+		colspan: 12,
 		defaultType : 'textfield',
 		layout : 'column',
 		items : [{
@@ -47,6 +47,7 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
             fieldLabel: '入院日期',
             labelWidth:60,
             layout: 'table',
+            labelAlign:'right',
             combineErrors: true,
             defaultType: 'textfield',
             padding:'5 0 5 0',
@@ -63,7 +64,7 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
         	  	xtype: 'xapdisplayfield',
         		fieldLabel: '',
         		vertical: true,
-        		name:'',
+        		name:'aaa',
         		padding:'0 5 0 5',
         		value: '~'
           },{
@@ -75,8 +76,26 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
             }]
         },{
             xtype: 'fieldcontainer',
+            fieldLabel: '诊断',
+            labelWidth:40,
+            labelAlign:'right',
+            combineErrors: true,
+            padding:'5 0 5 0',
+            defaultType: 'textfield',
+            defaults: {
+                hideLabel: 'true'
+            },
+            items: [{
+              xtype: 'xaptextfield',
+              name:'diagnosis',
+              width:160,
+              editable:false
+            }]
+        },{
+            xtype: 'fieldcontainer',
             fieldLabel: '住院号',
             colspan: 5,
+            labelAlign:'right',
             labelWidth:60,
             layout: 'column',
             combineErrors: true,
@@ -96,7 +115,7 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
         	  	xtype: 'xapdisplayfield',
         		fieldLabel: '',
         		vertical: true,
-        		name:'',
+        		name:'aaa',
         		padding:'0 5 0 5',
         		value: '~'
           },{
@@ -117,15 +136,14 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
 	},{
 		xtype : 'fieldset',
 		title : '患者',
-		colspan: 7,
+		colspan: 12,
 		defaultType : 'textfield',
 		layout : 'column',
 		items : [{
             xtype: 'fieldcontainer',
             fieldLabel: '姓名',
+            labelAlign:'right',
             labelWidth:60,
-            layout: 'hbox',
-            columnWidth:0.2,
             combineErrors: true,
             defaultType: 'textfield',
             padding:'5 0 5 0',
@@ -135,6 +153,7 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
             items: [{
               xtype: 'xaptextfield',
               name:'patientName',
+              width:120,
               flex: 1,
               labelAlign:'left',
               editable:false
@@ -144,10 +163,10 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
             fieldLabel: '性别',
             labelWidth:40,
             layout: 'hbox',
-            columnWidth:0.25,
+            labelAlign:'right',
             combineErrors: true,
             defaultType: 'textfield',
-            padding:'5 0 5 10',
+            padding:'5 0 5 0',
             defaults: {
                 hideLabel: 'true'
             },
@@ -156,6 +175,7 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
      	       // id:'sex',
      	        name:'sex',
                 flex: 1,
+                width:95,
                 comboData : [
                      {"code":'-1', "value":"不限"},
          			 {"code":'1', "value":"男"},
@@ -170,12 +190,11 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
         },{
             xtype: 'fieldcontainer',
             fieldLabel: '年龄',
-            labelWidth:60,
-            layout: 'hbox',
-            columnWidth:0.5,
+            labelWidth:40,
+            labelAlign:'right',
             combineErrors: true,
             defaultType: 'textfield',
-            padding:'5 0 5 10',
+            padding:'5 0 5 0',
             defaults: {
                 hideLabel: 'true'
             },
@@ -183,6 +202,7 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
               xtype: 'xaptextfield',
               name:'age',
               flex: 1,
+              width:100,
               labelAlign:'left',
               editable:false
             }, {
@@ -204,9 +224,8 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
         },{
             xtype: 'fieldcontainer',
             fieldLabel: '联系电话',
-            labelWidth:60,
-            layout: 'hbox',
-            columnWidth:0.45,
+            labelWidth:80,
+            labelAlign:'right',
             combineErrors: true,
             defaultType: 'textfield',
             padding:'5 0 5 0',
@@ -224,12 +243,11 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
             xtype: 'fieldcontainer',
             fieldLabel: '身份证号',
             labelWidth:60,
-            layout: 'hbox',
-            columnWidth:0.5,
+            labelAlign:'right',
             hidden:true,
             combineErrors: true,
             defaultType: 'textfield',
-            padding:'5 0 5 10',
+            padding:'5 0 5 0',
             defaults: {
                 hideLabel: 'true'
             },
@@ -244,11 +262,11 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
             xtype: 'fieldcontainer',
             fieldLabel: '地址',
             labelWidth:60,
+            labelAlign:'right',
             layout: 'hbox',
-            columnWidth:0.5,
             combineErrors: true,
             defaultType: 'textfield',
-            padding:'5 0 5 10',
+            padding:'5 0 5 0',
             defaults: {
                 hideLabel: 'true'
             },
@@ -266,7 +284,7 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
 		colspan: 12,
 		defaultType : 'textfield',
 		layout : 'column',
-		items : [{
+		items : [/*{
             xtype: 'fieldcontainer',
             fieldLabel: '诊断',
             labelWidth:80,
@@ -285,7 +303,7 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
               flex: 1,
               editable:false
             }]
-        },{
+        },*/{
             xtype: 'fieldcontainer',
             fieldLabel: '治疗目标',
             labelWidth:80,
@@ -305,7 +323,7 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
               flex: 1,
               editable:false
             }]
-        },{
+        },/*{
             xtype: 'fieldcontainer',
             fieldLabel: '治疗方案',
             labelWidth:60,
@@ -362,7 +380,7 @@ Ext.define('iih.sy.search.block.EMRSearchConditionBlock', {
               flex: 1,
               editable:false
             }]
-        },{
+        },*/{
             xtype: 'fieldcontainer',
             name: 'jcxm',
             fieldLabel: '检查项目',
