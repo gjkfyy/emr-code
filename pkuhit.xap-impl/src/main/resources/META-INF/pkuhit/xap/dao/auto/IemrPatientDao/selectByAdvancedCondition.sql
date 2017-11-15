@@ -57,7 +57,7 @@ where 1=1
    	 WHEN
    	 substr(/*condition*/'MR.M.013.D.3|36',INSTR(/*condition*/'MR.M.013.D.3|36','|')+1)='*' THEN iemr_xml.iemr_value
    	 WHEN
-   	 substr(/*condition*/'MR.M.013.D.3|36',INSTR(/*condition*/'MR.M.013.D.3|36','|')+1) is null THEN '0%'
+   	 trim(substr(/*condition*/'MR.M.013.D.3|36',INSTR(/*condition*/'MR.M.013.D.3|36','|')+1)) is null THEN '0%'
    	 ELSE 
    	 substr(/*condition*/'MR.M.013.D.3|36',INSTR(/*condition*/'MR.M.013.D.3|36','|')+1)
    	 END
