@@ -52,9 +52,12 @@ where 1=1
  /*%if itemValuesList != null   && itemValuesList.size() > 0 */  
   and (
   /*%for condition : itemValuesList */
-    (iemr_xml.iemr_key = substr(/*condition*/'MR.M.013.D.3|36',0,INSTR(/*condition*/'MR.M.013.D.3|36','|')-1) and iemr_xml.iemr_value like
-   	 CASE WHEN
+    (iemr_xml.iemr_key = substr(/*condition*/'MR.M.013.D.3|36',0,INSTR(/*condition*/'MR.M.013.D.3|36','|')-1) and NVL(iemr_xml.iemr_value,0) like 
+   	 CASE 
+   	 WHEN
    	 substr(/*condition*/'MR.M.013.D.3|36',INSTR(/*condition*/'MR.M.013.D.3|36','|')+1)='*' THEN iemr_xml.iemr_value
+   	 WHEN
+   	 substr(/*condition*/'MR.M.013.D.3|36',INSTR(/*condition*/'MR.M.013.D.3|36','|')+1) is null THEN '0%'
    	 ELSE 
    	 substr(/*condition*/'MR.M.013.D.3|36',INSTR(/*condition*/'MR.M.013.D.3|36','|')+1)
    	 END
