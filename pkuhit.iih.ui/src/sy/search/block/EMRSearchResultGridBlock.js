@@ -117,7 +117,7 @@ Ext.define('iih.sy.search.block.EMRSearchResultGridBlock', {
 			field : 'textfield',
 			type : 'string',
 			flex : 1
-		}, {
+		} /*, {
 			header : '治疗目标',
 			dataIndex : 'therapeuticGoal',
 			field : 'textfield',
@@ -141,7 +141,7 @@ Ext.define('iih.sy.search.block.EMRSearchResultGridBlock', {
 			field : 'textfield',
 			type : 'string',
 			flex : 1
-		} ]
+		}*/ ]
 	} ],
 	
 	initComponent: function() {
